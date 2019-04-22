@@ -39,20 +39,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('team') ? ' has-error' : '' }}">
-                            <label for="team" class="col-md-4 control-label">Team</label>
-
-                            <div class="col-md-6">
-                                <input id="team" type="text" class="form-control" name="team" value="{{ old('team') }}" required>
-
-                                @if ($errors->has('team'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('team') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
