@@ -1,5 +1,11 @@
 .jumbotron {
+	position: relative;
+	height: 100%;
 	background-image: url("../img/main_cover_default.jpg");
 	background-size: cover;
 	color: green;
+}
+
+.navbar {
+	margin-bottom: 0px;
 }
