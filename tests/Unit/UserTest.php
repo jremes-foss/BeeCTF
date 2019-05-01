@@ -8,17 +8,21 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
+
+	use RefreshDatabase;
+
     public function testDefaultUserIsNotAdmin()
     {
-    	$user = factory(User::class)->create();
+    	$user = factory(\App\User::class)->create();
     	$this->assertFalse($user->isAdmin());
     }
 
     public function testAdminUserIsAnAdmin()
     {
-    	$admin = factory(User::class)
+    	$admin = factory(\App\User::class)
     		->states('admin')
     		->create();
-    	$this->assertTrue(isAdmin());
+
+    	$this->assertTrue($admin->isAdmin());
     }
 }
