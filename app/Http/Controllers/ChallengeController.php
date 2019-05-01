@@ -27,4 +27,9 @@ class ChallengeController extends Controller
     	$challenge->save();
     	return redirect('/challenges')->with('success', 'Challenge saved!');
     }
+
+    public function create()
+    {
+    	return view('challenges.create');
+    }
 }
