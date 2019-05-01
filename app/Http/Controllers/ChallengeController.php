@@ -9,17 +9,19 @@ class ChallengeController extends Controller
     public function store(Request $request)
     {
     	$request->validate([
-    		'topic' => 'required',
+    		'title' => 'required',
     		'category' => 'required',
     		'points' => 'required',
-    		'description' => 'required'
+    		'content' => 'required',
+    		'flag' => 'required'
     	]);
 
     	$challenge = new Challenge([
-    		'topic' => $request->get('topic'),
+    		'title' => $request->get('title'),
     		'category' => $request->get('category'),
-    		'points' => $request->get('points'),
-    		'description' => $request->get('description')
+    		'score' => $request->get('score'),
+    		'content' => $request->get('content'),
+    		'flag' => $request->get('flag')
     	]);
 
     	$challenge->save();
