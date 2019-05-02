@@ -23,7 +23,6 @@ class AdminTest extends TestCase
 		$admin = factory(\App\User::class)
 			->states('admin')
 			->create();
-
 		$this->actingAs($admin)
 			->get('/admin')
 			->assertStatus(200);
