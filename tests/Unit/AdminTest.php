@@ -24,7 +24,7 @@ class AdminTest extends TestCase
 			->states('admin')
 			->create();
 
-		$this->actingAs('admin')
+		$this->actingAs($admin)
 			->get('/admin')
 			->assertStatus(200);
 	}
