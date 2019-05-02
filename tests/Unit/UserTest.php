@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class UserTest extends TestCase
 {
 
-	use RefreshDatabase;
+	//use RefreshDatabase;
 
     public function testDefaultUserIsNotAdmin()
     {
