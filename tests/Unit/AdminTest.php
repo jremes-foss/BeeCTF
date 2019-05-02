@@ -12,7 +12,7 @@ class AdminTest extends TestCase
 
 	public function testUserCannotAccessAdmin()
 	{
-		$user = factory(User::class)->create();
+		$user = factory(\App\User::class)->create();
 		$this->actingAs($user)
 			->get('/admin')
 			->assertRedirect('home');
@@ -20,12 +20,12 @@ class AdminTest extends TestCase
 
 	public function testAdminCanAccessAdmin()
 	{
-		$admin = factory(User::class)
-			->states('admin');
+		$admin = factory(\App\User::class)
+			->states('admin')
 			->create();
 
 		$this->actingAs('admin')
-			->get('/admin');
+			->get('/admin')
 			->assertStatus(200);
 	}
 }
