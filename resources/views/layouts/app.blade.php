@@ -48,7 +48,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             @if(Auth::user()->isAdmin())
-                                <a href="{{ route('admin') }}" class="no-underline uppercase tracking-wide text-sm ml-4 text-grey-darker hover:text-grey-darkest {{set_active('admin*', 'font-bold')}}">Admin</a>
+                                <a href="{{ route('admin') }}">Admin</a>
                             @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
