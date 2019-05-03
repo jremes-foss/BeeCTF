@@ -1,2 +1,2 @@
 # BeeCTF
-Laravel-Based Community CTF Platform
+Laravel-Based Community CTF Platform (Work in Progress)
