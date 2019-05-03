@@ -81,7 +81,7 @@
                 <div class="title m-b-md">
                     BeeCTF
                 </div>
-                <p class="lead">Next-Generation CTF Platform</p>
+                <p class="lead">Laravel-based Community CTF Platform</p>
             </div>
         </div>
     </body>
