@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('score')->nullable();
             $table->string('team')->nullable();
-            $table->string('is_admin')->default("User");
+            $table->string('user_type')->default("User");
             $table->rememberToken();
             $table->timestamps();
         });
