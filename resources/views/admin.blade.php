@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="jumbotron text-center">
+	<div class="container text-center">
 	    <h1>Admin Section</h1>
 	</div>
     <div class="flex items-center justify-center h-9/10">
