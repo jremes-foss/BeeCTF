@@ -8,13 +8,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ChallengesTest extends TestCase
 {
-	public function testAdminChallengesVisible()
+	public function testSidebarWorks()
 	{
 		$admin = factory(\App\User::class)
 			->states('admin')
 			->create();
 		
 		$response = $this->actingAs($admin)->get('/admin');
-		$response->assertSee('Manage Challenges');
+		$response->assertSee('/admin/challenges');
 	}
 }
