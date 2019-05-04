@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ChallengesTest extends TestCase
 {
-	public function testSidebarWorks()
+	public function testAdminSidebarWorks()
 	{
 		$admin = factory(\App\User::class)
 			->states('admin')
