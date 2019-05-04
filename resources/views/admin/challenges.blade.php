@@ -8,11 +8,11 @@
   <thead>
     <tr>
 	  	<th scope="col">#</th>
-	  	<th scope="col">category</th>
-	  	<th scope="col">score</th>
-	  	<th scope="col">title</th>
-		<th scope="col">flag</th>
-	  	<th scope="col">content</th>
+	  	<th scope="col">Category</th>
+	  	<th scope="col">Score</th>
+	  	<th scope="col">Title</th>
+		<th scope="col">Flag</th>
+	  	<th scope="col">Content</th>
     </tr>
   </thead>
   <tbody>
