@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-<div id="sidebar">
-@include('layouts.sidebar')
-</div>
+<aside class="main-sidebar">
+	<section class="sidebar">
+		@include('layouts.sidebar')
+	</section>
+</aside>
 
 @section('content')
 	<div class="container text-center">
