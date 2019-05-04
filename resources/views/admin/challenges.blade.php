@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div id="sidebar" class="col-md-4">
+	@include('layouts.sidebar')
+</div>
 <table class="table table-hover">
   <thead>
     <tr>
