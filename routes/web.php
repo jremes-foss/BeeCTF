@@ -23,8 +23,8 @@ Route::get('/admin', 'HomeController@admin')
 	->middleware('is_admin')
 	->name('admin');
 
-Route::get('admin/challenges', 'ChallengesController@indexAdmin', function () {
+Route::get('admin/challenges', 'ChallengeController@indexAdmin', function () {
     return view('admin.challenges');
 })->name('adminchallenges');
 
-Route::get('/challenges', 'ChallengesController@indexUser');
+Route::get('/challenges', 'ChallengeController@indexUser');
