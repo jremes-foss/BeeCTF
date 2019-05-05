@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Challenges;
 
-class ChallengeController extends Controller
+class ChallengesController extends Controller
 {
     public function store(Request $request)
     {
