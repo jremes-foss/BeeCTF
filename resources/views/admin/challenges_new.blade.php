@@ -12,7 +12,7 @@
 					Category
 				</label>
 				<div class="input-group Category">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputCategory" name="inputCategory" placeholder="Enter Category">
+					<span class="input-group-addon"><i class="fa fa-address-book"></i></span><input type="text" class="form-control" id="inputCategory" name="inputCategory" placeholder="Enter Category">
 				</div>
 			</div>
 			<div class="form-group">
