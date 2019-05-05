@@ -5,5 +5,7 @@
 	@include('layouts.sidebar')
 </div>
 <div class="container">
-	<div class="row"></div>
+	<div class="row">
+		TODO
+	</div>
 </div>
