@@ -32,4 +32,10 @@ class ChallengeController extends Controller
     {
     	return view('challenges.create');
     }
+
+    public function index()
+    {
+        $challenges = Challenges::all();
+        return view('challenges', compact('challenges'));
+    }
 }
