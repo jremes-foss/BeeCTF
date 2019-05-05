@@ -6,6 +6,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		TODO
+		
 	</div>
 </div>
+@endsection
