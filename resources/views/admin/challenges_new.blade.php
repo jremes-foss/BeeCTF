@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputCategory">
+				<label for="inputScore">
 					Score
 				</label>
 				<div class="input-group Score">
