@@ -9,16 +9,7 @@ class ChallengesController extends Controller
 {
     public function store(Request $request)
     {
-        /*
-    	$request->validate([
-    		'title' => 'required|max:255',
-    		'category' => 'required|max:255',
-    		'points' => 'required|numeric',
-    		'content' => 'required|max:255',
-    		'flag' => 'required|max:255'
-    	]);
-        */
-        //dd($request->all());
+
     	$challenge = new Challenges([
             'category' => $request->get('inputCategory'),
     		'title' => $request->get('inputTitle'),
