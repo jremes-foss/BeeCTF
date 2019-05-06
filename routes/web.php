@@ -17,7 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+/** User Routes **/
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/challenges', 'ChallengesController@indexUser');
+
+/** Admin Routes **/
 
 Route::get('/admin', 'HomeController@admin')
 	->middleware('is_admin')
@@ -32,4 +38,3 @@ Route::get('admin/new_challenge', function () {
 })->name('adminchallengesnew');
 
 
-Route::get('/challenges', 'ChallengesController@indexUser');
