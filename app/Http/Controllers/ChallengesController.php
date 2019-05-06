@@ -9,23 +9,25 @@ class ChallengesController extends Controller
 {
     public function store(Request $request)
     {
+        /*
     	$request->validate([
-    		'title' => 'required',
-    		'category' => 'required',
-    		'points' => 'required',
-    		'content' => 'required',
-    		'flag' => 'required'
+    		'title' => 'required|max:255',
+    		'category' => 'required|max:255',
+    		'points' => 'required|numeric',
+    		'content' => 'required|max:255',
+    		'flag' => 'required|max:255'
+    	]);
+        */
+        //dd($request->all());
+    	$challenge = new Challenges([
+            'category' => $request->get('inputCategory'),
+    		'title' => $request->get('inputTitle'),
+    		'score' => $request->get('inputScore'),
+            'flag' => $request->get('inputFlag'),
+    		'content' => $request->get('inputContent')
     	]);
 
-    	$challenge = new Challenge([
-    		'title' => $request->get('title'),
-    		'category' => $request->get('category'),
-    		'score' => $request->get('score'),
-    		'content' => $request->get('content'),
-    		'flag' => $request->get('flag')
-    	]);
-
-    	$challenge->save();
+    	Challenges::create($request->all());
     	return redirect('/challenges')->with('success', 'Challenge saved!');
     }
 

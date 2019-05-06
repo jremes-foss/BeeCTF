@@ -6,7 +6,8 @@
 </div>
 <div class="container">
 	<div class="row">
-		<form role="form" method="post">
+		<form role="form" method="post" action="{{ route('admin.new_challenge.store') }}">
+			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="inputCategory">
 					Category

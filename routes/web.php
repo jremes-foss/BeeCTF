@@ -37,4 +37,7 @@ Route::get('admin/new_challenge', function () {
     return view('admin.challenges_new');
 })->name('adminchallengesnew');
 
+Route::post('admin/new_challenge', [
+	'uses' => 'ChallengesController@store'
+])->name('admin.new_challenge.store');
 
