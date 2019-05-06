@@ -28,7 +28,6 @@
 		  		<td>{{ $challenge->flag }}</td>
 		  		<td>{{ $challenge->content }}</td>
 		  	</tr>
-
 		  	@endforeach
 		  </tbody>
 		</table>
