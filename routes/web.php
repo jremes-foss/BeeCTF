@@ -17,8 +17,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
+/** User Routes **/
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/challenges', 'ChallengesController@indexUser')->name('user.challenges');
+
+/** Admin Routes **/
 
 Route::get('/admin', 'HomeController@admin')
 	->middleware('is_admin')
 	->name('admin');
+
+Route::get('admin/challenges', 'ChallengesController@indexAdmin', function () {
+    return view('admin.challenges');
+})->name('adminchallenges');
+
+Route::get('admin/new_challenge', function () {
+    return view('admin.challenges_new');
+})->name('adminchallengesnew');
+
+Route::post('admin/new_challenge', [
+	'uses' => 'ChallengesController@store'
+])->name('admin.new_challenge.store');
+

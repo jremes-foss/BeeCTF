@@ -5,3 +5,12 @@
 	background-size: cover;
 	color: #20c20e;
 }
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
