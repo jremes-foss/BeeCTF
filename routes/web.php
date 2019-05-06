@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/challenges', 'ChallengesController@indexUser');
+Route::get('/challenges', 'ChallengesController@indexUser')->name('user.challenges');
 
 /** Admin Routes **/
 

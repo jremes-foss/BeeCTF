@@ -10,16 +10,17 @@ class ChallengesController extends Controller
     public function store(Request $request)
     {
 
-    	$challenge = new Challenges([
+    	$challenge = array(
             'category' => $request->get('inputCategory'),
-    		'title' => $request->get('inputTitle'),
-    		'score' => $request->get('inputScore'),
+            'title' => $request->get('inputTitle'),
+            'score' => $request->get('inputScore'),
             'flag' => $request->get('inputFlag'),
-    		'content' => $request->get('inputContent')
-    	]);
+            'content' => $request->get('inputContent')
+        );
 
-    	Challenges::create($request->all());
-    	return redirect('/challenges')->with('success', 'Challenge saved!');
+    	Challenges::create($challenge);
+
+    	return redirect()->route('user.challenges')->with('success', 'Challenge saved!');
     }
 
     public function create()
