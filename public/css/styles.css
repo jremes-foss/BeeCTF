@@ -15,6 +15,15 @@
     list-style: none;
 }
 
+.panel {
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
 .panel-body {
     padding: 2% 5%;
+}
+
+.panel-wrapper {
+    border: 1px solid blue;
 }

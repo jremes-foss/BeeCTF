@@ -16,6 +16,7 @@
 					<p>Category: {{ $challenge->category }}</p>
 					<p>Score: {{ $challenge->score }}</p>
 					<p>Description: {{ $challenge->content }}</p>
+					<input class="btn btn-default" value="Solve" type="submit">
 				</div>
 			</div>
 		@endforeach
