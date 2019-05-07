@@ -13,7 +13,9 @@
 			</div>
 			<div class="panel-wrapper">
 				<div class="panel-body">
-					{{ $challenge->content }}
+					<p>Category: {{ $challenge->category }}</p>
+					<p>Score: {{ $challenge->score }}</p>
+					<p>Description: {{ $challenge->content }}</p>
 				</div>
 			</div>
 		@endforeach
