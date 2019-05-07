@@ -11,8 +11,10 @@
 					</h4>
 				</div>
 			</div>
-			<div class="panel-body">
-				{{ $challenge->content }}
+			<div class="panel-wrapper">
+				<div class="panel-body">
+					{{ $challenge->content }}
+				</div>
 			</div>
 		@endforeach
 	</div>
