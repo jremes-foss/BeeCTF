@@ -3,9 +3,18 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="panel panel-default">
-			Here be dragons.
-		</div>
+		@foreach($challenges as $challenge)
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						{{ $challenge->title }}
+					</h4>
+				</div>
+			</div>
+			<div class="panel-body">
+				{{ $challenge->content }}
+			</div>
+		@endforeach
 	</div>
 </div>
 @endsection
