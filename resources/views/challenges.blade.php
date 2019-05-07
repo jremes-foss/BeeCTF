@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-Here be dragons.
+<div class="container">
+	<div class="row">
+		<div class="panel panel-default">
+			Here be dragons.
+		</div>
+	</div>
+</div>
 @endsection
