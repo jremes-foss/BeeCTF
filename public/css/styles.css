@@ -14,3 +14,8 @@
     padding: 0;
     list-style: none;
 }
+
+.panel {
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
