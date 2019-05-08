@@ -10,8 +10,6 @@
 						{{ $challenge->title }}
 					</h4>
 				</div>
-			</div>
-			<div class="panel-wrapper">
 				<div class="panel-body">
 					<p>Category: {{ $challenge->category }}</p>
 					<p>Score: {{ $challenge->score }}</p>
