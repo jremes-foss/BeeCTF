@@ -42,6 +42,8 @@ class ChallengesController extends Controller
 
     public function submitFlag(Request $request)
     {
-
+        $submit = array(
+            'flag' => $request->get('flag'),
+        );
     }
 }
