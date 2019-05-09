@@ -34,7 +34,10 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				Please make sure your flag does not have any typos before submission.
+				<p>Please make sure your flag does not have any typos before submission.</p>
+				<div class="form-group">
+					<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
+				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
