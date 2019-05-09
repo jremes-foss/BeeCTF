@@ -16,7 +16,7 @@ class CreateSolvedChallengesTable extends Migration
         Schema::create('solved_challenges', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('challenge_id');
-            $table->string('user');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
