@@ -39,4 +39,9 @@ class ChallengesController extends Controller
         $challenges = Challenges::all();
         return view('challenges', compact('challenges'));
     }
+
+    public function submitFlag(Request $request)
+    {
+
+    }
 }
