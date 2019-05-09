@@ -36,6 +36,7 @@
 			<div class="modal-body">
 				<p><strong>Before submission:</strong> please make sure your flag does not have any typos.</p>
 				<div class="form-group">
+					<label for="flag">Flag:</label>
 					<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
 				</div>
 			</div>
