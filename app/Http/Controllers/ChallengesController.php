@@ -46,6 +46,7 @@ class ChallengesController extends Controller
             'flag' => $request->get('flag'),
         );
 
-        dd($submit);
+        $challenge_id = $request->get('challenge');
+        dd($challenge_id);
     }
 }
