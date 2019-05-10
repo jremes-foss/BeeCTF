@@ -14,7 +14,11 @@
 					<p>Category: {{ $challenge->category }}</p>
 					<p>Score: {{ $challenge->score }}</p>
 					<p>Description: {{ $challenge->content }}</p>
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#flagValidation">
+					<button type="button" 
+					class="btn btn-primary"
+					data-id="{{ $challenge->id }}"
+					data-toggle="modal" 
+					data-target="#flagValidation">
 						Solve Challenge
 					</button>
 				</div>
