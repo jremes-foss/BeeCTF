@@ -43,8 +43,10 @@
 					<div class="form-group">
 						<label for="flag">Flag:</label>
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
-						<input type="submit" value="Submit Flag">
 						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+						<input name="challenge" type="hidden">
+						<input type="submit" value="Submit Flag">
+
 					</div>
 				</form>
 			</div>
