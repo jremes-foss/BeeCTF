@@ -43,10 +43,9 @@
 					<div class="form-group">
 						<label for="flag">Flag:</label>
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
-						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
 						<input name="challenge" type="hidden">
+						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
 						<input type="submit" value="Submit Flag">
-
 					</div>
 				</form>
 			</div>
