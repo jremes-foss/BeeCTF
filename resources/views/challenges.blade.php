@@ -55,4 +55,8 @@
 		</div>
 	</div>
 </div>
+
+<!-- JavaScript -->
+<script type="text/javascript">
+</script>
 @endsection
