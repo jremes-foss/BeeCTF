@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/challenges', 'ChallengesController@indexUser')->name('user.challenges');
+Route::post('/challenges', 'ChallengesController@submitFlag')->name('user.submitflag');
 
 /** Admin Routes **/
 

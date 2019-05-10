@@ -35,17 +35,17 @@
 			</div>
 			<div class="modal-body">
 				<p><strong>Before submission:</strong> please make sure your flag does not have any typos.</p>
-				<form method="post" action="{{ action('ChallengesController@submitFlag') }}"
+				<form method="post" action="{{ route('user.submitflag') }}">
 					<div class="form-group">
 						<label for="flag">Flag:</label>
-						<input type="submit" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
+						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
+						<input type="submit">
 						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
 					</div>
 				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
 			</div>
 		</div>
 	</div>

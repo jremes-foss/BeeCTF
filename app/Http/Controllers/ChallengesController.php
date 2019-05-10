@@ -45,5 +45,7 @@ class ChallengesController extends Controller
         $submit = array(
             'flag' => $request->get('flag'),
         );
+
+        dd($submit);
     }
 }
