@@ -45,7 +45,7 @@
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
 						<input name="challenge" type="hidden">
 						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-						<input type="submit" value="Submit Flag">
+						<input type="submit" class="submit_flag" value="Submit Flag">
 					</div>
 				</form>
 			</div>
@@ -57,6 +57,13 @@
 </div>
 
 <!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+		$('.submit_flag').click(function(event) {
+			var challenge_id = $(this).data('id');
+			console.log(challenge_id);
+		});
+	});
 </script>
 @endsection
