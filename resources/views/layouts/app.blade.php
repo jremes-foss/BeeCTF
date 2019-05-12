@@ -85,7 +85,7 @@
                 </div>
             </div>
         </nav>
-
+        @yield('scripts')
         @yield('content')
     </div>
 
