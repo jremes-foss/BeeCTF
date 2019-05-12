@@ -39,7 +39,7 @@
 			</div>
 			<div class="modal-body">
 				<p><strong>Before submission:</strong> please make sure your flag does not have any typos.</p>
-				<form method="post" action="{{ route('user.submitflag') }}">
+				<form id="submitFlag" method="post" action="{{ route('user.submitflag') }}">
 					<div class="form-group">
 						<label for="flag">Flag:</label>
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
@@ -64,6 +64,25 @@
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
 		});
+	});
+
+	$('.submit_flag').click(function(e) {
+		e.preventDefault;
+		$(this).html("Submitting a flag...");
+
+		$.ajax({
+			data: $('#submitFlag').serialize(),
+			url: "{{ route('user.submitflag') }}",
+			type: "POST",
+			dataType: 'json',
+			success: function(data) {
+				$('#flagValidation').modal('hide');
+			},
+			error: function(data) {
+				console.log("Error: ", data);
+			}
+		});
+
 	});
 </script>
 @endsection
