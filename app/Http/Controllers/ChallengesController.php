@@ -40,13 +40,14 @@ class ChallengesController extends Controller
         return view('challenges', compact('challenges'));
     }
 
-    public function submitFlag(Request $request)
+    public function submitFlag(Request $request, $challenge_id)
     {
         $submit = array(
-            'id' => $request->get('id'),
+            'id' => $request->get('challenge_id'),
             'flag' => $request->get('flag'),
         );
 
         $challenge_id = $request->get('challenge');
+        return response()->json($post);
     }
 }

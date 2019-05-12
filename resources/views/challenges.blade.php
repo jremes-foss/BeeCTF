@@ -44,7 +44,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<label for="flag">Flag:</label>
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
-						<input name="id" type="hidden">
+						<input name="challenge_id" type="hidden">
 						<input type="submit" class="submit_flag" value="Submit Flag">
 					</div>
 				</form>
@@ -71,6 +71,7 @@
 		$('.submit_flag').click(function(e) {
 			e.preventDefault;
 			$(this).html("Submitting a flag...");
+			var challenge_id = $(this).val();
 			$.ajax({
 				data: $('#submitFlag').serialize(),
 				url: "{{ route('user.submitflag') }}",
