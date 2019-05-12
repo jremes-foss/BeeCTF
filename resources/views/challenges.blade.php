@@ -41,6 +41,7 @@
 				<p><strong>Before submission:</strong> please make sure your flag does not have any typos.</p>
 				<form id="submitFlag" method="post" action="{{ route('user.submitflag') }}">
 					<div class="form-group">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<label for="flag">Flag:</label>
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
 						<input name="id" type="hidden">
@@ -60,12 +61,17 @@
 @section('scripts')
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(function() {
+		$.ajaxSetup({
+			headers: {
+			 	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
+			}
+		});
+
 		$('.submit_flag').click(function(e) {
 			e.preventDefault;
 			$(this).html("Submitting a flag...");
 			$.ajax({
-				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 				data: $('#submitFlag').serialize(),
 				url: "{{ route('user.submitflag') }}",
 				type: "POST",
