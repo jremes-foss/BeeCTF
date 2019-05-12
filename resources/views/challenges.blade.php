@@ -43,8 +43,7 @@
 					<div class="form-group">
 						<label for="flag">Flag:</label>
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
-						<input name="challenge" type="hidden">
-						<input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+						<input name="id" type="hidden">
 						<input type="submit" class="submit_flag" value="Submit Flag">
 					</div>
 				</form>
@@ -59,10 +58,11 @@
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('.submit_flag').click(function(event) {
-			var challenge_id = $(this).data('id');
-			console.log(challenge_id);
+	$(function() {
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
 		});
 	});
 </script>
