@@ -60,31 +60,24 @@
 @section('scripts')
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			}
+	$(document).ready(function() {
+		$('.submit_flag').click(function(e) {
+			e.preventDefault;
+			$(this).html("Submitting a flag...");
+			$.ajax({
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				data: $('#submitFlag').serialize(),
+				url: "{{ route('user.submitflag') }}",
+				type: "POST",
+				dataType: 'json',
+				success: function(data) {
+					$('#flagValidation').modal('hide');
+				},
+				error: function(data) {
+					console.log("Error: ", data);
+				}
+			});
 		});
-	});
-
-	$('.submit_flag').click(function(e) {
-		e.preventDefault;
-		$(this).html("Submitting a flag...");
-
-		$.ajax({
-			data: $('#submitFlag').serialize(),
-			url: "{{ route('user.submitflag') }}",
-			type: "POST",
-			dataType: 'json',
-			success: function(data) {
-				$('#flagValidation').modal('hide');
-			},
-			error: function(data) {
-				console.log("Error: ", data);
-			}
-		});
-
 	});
 </script>
 @endsection
