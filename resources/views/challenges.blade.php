@@ -71,10 +71,11 @@
 		$('.submit_flag').click(function(e) {
 			e.preventDefault;
 			$(this).html("Submitting a flag...");
-			var challenge_id = $(this).val();
 			$.ajax({
 				data: {
-					flag: $("#submitFlag input[name=flag]").val()
+					flag: $("#submitFlag input[name=flag]").val(),
+					//challenge_id: $()
+
 				},
 				url: "{{ route('user.submitflag') }}",
 				type: "POST",
