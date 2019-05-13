@@ -73,7 +73,9 @@
 			$(this).html("Submitting a flag...");
 			var challenge_id = $(this).val();
 			$.ajax({
-				data: $('#submitFlag').serialize(),
+				data: {
+					flag: $("#submitFlag input[name=flag]").val()
+				},
 				url: "{{ route('user.submitflag') }}",
 				type: "POST",
 				dataType: 'json',
