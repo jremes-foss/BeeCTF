@@ -80,6 +80,7 @@
 				type: "POST",
 				dataType: 'json',
 				success: function(data) {
+					console.log(data);
 					$('#flagValidation').modal('hide');
 				},
 				error: function(data) {
