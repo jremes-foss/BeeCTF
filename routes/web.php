@@ -11,6 +11,8 @@
 |
 */
 
+use App\Challenge;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +25,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/challenges', 'ChallengesController@indexUser')->name('user.challenges');
 Route::post('/challenges', 'ChallengesController@submitFlag')->name('user.submitflag');
+
+Route::get('/challenges/{id}', function($id) {
+	$id = Challenge::find($id);
+	return $id;
+});
 
 /** Admin Routes **/
 
