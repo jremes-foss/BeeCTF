@@ -29,7 +29,7 @@ Route::post('/challenges', 'ChallengesController@submitFlag')->name('user.submit
 Route::get('/challenges/{id}', function($id) {
 	$id = Challenge::find($id);
 	return $id;
-});
+})->name('user.getchallenges');
 
 /** Admin Routes **/
 
