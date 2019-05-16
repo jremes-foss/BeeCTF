@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
 	<div class="row">
+		@if(session()->has('message'))
+			<div class="alert alert-success">
+				{{ session()->get('message') }}
+			</div>
+		@endif
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -44,7 +49,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<label for="flag">Flag:</label>
 						<input type="text" name="flag" placeholder="FLAG{th1s_1s_4n_3x4mpl3}">
-						<input name="challenge_id" type="hidden">
+						<input name="id" value="{{ $challenge->id }}" type="hidden">
 						<input type="submit" class="submit_flag" value="Submit Flag">
 					</div>
 				</form>

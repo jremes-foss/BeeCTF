@@ -40,12 +40,19 @@ class ChallengesController extends Controller
         return view('challenges', compact('challenges'));
     }
 
-    public function submitFlag(Request $request, Challenge $challenge)
+    public function submitFlag(Request $request)
     {
+        $challenge = Challenge::find($request->id);
+        $flag = $challenge->flag;
+
         $submit = array(
             'flag' => $request->get('flag'),
         );
 
-        return redirect('/challenges');
+        if($flag == $submit['flag']) {
+            return redirect('/challenges')->with('message', 'Correct Flag, Congratulations!');
+        } else {
+            return redirect('/challenges')->with('message', 'Try Again!');
+        } 
     }
 }
