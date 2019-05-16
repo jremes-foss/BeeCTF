@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Challenges;
+use App\Challenge;
 
 class ChallengesController extends Controller
 {
@@ -30,13 +30,29 @@ class ChallengesController extends Controller
 
     public function indexAdmin()
     {
-        $challenges = Challenges::all();
+        $challenges = Challenge::all();
         return view('admin.challenges', compact('challenges'));
     }
 
     public function indexUser()
     {
-        $challenges = Challenges::all();
+        $challenges = Challenge::all();
         return view('challenges', compact('challenges'));
+    }
+
+    public function submitFlag(Request $request)
+    {
+        $challenge = Challenge::find($request->id);
+        $flag = $challenge->flag;
+
+        $submit = array(
+            'flag' => $request->get('flag'),
+        );
+
+        if($flag == $submit['flag']) {
+            return redirect('/challenges')->with('message', 'Correct Flag, Congratulations!');
+        } else {
+            return redirect('/challenges')->with('message', 'Try Again!');
+        } 
     }
 }
