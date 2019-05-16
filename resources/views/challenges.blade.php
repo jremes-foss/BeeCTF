@@ -57,38 +57,3 @@
 </div>
 @endsection
 
-<!-- JavaScript -->
-@section('scripts')
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$.ajaxSetup({
-			headers: {
-			 	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
-			}
-		});
-
-		$('.submit_flag').click(function(e) {
-			e.preventDefault;
-			$(this).html("Submitting a flag...");
-			$.ajax({
-				data: {
-					flag: $("#submitFlag input[name=flag]").val(),
-					//challenge_id: $()
-
-				},
-				url: "{{ route('user.submitflag') }}",
-				type: "POST",
-				dataType: 'json',
-				success: function(data) {
-					console.log(data);
-					$('#flagValidation').modal('hide');
-				},
-				error: function(data) {
-					console.log("Error: ", data);
-				}
-			});
-		});
-	});
-</script>
-@endsection
