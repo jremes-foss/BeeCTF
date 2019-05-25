@@ -47,3 +47,7 @@ Route::post('admin/new_challenge', [
 Route::get('admin/categories', 'CategoriesController@index', function() {
     return view('admin.categories');
 })->name('admin.categories');
+
+Route::get('admin/categories', 'CategoriesController@create', function() {
+    return view('admin.categories_new');
+})->name('admin.categories.new');
