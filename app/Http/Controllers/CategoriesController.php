@@ -37,13 +37,12 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $category = array(
-            $request->get('inputCategory')
+            'category' => $request->get('inputCategory')
         );
 
         Category::create($category);
 
         return redirect()->route('admin.categories')->with('success', 'Category saved!');
-
     }
 
     /**
