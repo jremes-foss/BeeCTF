@@ -44,6 +44,10 @@ Route::post('admin/new_challenge', [
 	'uses' => 'ChallengesController@store'
 ])->name('admin.new_challenge.store');
 
+Route::post('admin/new_category', [
+	'uses' => 'CategoriesController@store'
+])->name('admin.new_category.store');
+
 Route::get('admin/categories', 'CategoriesController@index', function() {
     return view('admin.categories');
 })->name('admin.categories');
