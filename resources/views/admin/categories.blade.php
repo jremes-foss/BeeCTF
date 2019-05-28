@@ -19,6 +19,7 @@
 		  	<tr>
 		  		<th scope="row">{{ $category->id }}</th>
 		  		<td>{{ $category->category }}</td>
+		  		<td>{{ $category->description }}</td>
 		  	</tr>
 		  	@endforeach
 		  </tbody>
