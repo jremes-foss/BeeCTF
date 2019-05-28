@@ -16,6 +16,7 @@
 			  	<th scope="col">Title</th>
 				<th scope="col">Flag</th>
 			  	<th scope="col">Content</th>
+			  	<th scope="col">Actions</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -27,6 +28,7 @@
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>
 		  		<td>{{ $challenge->content }}</td>
+		  		<td>TODO</td>
 		  	</tr>
 		  	@endforeach
 		  </tbody>
