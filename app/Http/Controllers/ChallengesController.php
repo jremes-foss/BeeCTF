@@ -46,6 +46,18 @@ class ChallengesController extends Controller
         return view('challenges.edit', compact('challenge'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $challenge = Challenge::find($id);
+        $challenge->category = $request->get('inputCategory');
+        $challenge->title = $request->get('inputTitle');
+        $challenge->score = $request->get('inputScore');
+        $challenge->flag = $request->get('inputFlag');
+        $challenge->content = $request->get('inputContent');
+        $challenge->save();
+        return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
+    }
+
     public function submitFlag(Request $request)
     {
         $challenge = Challenge::find($request->id);
