@@ -40,6 +40,12 @@ class ChallengesController extends Controller
         return view('challenges', compact('challenges'));
     }
 
+    public function edit($id)
+    {
+        $challenge = Challenge::find($id);
+        return view('challenges.edit', compact('challenge'));
+    }
+
     public function submitFlag(Request $request)
     {
         $challenge = Challenge::find($request->id);
