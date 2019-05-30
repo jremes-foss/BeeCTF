@@ -77,7 +77,11 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->category = $request->get('inputCategory');
+        $category->description = $request->get('inputDescription');
+        $category->save();
+        return redirect()->route('admin.categories')->with('success', 'Category updated!');
     }
 
     /**
