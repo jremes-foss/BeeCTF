@@ -34,11 +34,11 @@ Route::get('/admin', 'HomeController@admin')
 
 Route::get('admin/challenges', 'ChallengesController@indexAdmin', function() {
     return view('admin.challenges');
-})->name('adminchallenges');
+})->name('admin.challenges');
 
 Route::get('admin/new_challenge', function() {
     return view('admin.challenges_new');
-})->name('adminchallengesnew');
+})->name('admin.challenges.create');
 
 Route::post('admin/new_challenge', [
 	'uses' => 'ChallengesController@store'

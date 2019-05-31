@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Challenge;
+use App\Category;
 
 class ChallengesController extends Controller
 {
@@ -25,7 +26,10 @@ class ChallengesController extends Controller
 
     public function create()
     {
-    	return view('challenges.create');
+        $categories = Category::all();
+    	return view('admin.challenges_new', [
+            'categories' => $categories
+        ]);
     }
 
     public function indexAdmin()

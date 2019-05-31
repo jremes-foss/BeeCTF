@@ -6,7 +6,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<a class="btn btn-primary" href="{{ route('adminchallengesnew') }}" role="button" style="float: right;">New Challenge</a> 
+		<a class="btn btn-primary" href="{{ route('admin.challenges.create') }}" role="button" style="float: right;">New Challenge</a> 
 		<table class="table table-hover">
 		  <thead>
 		    <tr>
