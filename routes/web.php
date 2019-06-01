@@ -36,7 +36,7 @@ Route::get('admin/challenges', 'ChallengesController@indexAdmin', function() {
     return view('admin.challenges');
 })->name('admin.challenges');
 
-Route::get('admin/new_challenge', function() {
+Route::get('admin/new_challenge', 'ChallengesController@create', function() {
     return view('admin.challenges_new');
 })->name('admin.challenges.create');
 
