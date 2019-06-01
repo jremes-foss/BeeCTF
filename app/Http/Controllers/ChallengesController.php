@@ -27,9 +27,8 @@ class ChallengesController extends Controller
     public function create()
     {
         $categories = Category::all();
-    	return view('admin.challenges_new', [
-            'categories' => $categories
-        ]);
+    	return view('admin.challenges_new')
+            ->with('categories', $categories);
     }
 
     public function indexAdmin()
