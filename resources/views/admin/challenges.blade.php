@@ -28,7 +28,7 @@
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>
 		  		<td>{{ $challenge->content }}</td>
-		  		<td>TODO</td>
+		  		<td><a href="#" class="btn btn-secondary">Edit</a></td>
 		  	</tr>
 		  	@endforeach
 		  </tbody>
