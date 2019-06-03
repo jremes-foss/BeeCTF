@@ -16,10 +16,10 @@ class ChallengesController extends Controller
             'title' => $request->get('inputTitle'),
             'score' => $request->get('inputScore'),
             'flag' => $request->get('inputFlag'),
-            'content' => $request->get('inputContent')
+            'content' => $request->get('inputContent'),
         );
 
-    	Challenges::create($challenge);
+    	Challenge::create($challenge);
 
     	return redirect()->route('user.challenges')->with('success', 'Challenge saved!');
     }
@@ -45,8 +45,11 @@ class ChallengesController extends Controller
 
     public function edit($id)
     {
-        $challenge = Challenge::find($id);
-        return view('challenges.edit', compact('challenge'));
+        $challenges = Challenge::find($id);
+        $categories = Category::all();
+        return view('challenges.edit')
+            ->with('categories', $categories)
+            ->with('challenge', $challenges);
     }
 
     public function update(Request $request, $id)

@@ -14,7 +14,7 @@
 				</label>
 				<div class="input-group Category">
 					<span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-					<select class="form-control" id="inputCategory">
+					<select class="form-control" id="inputCategory" name="inputCategory">
 					@foreach($categories as $category)
 						<option value="{{ $category->category }}">{{ $category->category }}</option>
 					@endforeach
