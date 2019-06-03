@@ -40,8 +40,8 @@ Route::get('admin/new_challenge', 'ChallengesController@create', function() {
     return view('admin.challenges_new');
 })->name('admin.challenges.create');
 
-Route::get('admin/edit_challenge', 'ChallengesController@edit', function() {
-    return view('admin.challenges_edit');
+Route::get('admin/challenges/{id}/edit', 'ChallengesController@edit', function() {
+    return view('admin.challenges.edit');
 })->name('admin.challenges.edit');
 
 Route::post('admin/new_challenge', [
