@@ -47,7 +47,7 @@ class ChallengesController extends Controller
     {
         $challenges = Challenge::find($id);
         $categories = Category::all();
-        return view('challenges.edit')
+        return view('admin.challenges.edit')
             ->with('categories', $categories)
             ->with('challenge', $challenges);
     }
