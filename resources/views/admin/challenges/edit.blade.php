@@ -7,6 +7,7 @@
 <div class="container">
 	<div class="row">
 		<form role="form" method="patch" action="{{ route('admin.challenges.update', $challenge->id) }}">
+			{{ method_field('PATCH') }}
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="inputCategory">
