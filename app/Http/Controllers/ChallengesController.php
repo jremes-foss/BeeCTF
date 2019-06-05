@@ -60,7 +60,7 @@ class ChallengesController extends Controller
         $challenge->score = $request->get('inputScore');
         $challenge->flag = $request->get('inputFlag');
         $challenge->content = $request->get('inputContent');
-        $challenge->save();
+        $challenge->update();
         return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
     }
 
