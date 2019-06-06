@@ -44,7 +44,7 @@ Route::get('admin/challenges/{id}/edit', 'ChallengesController@edit', function()
     return view('admin.challenges.edit');
 })->name('admin.challenges.edit');
 
-Route::patch('admin/challenges/{id}/update', [
+Route::post('admin/challenges/{id}/update', [
     'uses' => 'ChallengesController@update'
 ])->name('admin.challenges.update');
 
