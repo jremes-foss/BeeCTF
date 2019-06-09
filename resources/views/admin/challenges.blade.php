@@ -28,7 +28,10 @@
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>
 		  		<td>{{ $challenge->content }}</td>
-		  		<td><a href="{{ route('admin.challenges.edit', $challenge->id) }}" class="btn btn-secondary">Edit</a></td>
+		  		<td>
+		  			<a href="{{ route('admin.challenges.edit', $challenge->id) }}" class="btn btn-secondary">Edit</a>
+		  			<a href="#" class="btn btn-danger">Delete</a>
+		  		</td>
 		  	</tr>
 		  	@endforeach
 		  </tbody>
