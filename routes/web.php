@@ -48,6 +48,10 @@ Route::post('admin/challenges/{id}/update', [
     'uses' => 'ChallengesController@update'
 ])->name('admin.challenges.update');
 
+Route::post('admin/challenges/{id}/delete', [
+    'uses' => 'ChallengesController@destroy'
+])->name('admin.challenges.delete');
+
 Route::post('admin/new_challenge', [
 	'uses' => 'ChallengesController@store'
 ])->name('admin.new_challenge.store');
