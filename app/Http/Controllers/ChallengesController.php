@@ -64,7 +64,7 @@ class ChallengesController extends Controller
         return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         $challenge = Challenge::find($id);
         $challenge->delete();
