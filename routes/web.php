@@ -34,11 +34,23 @@ Route::get('/admin', 'HomeController@admin')
 
 Route::get('admin/challenges', 'ChallengesController@indexAdmin', function() {
     return view('admin.challenges');
-})->name('adminchallenges');
+})->name('admin.challenges');
 
-Route::get('admin/new_challenge', function() {
+Route::get('admin/new_challenge', 'ChallengesController@create', function() {
     return view('admin.challenges_new');
-})->name('adminchallengesnew');
+})->name('admin.challenges.create');
+
+Route::get('admin/challenges/{id}/edit', 'ChallengesController@edit', function() {
+    return view('admin.challenges.edit');
+})->name('admin.challenges.edit');
+
+Route::post('admin/challenges/{id}/update', [
+    'uses' => 'ChallengesController@update'
+])->name('admin.challenges.update');
+
+Route::post('admin/challenges/{id}/delete', [
+    'uses' => 'ChallengesController@destroy'
+])->name('admin.challenges.delete');
 
 Route::post('admin/new_challenge', [
 	'uses' => 'ChallengesController@store'

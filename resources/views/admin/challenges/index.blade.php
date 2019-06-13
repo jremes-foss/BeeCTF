@@ -6,7 +6,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<a class="btn btn-primary" href="{{ route('admin.challenges.create') }}" role="button" style="float: right;">New Challenge</a> 
+		<a class="btn btn-primary" href="{{ route('admin.challenges.create', $id) }}" role="button" style="float: right;">New Challenge</a> 
 		<table class="table table-hover">
 		  <thead>
 		    <tr>
@@ -28,10 +28,7 @@
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>
 		  		<td>{{ $challenge->content }}</td>
-		  		<td>
-		  			<a href="{{ route('admin.challenges.edit', $challenge->id) }}" class="btn btn-secondary">Edit</a>
-		  			<a href="#" class="btn btn-danger">Delete</a>
-		  		</td>
+		  		<td><a href="{{ route('admin.challenges.edit') }}" class="btn btn-secondary">Edit</a></td>
 		  	</tr>
 		  	@endforeach
 		  </tbody>

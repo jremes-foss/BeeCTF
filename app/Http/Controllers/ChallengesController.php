@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Challenge;
+use App\Category;
 
 class ChallengesController extends Controller
 {
@@ -15,17 +16,19 @@ class ChallengesController extends Controller
             'title' => $request->get('inputTitle'),
             'score' => $request->get('inputScore'),
             'flag' => $request->get('inputFlag'),
-            'content' => $request->get('inputContent')
+            'content' => $request->get('inputContent'),
         );
 
-    	Challenges::create($challenge);
+    	Challenge::create($challenge);
 
     	return redirect()->route('user.challenges')->with('success', 'Challenge saved!');
     }
 
     public function create()
     {
-    	return view('challenges.create');
+        $categories = Category::all();
+    	return view('admin.challenges_new')
+            ->with('categories', $categories);
     }
 
     public function indexAdmin()
@@ -38,6 +41,34 @@ class ChallengesController extends Controller
     {
         $challenges = Challenge::all();
         return view('challenges', compact('challenges'));
+    }
+
+    public function edit($id)
+    {
+        $challenges = Challenge::find($id);
+        $categories = Category::all();
+        return view('admin.challenges.edit')
+            ->with('categories', $categories)
+            ->with('challenge', $challenges);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $challenge = Challenge::find($id);
+        $challenge->category = $request->get('inputCategory');
+        $challenge->title = $request->get('inputTitle');
+        $challenge->score = $request->get('inputScore');
+        $challenge->flag = $request->get('inputFlag');
+        $challenge->content = $request->get('inputContent');
+        $challenge->update();
+        return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
+    }
+
+    public function destroy($id)
+    {
+        $challenge = Challenge::find($id);
+        $challenge->delete();
+        return redirect()->route('user.challenges')->with('success', 'Challenge deleted!');
     }
 
     public function submitFlag(Request $request)

@@ -6,7 +6,8 @@
 </div>
 <div class="container">
 	<div class="row">
-		<form role="form" method="post" action="{{ route('admin.new_challenge.store') }}">
+		<form role="form" method="post" action="{{ route('admin.challenges.update', $challenge->id) }}">
+			{{ method_field('post') }}
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="inputCategory">
@@ -26,7 +27,7 @@
 					Score
 				</label>
 				<div class="input-group Score">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputScore" name="inputScore" placeholder="Enter Score">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputScore" name="inputScore" value="{{ $challenge->score }}">
 				</div>
 			</div>
 			<div class="form-group">
@@ -34,7 +35,7 @@
 					Title
 				</label>
 				<div class="input-group Title">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Enter Title">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputTitle" name="inputTitle" value="{{ $challenge->title }}">
 				</div>
 			</div>
 			<div class="form-group">
@@ -42,7 +43,7 @@
 					Flag
 				</label>
 				<div class="input-group Flag">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputFlag" name="inputFlag" placeholder="Enter Flag">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputFlag" name="inputFlag" value="{{ $challenge->flag }}">
 				</div>
 			</div>
 			<div class="form-group">
@@ -50,7 +51,7 @@
 					Content
 				</label>
 				<div class="input-group Content">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputContent" name="inputContent" placeholder="Enter Content">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputContent" name="inputContent" value="{{ $challenge->content }}">
 				</div>
 			</div>
 		

@@ -37,7 +37,8 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $category = array(
-            'category' => $request->get('inputCategory')
+            'category' => $request->get('inputCategory'),
+            'description' => $request->get('inputDescription')
         );
 
         Category::create($category);
@@ -76,7 +77,11 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->category = $request->get('inputCategory');
+        $category->description = $request->get('inputDescription');
+        $category->save();
+        return redirect()->route('admin.categories')->with('success', 'Category updated!');
     }
 
     /**
@@ -87,6 +92,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('admin.categories')->with('success', 'Category deleted!');
     }
 }
