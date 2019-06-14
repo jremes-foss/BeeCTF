@@ -67,3 +67,7 @@ Route::get('admin/categories/create', 'CategoriesController@create', function() 
 Route::post('admin/categories/create', [
     'uses' => 'CategoriesController@store'
 ])->name('admin.categories.store');
+
+Route::get('admin/categories/{id}/edit', 'CategoriesController@edit', function() {
+    return view('admin.categories.edit');
+})->name('admin.categories.edit');
