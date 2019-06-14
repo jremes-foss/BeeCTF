@@ -71,3 +71,7 @@ Route::post('admin/categories/create', [
 Route::get('admin/categories/{id}/edit', 'CategoriesController@edit', function() {
     return view('admin.categories.edit');
 })->name('admin.categories.edit');
+
+Route::post('admin/categories/{id}/update', 'CategoriesController@update', function() {
+    return view('admin.categories.update');
+})->name('admin.categories.update');
