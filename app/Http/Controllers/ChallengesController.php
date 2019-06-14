@@ -10,7 +10,6 @@ class ChallengesController extends Controller
 {
     public function store(Request $request)
     {
-
     	$challenge = array(
             'category' => $request->get('inputCategory'),
             'title' => $request->get('inputTitle'),
@@ -21,13 +20,13 @@ class ChallengesController extends Controller
 
     	Challenge::create($challenge);
 
-    	return redirect()->route('user.challenges')->with('success', 'Challenge saved!');
+    	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
     }
 
     public function create()
     {
         $categories = Category::all();
-    	return view('admin.challenges_new')
+    	return view('admin.challenges.create')
             ->with('categories', $categories);
     }
 

@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories_new', compact('categories'));
+        return view('admin.categories.create', compact('categories'));
     }
 
     /**

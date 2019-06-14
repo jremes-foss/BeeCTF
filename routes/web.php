@@ -36,9 +36,13 @@ Route::get('admin/challenges', 'ChallengesController@indexAdmin', function() {
     return view('admin.challenges');
 })->name('admin.challenges');
 
-Route::get('admin/new_challenge', 'ChallengesController@create', function() {
-    return view('admin.challenges_new');
+Route::get('admin/challenges/create', 'ChallengesController@create', function() {
+    return view('admin.challenges.create');
 })->name('admin.challenges.create');
+
+Route::post('admin/challenges/create', [
+    'uses' => 'ChallengesController@store'
+])->name('admin.challenges.store');
 
 Route::get('admin/challenges/{id}/edit', 'ChallengesController@edit', function() {
     return view('admin.challenges.edit');
@@ -52,18 +56,14 @@ Route::post('admin/challenges/{id}/delete', [
     'uses' => 'ChallengesController@destroy'
 ])->name('admin.challenges.delete');
 
-Route::post('admin/new_challenge', [
-	'uses' => 'ChallengesController@store'
-])->name('admin.new_challenge.store');
-
-Route::post('admin/new_category', [
-	'uses' => 'CategoriesController@store'
-])->name('admin.new_category.store');
-
 Route::get('admin/categories', 'CategoriesController@index', function() {
     return view('admin.categories');
 })->name('admin.categories');
 
-Route::get('admin/new_category', 'CategoriesController@create', function() {
-    return view('admin.categories_new');
-})->name('admin.categories.new');
+Route::get('admin/categories/create', 'CategoriesController@create', function() {
+    return view('admin.categories.create');
+})->name('admin.categories.create');
+
+Route::post('admin/categories/create', [
+    'uses' => 'CategoriesController@store'
+])->name('admin.categories.store');
