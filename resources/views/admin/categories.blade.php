@@ -12,6 +12,8 @@
 		    <tr>
 			  	<th scope="col">#</th>
 			  	<th scope="col">Category</th>
+			  	<th scope="col">Description</th>
+			  	<th scope="col">Actions</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -20,6 +22,9 @@
 		  		<th scope="row">{{ $category->id }}</th>
 		  		<td>{{ $category->category }}</td>
 		  		<td>{{ $category->description }}</td>
+		  		<td>
+		  			<a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-secondary">Edit</a>
+		  		</td>
 		  	</tr>
 		  	@endforeach
 		  </tbody>
