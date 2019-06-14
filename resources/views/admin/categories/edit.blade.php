@@ -5,7 +5,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<form role="form" method="post" action="{{ route('admin.challenges.update') }}">
+		<form role="form" method="post" action="{{ route('admin.categories.update', $category->id) }}">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="inputCategory">
