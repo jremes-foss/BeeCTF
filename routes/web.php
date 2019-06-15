@@ -75,3 +75,7 @@ Route::get('admin/categories/{id}/edit', 'CategoriesController@edit', function()
 Route::post('admin/categories/{id}/update', [
     'uses' => 'CategoriesController@update'
 ])->name('admin.categories.update');
+
+Route::get('admin/categories/{id}/delete', [
+    'uses' => 'CategoriesController@destroy'
+])->name('admin.categories.delete');
