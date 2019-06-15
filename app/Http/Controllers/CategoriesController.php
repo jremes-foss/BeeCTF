@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories_new', compact('categories'));
+        return view('admin.categories.create', compact('categories'));
     }
 
     /**
@@ -65,7 +65,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::find($id);
+        return view('admin.categories.edit')
+            ->with('category', $categories);
     }
 
     /**
