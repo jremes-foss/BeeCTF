@@ -66,10 +66,7 @@
 					<input type="file" class="form-control" id="inputFile" name="inputFile">
 				</div>
 			</div>
-
-		
 		<button type="submit" class="btn btn-primary">Submit</button>
-
 		</form>
 	</div>
 </div>
