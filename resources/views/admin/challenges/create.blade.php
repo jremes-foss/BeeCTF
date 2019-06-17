@@ -53,6 +53,16 @@
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputContent" name="inputContent" placeholder="Enter Content">
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="inputFile">
+					File
+				</label>
+				<div class="input-group Content">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="file" class="form-control" id="inputFile" name="inputFile">
+				</div>
+			</div>
+
 		
 		<button type="submit" class="btn btn-primary">Submit</button>
 
