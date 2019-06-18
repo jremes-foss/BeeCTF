@@ -6,7 +6,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<form role="form" method="post" action="{{ route('admin.challenges.store') }}">
+		<form role="form" method="post" enctype="multipart/form-data" action="{{ route('admin.challenges.store') }}">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="inputCategory">
