@@ -19,6 +19,7 @@
 					<p>Category: {{ $challenge->category }}</p>
 					<p>Score: {{ $challenge->score }}</p>
 					<p>Description: {{ $challenge->content }}</p>
+					<p>Attachment: </p>
 					<button type="button" 
 					class="btn btn-primary"
 					data-id="{{ $challenge->id }}"
