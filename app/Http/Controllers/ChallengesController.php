@@ -16,8 +16,12 @@ class ChallengesController extends Controller
             'score' => $request->get('inputScore'),
             'flag' => $request->get('inputFlag'),
             'content' => $request->get('inputContent'),
-            'file' => $request->file('inputFile')->getClientOriginalName()
         );
+
+        if($request->hasFile('inputFile')) {
+            $challenge_file = $request->file('inputFile');
+            $challenge_file->store('public');
+        }
 
     	Challenge::create($challenge);
 
