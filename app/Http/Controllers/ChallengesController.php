@@ -20,8 +20,11 @@ class ChallengesController extends Controller
 
         if($request->hasFile('inputFile')) {
             $directory = 'public/challenges';
+            $name = $challenge_file->getClientOriginalName();
+            $ext = $challenge_file->getClientOriginalExtension();
+            $file = $name . $ext;
             $challenge_file = $request->file('inputFile');
-            $challenge_file->storeAs($directory, $challenge_file->getClientOriginalName());
+            $challenge_file->storeAs($directory, $file);
         }
 
     	Challenge::create($challenge);
