@@ -27,7 +27,7 @@ class ChallengesController extends Controller
             $challenge_file->storeAs($directory, $file);
         }
 
-        $challenge['download_file'] = $file;
+        $challenge['resource'] = $file;
 
     	Challenge::create($challenge);
 
