@@ -14,6 +14,7 @@ class Challenge extends Model
 	    'score',
 	    'title',
 	    'flag',
-	    'content'
+	    'content',
+	    'resource'
 	];
 }
