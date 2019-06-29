@@ -27,6 +27,8 @@ class ChallengesController extends Controller
             $challenge_file->storeAs($directory, $file);
         }
 
+        $challenge['download_file'] = $file;
+
     	Challenge::create($challenge);
 
     	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
