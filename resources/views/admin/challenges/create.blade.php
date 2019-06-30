@@ -6,7 +6,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<form role="form" method="post" action="{{ route('admin.challenges.store') }}">
+		<form role="form" method="post" enctype="multipart/form-data" action="{{ route('admin.challenges.store') }}">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="inputCategory">
@@ -26,7 +26,8 @@
 					Score
 				</label>
 				<div class="input-group Score">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputScore" name="inputScore" placeholder="Enter Score">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" id="inputScore" name="inputScore" placeholder="Enter Score">
 				</div>
 			</div>
 			<div class="form-group">
@@ -34,7 +35,8 @@
 					Title
 				</label>
 				<div class="input-group Title">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Enter Title">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Enter Title">
 				</div>
 			</div>
 			<div class="form-group">
@@ -42,7 +44,8 @@
 					Flag
 				</label>
 				<div class="input-group Flag">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputFlag" name="inputFlag" placeholder="Enter Flag">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" id="inputFlag" name="inputFlag" placeholder="Enter Flag">
 				</div>
 			</div>
 			<div class="form-group">
@@ -50,12 +53,20 @@
 					Content
 				</label>
 				<div class="input-group Content">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputContent" name="inputContent" placeholder="Enter Content">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" id="inputContent" name="inputContent" placeholder="Enter Content">
 				</div>
 			</div>
-		
+			<div class="form-group">
+				<label for="inputFile">
+					File
+				</label>
+				<div class="input-group Content">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="file" class="form-control" id="inputFile" name="inputFile">
+				</div>
+			</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
-
 		</form>
 	</div>
 </div>

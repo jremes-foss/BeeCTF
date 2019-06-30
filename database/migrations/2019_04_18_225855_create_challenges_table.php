@@ -20,6 +20,7 @@ class CreateChallengesTable extends Migration
             $table->string('title');
             $table->string('flag');
             $table->string('content');
+            $table->string('resource');
             $table->timestamps();
         });
     }

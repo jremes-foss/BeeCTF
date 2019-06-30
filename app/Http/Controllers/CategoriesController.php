@@ -25,6 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         return view('admin.categories.create', compact('categories'));
     }
 
@@ -44,17 +45,6 @@ class CategoriesController extends Controller
         Category::create($category);
 
         return redirect()->route('admin.categories')->with('success', 'Category saved!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
