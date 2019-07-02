@@ -8,7 +8,10 @@ use App\Category;
 
 class SolvedController extends Controller
 {
-
+	public function store()
+	{
+		// TODO
+	}
 }
 
 ?>
