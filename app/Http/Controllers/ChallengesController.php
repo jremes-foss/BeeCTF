@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Challenge;
 use App\Category;
@@ -92,6 +93,9 @@ class ChallengesController extends Controller
 
         if($flag == $submit['flag']) {
             $solved = new Solved;
+            $solved->challenge_id = $request->id;
+            $solved->user_id = $request->user()->id;
+            $solved->save();
             return redirect('/challenges')->with('message', 'Correct Flag, Congratulations!');
         } else {
             return redirect('/challenges')->with('message', 'Try Again!');
