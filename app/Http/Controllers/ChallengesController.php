@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Challenge;
 use App\Category;
+use App\Solved;
+use App\Score;
+use Carbon\Carbon;
 
 class ChallengesController extends Controller
 {
@@ -90,9 +93,32 @@ class ChallengesController extends Controller
         );
 
         if($flag == $submit['flag']) {
+            $solved = new Solved;
+            $solved->challenge_id = $request->id;
+            $solved->user_id = $request->user()->id;
+            $solved->save();
+            $this->addScore($request);
             return redirect('/challenges')->with('message', 'Correct Flag, Congratulations!');
         } else {
             return redirect('/challenges')->with('message', 'Try Again!');
         } 
+    }
+
+    public function addScore(Request $request)
+    {
+        $challenge = Challenge::find($request->id);
+        $score = $challenge->score;
+        $user = $request->user()->id;
+        $user_score = Score::where('user_id', $user)->first();
+
+        if(!$user_score) {
+            $user_score = Score::create([
+                'user_id' => $user,
+                'score' => 0
+            ]);
+        }
+
+        Score::where('user_id', $user)
+            ->increment('score', $score, ['updated_at' => Carbon::now()]);
     }
 }
