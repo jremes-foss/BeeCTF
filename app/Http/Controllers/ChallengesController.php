@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Challenge;
 use App\Category;
 use App\Solved;
-use Carbon;
+use App\Score;
+use Carbon\Carbon;
 
 class ChallengesController extends Controller
 {
