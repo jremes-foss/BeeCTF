@@ -109,7 +109,15 @@ class ChallengesController extends Controller
         $challenge = Challenge::find($request->id);
         $score = $challenge->score;
         $user = $request->user()->id;
-        $user_score = Score::find($user);
+        $user_score = Score::where('user_id', $user)->first();
+
+        if(!$user_score) {
+            $user_score = Score::create([
+                'user_id' => $user,
+                'score' => 0
+            ]);
+        }
+
         Score::where('user_id', $user)
             ->increment('score', $score, ['updated_at' => Carbon::now()]);
     }
