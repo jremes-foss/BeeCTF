@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Validator;
 use App\User;
 
 class CreateAdministrator extends Command
@@ -39,7 +40,6 @@ class CreateAdministrator extends Command
     public function handle()
     {
         $this->info('*** BeeCTF Artisan Admin Creator ***');
-        $this->info('');
         $this->info('[!] This command allows you to create admin user to database.');
 
         if($this->confirm('Are you sure you wish to continue?')) {
