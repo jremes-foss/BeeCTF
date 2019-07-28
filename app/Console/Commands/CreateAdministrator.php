@@ -11,14 +11,14 @@ class CreateAdministrator extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'user:create-admin';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'This console command creates administrator user to database.';
 
     /**
      * Create a new command instance.
