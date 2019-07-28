@@ -37,6 +37,8 @@ class CreateAdministrator extends Command
      */
     public function handle()
     {
-        //
+        $this->info('*** BeeCTF Artisan Admin Creator ***');
+        $this->info('');
+        $this->info('This command allows you to create admin user to database.');
     }
 }
