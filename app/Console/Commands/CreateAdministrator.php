@@ -52,6 +52,22 @@ class CreateAdministrator extends Command
                 'password' => bcrypt($password),
                 'user_type' => 'Administrator'
             );
+            
+            $validator = Validator::make([
+                'email' => $email,
+            ], [
+                'email' => 'required|string|email|max:255|unique:users',
+            ]);
+
+            if($validator->fails()) {
+                $this->info('Administrator not created. Please see error messages below: ');
+
+                foreach($validator->errors()->all() as $error) {
+                    $this->error($error);
+                }
+
+                return 1;
+            }
         }
     }
 }
