@@ -18,7 +18,7 @@ class CreateAdministrator extends Command
      *
      * @var string
      */
-    protected $description = 'This console command creates administrator user to database.';
+    protected $description = 'This console command creates administrator user to database';
 
     /**
      * Create a new command instance.
