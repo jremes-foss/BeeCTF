@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\User;
 
 class CreateAdministrator extends Command
 {
@@ -39,6 +40,18 @@ class CreateAdministrator extends Command
     {
         $this->info('*** BeeCTF Artisan Admin Creator ***');
         $this->info('');
-        $this->info('This command allows you to create admin user to database.');
+        $this->info('[!] This command allows you to create admin user to database.');
+
+        if($this->confirm('Are you sure you wish to continue?')) {
+            $name = $this->ask('Enter username: ');
+            $email = $this->ask('Enter email: ');
+            $password = $this->secret('Enter password: ');
+            $user = array(
+                'name' => $name,
+                'email' => $email,
+                'password' => bcrypt($password),
+                'user_type' => 'Administrator'
+            );
+        }
     }
 }
