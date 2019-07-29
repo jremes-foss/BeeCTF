@@ -67,6 +67,8 @@ class CreateAdministrator extends Command
                 }
 
                 return 1;
+            } else {
+                User::create($user);
             }
         }
     }
