@@ -69,7 +69,7 @@ class CreateAdministrator extends Command
                 return 1;
             } else {
                 User::create($user);
-                $this->info('Administrative user has been created.')
+                $this->info('Administrative user has been created.');
             }
         }
     }
