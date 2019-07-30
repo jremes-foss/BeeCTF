@@ -43,9 +43,9 @@ class CreateAdministrator extends Command
         $this->info('[!] This command allows you to create admin user to database.');
 
         if($this->confirm('Are you sure you wish to continue?')) {
-            $name = $this->ask('Enter username: ');
-            $email = $this->ask('Enter email: ');
-            $password = $this->secret('Enter password: ');
+            $name = $this->ask('Enter username');
+            $email = $this->ask('Enter email');
+            $password = $this->secret('Enter password');
             $user = array(
                 'name' => $name,
                 'email' => $email,
@@ -69,6 +69,7 @@ class CreateAdministrator extends Command
                 return 1;
             } else {
                 User::create($user);
+                $this->info('Administrative user has been created.')
             }
         }
     }
