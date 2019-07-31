@@ -42,10 +42,10 @@ class CreateAdministrator extends Command
         $this->info('*** BeeCTF Artisan Admin Creator ***');
         $this->info('[!] This command allows you to create admin user to database.');
 
-        if($this->confirm('Are you sure you wish to continue?')) {
-            $name = $this->ask('Enter username');
-            $email = $this->ask('Enter email');
-            $password = $this->secret('Enter password');
+        if($this->confirm('[?] Are you sure you wish to continue?')) {
+            $name = $this->ask('[?] Enter username');
+            $email = $this->ask('[?] Enter email');
+            $password = $this->secret('[?] Enter password');
             $user = array(
                 'name' => $name,
                 'email' => $email,
@@ -60,7 +60,7 @@ class CreateAdministrator extends Command
             ]);
 
             if($validator->fails()) {
-                $this->info('Administrator not created. Please see error messages below: ');
+                $this->info('[!] Administrator not created. Please see error messages below: ');
 
                 foreach($validator->errors()->all() as $error) {
                     $this->error($error);
@@ -69,7 +69,7 @@ class CreateAdministrator extends Command
                 return 1;
             } else {
                 User::create($user);
-                $this->info('Administrative user has been created.');
+                $this->info('[!] Administrative user has been created.');
             }
         }
     }
