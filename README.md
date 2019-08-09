@@ -15,7 +15,7 @@ Installation of BeeCTF in traditional way is easy:
 After creating an administrative user, the system is ready to use.
 
 ## License
-Copyright (c) <2019> <Juha Remes>
+Copyright (c) <2019> Juha Remes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
