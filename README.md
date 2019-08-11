@@ -14,6 +14,9 @@ Installation of BeeCTF in traditional way is easy:
 
 After creating an administrative user, the system is ready to use.
 
+## Pull Requests
+Feel free to send any bug fixes, new features, etc. via pull requests. 
+
 ## License
 Copyright (c) <2019> Juha Remes
 
