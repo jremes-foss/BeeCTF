@@ -63,3 +63,5 @@
 </div>
 @endsection
 
+@push('scripts')
+@endpush
