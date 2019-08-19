@@ -124,6 +124,7 @@ class ChallengesController extends Controller
 
     public function ajaxGetChallengesByCategory(Request $request)
     {
-        // TODO
+        $category = Category::find($request->id);
+        $challenges = Challenge::where('category', $category);
     }
 }
