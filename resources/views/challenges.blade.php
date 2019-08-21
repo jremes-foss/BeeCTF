@@ -8,6 +8,16 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+				Category
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li>Category 1</li>
+				<li>Category 2</li>
+			</ul>
+		</div>
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
 				<div class="panel-heading">
