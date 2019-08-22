@@ -9,7 +9,7 @@
 			</div>
 		@endif
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+			<button class="btn btn-primary dropdown-toggle" id="choose_category" type="button" data-toggle="dropdown">
 				Category
 				<span class="caret"></span>
 			</button>
@@ -73,5 +73,25 @@
 </div>
 @endsection
 
-@push('scripts')
-@endpush
+<script>
+$(document).ready(function() {
+	$('#choose_category').click(function(event) {
+		event.preventDefault();
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+			}
+		});
+		$.ajax({
+			url: "{{ url('/getChallengesByCategory') }}",
+			type: "GET",
+			data: {
+				category: $('#choose_category').val()
+			},
+			success: function(result) {
+				console.log(result);
+			}
+		});
+	});
+});
+</script>
