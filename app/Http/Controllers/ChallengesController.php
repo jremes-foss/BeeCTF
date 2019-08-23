@@ -45,13 +45,17 @@ class ChallengesController extends Controller
     public function indexAdmin()
     {
         $challenges = Challenge::all();
-        return view('admin.challenges', compact('challenges'));
+        return view('admin.challenges')
+            ->with('challenges', $challenges);
     }
 
     public function indexUser()
     {
         $challenges = Challenge::all();
-        return view('challenges', compact('challenges'));
+        $categories = Category::all();
+        return view('challenges')
+            ->with('challenges', $challenges)
+            ->with('categories', $categories);
     }
 
     public function edit($id)
