@@ -8,17 +8,11 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
-		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" id="choose_category" type="button" data-toggle="dropdown">
-				Category
-				<span class="caret"></span>
-			</button>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#">Category 1</a>
-				<a class="dropdown-item" href="#">Category 2</a>
-				<a class="dropdown-item" href="#">Category 3</a>
-				<a class="dropdown-item" href="#">Category 4</a>
-			</div>
+			<select class="form-control form-control-lg">
+				@foreach($categories as $category)
+					<option value="{{ $category }}">{{ $category }}</option>
+				@endforeach
+			</select>
 		</div>
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
