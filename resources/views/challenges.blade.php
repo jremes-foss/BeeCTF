@@ -10,7 +10,7 @@
 		@endif
 			<select class="form-control form-control-lg">
 				@foreach($categories as $category)
-					<option value="{{ $category }}">{{ $category }}</option>
+					<option value="{{ $category->category }}">{{ $category->category }}</option>
 				@endforeach
 			</select>
 		</div>
