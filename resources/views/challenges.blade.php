@@ -13,10 +13,12 @@
 				Category
 				<span class="caret"></span>
 			</button>
-			<ul class="dropdown-menu">
-				<li>Category 1</li>
-				<li>Category 2</li>
-			</ul>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="#">Category 1</a>
+				<a class="dropdown-item" href="#">Category 2</a>
+				<a class="dropdown-item" href="#">Category 3</a>
+				<a class="dropdown-item" href="#">Category 4</a>
+			</div>
 		</div>
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
