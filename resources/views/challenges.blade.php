@@ -8,7 +8,7 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
-			<select class="form-control form-control-lg">
+			<select class="form-control form-control-lg" id="choose_category">
 				@foreach($categories as $category)
 					<option>Select a category...</option>
 					<option value="{{ $category->category }}">{{ $category->category }}</option>
