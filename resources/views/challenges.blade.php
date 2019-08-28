@@ -15,6 +15,7 @@
 				@endforeach
 			</select>
 		</div>
+		<div class="challenge_list">
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -37,6 +38,7 @@
 				</div>
 			</div>
 		@endforeach
+		</div>
 	</div>
 </div>
 
