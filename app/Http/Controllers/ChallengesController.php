@@ -130,6 +130,6 @@ class ChallengesController extends Controller
     {
         $category = Category::find($request->id);
         $challenges = Challenge::where('category', $category);
-        return $challenges;
+        return json_encode($challenges);
     }
 }
