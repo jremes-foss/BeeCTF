@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 @section('content')
 <div class="container">
@@ -73,7 +74,7 @@
 @endsection
 
 <script>
-$(document).ready(function() {
+jQuery(document).ready(function() {
 	$('#choose_category').click(function(event) {
 		event.preventDefault();
 		$.ajaxSetup({
