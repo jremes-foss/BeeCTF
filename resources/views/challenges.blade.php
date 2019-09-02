@@ -86,10 +86,10 @@ jQuery(document).ready(function() {
 			url: "{{ url('/getChallengesByCategory') }}",
 			type: "GET",
 			data: {
-				category: {keyname: $('choose_category option:selected').val()}
+				category: {keyname: $('#choose_category option:selected').val()}
 			},
-			success: function(result) {
-				console.log(result);
+			success: function(data) {
+				console.log(data);
 			}
 		});
 	});
