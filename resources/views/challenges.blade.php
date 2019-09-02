@@ -9,7 +9,7 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
-			<select class="form-control form-control-lg" id="choose_category">
+			<select name="data[category]" class="form-control form-control-lg" id="choose_category">
 				@foreach($categories as $category)
 					<option>Select a category...</option>
 					<option value="{{ $category->category }}">{{ $category->category }}</option>
@@ -75,7 +75,7 @@
 
 <script>
 jQuery(document).ready(function() {
-	$('#choose_category').click(function(event) {
+	$('#choose_category').change(function(event) {
 		event.preventDefault();
 		$.ajaxSetup({
 			headers: {
@@ -86,7 +86,7 @@ jQuery(document).ready(function() {
 			url: "{{ url('/getChallengesByCategory') }}",
 			type: "GET",
 			data: {
-				category: $('#choose_category').val()
+				category: {keyname: $('choose_category option:selected').val()}
 			},
 			success: function(result) {
 				console.log(result);
