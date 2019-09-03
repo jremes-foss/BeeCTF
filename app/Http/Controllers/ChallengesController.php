@@ -126,6 +126,10 @@ class ChallengesController extends Controller
             ->increment('score', $score, ['updated_at' => Carbon::now()]);
     }
 
+    /**
+     *  Fetches the challenges by category.
+     *  Used in the AJAX call inside challenges.blade.php.
+     */
     public function ajaxGetChallengesByCategory(Request $request)
     {
         $category = Category::find($request->id);
