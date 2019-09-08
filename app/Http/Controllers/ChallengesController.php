@@ -132,6 +132,7 @@ class ChallengesController extends Controller
      */
     public function ajaxGetChallengesByCategory(Request $request)
     {
+        // var_dump($request);
         $category = Category::find($request->id);
         $challenges = Challenge::where('category', $category);
         return json_encode($challenges);

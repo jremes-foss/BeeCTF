@@ -83,7 +83,7 @@ jQuery(document).ready(function() {
 			}
 		});
 		$.ajax({
-			url: "{{ url('/getChallengesByCategory') }}",
+			url: "{{ route('user.ajax.get') }}",
 			type: "GET",
 			data: {
 				category: {keyname: $('#choose_category option:selected').val()}
