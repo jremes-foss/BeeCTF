@@ -86,7 +86,7 @@ jQuery(document).ready(function() {
 			url: "{{ route('user.ajax.get') }}",
 			type: "GET",
 			data: {
-				category: {keyname: $('#choose_category option:selected').val()}
+				category: { keyname: $('#choose_category option:selected').val() }
 			},
 			success: function(data) {
 				console.log(data);
