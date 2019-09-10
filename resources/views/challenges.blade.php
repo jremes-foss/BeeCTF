@@ -16,7 +16,6 @@
 				@endforeach
 			</select>
 		</div>
-		<div class="challenge_list">
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -39,7 +38,6 @@
 				</div>
 			</div>
 		@endforeach
-		</div>
 	</div>
 </div>
 
@@ -72,26 +70,3 @@
 	</div>
 </div>
 @endsection
-
-<script>
-jQuery(document).ready(function() {
-	$('#choose_category').change(function(event) {
-		event.preventDefault();
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-			}
-		});
-		$.ajax({
-			url: "{{ route('user.ajax.get') }}",
-			type: "GET",
-			data: {
-				category: { keyname: $('#choose_category option:selected').val() }
-			},
-			success: function(data) {
-				console.log(data);
-			}
-		});
-	});
-});
-</script>
