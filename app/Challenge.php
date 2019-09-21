@@ -17,4 +17,8 @@ class Challenge extends Model
 	    'content',
 	    'resource'
 	];
+
+	public function categories() {
+		return $this->hasOne('App\Category');
+	}
 }

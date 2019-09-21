@@ -128,7 +128,6 @@ class ChallengesController extends Controller
 
     /**
      *  Fetches the challenges by category.
-     *  Used in the AJAX call inside challenges.blade.php.
      */
     public function getChallengesByCategory(Request $request)
     {
