@@ -53,13 +53,9 @@ class ChallengesController extends Controller
     {
         $challenges = Challenge::all();
         $categories = Category::all();
-//        $challenges = Challenge::categoryFilter()
-//                        ->orderBy('created_at', 'ASC')
-//                        ->get();
-        //dump($challenges);
         return view('challenges')
-                ->with('challenges', $challenges)
-                ->with('categories', $categories);
+            ->with('challenges', $challenges)
+            ->with('categories', $categories);
     }
 
     public function edit($id)
