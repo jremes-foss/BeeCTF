@@ -125,15 +125,4 @@ class ChallengesController extends Controller
         Score::where('user_id', $user)
             ->increment('score', $score, ['updated_at' => Carbon::now()]);
     }
-
-    /**
-     *  Fetches the challenges by category.
-     */
-    public function getChallengesByCategory(Request $request)
-    {
-        // var_dump($request);
-        $category = Category::find($request->id);
-        $challenges = Challenge::where('category', $category);
-        return json_encode($challenges);
-    }
 }
