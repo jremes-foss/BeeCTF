@@ -17,4 +17,16 @@ class Challenge extends Model
 	    'content',
 	    'resource'
 	];
+
+	public function categories() {
+		return $this->hasOne('App\Category');
+	}
+
+	public function scopeCategoryFilter($q) {
+		if(request('category')) {
+			$q->where('category', '=', request('category'));
+		}
+
+		return $q;
+	}
 }

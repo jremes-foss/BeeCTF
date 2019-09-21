@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
 	<div class="row">
@@ -8,6 +7,20 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
+		<form method="get" action="{{ route('user.challenges') }}">
+		{{ csrf_field() }}
+			<div class="from-inline">
+				<select name="category" class="form-control form-control-lg" id="choose_category">
+					@foreach($categories as $category)
+						<option>Select a category...</option>
+						<option value="{{ $category->category }}">{{ $category->category }}</option>
+					@endforeach
+				</select>
+				<button type="submit" class="btn btn-primary" value="submit">Search</button>
+			</div>
+		</form>
+	</div>
+	@if(request()->has('category'))
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -31,7 +44,6 @@
 			</div>
 		@endforeach
 	</div>
-</div>
 
 <!-- Submit Flag Modal -->
 <div class="modal fade" id="flagValidation" tabindex="-1" role="dialog" aria-labelledby="flagValidationLabel">
@@ -61,5 +73,14 @@
 		</div>
 	</div>
 </div>
-@endsection
+@else
+<div class="container">
+	<div class="row">
+		<div class="alert alert-info">
+			Please choose a category to start. 
+		</div>
+	</div>
+</div>
+@endif 
 
+@endsection
