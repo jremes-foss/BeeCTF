@@ -16,6 +16,7 @@
 			@endforeach
 		</select>
 	</div>
+	@if(request()->has('category'))
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -69,4 +70,14 @@
 		</div>
 	</div>
 </div>
+@else
+<div class="container">
+	<div class="row">
+		<div class="alert alert-info">
+			Please choose a category to start. 
+		</div>
+	</div>
+</div>
+@endif 
+
 @endsection

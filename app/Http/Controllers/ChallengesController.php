@@ -52,9 +52,14 @@ class ChallengesController extends Controller
     public function indexUser()
     {
         $challenges = Challenge::all();
-        return view('challenges'. [
-            'challenges' => Challenge::categoryFilter()->get()
-        ]);
+        $categories = Category::all();
+//        $challenges = Challenge::categoryFilter()
+//                        ->orderBy('created_at', 'ASC')
+//                        ->get();
+        //dump($challenges);
+        return view('challenges')
+                ->with('challenges', $challenges)
+                ->with('categories', $categories);
     }
 
     public function edit($id)
