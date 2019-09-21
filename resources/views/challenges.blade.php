@@ -9,13 +9,13 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
-			<select name="data[category]" class="form-control form-control-lg" id="choose_category">
-				@foreach($categories as $category)
-					<option>Select a category...</option>
-					<option value="{{ $category->category }}">{{ $category->category }}</option>
-				@endforeach
-			</select>
-		</div>
+		<select name="category" class="form-control form-control-lg" id="choose_category">
+			@foreach($categories as $category)
+				<option>Select a category...</option>
+				<option value="{{ $category->category }}">{{ $category->category }}</option>
+			@endforeach
+		</select>
+	</div>
 		@foreach($challenges as $challenge)
 			<div class="panel panel-primary">
 				<div class="panel-heading">
