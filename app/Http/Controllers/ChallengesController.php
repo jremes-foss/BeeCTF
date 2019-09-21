@@ -130,7 +130,7 @@ class ChallengesController extends Controller
      *  Fetches the challenges by category.
      *  Used in the AJAX call inside challenges.blade.php.
      */
-    public function ajaxGetChallengesByCategory(Request $request)
+    public function getChallengesByCategory(Request $request)
     {
         // var_dump($request);
         $category = Category::find($request->id);
