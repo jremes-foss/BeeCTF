@@ -9,13 +9,17 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
-		<select name="category" class="form-control form-control-lg" id="choose_category">
-			@foreach($categories as $category)
-				<option>Select a category...</option>
-				<option value="{{ $category->category }}">{{ $category->category }}</option>
-			@endforeach
-		</select>
-		<button type="submit" class="btn btn-primary">Search</button>
+		<div class="pull-left">
+			<button type="submit" class="btn btn-primary">Search</button>
+		</div>
+		<div class="input-group">
+			<select name="category" class="form-control form-control-lg" id="choose_category">
+				@foreach($categories as $category)
+					<option>Select a category...</option>
+					<option value="{{ $category->category }}">{{ $category->category }}</option>
+				@endforeach
+			</select>
+		</div>
 	</div>
 	@if(request()->has('category'))
 		@foreach($challenges as $challenge)
