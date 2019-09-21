@@ -15,6 +15,7 @@
 				<option value="{{ $category->category }}">{{ $category->category }}</option>
 			@endforeach
 		</select>
+		<button type="submit" class="btn btn-primary">Search</button>
 	</div>
 	@if(request()->has('category'))
 		@foreach($challenges as $challenge)
