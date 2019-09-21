@@ -23,7 +23,7 @@ class Challenge extends Model
 	}
 
 	public function scopeCategoryFilter($q) {
-		if($request('category')) {
+		if(request('category')) {
 			$q->where('category', '=', request('category'));
 		}
 
