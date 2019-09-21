@@ -9,18 +9,16 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
-		<form role="form" method="post" action="{{ route('user.challenges') }}">
+		<form method="get" action="{{ route('user.challenges') }}">
 		{{ csrf_field() }}
-			<div class="input-group">
+			<div class="from-inline">
 				<select name="category" class="form-control form-control-lg" id="choose_category">
 					@foreach($categories as $category)
 						<option>Select a category...</option>
 						<option value="{{ $category->category }}">{{ $category->category }}</option>
 					@endforeach
 				</select>
-				<div class="pull-left">
-					<button type="submit" class="btn btn-primary" value="submit">Search</button>
-				</div>
+				<button type="submit" class="btn btn-primary" value="submit">Search</button>
 			</div>
 		</form>
 	</div>
@@ -48,7 +46,6 @@
 			</div>
 		@endforeach
 	</div>
-</div>
 
 <!-- Submit Flag Modal -->
 <div class="modal fade" id="flagValidation" tabindex="-1" role="dialog" aria-labelledby="flagValidationLabel">
