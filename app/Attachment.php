@@ -14,7 +14,8 @@ class Attachment extends Model
     	'url'
     ];
 
-    public function challenge() {
+    public function challenge() 
+    {
     	return $this->belongsTo('App\Challenge');
     }
 }
