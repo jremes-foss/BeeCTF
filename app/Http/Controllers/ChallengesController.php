@@ -7,6 +7,7 @@ use App\Challenge;
 use App\Category;
 use App\Solved;
 use App\Score;
+use App\Attachment;
 use Carbon\Carbon;
 
 class ChallengesController extends Controller
@@ -37,7 +38,7 @@ class ChallengesController extends Controller
 
     	Challenge::create($challenge);
 
-        $challenge_id = Challenge::order_by('updated_at', 'DESC')->get();
+        $challenge_id = Challenge::orderBy('updated_at', 'DESC')->first();
         $attachment['challenge_id'] = $challenge_id;
 
         Attachment::create($attachment);
