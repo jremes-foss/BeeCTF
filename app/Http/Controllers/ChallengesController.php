@@ -38,7 +38,8 @@ class ChallengesController extends Controller
 
     	Challenge::create($challenge);
 
-        $challenge_id = Challenge::orderBy('updated_at', 'DESC')->first();
+        $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
+        $challenge_id = $get_challenge->id;
         $attachment['challenge_id'] = $challenge_id;
 
         Attachment::create($attachment);
