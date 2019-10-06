@@ -41,6 +41,7 @@ class ChallengesController extends Controller
         $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
         $challenge_id = $get_challenge->id;
         $attachment['challenge_id'] = $challenge_id;
+        $attachment['filename'] = $directory . '/' . $file;
 
         Attachment::create($attachment);
 
