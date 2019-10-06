@@ -36,11 +36,20 @@ class AttachmentController extends Controller
      */
     public function store(Request $request)
     {
-        $challenge_file = $request->file('inputFile');
-        $directory = 'public/challenges';
-        $file = $challenge_file->getClientOriginalName();
-        $ext = $challenge_file->getClientOriginalExtension();
-        $challenge_file->storeAs($directory, $file);
+        $attachment = array(
+            'url' => $request->get('inputURL')
+        );
+
+        if($request->hasFile('inputFile')) {
+            $attachment_file = $request->file('inputFile');
+            $directory = 'public/challenges';
+            $file = $attachment_file->getClientOriginalName();
+            $ext = $attachment_file->getClientOriginalExtension();
+            $attachment_file->storeAs($directory, $file);
+        }
+
+        Attachment::create($attachment);
+
     }
 
     /**
@@ -74,7 +83,11 @@ class AttachmentController extends Controller
      */
     public function update(Request $request, Attachment $attachment)
     {
-        //
+        if($request->hasFile('inputFile')) {
+            $file = $request->file('inputFile');
+            $file_extension = $file->getClientOriginalExtension();
+        }
+
     }
 
     /**
