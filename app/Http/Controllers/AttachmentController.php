@@ -35,7 +35,11 @@ class AttachmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $challenge_file = $request->file('inputFile');
+        $directory = 'public/challenges';
+        $file = $challenge_file->getClientOriginalName();
+        $ext = $challenge_file->getClientOriginalExtension();
+        $challenge_file->storeAs($directory, $file);
     }
 
     /**
