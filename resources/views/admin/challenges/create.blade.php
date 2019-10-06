@@ -66,6 +66,15 @@
 					<input type="file" class="form-control" id="inputFile" name="inputFile">
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="inputFile">
+					URL
+				</label>
+				<div class="input-group Content">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" id="inputURL" name="inputURL">
+				</div>
+			</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>

@@ -21,16 +21,23 @@ class ChallengesController extends Controller
             'content' => $request->get('inputContent'),
         );
 
+        $attachment = array(
+            'url' => $request->get('inputURL')
+        );
+
         if($request->hasFile('inputFile')) {
-            $challenge_file = $request->file('inputFile');
+            $attachment_file = $request->file('inputFile');
             $directory = 'public/challenges';
             $file = $challenge_file->getClientOriginalName();
             $ext = $challenge_file->getClientOriginalExtension();
-            $challenge_file->storeAs($directory, $file);
+            $attachment_file->storeAs($directory, $file);
         }
 
-        $challenge['resource'] = $file;
+        // $challenge['resource'] = $file;
+
     	Challenge::create($challenge);
+        Attachment::create($attachment);
+
 
     	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
     }
