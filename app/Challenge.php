@@ -14,8 +14,7 @@ class Challenge extends Model
 	    'score',
 	    'title',
 	    'flag',
-	    'content',
-	    'resource'
+	    'content'
 	];
 
 	public function categories() {
