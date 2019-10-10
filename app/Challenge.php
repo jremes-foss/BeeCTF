@@ -17,6 +17,10 @@ class Challenge extends Model
 	    'content'
 	];
 
+	public function attachments() {
+		return $this->hasOne('App\Attachment');
+	}
+
 	public function categories() {
 		return $this->hasOne('App\Category');
 	}
