@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Attachment extends Model
 {
     protected $table = 'attachments';
+    protected $foreignKey = 'challenge_id';
 
     protected $fillable = [
     	'challenge_id',
@@ -16,6 +17,6 @@ class Attachment extends Model
 
     public function challenge() 
     {
-    	return $this->belongsTo('App\Challenge');
+    	return $this->belongsTo('App\Challenge', 'challenge_id');
     }
 }
