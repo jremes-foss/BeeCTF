@@ -60,7 +60,7 @@
 				</label>
 				<div class="input-group Content">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-					<input type="file" class="form-control" id="inputFile" name="inputFile" value="{{ $attachments->filename }}">
+					<input type="file" class="form-control" id="inputFile" name="inputFile" value="{{ $challenge->attachments->filename }}">
 				</div>
 			</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
