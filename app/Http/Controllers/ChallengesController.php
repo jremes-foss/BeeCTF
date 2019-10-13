@@ -151,4 +151,9 @@ class ChallengesController extends Controller
         Score::where('user_id', $user)
             ->increment('score', $score, ['updated_at' => Carbon::now()]);
     }
+
+    public function download() 
+    {
+        
+    }
 }

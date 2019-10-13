@@ -32,7 +32,7 @@
 					<p>Category: {{ $challenge->category }}</p>
 					<p>Score: {{ $challenge->score }}</p>
 					<p>Description: {{ $challenge->content }}</p>
-					<p>Attachment: {{ $challenge->attachments->filename }}</p>
+					<p>Attachment: <a href="{{ storage_path($challenge->attachments->filename) }}" download>Download</a></p>
 					<button type="button" 
 					class="btn btn-primary"
 					data-id="{{ $challenge->id }}"
