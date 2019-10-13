@@ -85,11 +85,13 @@ class ChallengesController extends Controller
     public function update(Request $request, $id)
     {
         $challenge = Challenge::find($id);
+        $attachment = Attachment::find($id);
         $challenge->category = $request->get('inputCategory');
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
         $challenge->flag = $request->get('inputFlag');
         $challenge->content = $request->get('inputContent');
+        // Update the attachment file
         if($request->hasFile('inputFile')) {
             $attachment_file = $request->file('inputFile');
             $directory = 'public/challenges';
@@ -97,6 +99,9 @@ class ChallengesController extends Controller
             $ext = $attachment_file->getClientOriginalExtension();
             $attachment_file->storeAs($directory, $file);
         }
+        // Update the attachment database entries
+        $attachment->url = $request->get('inputURL');
+        $attachment->update();
         $challenge->update();
         return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
     }
