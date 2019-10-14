@@ -72,9 +72,7 @@
 					<input type="text" class="form-control" id="inputURL" name="inputURL" value="{{ $challenge->attachments->url }}">
 				</div>
 			</div>
-
 		<button type="submit" class="btn btn-primary">Submit</button>
-
 		</form>
 	</div>
 </div>
