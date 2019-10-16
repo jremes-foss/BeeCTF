@@ -7,6 +7,7 @@ use App\Challenge;
 use App\Category;
 use App\Solved;
 use App\Score;
+use App\Attachment;
 use Carbon\Carbon;
 
 class ChallengesController extends Controller
@@ -21,16 +22,28 @@ class ChallengesController extends Controller
             'content' => $request->get('inputContent'),
         );
 
-        if($request->hasFile('inputFile')) {
-            $challenge_file = $request->file('inputFile');
-            $directory = 'public/challenges';
-            $file = $challenge_file->getClientOriginalName();
-            $ext = $challenge_file->getClientOriginalExtension();
-            $challenge_file->storeAs($directory, $file);
+        $attachment = array();
+
+        if($request->has('inputURL')) {
+            $attachment['url'] = $request->get('inputURL');
         }
 
-        $challenge['resource'] = $file;
+        if($request->hasFile('inputFile')) {
+            $attachment_file = $request->file('inputFile');
+            $directory = 'public/challenges';
+            $file = $attachment_file->getClientOriginalName();
+            $ext = $attachment_file->getClientOriginalExtension();
+            $attachment_file->storeAs($directory, $file);
+        }
+
     	Challenge::create($challenge);
+
+        $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
+        $challenge_id = $get_challenge->id;
+        $attachment['challenge_id'] = $challenge_id;
+        $attachment['filename'] = $directory . '/' . $file;
+
+        Attachment::create($attachment);
 
     	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
     }
@@ -60,9 +73,11 @@ class ChallengesController extends Controller
 
     public function edit($id)
     {
+        $attachments = Attachment::all();
         $challenges = Challenge::find($id);
         $categories = Category::all();
         return view('admin.challenges.edit')
+            ->with('attachments', $attachments)
             ->with('categories', $categories)
             ->with('challenge', $challenges);
     }
@@ -70,12 +85,23 @@ class ChallengesController extends Controller
     public function update(Request $request, $id)
     {
         $challenge = Challenge::find($id);
+        $attachment = Attachment::find($id);
         $challenge->category = $request->get('inputCategory');
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
         $challenge->flag = $request->get('inputFlag');
         $challenge->content = $request->get('inputContent');
-        $challenge->$challenge_file = $request->get('inputFile');
+        // Update the attachment file
+        if($request->hasFile('inputFile')) {
+            $attachment_file = $request->file('inputFile');
+            $directory = 'public/challenges';
+            $file = $attachment_file->getClientOriginalName();
+            $ext = $attachment_file->getClientOriginalExtension();
+            $attachment_file->storeAs($directory, $file);
+        }
+        // Update the attachment database entries
+        $attachment->url = $request->get('inputURL');
+        $attachment->update();
         $challenge->update();
         return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
     }
@@ -124,5 +150,16 @@ class ChallengesController extends Controller
 
         Score::where('user_id', $user)
             ->increment('score', $score, ['updated_at' => Carbon::now()]);
+    }
+
+    public function download($id)
+    {
+        try {
+            $attachment = Attachment::where('challenge_id', $id)->first();
+            $storage_path = storage_path('app/' . $attachment->filename);
+            return response()->download($storage_path);
+        } catch(Exception $e) {
+            return abort(404);
+        }
     }
 }

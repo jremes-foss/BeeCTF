@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Challenge extends Model
 {
-
 	protected $table = 'challenges';
 	
 	protected $fillable = [
@@ -14,9 +13,12 @@ class Challenge extends Model
 	    'score',
 	    'title',
 	    'flag',
-	    'content',
-	    'resource'
+	    'content'
 	];
+
+	public function attachments() {
+		return $this->hasOne('App\Attachment');
+	}
 
 	public function categories() {
 		return $this->hasOne('App\Category');
