@@ -13,3 +13,15 @@ services:
     working_dir: /var/www
     networks:
       - beectf-network
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+    networks:
+      - beectf-network
