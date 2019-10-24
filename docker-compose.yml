@@ -25,3 +25,21 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d/
     networks:
       - beectf-network
+  mysql:
+    image: mysql:latests
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: beectf
+      MYSQL_ROOT_PASSWORD: ""
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+  networks:
+    - beectf-network
+networks:
+  beectf-network:
+    driver: bridge
+
