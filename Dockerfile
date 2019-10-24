@@ -1,8 +1,8 @@
 FROM php:7.2-fpm
 
-COPY composer.lock composer.json /var/www/
+COPY composer.lock composer.json /var/www/html/
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -29,9 +29,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN groupadd -g 1000 bctf-admin
 RUN useradd -u 1000 -ms /bin/bash -g bctf-admin bctf-admin
 
-COPY . /var/www
-COPY ./public /var/www/html
-COPY --chown=bctf-admin:bctf-admin . /var/www
+COPY --chown=bctf-admin:bctf-admin . /var/www/html
 
 USER bctf-admin
 
