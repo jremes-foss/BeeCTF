@@ -13,6 +13,9 @@ services:
     working_dir: /var/www
     networks:
       - beectf-network
+    volumes:
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
   webserver:
     image: nginx:alpine
     container_name: webserver
@@ -37,9 +40,10 @@ services:
       MYSQL_ROOT_PASSWORD: ""
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
   networks:
     - beectf-network
 networks:
   beectf-network:
     driver: bridge
-
