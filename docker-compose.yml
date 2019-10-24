@@ -23,13 +23,14 @@ services:
     tty: true
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./:/var/www
       - ./nginx/conf.d:/etc/nginx/conf.d/
     networks:
       - beectf-network
   mysql:
-    image: mysql:latests
+    image: mysql:latest
     container_name: mysql
     restart: unless-stopped
     tty: true
@@ -38,12 +39,16 @@ services:
     environment:
       MYSQL_DATABASE: beectf
       MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
       - dbdata:/var/lib/mysql
-  networks:
-    - beectf-network
+    networks:
+      - beectf-network
+volumes:
+  dbdata:
+    driver: local
 networks:
   beectf-network:
     driver: bridge

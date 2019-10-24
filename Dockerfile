@@ -35,5 +35,5 @@ COPY --chown=bctf-admin:bctf-admin . /var/www
 
 USER bctf-admin
 
-EXPOSE 8080
+EXPOSE 9000
 CMD ["php-fpm"]
