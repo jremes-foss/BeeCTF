@@ -1,0 +1,53 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: beectf
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: beectf
+      SERVICE_TAGS: dev
+    working_dir: /var/www/html
+    networks:
+      - beectf-network
+    volumes:
+      - ./:/var/www/html
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d/app.conf:/etc/nginx/conf.d/app.conf
+    networks:
+      - beectf-network
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: beectf
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - beectf-network
+networks:
+  beectf-network:
+    driver: bridge
+volumes:
+  dbdata:
+    driver: local
