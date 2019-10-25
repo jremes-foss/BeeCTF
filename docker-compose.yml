@@ -38,7 +38,6 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: beectf
-      MYSQL_ROOT_PASSWORD: ""
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
@@ -46,9 +45,9 @@ services:
       - dbdata:/var/lib/mysql
     networks:
       - beectf-network
-volumes:
-  dbdata:
-    driver: local
 networks:
   beectf-network:
     driver: bridge
+volumes:
+  dbdata:
+    driver: local
