@@ -26,7 +26,7 @@ services:
       - "443:443"
     volumes:
       - ./:/var/www/html
-      - ./nginx/conf.d:/etc/nginx/conf.d/
+      - ./docker/nginx/conf.d/app.conf:/etc/nginx/conf.d/app.conf
     networks:
       - beectf-network
   mysql:
