@@ -26,12 +26,7 @@ RUN docker-php-ext-install gd
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN groupadd -g 1000 bctf-admin
-RUN useradd -u 1000 -ms /bin/bash -g bctf-admin bctf-admin
-
-COPY --chown=bctf-admin:bctf-admin . /var/www/html
-
-USER bctf-admin
+COPY . /var/www/html
 
 EXPOSE 9000
 CMD ["php-fpm"]
