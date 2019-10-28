@@ -4,7 +4,7 @@ BeeCTF is an Open Source, community-driven project. I would be very happy to rec
 ## General
 
 ### Contributor Covenant
-First of all, please note that this project is released with a Contributor Covenant. By contributing to this project you agree to abide by it's terms. 
+First of all, please note that this project is released with a [Contributor Covenant](https://www.contributor-covenant.org/). By contributing to this project you agree to abide by it's terms. 
 
 ### Creating Issues
 One way you can make BeeCTF better project is by pointing out issues. This can be anything from pointing out typos to larger feature requests. Please put enough information for me to understand the issue properly. If you are reporting bugs, please include the following information:
