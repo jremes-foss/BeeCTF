@@ -6,11 +6,14 @@ BeeCTF is a CTF platform intended for small and local community groups who want 
 
 ## Installation
 Installation of BeeCTF in traditional way is easy:
-* git clone https://github.com/Newman101/BeeCTF
-* composer install
-* composer update
-* php artisan key:generate
-* php artisan user:create-admin
+
+```bash
+git clone https://github.com/Newman101/BeeCTF
+composer install
+composer update
+php artisan key:generate
+php artisan user:create-admin
+```
 
 After creating an administrative user, the system is ready to use.
 
