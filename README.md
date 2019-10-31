@@ -15,10 +15,17 @@ php artisan key:generate
 php artisan user:create-admin
 ```
 
+With Docker (currently for development purposes only, the production image is work in progress):
+
+```bash
+docker-compose build
+docker-compose up
+```
+
 After creating an administrative user, the system is ready to use.
 
 ## Pull Requests
-Feel free to send any bug fixes, new features, etc. via pull requests. 
+Feel free to send any bug fixes, new features, etc. via pull requests. Please note that BeeCTF is still heavily work in progress so there are a lot of issues to fix and all contributions are welcome. :+1:
 
 ## License
 Copyright (c) <2019> Juha Remes
