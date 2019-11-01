@@ -11,4 +11,8 @@ class ScoreController extends Controller
     public function getScores() {
     	// TODO
     }
+
+    public function getSolveds() {
+    	// TODO
+    }
 }
