@@ -8,5 +8,7 @@ use App\Score;
 
 class ScoreController extends Controller
 {
-    // TODO
+    public function getScores() {
+    	// TODO
+    }
 }
