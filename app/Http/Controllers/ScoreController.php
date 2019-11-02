@@ -9,6 +9,14 @@ use App\Score;
 class ScoreController extends Controller
 {
     /**
+     * Calculates the score for each individual player.
+     *
+     */
+    public function getScoresPerPlayer($id) {
+
+    }
+
+    /**
      * Gets the player scores.
      *
      */
