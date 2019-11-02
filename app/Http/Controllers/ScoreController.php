@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Solved;
+use App\Challenge;
 use App\Score;
+use App\Solved;
 
 class ScoreController extends Controller
 {
@@ -13,7 +14,18 @@ class ScoreController extends Controller
      *
      */
     public function getScoresPerPlayer($id) {
+    	$score = 0;
+    	$solutions = Solved::where('user_id', $id)->get([
+    		'challenge_id',
+    		'user_id'
+    	]);
 
+    	foreach($solutions as $solution) {
+	    	$points = Challenge::where('challenge_id', $solution['challenge_id']);
+	    	$score += $points;
+    	}
+
+    	return $score;
     }
 
     /**
