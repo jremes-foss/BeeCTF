@@ -10,8 +10,9 @@ use App\Solved;
 class ScoreController extends Controller
 {
     /**
-     * Calculates the score for each individual player.
+     *	Calculates the score for each individual player.
      *
+     *	@return integer
      */
     public function getScoresPerPlayer($id) {
     	$score = 0;
