@@ -34,14 +34,15 @@ class ScoreController extends Controller
      *
      */
     public function getScores() {
-    	// TODO
-    }
+    	$users = User::where('user_type', 'User')->get([
+    		'id', 'name'
+    	]);
 
-    /**
-     * Gets the number of solved challenges per player.
-     *
-     */
-    public function getSolveds() {
-    	// TODO
+    	$score_array = [];
+    	// Figure this out.
+    	foreach($users as $user) {
+    		$score = $this->getScoresPerPlayer($user->id);
+    		$id = $user->id;
+    	}
     }
 }
