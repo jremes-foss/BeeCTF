@@ -39,10 +39,17 @@ class ScoreController extends Controller
     	]);
 
     	$score_array = [];
-    	// Figure this out.
+
     	foreach($users as $user) {
     		$score = $this->getScoresPerPlayer($user->id);
     		$id = $user->id;
+            $temp_array = array(
+                'id' => $id,
+                'score' => $score
+            );
+            array_push($score_array, $temp_array);
     	}
+
+        return $score_array;
     }
 }
