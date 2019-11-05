@@ -32,6 +32,7 @@ class ScoreController extends Controller
     /**
      * Gets the player scores.
      *
+     *  @return array
      */
     public function getScores() {
     	$users = User::where('user_type', 'User')->get([
