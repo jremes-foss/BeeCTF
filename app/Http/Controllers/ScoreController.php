@@ -51,6 +51,9 @@ class ScoreController extends Controller
             array_push($score_array, $temp_array);
     	}
 
-        return $score_array;
+        $score_collection = collect($score_array);
+        $score_sorted = $score_collection->sortBy('score');
+
+        return $score_sorted;
     }
 }
