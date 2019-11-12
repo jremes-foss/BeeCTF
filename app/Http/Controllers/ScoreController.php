@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Challenge;
 use App\Score;
 use App\Solved;
+use App\User;
 
 class ScoreController extends Controller
 {
