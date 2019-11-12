@@ -48,8 +48,10 @@ class ScoreController extends Controller
     	foreach($users as $user) {
     		$score = $this->getScoresPerPlayer($user->id);
     		$id = $user->id;
+            $name = $user->name;
             $temp_array = array(
                 'id' => $id,
+                'name' => $name,
                 'score' => $score
             );
             array_push($score_array, $temp_array);
