@@ -23,8 +23,11 @@ class ScoreController extends Controller
     	]);
 
     	foreach($solutions as $solution) {
-	    	$points = Challenge::where('challenge_id', $solution['challenge_id']);
-	    	$score += $points;
+	    	$points = Challenge::where('id', $solution['challenge_id'])->get();
+            
+            foreach($points as $point) {
+                $score += $point->score;
+            }
     	}
 
     	return $score;
@@ -51,7 +54,6 @@ class ScoreController extends Controller
             );
             array_push($score_array, $temp_array);
     	}
-
         $score_collection = collect($score_array);
         $score_sorted = $score_collection->sortBy('score');
 

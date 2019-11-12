@@ -6,16 +6,14 @@
 		<table class="table table-hover">
 		<thead>
 		    <tr>
-			  	<th scope="col">#</th>
 			  	<th scope="col">Name</th>
 			  	<th scope="col">Score</th>
 		    </tr>
 		</thead>
 		<tbody>
 			@foreach($scores as $score)
-				<th scope="row"></th>
-				<td></td>
-				<td></td>
+				<td>{{ $score["id"] }}</td>
+				<td>{{ $score["score"] }}</td>
 			@endforeach
 		</tbody>
 	</table>
