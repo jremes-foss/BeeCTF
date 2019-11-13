@@ -13,9 +13,11 @@
 		</thead>
 		<tbody>
 			@foreach($scores as $score)
+			<tr>
 				<td>{{ $loop->iteration }}</td>
 				<td>{{ $score["name"] }}</td>
 				<td>{{ $score["score"] }}</td>
+			</tr>
 			@endforeach
 		</tbody>
 	</table>
