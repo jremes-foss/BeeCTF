@@ -57,7 +57,7 @@ class ScoreController extends Controller
             array_push($score_array, $temp_array);
     	}
         $score_collection = collect($score_array);
-        $score_sorted = $score_collection->sortBy('score');
+        $score_sorted = $score_collection->sortByDesc('score');
 
         return view('scoreboard')->with('scores', $score_sorted);
     }
