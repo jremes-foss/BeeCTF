@@ -25,7 +25,6 @@
 		  		<td>
 		  			<a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-info">Edit</a>
 		  			<a href="{{ route('admin.categories.delete', $category->id) }}" class="btn btn-danger">Delete</a>
-
 		  		</td>
 		  	</tr>
 		  	@endforeach

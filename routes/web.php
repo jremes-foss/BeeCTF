@@ -28,6 +28,8 @@ Route::post('/challenges', 'ChallengesController@submitFlag')->name('user.submit
 
 Route::get('/challenges/{id}/download', 'ChallengesController@download')->name('user.download');
 
+Route::get('/scoreboard', 'ScoreController@getScores')->name('scoreboard');
+
 /** Admin Routes **/
 
 Route::get('/admin', 'HomeController@admin')
