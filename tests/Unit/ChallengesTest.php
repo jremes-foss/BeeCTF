@@ -33,4 +33,19 @@ class ChallengesTest extends TestCase
 		$response->assertSee('Flag');
 		$response->assertSee('Content');
 	}
+
+	public function testAdminCreateChallenge() 
+	{
+		$data = [
+			'inputCategory' => 'Crypto',
+			'inputTitle' => 250,
+			'inputScore' => 'Weak Cipher',
+			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
+			'inputContent' => 'Can you break this weak cipher?'
+		];
+
+		$response = $this->post('admin/challenges/create', $data);
+		//$response->assertStatus(200);
+		dd($response);
+	}
 }
