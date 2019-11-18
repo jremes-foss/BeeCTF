@@ -10,6 +10,7 @@ class ChallengesTest extends TestCase
 {
 	use RefreshDatabase;
 	
+	// Refactor to Feature Tests
 	public function testAdminSidebarWorks()
 	{
 		$admin = factory(\App\User::class)
@@ -20,6 +21,7 @@ class ChallengesTest extends TestCase
 		$response->assertSee('/admin/challenges');
 	}
 
+	// Refactor to Feature Tests
 	public function testAdminChallengesClickThrough()
 	{
 		$admin = factory(\App\User::class)
@@ -34,7 +36,7 @@ class ChallengesTest extends TestCase
 		$response->assertSee('Content');
 	}
 
-	public function testAdminCreateChallenge() 
+	public function testAdminStoreChallenge() 
 	{
 		$data = [
 			'inputCategory' => 'Crypto',
@@ -46,5 +48,11 @@ class ChallengesTest extends TestCase
 
 		$response = $this->post('admin/challenges/create', $data);
 		$response->assertStatus(302);
+	}
+
+	public function testAdminCreateChallenge()
+	{
+		$response = $this->get('admin/challenges/create');
+		$response->assertStatus(200);
 	}
 }
