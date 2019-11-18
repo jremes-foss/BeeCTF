@@ -36,7 +36,7 @@ class ChallengesTest extends TestCase
 		$response->assertSee('Content');
 	}
 
-	public function testAdminStoreChallenge() 
+	public function testStore() 
 	{
 		$data = [
 			'inputCategory' => 'Crypto',
@@ -50,9 +50,21 @@ class ChallengesTest extends TestCase
 		$response->assertStatus(302);
 	}
 
-	public function testAdminCreateChallenge()
+	public function testCreate()
 	{
 		$response = $this->get('admin/challenges/create');
+		$response->assertStatus(200);
+	}
+
+	public function testIndexAdmin()
+	{
+		$response = $this->get('admin/challenges');
+		$response->assertStatus(200);
+	}
+
+	public function testIndexUser()
+	{
+		$response = $this->get('/challenges');
 		$response->assertStatus(200);
 	}
 }
