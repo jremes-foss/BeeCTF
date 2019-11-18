@@ -45,7 +45,9 @@ class ChallengesController extends Controller
             $attachment['filename'] = $directory . '/' . $file;            
         }
 
-        Attachment::create($attachment);
+        if(!empty($attachment)) {
+            Attachment::create($attachment);
+        }
 
     	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
     }

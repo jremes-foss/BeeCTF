@@ -45,7 +45,6 @@ class ChallengesTest extends TestCase
 		];
 
 		$response = $this->post('admin/challenges/create', $data);
-		//$response->assertStatus(200);
-		dd($response);
+		$response->assertStatus(302);
 	}
 }
