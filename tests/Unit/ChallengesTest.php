@@ -10,32 +10,6 @@ class ChallengesTest extends TestCase
 {
 	use RefreshDatabase;
 	
-	// Refactor to Feature Tests
-	public function testAdminSidebarWorks()
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
-		
-		$response = $this->actingAs($admin)->get('/admin');
-		$response->assertSee('/admin/challenges');
-	}
-
-	// Refactor to Feature Tests
-	public function testAdminChallengesClickThrough()
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
-		
-		$response = $this->actingAs($admin)->get('/admin/challenges');
-		$response->assertSee('Category');
-		$response->assertSee('Score');
-		$response->assertSee('Title');
-		$response->assertSee('Flag');
-		$response->assertSee('Content');
-	}
-
 	public function testStore() 
 	{
 		$data = [
