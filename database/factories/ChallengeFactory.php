@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Challenges::class, function (Faker $faker) {
+$factory->define(App\Challenge::class, function (Faker $faker) {
     return [
         'category' => 'Crypto',
         'score' => '350',
