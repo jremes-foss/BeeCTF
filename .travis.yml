@@ -4,7 +4,7 @@ os:
 language: php
 
 php:
-  - '7.1'
+  - '7.3'
 
 addons:
   mariadb: 10.4
@@ -14,6 +14,8 @@ cache:
     - vendor
 
 before_script:
+  - cp .env.travis .env
+  - sudo mysql -e 'CREATE DATABASE testing;'
   - composer self-update
   - composer install --no-interaction
   - php artisan key:generate
