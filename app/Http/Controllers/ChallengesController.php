@@ -38,12 +38,16 @@ class ChallengesController extends Controller
 
     	Challenge::create($challenge);
 
-        $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
-        $challenge_id = $get_challenge->id;
-        $attachment['challenge_id'] = $challenge_id;
-        $attachment['filename'] = $directory . '/' . $file;
+        if($request->hasFile('inputFile')) {
+            $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
+            $challenge_id = $get_challenge->id;
+            $attachment['challenge_id'] = $challenge_id;
+            $attachment['filename'] = $directory . '/' . $file;            
+        }
 
-        Attachment::create($attachment);
+        if(!empty($attachment)) {
+            Attachment::create($attachment);
+        }
 
     	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
     }

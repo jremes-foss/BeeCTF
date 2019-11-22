@@ -1,0 +1,25 @@
+os:
+  - linux
+
+language: php
+
+php:
+  - '7.3'
+
+addons:
+  mariadb: 10.4
+
+cache:
+  directories:
+    - vendor
+
+before_script:
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+  - php artisan migrate --seed
+
+script:
+  - phpdbg -qrr ./vendor/bin/phpunit
+  - ./vendor/bin/php-coveralls -x build/logs/clover.xml

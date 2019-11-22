@@ -17,6 +17,7 @@ class ScoreController extends Controller
      */
     public function getScoresPerPlayer($id) {
     	$score = 0;
+
     	$solutions = Solved::where('user_id', $id)->get([
     		'challenge_id',
     		'user_id'
@@ -24,7 +25,6 @@ class ScoreController extends Controller
 
     	foreach($solutions as $solution) {
 	    	$points = Challenge::where('id', $solution['challenge_id'])->get();
-            
             foreach($points as $point) {
                 $score += $point->score;
             }
