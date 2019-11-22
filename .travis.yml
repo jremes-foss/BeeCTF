@@ -22,4 +22,4 @@ before_script:
 
 script:
   - phpdbg -qrr ./vendor/bin/phpunit
-  - ./vendor/bin/php-coveralls -x build/clover.xml
+  - ./vendor/bin/php-coveralls -x build/logs/clover.xml
