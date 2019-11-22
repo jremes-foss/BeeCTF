@@ -1,4 +1,5 @@
 # BeeCTF
+[![Build Status](https://travis-ci.com/Newman101/BeeCTF.svg?branch=master)](https://travis-ci.com/Newman101/BeeCTF)
 Laravel-Based Community CTF Platform
 
 ## Introduction

@@ -14,9 +14,11 @@ cache:
     - vendor
 
 before_script:
+  - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction
-  - cp .env.travis .env
+  - php artisan key:generate
+  - php artisan migrate --seed
 
 script:
   - vendor/bin/phpunit --coverage-text
