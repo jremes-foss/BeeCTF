@@ -21,4 +21,5 @@ before_script:
   - php artisan migrate --seed
 
 script:
-  - vendor/bin/phpunit --coverage-text
+  - phpdbg -qrr ./vendor/bin/phpunit
+  - ./vendor/bin/coveralls -x build/clover.xml
