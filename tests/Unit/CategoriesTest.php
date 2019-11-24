@@ -5,10 +5,16 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Category;
 
 class CategoriesTest extends TestCase
 {
 	use RefreshDatabase;
+
+	public function testChallengesRelationship()
+	{
+		// TODO
+	}
 
 	public function testIndex() 
 	{
