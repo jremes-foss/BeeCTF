@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Category;
+use App\Challenge;
 
 class CategoriesTest extends TestCase
 {
@@ -13,7 +14,13 @@ class CategoriesTest extends TestCase
 
 	public function testChallengesRelationship()
 	{
-		// TODO
+		$challenge = factory(Challenge::class)->make([
+			'category' => 'Crypto'
+		]);
+
+		$category = $challenge->category;
+
+		$this->assertEquals('Crypto', $category);
 	}
 
 	public function testIndex() 
