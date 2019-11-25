@@ -45,4 +45,15 @@ class CategoriesTest extends TestCase
 		$response = $this->post('admin/categories/create', $data);
 		$response->assertStatus(302);
 	}
+
+	public function testEdit() 
+	{
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		$response = $this->get('admin/categories/1/edit');
+		$response->assertStatus(200);
+	}
 }
