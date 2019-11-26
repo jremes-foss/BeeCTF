@@ -56,4 +56,20 @@ class CategoriesTest extends TestCase
 		$response = $this->get('admin/categories/1/edit');
 		$response->assertStatus(200);
 	}
+
+	public function testUpdate() 
+	{
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		$data = [
+			'inputCategory' => 'Steganography',
+			'inputDescription' => 'This is updated test category.'
+		];
+
+		$response = $this->post('admin/categories/1/update', $data);
+		$response->assertStatus(302);
+	}
 }
