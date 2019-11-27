@@ -72,4 +72,15 @@ class CategoriesTest extends TestCase
 		$response = $this->post('admin/categories/1/update', $data);
 		$response->assertStatus(302);
 	}
+
+	public function testDestroy()
+	{
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		$response = $this->get('admin/categories/1/delete');
+		$response->assertStatus(302);
+	}
 }
