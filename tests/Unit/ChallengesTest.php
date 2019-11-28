@@ -96,4 +96,18 @@ class ChallengesTest extends TestCase
 		$response = $this->post('admin/challenges/1/update', $data);
 		$response->assertStatus(302);
 	}
+
+	public function testDestroy() 
+	{
+		factory(\App\Challenge::class)->create([
+			'category' => 'Crypto',
+			'score' => '250',
+			'title' => 'TEST',
+			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+			'content' => 'This is a test.'
+		]);
+
+		$response = $this->get('admin/challenges/1/delete');
+		$response->assertStatus(302);		
+	}
 }
