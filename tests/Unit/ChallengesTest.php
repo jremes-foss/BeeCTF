@@ -5,6 +5,8 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Category;
+use App\Challenge;
 
 class ChallengesTest extends TestCase
 {
@@ -39,6 +41,32 @@ class ChallengesTest extends TestCase
 	public function testIndexUser()
 	{
 		$response = $this->get('/challenges');
+		$response->assertStatus(200);
+	}
+
+	public function testEdit()
+	{
+		factory(\App\Challenge::class)->create([
+			'category' => 'Crypto',
+			'score' => '250',
+			'title' => 'TEST',
+			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+			'content' => 'This is a test.'
+		]);
+
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		factory(\App\Attachment::class)->create([
+	    	'challenge_id' => 2,
+	    	'filename' => 'public/challenges/test.zip',
+	    	'url' => 'http://127.0.0.1:1337/index.php'		
+		]);
+		
+		$response = $this->get('admin/challenges/1/edit');
+//		var_dump($response->getOriginalContent());
 		$response->assertStatus(200);
 	}
 }
