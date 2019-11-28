@@ -110,4 +110,35 @@ class ChallengesTest extends TestCase
 		$response = $this->get('admin/challenges/1/delete');
 		$response->assertStatus(302);		
 	}
+
+	public function testSubmitFlag()
+	{
+		factory(\App\Challenge::class)->create([
+			'category' => 'Crypto',
+			'score' => '250',
+			'title' => 'TEST',
+			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+			'content' => 'This is a test.'
+		]);
+
+		factory(\App\Attachment::class)->create([
+	    	'challenge_id' => 1,
+	    	'filename' => 'public/challenges/test.zip',
+	    	'url' => 'http://127.0.0.1:1337/index.php'		
+		]);
+
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+
+		$data = array(
+			'id' => 1,
+			'flag' => 'FLAG{th1s_1s_4_t3st}'
+		);
+
+		$response = $this->post('/challenges', $data);
+		$response->assertStatus(302);
+	}
 }
