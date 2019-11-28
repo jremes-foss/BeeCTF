@@ -66,7 +66,6 @@ class ChallengesTest extends TestCase
 		]);
 		
 		$response = $this->get('admin/challenges/1/edit');
-//		var_dump($response->getOriginalContent());
 		$response->assertStatus(200);
 	}
 }
