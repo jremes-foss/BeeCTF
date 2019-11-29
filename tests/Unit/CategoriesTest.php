@@ -5,10 +5,23 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Category;
+use App\Challenge;
 
 class CategoriesTest extends TestCase
 {
 	use RefreshDatabase;
+
+	public function testChallengesRelationship()
+	{
+		$challenge = factory(Challenge::class)->make([
+			'category' => 'Crypto'
+		]);
+
+		$category = $challenge->category;
+
+		$this->assertEquals('Crypto', $category);
+	}
 
 	public function testIndex() 
 	{
@@ -30,6 +43,44 @@ class CategoriesTest extends TestCase
 		];
 
 		$response = $this->post('admin/categories/create', $data);
+		$response->assertStatus(302);
+	}
+
+	public function testEdit() 
+	{
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		$response = $this->get('admin/categories/1/edit');
+		$response->assertStatus(200);
+	}
+
+	public function testUpdate() 
+	{
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		$data = [
+			'inputCategory' => 'Steganography',
+			'inputDescription' => 'This is updated test category.'
+		];
+
+		$response = $this->post('admin/categories/1/update', $data);
+		$response->assertStatus(302);
+	}
+
+	public function testDestroy()
+	{
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		$response = $this->get('admin/categories/1/delete');
 		$response->assertStatus(302);
 	}
 }
