@@ -23,6 +23,26 @@ class CategoriesTest extends TestCase
 		$this->assertEquals('Crypto', $category);
 	}
 
+	public function testHasMany()
+	{
+		factory(\App\Challenge::class)->create([
+			'category' => 'Crypto',
+			'score' => '250',
+			'title' => 'TEST',
+			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+			'content' => 'This is a test.'
+		]);
+
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		$category = new Category();
+		$challenges = $category->challenges();
+		$this->assertEquals('object', gettype($challenges));
+	}
+
 	public function testIndex() 
 	{
 		$response = $this->get('admin/categories');
