@@ -22,26 +22,30 @@ class ChallengesController extends Controller
             'content' => $request->get('inputContent'),
         );
 
+        Challenge::create($challenge);
+
         $attachment = array();
 
-        if($request->has('inputURL')) {
-            $attachment['url'] = $request->get('inputURL');
-        }
+        if($request->has('inputURL') || $request->has('inputFile')) {
 
-        if($request->hasFile('inputFile')) {
-            $attachment_file = $request->file('inputFile');
-            $directory = 'public/challenges';
-            $file = $attachment_file->getClientOriginalName();
-            $ext = $attachment_file->getClientOriginalExtension();
-            $attachment_file->storeAs($directory, $file);
-        }
-
-    	Challenge::create($challenge);
-
-        if($request->hasFile('inputFile')) {
             $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
             $challenge_id = $get_challenge->id;
             $attachment['challenge_id'] = $challenge_id;
+
+            if($request->has('inputURL')) {
+                $attachment['url'] = $request->get('inputURL');
+            }
+
+            if($request->hasFile('inputFile')) {
+                $attachment_file = $request->file('inputFile');
+                $directory = 'public/challenges';
+                $file = $attachment_file->getClientOriginalName();
+                $ext = $attachment_file->getClientOriginalExtension();
+                $attachment_file->storeAs($directory, $file);                
+            }
+        }
+
+        if($request->hasFile('inputFile')) {
             $attachment['filename'] = $directory . '/' . $file;            
         }
 

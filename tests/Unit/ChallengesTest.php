@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Category;
 use App\Challenge;
+use App\Attachment;
 
 class ChallengesTest extends TestCase
 {
@@ -19,7 +20,8 @@ class ChallengesTest extends TestCase
 			'inputTitle' => 250,
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
-			'inputContent' => 'Can you break this weak cipher?'
+			'inputContent' => 'Can you break this weak cipher?',
+			'inputURL' => 'http://127.0.0.1:1337/index.php'
 		];
 
 		$response = $this->post('admin/challenges/create', $data);
