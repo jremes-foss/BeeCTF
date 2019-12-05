@@ -14,7 +14,7 @@ class LoginTest extends TestCase
 	public function testShowMainPage()
 	{
 		$response = $this->get('/home');
-		$response->assertStatus(200);
+		$response->assertStatus(302);
 	}
 
 	public function testLoginFormDisplayed()
