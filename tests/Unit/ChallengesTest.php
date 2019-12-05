@@ -29,6 +29,10 @@ class ChallengesTest extends TestCase
 
 		$response = $this->post('admin/challenges/create', $data);
 		$response->assertStatus(302);
+
+		// Test the download function here.
+		$response = $this->get('/challenges/1/download');
+		$response->assertStatus(200);
 	}
 
 	public function testCreate()
