@@ -13,7 +13,7 @@ class LoginTest extends TestCase
 
 	public function testShowMainPage()
 	{
-		$response = $this->get('/');
+		$response = $this->get('/home');
 		$response->assertStatus(200);
 	}
 
