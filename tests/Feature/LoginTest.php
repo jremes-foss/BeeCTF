@@ -11,6 +11,12 @@ class LoginTest extends TestCase
 {
 	use RefreshDatabase;
 
+	public function testShowMainPage()
+	{
+		$response = $this->get('/');
+		$response->assertStatus(200);
+	}
+
 	public function testLoginFormDisplayed()
 	{
 		$response = $this->get('/login');
