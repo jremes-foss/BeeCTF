@@ -9,6 +9,7 @@ use Illuminate\Http\UploadedFile;
 use App\Category;
 use App\Challenge;
 use App\Attachment;
+use App\User;
 
 class ChallengesTest extends TestCase
 {
@@ -121,7 +122,7 @@ class ChallengesTest extends TestCase
 			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
-			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+			'flag' => 'FLAG{th1s_1s_4_t3st}',
 			'content' => 'This is a test.'
 		]);
 
@@ -136,6 +137,8 @@ class ChallengesTest extends TestCase
     	    'description' => 'This is a test category'
 		]);
 
+		$user = factory(\App\User::class)->create();
+		$this->be($user);
 
 		$data = array(
 			'id' => 1,
