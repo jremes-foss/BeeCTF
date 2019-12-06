@@ -2,21 +2,38 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Artisan;
 
 class AdminConsoleTest extends TestCase
 {
+	use WithFaker;
+	use RefreshDatabase;
+
 	public function testAdminConsoleCommandExists()
 	{
 		$this->assertTrue(class_exists(\App\Console\Commands\CreateAdministrator::class));
 	}
 
-	public function testRunAdminConsoleCommandNoInteraction()
+	public function testRunAdminConsoleCommand() 
 	{
-		$cmd = Artisan::call('user:create-admin', ['--no-interaction' => true]);
-		$this->assertEquals(0, $cmd);
+		$email = $this->faker->email;
+		$password = $this->faker->password(8);
+
+		$this->artisan('user:create-admin')
+			->expectsOutput("*** BeeCTF Artisan Admin Creator ***")
+			->expectsOutput("[!] This command allows you to create admin user to database.")
+			->expectsQuestion("[?] Are you sure you wish to continue?", true)
+			->expectsQuestion("[?] Enter username", 'h4cker')
+			->expectsQuestion("[?] Enter email", $email)
+			->expectsQuestion("[?] Enter password", $password)
+			->expectsOutput("[!] Administrative user has been created.")
+			->assertExitCode(0);
+
+		$this->assertDatabaseHas('users', [
+			'email' => $email
+		]);
 	}
 }

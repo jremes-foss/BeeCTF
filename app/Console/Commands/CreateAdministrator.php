@@ -41,8 +41,8 @@ class CreateAdministrator extends Command
     {
         $this->info('*** BeeCTF Artisan Admin Creator ***');
         $this->info('[!] This command allows you to create admin user to database.');
-
-        if($this->confirm('[?] Are you sure you wish to continue?')) {
+        $confirm = $this->confirm('[?] Are you sure you wish to continue?');
+        if($confirm) {
             $name = $this->ask('[?] Enter username');
             $email = $this->ask('[?] Enter email');
             $password = $this->secret('[?] Enter password');
