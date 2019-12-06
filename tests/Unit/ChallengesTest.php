@@ -162,4 +162,11 @@ class ChallengesTest extends TestCase
 		$response = $this->post('/challenges', $data);
 		$response->assertStatus(302);
 	}
+
+	public function testCategory() 
+	{
+		$challenge = new Challenge;
+		$category = $challenge->categories();
+		$this->assertEquals('object', gettype($category));
+	}
 }
