@@ -99,7 +99,8 @@ class ChallengesTest extends TestCase
 			'inputTitle' => 250,
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
-			'inputContent' => 'Can you break this weak cipher?'
+			'inputContent' => 'Can you break this weak cipher?',
+			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
 
 		$response = $this->post('admin/challenges/1/update', $data);
