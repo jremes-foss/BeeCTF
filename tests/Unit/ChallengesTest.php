@@ -152,5 +152,14 @@ class ChallengesTest extends TestCase
 
 		$response = $this->post('/challenges', $data);
 		$response->assertStatus(302);
+
+		// Test invalid flag
+		$data = array(
+			'id' => 1,
+			'flag' => 'FLAG{th1s_1s_1nv4l1d_fl4g}'
+		);
+
+		$response = $this->post('/challenges', $data);
+		$response->assertStatus(302);
 	}
 }
