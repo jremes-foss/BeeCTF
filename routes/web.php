@@ -83,3 +83,7 @@ Route::post('admin/categories/{id}/update', [
 Route::get('admin/categories/{id}/delete', [
     'uses' => 'CategoriesController@destroy'
 ])->name('admin.categories.delete');
+
+Route::get('admin/users', 'UserController@index', function() {
+    return view('admin.users');
+})->name('admin.users');
