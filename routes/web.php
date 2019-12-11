@@ -87,3 +87,7 @@ Route::get('admin/categories/{id}/delete', [
 Route::get('admin/users', 'UserController@index', function() {
     return view('admin.users');
 })->name('admin.users');
+
+Route::get('admin/users/{id}/delete', [
+    'uses' => 'UserController@destroy'
+])->name('admin.users.delete');
