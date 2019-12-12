@@ -14,6 +14,7 @@
 					<th scope="col">#</th>
 					<th scope="col">Name</th>
 					<th scope="col">E-mail</th>
+					<th scope="col">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,6 +23,7 @@
 						<th scope="row">{{ $user->id }}</th>
 						<td scope="row">{{ $user->name }}</td>
 						<td scope="row">{{ $user->email }}</td>
+						<td scope="row">TODO</td>
 					</tr>
 				@endforeach
 			</tbody>
