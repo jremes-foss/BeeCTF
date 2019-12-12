@@ -20,6 +20,15 @@ class UserController extends Controller
 		return view('admin.users.edit')->with('user', $user);
 	}
 
+	public function update(Request $request, $id)
+	{
+		$user = User::find($id);
+        $user->name = $request->get('inputName');
+        $user->email = $request->get('inputEmail');
+		$user->save();
+        return redirect()->route('admin.users')->with('success', 'User updated!');
+	}
+
 	public function destroy($id)
 	{
 		$user = User::find($id);

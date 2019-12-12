@@ -23,7 +23,9 @@
 						<th scope="row">{{ $user->id }}</th>
 						<td scope="row">{{ $user->name }}</td>
 						<td scope="row">{{ $user->email }}</td>
-						<td scope="row">TODO</td>
+						<td scope="row">
+							<a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info">Edit</a>
+						</td>
 					</tr>
 				@endforeach
 			</tbody>
