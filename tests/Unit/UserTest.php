@@ -24,4 +24,37 @@ class UserTest extends TestCase
     		->create();
     	$this->assertTrue($admin->isAdmin());
     }
+
+    public function testAdminViewUsers()
+    {
+        $response = $this->get('admin/users');
+        $response->assertStatus(200);
+    }
+
+    public function testAdminEditUsers()
+    {
+        $user = factory(\App\User::class)->create();
+        $response = $this->get('admin/users/1/edit');
+        $response->assertStatus(200);
+    }
+
+    public function testAdminUpdateUsers()
+    {
+        $user = factory(\App\User::class)->create();
+
+        $data = [
+            'inputName' => 'Test Users',
+            'inputEmail' => 'testuser@hackerman.com'
+        ];
+
+        $response = $this->post('admin/users/1/update', $data);
+        $response->assertStatus(302);
+    }
+
+    public function testAdminDeleteUsers()
+    {
+        $user = factory(\App\User::class)->create();
+        $response = $this->get('admin/users/1/delete');
+        $response->assertStatus(302);  
+    }
 }

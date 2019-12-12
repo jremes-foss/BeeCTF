@@ -83,3 +83,19 @@ Route::post('admin/categories/{id}/update', [
 Route::get('admin/categories/{id}/delete', [
     'uses' => 'CategoriesController@destroy'
 ])->name('admin.categories.delete');
+
+Route::get('admin/users', 'UserController@index', function() {
+    return view('admin.users');
+})->name('admin.users');
+
+Route::get('admin/users/{id}/edit', [
+    'uses' => 'UserController@edit'
+])->name('admin.users.edit');
+
+Route::post('admin/users/{id}/update', [
+    'uses' => 'UserController@update'
+])->name('admin.users.update');
+
+Route::get('admin/users/{id}/delete', [
+    'uses' => 'UserController@destroy'
+])->name('admin.users.delete');
