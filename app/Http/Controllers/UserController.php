@@ -14,6 +14,12 @@ class UserController extends Controller
 		return view('admin.users')->with('users', $users);
 	}
 
+	public function edit($id)
+	{
+		$user = User::find($id);
+		return view('admin.users.edit')->with('user', $user);
+	}
+
 	public function destroy($id)
 	{
 		$user = User::find($id);
