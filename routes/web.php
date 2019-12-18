@@ -30,6 +30,8 @@ Route::get('/challenges/{id}/download', 'ChallengesController@download')->name('
 
 Route::get('/scoreboard', 'ScoreController@getScores')->name('scoreboard');
 
+Route::get('/scontent', 'StaticContentController@index')->name('scontent');
+
 /** Admin Routes **/
 
 Route::get('/admin', 'HomeController@admin')
