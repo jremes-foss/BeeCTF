@@ -8,6 +8,6 @@ class StaticContentController extends Controller
 {
     public function index()
     {
-    	return view('user.scontent');
+    	return view('scontent');
     }
 }
