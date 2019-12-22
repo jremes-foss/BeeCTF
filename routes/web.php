@@ -32,6 +32,9 @@ Route::get('/scoreboard', 'ScoreController@getScores')->name('scoreboard');
 
 Route::get('/scontent', 'StaticContentController@index')->name('scontent');
 
+Route::get('/announcements', 'AnnouncementsController@indexUser')
+    ->name('announcements');
+
 /** Admin Routes **/
 
 Route::get('/admin', 'HomeController@admin')
@@ -101,3 +104,7 @@ Route::post('admin/users/{id}/update', [
 Route::get('admin/users/{id}/delete', [
     'uses' => 'UserController@destroy'
 ])->name('admin.users.delete');
+
+Route::get('admin/announcements', 'AnnouncementsController@indexAdmin', function() {
+    return view('admin.announcements');
+})->name('admin.announcements');
