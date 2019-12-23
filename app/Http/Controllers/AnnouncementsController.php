@@ -7,6 +7,12 @@ use App\Announcement;
 
 class AnnouncementsController extends Controller
 {
+	public function create() 
+	{
+		$announcements = Announcement::all();
+        return view('admin.announcements.create', compact('announcements'));
+	}
+
     public function indexAdmin()
     {
     	$announcements = Announcement::all();
