@@ -13,6 +13,19 @@ class AnnouncementsController extends Controller
         return view('admin.announcements.create', compact('announcements'));
 	}
 
+	public function store(Request $request)
+	{
+		$announcement = array(
+			'title' => $request->get('inputTitle'),
+			'content' => $request->get('inputContent')
+		);
+
+		Announcement::create($announcement);
+
+        return redirect()->route('admin.announcements')
+        	->with('success', 'Announcement saved!');
+	}
+
     public function indexAdmin()
     {
     	$announcements = Announcement::all();
