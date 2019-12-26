@@ -112,3 +112,7 @@ Route::get('admin/announcements', 'AnnouncementsController@indexAdmin', function
 Route::get('admin/announcements/create', 'AnnouncementsController@create', function() {
     return view('admin.announcements.create');
 })->name('admin.announcements.create');
+
+Route::post('admin/announcements/create', [
+    'uses' => 'AnnouncementsController@store'
+])->name('admin.announcements.store');
