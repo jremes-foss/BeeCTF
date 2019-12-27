@@ -116,3 +116,7 @@ Route::get('admin/announcements/create', 'AnnouncementsController@create', funct
 Route::post('admin/announcements/create', [
     'uses' => 'AnnouncementsController@store'
 ])->name('admin.announcements.store');
+
+Route::get('admin/announcements/{id}/edit', [
+    'uses' => 'AnnouncementsController@edit'
+])->name('admin.announcements.edit');
