@@ -37,4 +37,11 @@ class AnnouncementsController extends Controller
     	$announcements = Announcement::all();
     	return view('user.announcements', compact('announcements'));
     }
+
+    public function edit($id)
+    {
+        $announcements = Announcement::find($id);
+        return view('admin.announcements.edit')
+            ->with('announcement', $announcements);
+    }
 }
