@@ -105,6 +105,8 @@ Route::get('admin/users/{id}/delete', [
     'uses' => 'UserController@destroy'
 ])->name('admin.users.delete');
 
+/** Announcements */
+
 Route::get('admin/announcements', 'AnnouncementsController@indexAdmin', function() {
     return view('admin.announcements');
 })->name('admin.announcements');
