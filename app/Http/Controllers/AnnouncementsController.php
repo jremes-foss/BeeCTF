@@ -44,4 +44,14 @@ class AnnouncementsController extends Controller
         return view('admin.announcements.edit')
             ->with('announcement', $announcements);
     }
+
+    public function update(Request $request, $id)
+    {
+        $announcement = Announcement::find($id);
+        $announcement->title = $request->get('inputTitle');
+        $announcement->content = $request->get('inputContent');
+        $announcement->save();
+        return redirect()->route('admin.announcements')
+            ->with('success', 'Announcement updated!');
+    }
 }
