@@ -41,6 +41,8 @@ Route::get('/admin', 'HomeController@admin')
 	->middleware('is_admin')
 	->name('admin');
 
+/** Challenges */
+
 Route::get('admin/challenges', 'ChallengesController@indexAdmin', function() {
     return view('admin.challenges');
 })->name('admin.challenges');
@@ -64,6 +66,9 @@ Route::post('admin/challenges/{id}/update', [
 Route::get('admin/challenges/{id}/delete', [
     'uses' => 'ChallengesController@destroy'
 ])->name('admin.challenges.delete');
+
+
+/** Categories */
 
 Route::get('admin/categories', 'CategoriesController@index', function() {
     return view('admin.categories');
