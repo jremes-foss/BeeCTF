@@ -35,7 +35,7 @@ class AnnouncementsController extends Controller
     public function indexUser()
     {
     	$announcements = Announcement::all();
-    	return view('user.announcements', compact('announcements'));
+    	return view('announcements', compact('announcements'));
     }
 
     public function edit($id)
