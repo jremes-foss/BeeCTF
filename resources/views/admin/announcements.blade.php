@@ -14,9 +14,19 @@
 				<th scope="col">#</th>
 				<th scope="col">Title</th>
 				<th scope="col">Content</th>
+				<th scope="col">Action</th>
 			</tr>
 		</thead>
 		<tbody>
+			@foreach($announcements as $announcement)
+				<th scope="row">{{ $announcement->id }}</th>
+				<td>{{ $announcement->title }}</td>
+				<td>{{ $announcement->content }}</td>
+				<td>
+					<a href="{{ route('admin.announcements.edit', $announcement->id) }}" class="btn btn-info">Edit</a>
+					<a href="{{ route('admin.announcements.delete', $announcement->id) }}" class="btn btn-danger">Delete</a>
+				</td>
+			@endforeach
 		</tbody>
 	</table>
 	</div>
