@@ -32,11 +32,16 @@ Route::get('/scoreboard', 'ScoreController@getScores')->name('scoreboard');
 
 Route::get('/scontent', 'StaticContentController@index')->name('scontent');
 
+Route::get('/announcements', 'AnnouncementsController@indexUser')
+    ->name('announcements');
+
 /** Admin Routes **/
 
 Route::get('/admin', 'HomeController@admin')
 	->middleware('is_admin')
 	->name('admin');
+
+/** Challenges */
 
 Route::get('admin/challenges', 'ChallengesController@indexAdmin', function() {
     return view('admin.challenges');
@@ -62,6 +67,9 @@ Route::get('admin/challenges/{id}/delete', [
     'uses' => 'ChallengesController@destroy'
 ])->name('admin.challenges.delete');
 
+
+/** Categories */
+
 Route::get('admin/categories', 'CategoriesController@index', function() {
     return view('admin.categories');
 })->name('admin.categories');
@@ -86,6 +94,8 @@ Route::get('admin/categories/{id}/delete', [
     'uses' => 'CategoriesController@destroy'
 ])->name('admin.categories.delete');
 
+/** Users */
+
 Route::get('admin/users', 'UserController@index', function() {
     return view('admin.users');
 })->name('admin.users');
@@ -101,3 +111,29 @@ Route::post('admin/users/{id}/update', [
 Route::get('admin/users/{id}/delete', [
     'uses' => 'UserController@destroy'
 ])->name('admin.users.delete');
+
+/** Announcements */
+
+Route::get('admin/announcements', 'AnnouncementsController@indexAdmin', function() {
+    return view('admin.announcements');
+})->name('admin.announcements');
+
+Route::get('admin/announcements/create', 'AnnouncementsController@create', function() {
+    return view('admin.announcements.create');
+})->name('admin.announcements.create');
+
+Route::post('admin/announcements/create', [
+    'uses' => 'AnnouncementsController@store'
+])->name('admin.announcements.store');
+
+Route::get('admin/announcements/{id}/edit', [
+    'uses' => 'AnnouncementsController@edit'
+])->name('admin.announcements.edit');
+
+Route::post('admin/announcements/{id}/update', [
+    'uses' => 'AnnouncementsController@update'
+])->name('admin.announcements.update');
+
+Route::get('admin/announcements/{id}/delete', [
+    'uses' => 'AnnouncementsController@destroy'
+])->name('admin.announcements.delete');
