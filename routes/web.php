@@ -127,3 +127,7 @@ Route::post('admin/announcements/create', [
 Route::get('admin/announcements/{id}/edit', [
     'uses' => 'AnnouncementsController@edit'
 ])->name('admin.announcements.edit');
+
+Route::get('admin/announcements/{id}/delete', [
+    'uses' => 'AnnouncementsController@destroy'
+])->name('admin.announcements.delete');
