@@ -19,6 +19,7 @@
 		</thead>
 		<tbody>
 			@foreach($announcements as $announcement)
+			<tr>
 				<th scope="row">{{ $announcement->id }}</th>
 				<td>{{ $announcement->title }}</td>
 				<td>{{ $announcement->content }}</td>
@@ -26,6 +27,7 @@
 					<a href="{{ route('admin.announcements.edit', $announcement->id) }}" class="btn btn-info">Edit</a>
 					<a href="{{ route('admin.announcements.delete', $announcement->id) }}" class="btn btn-danger">Delete</a>
 				</td>
+			</tr>
 			@endforeach
 		</tbody>
 	</table>
