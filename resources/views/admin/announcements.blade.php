@@ -7,7 +7,7 @@
 
 <div class="container">
 	<div class="row">
-	<a class="btn btn-primary" href="{{ route('admin.categories.create') }}" role="button" style="float: right;">New Category</a>
+	<a class="btn btn-primary" href="{{ route('admin.announcements.create') }}" role="button" style="float: right;">New Announcement</a>
 	<table class="table table-hover">
 		<thead>
 			<tr>
