@@ -5,7 +5,7 @@
 </div>
 <div class="container">
 	<div class="row">
-		<form role="form" method="post" action="{{ route('admin.announcements.update') }}">
+		<form role="form" method="post" action="{{ route('admin.announcements.update', $announcement->id) }}">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="inputTitle">
@@ -20,7 +20,7 @@
 				</label>
 				<div class="input-group Announcement">
 					<span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-					<input type="text" class="form-control" id="inputContent" name="inputContent" value="{{ $announcement->title }}">
+					<input type="text" class="form-control" id="inputContent" name="inputContent" value="{{ $announcement->content }}">
 				</div>
 				<input type="submit" class="submit" value="Submit">
 			</div>

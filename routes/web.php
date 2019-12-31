@@ -130,6 +130,10 @@ Route::get('admin/announcements/{id}/edit', [
     'uses' => 'AnnouncementsController@edit'
 ])->name('admin.announcements.edit');
 
+Route::post('admin/announcements/{id}/update', [
+    'uses' => 'AnnouncementsController@update'
+])->name('admin.announcements.update');
+
 Route::get('admin/announcements/{id}/delete', [
     'uses' => 'AnnouncementsController@destroy'
 ])->name('admin.announcements.delete');
