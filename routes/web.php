@@ -35,6 +35,16 @@ Route::get('/scontent', 'StaticContentController@index')->name('scontent');
 Route::get('/announcements', 'AnnouncementsController@indexUser')
     ->name('announcements');
 
+/*  ALL admin routes need to be grouped under isAdmin middleware!! 
+    Something like this:
+    --
+
+    Route::group(['middleware' => ['isadmin', 'auth']], function() {
+        // TODO
+    });
+
+    Look at the examples. 
+*/
 /** Admin Routes **/
 
 Route::get('/admin', 'HomeController@admin')
