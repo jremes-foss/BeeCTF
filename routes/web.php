@@ -40,11 +40,14 @@ Route::get('/announcements', 'AnnouncementsController@indexUser')
 
 Route::group(['middleware' => ['is_admin', 'auth']], function() {
     Route::get('/admin', 'HomeController@admin')
-        ->middleware('is_admin')
         ->name('admin');
+
+    /** Challenges */
+
     Route::get('admin/challenges', 'ChallengesController@indexAdmin', function() {
         return view('admin.challenges');
     })->name('admin.challenges');
+
     Route::get('admin/challenges/create', 'ChallengesController@create', function() {
         return view('admin.challenges.create');
     })->name('admin.challenges.create');
@@ -136,5 +139,3 @@ Route::group(['middleware' => ['is_admin', 'auth']], function() {
         'uses' => 'AnnouncementsController@destroy'
     ])->name('admin.announcements.delete');
 });
-
-
