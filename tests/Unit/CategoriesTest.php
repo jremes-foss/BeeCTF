@@ -45,13 +45,19 @@ class CategoriesTest extends TestCase
 
 	public function testIndex() 
 	{
-		$response = $this->get('admin/categories');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+		$response = $this->actingAs($admin)->get('admin/categories');
 		$response->assertStatus(200);
 	}
 
 	public function testCreate()
 	{
-		$response = $this->get('admin/categories/create');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+		$response = $this->actingAs($admin)->get('admin/categories/create');
 		$response->assertStatus(200);
 	}
 
@@ -68,12 +74,16 @@ class CategoriesTest extends TestCase
 
 	public function testEdit() 
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		factory(\App\Category::class)->create([
 	        'category' => 'Test Category',
     	    'description' => 'This is a test category'
 		]);
 
-		$response = $this->get('admin/categories/1/edit');
+		$response = $this->actingAs($admin)->get('admin/categories/1/edit');
 		$response->assertStatus(200);
 	}
 
