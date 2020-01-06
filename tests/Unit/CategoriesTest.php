@@ -45,40 +45,58 @@ class CategoriesTest extends TestCase
 
 	public function testIndex() 
 	{
-		$response = $this->get('admin/categories');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+		$response = $this->actingAs($admin)->get('admin/categories');
 		$response->assertStatus(200);
 	}
 
 	public function testCreate()
 	{
-		$response = $this->get('admin/categories/create');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+		$response = $this->actingAs($admin)->get('admin/categories/create');
 		$response->assertStatus(200);
 	}
 
 	public function testStore()
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		$data = [
 			'inputCategory' => 'Crypto',
 			'inputDescription' => 'Cryptography-related challenges'
 		];
 
-		$response = $this->post('admin/categories/create', $data);
+		$response = $this->actingAs($admin)->post('admin/categories/create', $data);
 		$response->assertStatus(302);
 	}
 
 	public function testEdit() 
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		factory(\App\Category::class)->create([
 	        'category' => 'Test Category',
     	    'description' => 'This is a test category'
 		]);
 
-		$response = $this->get('admin/categories/1/edit');
+		$response = $this->actingAs($admin)->get('admin/categories/1/edit');
 		$response->assertStatus(200);
 	}
 
 	public function testUpdate() 
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		factory(\App\Category::class)->create([
 	        'category' => 'Test Category',
     	    'description' => 'This is a test category'
@@ -89,18 +107,22 @@ class CategoriesTest extends TestCase
 			'inputDescription' => 'This is updated test category.'
 		];
 
-		$response = $this->post('admin/categories/1/update', $data);
+		$response = $this->actingAs($admin)->post('admin/categories/1/update', $data);
 		$response->assertStatus(302);
 	}
 
 	public function testDestroy()
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		factory(\App\Category::class)->create([
 	        'category' => 'Test Category',
     	    'description' => 'This is a test category'
 		]);
 
-		$response = $this->get('admin/categories/1/delete');
+		$response = $this->actingAs($admin)->get('admin/categories/1/delete');
 		$response->assertStatus(302);
 	}
 }

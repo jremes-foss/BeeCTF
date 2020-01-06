@@ -19,13 +19,19 @@ class AnnouncementsTest extends TestCase
 
 	public function testIndexAdmin()
 	{
-		$response = $this->get('admin/announcements');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+		$response = $this->actingAs($admin)->get('admin/announcements');
 		$response->assertStatus(200);
 	}
 
 	public function testCreate()
 	{
-		$response = $this->get('admin/announcements/create');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+		$response = $this->actingAs($admin)->get('admin/announcements/create');
 		$response->assertStatus(200);
 	}
 
@@ -36,7 +42,11 @@ class AnnouncementsTest extends TestCase
 			'inputContent' => 'th1s_1s_4_t3st'
 		];
 
-		$response = $this->post('admin/announcements/create', $data);
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
+		$response = $this->actingAs($admin)->post('admin/announcements/create', $data);
 		$response->assertStatus(302);
 	}
 
@@ -47,7 +57,11 @@ class AnnouncementsTest extends TestCase
     	    'content' => 'This is a test announcement'
 		]);
 
-		$response = $this->get('admin/announcements/1/edit');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
+		$response = $this->actingAs($admin)->get('admin/announcements/1/edit');
 		$response->assertStatus(200);
 	}
 
@@ -58,12 +72,16 @@ class AnnouncementsTest extends TestCase
     	    'content' => 'This is a test announcement'
 		]);
 
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		$data = [
 			'inputTitle' => 'Another Test Title',
 			'inputContent' => 'Another test announcement'
 		];
 
-		$response = $this->post('admin/announcements/1/update', $data);
+		$response = $this->actingAs($admin)->post('admin/announcements/1/update', $data);
 		$response->assertStatus(302);
 	}
 
@@ -74,7 +92,11 @@ class AnnouncementsTest extends TestCase
     	    'content' => 'This is a test announcement'
 		]);
 
-		$response = $this->get('admin/announcements/1/delete');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
+		$response = $this->actingAs($admin)->get('admin/announcements/1/delete');
 		$response->assertStatus(302);
 	}
 }

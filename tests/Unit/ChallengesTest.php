@@ -17,6 +17,10 @@ class ChallengesTest extends TestCase
 	
 	public function testStore() 
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		$data = [
 			'inputCategory' => 'Crypto',
 			'inputTitle' => 250,
@@ -27,7 +31,7 @@ class ChallengesTest extends TestCase
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
 
-		$response = $this->post('admin/challenges/create', $data);
+		$response = $this->actingAs($admin)->post('admin/challenges/create', $data);
 		$response->assertStatus(302);
 
 		// Test the download function here.
@@ -37,13 +41,21 @@ class ChallengesTest extends TestCase
 
 	public function testCreate()
 	{
-		$response = $this->get('admin/challenges/create');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
+		$response = $this->actingAs($admin)->get('admin/challenges/create');
 		$response->assertStatus(200);
 	}
 
 	public function testIndexAdmin()
 	{
-		$response = $this->get('admin/challenges');
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
+		$response = $this->actingAs($admin)->get('admin/challenges');
 		$response->assertStatus(200);
 	}
 
@@ -55,6 +67,10 @@ class ChallengesTest extends TestCase
 
 	public function testEdit()
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		factory(\App\Challenge::class)->create([
 			'category' => 'Crypto',
 			'score' => '250',
@@ -74,12 +90,16 @@ class ChallengesTest extends TestCase
 	    	'url' => 'http://127.0.0.1:1337/index.php'		
 		]);
 		
-		$response = $this->get('admin/challenges/1/edit');
+		$response = $this->actingAs($admin)->get('admin/challenges/1/edit');
 		$response->assertStatus(200);
 	}
 
 	public function testUpdate()
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		factory(\App\Challenge::class)->create([
 			'category' => 'Crypto',
 			'score' => '250',
@@ -103,12 +123,16 @@ class ChallengesTest extends TestCase
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
 
-		$response = $this->post('admin/challenges/1/update', $data);
+		$response = $this->actingAs($admin)->post('admin/challenges/1/update', $data);
 		$response->assertStatus(302);
 	}
 
 	public function testDestroy() 
 	{
+		$admin = factory(\App\User::class)
+			->states('admin')
+			->create();
+
 		factory(\App\Challenge::class)->create([
 			'category' => 'Crypto',
 			'score' => '250',
@@ -117,7 +141,7 @@ class ChallengesTest extends TestCase
 			'content' => 'This is a test.'
 		]);
 
-		$response = $this->get('admin/challenges/1/delete');
+		$response = $this->actingAs($admin)->get('admin/challenges/1/delete');
 		$response->assertStatus(302);		
 	}
 
