@@ -27,14 +27,23 @@ class UserTest extends TestCase
 
     public function testAdminViewUsers()
     {
-        $response = $this->get('admin/users');
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
+
+        $response = $this->actingAs($admin)->get('admin/users');
         $response->assertStatus(200);
     }
 
     public function testAdminEditUsers()
     {
         $user = factory(\App\User::class)->create();
-        $response = $this->get('admin/users/1/edit');
+
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
+
+        $response = $this->actingAs($admin)->get('admin/users/1/edit');
         $response->assertStatus(200);
     }
 
