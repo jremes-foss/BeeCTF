@@ -63,7 +63,12 @@ class UserTest extends TestCase
     public function testAdminDeleteUsers()
     {
         $user = factory(\App\User::class)->create();
-        $response = $this->get('admin/users/1/delete');
+
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
+
+        $response = $this->actingAs($admin)->get('admin/users/1/delete');
         $response->assertStatus(302);  
     }
 }
