@@ -51,12 +51,16 @@ class UserTest extends TestCase
     {
         $user = factory(\App\User::class)->create();
 
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
+
         $data = [
             'inputName' => 'Test Users',
             'inputEmail' => 'testuser@hackerman.com'
         ];
 
-        $response = $this->post('admin/users/1/update', $data);
+        $response = $this->actingAs($admin)->post('admin/users/1/update', $data);
         $response->assertStatus(302);
     }
 
