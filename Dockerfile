@@ -26,7 +26,7 @@ RUN docker-php-ext-install gd
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY . /var/www/html
+COPY --chown=www-data:www-data . /var/www/html
 
 EXPOSE 9000
 CMD ["php-fpm"]
