@@ -22,7 +22,7 @@ With Docker (currently for development purposes only, the production image is wo
 
 ```bash
 docker-compose build
-docker-compose up
+docker-compose up -d
 ```
 
 After creating an administrative user, the system is ready to use.
