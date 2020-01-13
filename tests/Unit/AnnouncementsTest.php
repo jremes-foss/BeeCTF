@@ -13,7 +13,8 @@ class AnnouncementsTest extends TestCase
 
 	public function testIndex()
 	{
-		$response = $this->get('announcements');
+		$user = factory(\App\User::class)->create();
+		$response = $this->actingAs($user)->get('announcements');
 		$response->assertStatus(200);
 	}
 

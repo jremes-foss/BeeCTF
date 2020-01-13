@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Challenge;
 use App\Category;
 use App\Solved;
 use App\Score;
 use App\Attachment;
+use App\User;
 use Carbon\Carbon;
 
 class ChallengesController extends Controller
@@ -72,7 +74,9 @@ class ChallengesController extends Controller
 
     public function indexUser()
     {
-        $challenges = Challenge::all();
+        $user_id = Auth::user()->id;
+        $solved = Solved::where('user_id', $user_id)->get();
+        $challenges = Challenge::whereNotIn('id', $solved)->get();
         $categories = Category::all();
         return view('challenges')
             ->with('challenges', $challenges)
