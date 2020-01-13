@@ -21,20 +21,18 @@ Auth::routes();
 
 /** User Routes **/
 
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/challenges', 'ChallengesController@indexUser')->name('user.challenges');
+    Route::post('/challenges', 'ChallengesController@submitFlag')->name('user.submitflag');
+    Route::get('/challenges/{id}/download', 'ChallengesController@download')
+        ->name('user.download');
+    Route::get('/scoreboard', 'ScoreController@getScores')->name('scoreboard');
+    Route::get('/scontent', 'StaticContentController@index')->name('scontent');
+    Route::get('/announcements', 'AnnouncementsController@indexUser')
+        ->name('announcements');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/challenges', 'ChallengesController@indexUser')->name('user.challenges');
-Route::post('/challenges', 'ChallengesController@submitFlag')->name('user.submitflag');
-
-Route::get('/challenges/{id}/download', 'ChallengesController@download')
-    ->name('user.download');
-
-Route::get('/scoreboard', 'ScoreController@getScores')->name('scoreboard');
-
-Route::get('/scontent', 'StaticContentController@index')->name('scontent');
-
-Route::get('/announcements', 'AnnouncementsController@indexUser')
-    ->name('announcements');
 
 /** Admin Routes **/
 
