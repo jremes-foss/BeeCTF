@@ -61,7 +61,8 @@ class ChallengesTest extends TestCase
 
 	public function testIndexUser()
 	{
-		$response = $this->get('/challenges');
+		$user = factory(\App\User::class)->create();
+		$response = $this->actingAs($user)->get('/challenges');
 		$response->assertStatus(200);
 	}
 
