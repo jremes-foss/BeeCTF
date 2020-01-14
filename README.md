@@ -23,9 +23,10 @@ With Docker (currently for development purposes only, the production image is wo
 ```bash
 docker-compose build
 docker-compose up -d
+docker-compose exec app php artisan migrate
 ```
 
-After creating an administrative user, the system is ready to use.
+After creating an administrative user and database connection, the system is ready to use.
 
 ## Pull Requests
 Feel free to send any bug fixes, new features, etc. via pull requests. Please note that BeeCTF is still heavily work in progress so there are a lot of issues to fix and all contributions are welcome. :+1:
