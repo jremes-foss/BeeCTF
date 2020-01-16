@@ -16,6 +16,7 @@ services:
     volumes:
       - ./:/var/www/html
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./.env.docker:/var/www/html/.env
   webserver:
     image: nginx:alpine
     container_name: webserver
