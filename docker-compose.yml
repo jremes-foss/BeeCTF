@@ -38,6 +38,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: beectf
+      MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
