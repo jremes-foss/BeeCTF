@@ -30,7 +30,7 @@ services:
     networks:
       - beectf-network
   mysql:
-    image: mysql:latest
+    image: mysql:5.7
     container_name: mysql
     restart: unless-stopped
     tty: true
