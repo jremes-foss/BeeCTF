@@ -28,5 +28,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 COPY --chown=www-data:www-data . /var/www/html
 
+RUN cp .env.docker .env
+
 EXPOSE 9000
 CMD ["php-fpm"]
