@@ -27,3 +27,6 @@ As [Laravel](https://laravel.com/) project, BeeCTF is following [MVC](https://ww
 
 ### Code Style 
 BeeCTF follows [PSR-1](https://www.php-fig.org/psr/psr-1/) code standard, and [PSR-4](https://www.php-fig.org/psr/psr-4/) autoloading standard. All code in BeeCTF must follow these standards. Before submitting your patch, please make sure these standards are being fulfilled.
+
+### Dependencies
+Since the idea is to create as light-weight application as possible, adding excessive dependencies (especially [npm](https://www.npmjs.com/) dependencies) should be avoided. 
