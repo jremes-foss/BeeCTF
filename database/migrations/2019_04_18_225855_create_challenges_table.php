@@ -15,7 +15,6 @@ class CreateChallengesTable extends Migration
     {
         Schema::create('challenges', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('category');
             $table->integer('score');
             $table->string('title');
             $table->string('flag');
