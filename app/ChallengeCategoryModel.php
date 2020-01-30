@@ -12,4 +12,9 @@ class ChallengeCategoryModel extends Model
     	'category_id',
     	'challenge_id'
     ];
+
+    public function challenges()
+    {
+    	return $this->hasMany('App\Challenge');
+    }
 }
