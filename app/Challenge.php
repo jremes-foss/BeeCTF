@@ -9,7 +9,6 @@ class Challenge extends Model
 	protected $table = 'challenges';
 	
 	protected $fillable = [
-	    'category',
 	    'score',
 	    'title',
 	    'flag',
