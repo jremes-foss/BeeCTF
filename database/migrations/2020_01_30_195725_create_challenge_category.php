@@ -15,6 +15,8 @@ class CreateChallengeCategory extends Migration
     {
         Schema::create('challenge_category', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('challenge_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
