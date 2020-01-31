@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Challenge;
 use App\Category;
+use App\ChallengeCategory;
 use App\Solved;
 use App\Score;
 use App\Attachment;
@@ -30,8 +31,9 @@ class ChallengesController extends Controller
 
         if($request->has('inputCategory')) {
             $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
-            $get_category = Category::where('category', $category['category'])->get();
+            $get_category = Category::where('category', $category['category'])->first();
             $challenge_id = $get_challenge->id;
+            $category_id = $get_category->id;
             $category['challenge_id'] = $challenge_id;
             $category['category_id'] = $category_id;
         }
