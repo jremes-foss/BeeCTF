@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChallengeCategory extends Model
 {
-    protected $table = "challenge_categories";
+    protected $table = "challenge_category";
 
     protected $fillable = [
     	'category_id',
