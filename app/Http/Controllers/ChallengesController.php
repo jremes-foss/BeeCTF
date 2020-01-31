@@ -17,7 +17,6 @@ class ChallengesController extends Controller
     public function store(Request $request)
     {
     	$challenge = array(
-            'category' => $request->get('inputCategory'),
             'title' => $request->get('inputTitle'),
             'score' => $request->get('inputScore'),
             'flag' => $request->get('inputFlag'),
@@ -25,6 +24,21 @@ class ChallengesController extends Controller
         );
 
         Challenge::create($challenge);
+
+        $category = array();
+        $category['category'] = $request->get('inputCategory');
+
+        if($request->has('inputCategory')) {
+            $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
+            $get_category = Category::where('category', $category['category'])->get();
+            $challenge_id = $get_challenge->id;
+            $category['challenge_id'] = $challenge_id;
+            $category['category_id'] = $category_id;
+        }
+
+        if(!empty($category)) {
+            ChallengeCategory::create($category);
+        }
 
         $attachment = array();
 
