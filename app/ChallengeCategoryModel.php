@@ -15,6 +15,6 @@ class ChallengeCategoryModel extends Model
 
     public function challenges()
     {
-    	return $this->hasMany('App\Challenge');
+    	return $this->hasMany('App\Challenge', 'challenge_id');
     }
 }
