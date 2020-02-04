@@ -104,10 +104,12 @@ class ChallengesController extends Controller
         $attachments = Attachment::all();
         $challenges = Challenge::find($id);
         $categories = Category::all();
+        $challenge_categories = ChallengeCategory::find($id);
         return view('admin.challenges.edit')
             ->with('attachments', $attachments)
             ->with('categories', $categories)
-            ->with('challenge', $challenges);
+            ->with('challenge', $challenges)
+            ->with('challenge_category', $challenge_categories);
     }
 
     public function update(Request $request, $id)
@@ -115,10 +117,9 @@ class ChallengesController extends Controller
         $challenge = Challenge::find($id);
         $attachment = Attachment::find($id);
 
-        /** Updates the entry in challenge_category table*/
+        /** Updates the entry in challenge_category table */
         $challenge_category = ChallengeCategory::where('category_id', $id);
-//        $challenge_category->category = $request->get('inputCategory');
-        
+
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
         $challenge->flag = $request->get('inputFlag');
