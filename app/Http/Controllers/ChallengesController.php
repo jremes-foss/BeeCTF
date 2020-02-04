@@ -114,9 +114,10 @@ class ChallengesController extends Controller
     {
         $challenge = Challenge::find($id);
         $attachment = Attachment::find($id);
-        $challenge_category = ChallengeCategory::find($id);
 
-        $challenge_category->category = $request->get('inputCategory');
+        /** Updates the entry in challenge_category table*/
+        $challenge_category = ChallengeCategory::where('category_id', $id);
+//        $challenge_category->category = $request->get('inputCategory');
         
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
