@@ -144,7 +144,7 @@ class ChallengesController extends Controller
         $challenge->update();
         $challenge_category->update();
 
-        return redirect()->route('admin.challenges')->with('success', 'Challenge updated!');
+        return redirect()->route('admin.challenges')->with('message', 'Challenge updated!');
     }
 
     public function destroy($id)
@@ -169,9 +169,10 @@ class ChallengesController extends Controller
             $solved->user_id = $request->user()->id;
             $solved->save();
             $this->addScore($request);
-            return redirect('/challenges')->with('message', 'Correct Flag, Congratulations!');
+            return redirect('user.challenges')
+                ->with('message', 'Correct Flag, Congratulations!');
         } else {
-            return redirect('/challenges')->with('message', 'Try Again!');
+            return redirect('user.challenges')->with('message', 'Try Again!');
         } 
     }
 

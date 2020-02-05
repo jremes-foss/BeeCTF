@@ -6,6 +6,11 @@
 </div>
 <div class="container">
 	<div class="row">
+		@if(session()->has('message'))
+			<div class="alert alert-success">
+				{{ session()->get('message') }}
+			</div>
+		@endif
 		<a class="btn btn-primary" href="{{ route('admin.challenges.create') }}" role="button" style="float: right;">New Challenge</a> 
 		<table class="table table-hover">
 		  <thead>
