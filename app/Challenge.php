@@ -27,6 +27,6 @@ class Challenge extends Model
 
 	public function challenge_categories()
 	{
-		return $this->hasOne('App\ChallengeCategory');
+		return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');
 	}
 }
