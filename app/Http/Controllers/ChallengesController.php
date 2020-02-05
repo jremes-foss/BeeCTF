@@ -120,6 +120,7 @@ class ChallengesController extends Controller
 
         /** Updates the entry in challenge_category table */
         $challenge_category = ChallengeCategory::where('challenge_id', $id)->first();
+        $challenge_category->category_id = $request->get('inputCategory');
 
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');

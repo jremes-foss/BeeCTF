@@ -13,7 +13,13 @@ class Category extends Model
     	'description'
     ];
 
-    public function challenges() {
+    public function challenges() 
+    {
     	return $this->hasMany('App\Challenge');
+    }
+
+    public function challenge_categories() 
+    {
+    	return $this->hasMany('App\ChallengeCategory');
     }
 }
