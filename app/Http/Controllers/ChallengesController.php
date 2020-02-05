@@ -115,10 +115,11 @@ class ChallengesController extends Controller
     public function update(Request $request, $id)
     {
         $challenge = Challenge::find($id);
-        $attachment = Attachment::find($id);
-        
+
+        $attachment = Attachment::where('challenge_id', $id)->first();
+
         /** Updates the entry in challenge_category table */
-        $challenge_category = ChallengeCategory::find($id);
+        $challenge_category = ChallengeCategory::where('challenge_id', $id)->first();
 
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
