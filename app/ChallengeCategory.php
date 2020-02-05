@@ -7,19 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class ChallengeCategory extends Model
 {
     protected $table = "challenge_category";
+    protected $foreignKey = 'challenge_id';
 
     protected $fillable = [
     	'category_id',
     	'challenge_id'
     ];
 
-    public function challenges()
+    public function challenge()
     {
-    	return $this->hasMany('App\Challenge', 'challenge_id');
-    }
-
-    public function categories() 
-    {
-    	return $this->hasOne('App\Category', 'category_id');
+    	return $this->belongsTo('App\Challenge', 'challenge_id');
     }
 }

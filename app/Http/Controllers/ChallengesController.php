@@ -116,9 +116,9 @@ class ChallengesController extends Controller
     {
         $challenge = Challenge::find($id);
         $attachment = Attachment::find($id);
-
+        
         /** Updates the entry in challenge_category table */
-        $challenge_category = ChallengeCategory::where('category_id', $id);
+        $challenge_category = ChallengeCategory::find($id);
 
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
@@ -135,7 +135,10 @@ class ChallengesController extends Controller
         }
         
         // Update the attachment and challenge database entries
-        $attachment->url = $request->get('inputURL');
+        if($request->has('inputURL')) {
+            $attachment->url = $request->get('inputURL');
+        }
+
         $attachment->update();
         $challenge->update();
         $challenge_category->update();
