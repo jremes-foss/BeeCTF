@@ -144,7 +144,7 @@ class ChallengesController extends Controller
         $challenge->update();
         $challenge_category->update();
 
-        return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
+        return redirect()->route('admin.challenges')->with('success', 'Challenge updated!');
     }
 
     public function destroy($id)
