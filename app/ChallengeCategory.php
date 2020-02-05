@@ -18,4 +18,9 @@ class ChallengeCategory extends Model
     {
     	return $this->belongsTo('App\Challenge', 'challenge_id');
     }
+
+    public function category()
+    {
+        return $this->hasOne('App\Category', 'category_id');
+    }
 }
