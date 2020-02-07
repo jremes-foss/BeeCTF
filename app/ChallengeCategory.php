@@ -16,11 +16,11 @@ class ChallengeCategory extends Model
 
     public function challenge()
     {
-    	return $this->belongsTo('App\Challenge', 'challenge_id');
+    	return $this->belongsToMany('App\Challenge');
     }
 
     public function category()
     {
-        return $this->hasOne('App\Category', 'id', 'category_id');
+        return $this->belongsToMany('App\Category');
     }
 }
