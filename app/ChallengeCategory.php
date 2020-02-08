@@ -14,6 +14,7 @@ class ChallengeCategory extends Model
     	'challenge_id'
     ];
 
+    /** Relationship between ChallengeCategory and Challenge models */
     public function challenge()
     {
     	return $this->belongsToMany('App\Challenge');
