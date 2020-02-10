@@ -20,6 +20,7 @@ class ChallengeCategory extends Model
     	return $this->belongsToMany('App\Challenge');
     }
 
+    /** Relationship between ChallengeCategory and Category models */
     public function category()
     {
         return $this->belongsToMany('App\Category');
