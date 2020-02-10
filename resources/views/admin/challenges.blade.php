@@ -26,9 +26,10 @@
 		  </thead>
 		  <tbody>
 		  	@foreach($challenges as $challenge)
+		  	{{ dd($challenge->challenge_categories->pluck('category')) }}
 		  	<tr>
 		  		<th scope="row">{{ $challenge->id }}</th>
-		  		<td>{{ $challenge->challenge_categories->categories->first()->category }}</td>
+		  		<td>{{ $challenge->challenge_categories->first()->categories->first()->category }}</td>
 		  		<td>{{ $challenge->score }}</td>
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>

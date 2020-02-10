@@ -17,12 +17,17 @@ class ChallengeCategory extends Model
     /** Relationship between ChallengeCategory and Challenge models */
     public function challenge()
     {
-    	return $this->belongsToMany('App\Challenge');
+    	return $this->belongsToMany('App\Challenge', 'challenge_id');
     }
 
     /** Relationship between ChallengeCategory and Category models */
-    public function category()
+    public function categories()
     {
-        return $this->belongsToMany('App\Category');
+        return $this->belongsToMany('App\Category')->withPivot('category');
+    }
+
+    /** TESTING */
+    public function getCategoryAttribute() {
+        return $this->pivot->category;
     }
 }
