@@ -22,11 +22,11 @@ class Challenge extends Model
 
 	public function categories() 
 	{
-		return $this->hasOne('App\Category');
+		return $this->hasOne('App\Category', 'category_id', 'id');
 	}
 
 	public function challenge_categories()
 	{
-		return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');
+		return $this->hasMany('App\ChallengeCategory', 'challenge_id', 'id');
 	}
 }
