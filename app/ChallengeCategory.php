@@ -23,11 +23,8 @@ class ChallengeCategory extends Model
     /** Relationship between ChallengeCategory and Category models */
     public function categories()
     {
-        return $this->belongsToMany('App\Category')->withPivot('category');
-    }
-
-    /** TESTING */
-    public function getCategoryAttribute() {
-        return $this->pivot->category;
+        return $this->belongsToMany('App\Category', 'category_id', 'id')
+                    ->with('category')
+                    ->withPivot(['category_id']);
     }
 }
