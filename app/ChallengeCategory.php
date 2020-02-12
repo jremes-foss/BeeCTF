@@ -23,6 +23,7 @@ class ChallengeCategory extends Model
     /** Relationship between ChallengeCategory and Category models */
     public function categories()
     {
+        // Should pivot: ChallengeCategory -> Category
         return $this->belongsToMany('App\Category', 'category_id', 'id')
                     ->with('category')
                     ->withPivot(['category_id']);
