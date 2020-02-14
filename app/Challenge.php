@@ -22,7 +22,13 @@ class Challenge extends Model
 
 	public function categories() 
 	{
-		return $this->hasOne('App\Category', 'category_id', 'id');
+		return $this->hasManyThrough(
+			'App\ChallengeCategory',
+			'App\Category',
+			'id', 
+			'category_id',
+			'id',
+		);
 	}
 
 	public function challenge_categories()

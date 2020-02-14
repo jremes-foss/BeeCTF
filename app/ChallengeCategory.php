@@ -24,8 +24,6 @@ class ChallengeCategory extends Model
     public function categories()
     {
         // Should pivot: ChallengeCategory -> Category -> category_id
-        return $this->belongsToMany('App\Category', 'category_id', 'id')
-                    ->with('category')
-                    ->withPivot(['category_id']);
+        return $this->belongsToMany('App\Category', 'category_id', 'id');
     }
 }
