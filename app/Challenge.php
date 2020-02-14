@@ -22,12 +22,13 @@ class Challenge extends Model
 
 	public function categories() 
 	{
-		return $this->hasManyThrough(
+		return $this->hasOneThrough(
 			'App\ChallengeCategory',
 			'App\Category',
-			'id', 
-			'category_id',
-			'id',
+			'id', // Foreign key on Category table
+			'category_id', // Foreign key on ChallengeCategory table
+			'id', // Local key on Challenge table
+			'id' // Local key on Category table
 		);
 	}
 

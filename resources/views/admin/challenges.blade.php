@@ -27,7 +27,6 @@
 		  <tbody>
 		  	@foreach($challenges as $challenge)
 		  	<tr>
-		  		{{ dd($challenge) }}
 		  		<th scope="row">{{ $challenge->id }}</th>
 		  		<td>{{ $challenge->categories }}</td>
 		  		<td>{{ $challenge->score }}</td>
