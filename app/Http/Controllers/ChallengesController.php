@@ -80,10 +80,10 @@ class ChallengesController extends Controller
     	return view('admin.challenges.create')
             ->with('categories', $categories);
     }
-    // Quick note: hasManyThrough
+
     public function indexAdmin()
     {
-        $challenges = Challenge::all();
+        $challenges = Challenge::with('categories')->get();
         return view('admin.challenges')
             ->with('challenges', $challenges);
     }
