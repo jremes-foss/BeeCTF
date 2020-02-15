@@ -14,16 +14,13 @@ class ChallengeCategory extends Model
     	'challenge_id'
     ];
 
-    /** Relationship between ChallengeCategory and Challenge models */
-    public function challenge()
+    public function challenges()
     {
-    	return $this->belongsToMany('App\Challenge', 'challenge_id');
+    	return $this->belongsTo('App\Challenge');
     }
 
-    /** Relationship between ChallengeCategory and Category models */
     public function categories()
     {
-        // Should pivot: ChallengeCategory -> Category -> category_id
-        return $this->belongsToMany('App\Category', 'category_id', 'id');
+        return $this->belongsTo('App\Category');
     }
 }

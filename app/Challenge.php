@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Challenge extends Model
 {
 	protected $table = 'challenges';
-	
+
 	protected $fillable = [
 	    'score',
 	    'title',
@@ -25,11 +25,14 @@ class Challenge extends Model
 		return $this->hasOneThrough(
 			'App\ChallengeCategory',
 			'App\Category',
+			'id',
+			'category_id',
+			null
 		);
 	}
 
 	public function challenge_categories()
 	{
-		return $this->hasMany('App\ChallengeCategory', 'challenge_id', 'id');
+		return $this->hasMany('App\ChallengeCategory');
 	}
 }
