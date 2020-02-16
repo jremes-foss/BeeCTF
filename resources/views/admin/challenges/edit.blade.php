@@ -16,6 +16,7 @@
 				<div class="input-group Category">
 					<span class="input-group-addon"><i class="fa fa-address-book"></i></span>
 					<select class="form-control" id="inputCategory" name="inputCategory">
+					<!-- If category_id = 1 && challenge_id = 2 this crashes, why? -->
 					@foreach($categories as $category)
 						<option value="{{ $category->challenge_categories->category_id }}">
 							{{ $category->category }}
