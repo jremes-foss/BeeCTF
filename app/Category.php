@@ -14,6 +14,11 @@ class Category extends Model
     	'description'
     ];
 
+	public function challenge_categories()
+	{
+		return $this->hasOne('App\ChallengeCategory', 'category_id', 'id');
+	}
+
     public function challenges() 
     {
     	return $this->hasManyThrough(
