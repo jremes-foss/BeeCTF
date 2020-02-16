@@ -102,14 +102,15 @@ class ChallengesController extends Controller
     public function edit($id)
     {
         $attachments = Attachment::all();
-        $challenge_categories = ChallengeCategory::find($id);
-        $challenges = Challenge::with('challenge_categories.categories')->find($id);
-        $categories = Category::all();
+        $challenges = Challenge::with('challenge_categories')->find($id);
+        //dd($challenges->challenge_categories);
+//        $challenge_categories = ChallengeCategory::find($id);
+        $categories = Category::with('challenge_categories')->all();
         return view('admin.challenges.edit')
             ->with('attachments', $attachments)
             ->with('categories', $categories)
-            ->with('challenge', $challenges)
-            ->with('challenge_category', $challenge_categories);
+            ->with('challenge', $challenges);
+//            ->with('challenge_category', $challenge_categories);
     }
 
     public function update(Request $request, $id)
