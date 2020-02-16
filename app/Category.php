@@ -19,6 +19,8 @@ class Category extends Model
     	return $this->hasManyThrough(
     		'App\ChallengeCategory', 
     		'App\Challenge',
+    		'id',
+    		'category_id'
     	);
     }
 }

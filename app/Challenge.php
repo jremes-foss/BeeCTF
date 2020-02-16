@@ -20,19 +20,8 @@ class Challenge extends Model
 		return $this->hasOne('App\Attachment');
 	}
 
-	public function categories() 
-	{
-		return $this->hasOneThrough(
-			'App\ChallengeCategory',
-			'App\Category',
-			'id',
-			'category_id',
-			null
-		);
-	}
-
 	public function challenge_categories()
 	{
-		return $this->hasMany('App\ChallengeCategory');
+		return $this->hasOne('App\ChallengeCategory', 'category_id', 'id');
 	}
 }
