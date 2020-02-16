@@ -16,8 +16,8 @@
 				<div class="input-group Category">
 					<span class="input-group-addon"><i class="fa fa-address-book"></i></span>
 					<select class="form-control" id="inputCategory" name="inputCategory">
-					@foreach($categories as $category)
-						<option value="{{ $challenge->categories->id }}">
+					@foreach($challenge->challenge_categories->categories as $category)
+						<option value="{{ $category->id }}">
 							{{ $category->category }}
 						</option>
 					@endforeach

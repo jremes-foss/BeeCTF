@@ -28,7 +28,7 @@
 		  	@foreach($challenges as $challenge)
 		  	<tr>
 		  		<th scope="row">{{ $challenge->id }}</th>
-		  		<td>{{ $challenge->first()->challenge_categories->first()->categories->category }}</td>
+		  		<td>{{ $challenge->challenge_categories->categories->category }}</td>
 		  		<td>{{ $challenge->score }}</td>
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>
