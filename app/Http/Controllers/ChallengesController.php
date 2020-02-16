@@ -84,7 +84,6 @@ class ChallengesController extends Controller
     public function indexAdmin()
     {
         $challenges = Challenge::with('challenge_categories.categories')->get();
-        //dd($challenges->first()->challenge_categories->first()->categories);
         return view('admin.challenges')
             ->with('challenges', $challenges);
     }
@@ -103,9 +102,9 @@ class ChallengesController extends Controller
     public function edit($id)
     {
         $attachments = Attachment::all();
-        $challenges = Challenge::find($id);
-        $categories = Category::all();
         $challenge_categories = ChallengeCategory::find($id);
+        $challenges = Challenge::with('challenge_categories.categories')->find($id);
+        $categories = Category::all();
         return view('admin.challenges.edit')
             ->with('attachments', $attachments)
             ->with('categories', $categories)
