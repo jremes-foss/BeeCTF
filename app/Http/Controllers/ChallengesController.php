@@ -84,8 +84,8 @@ class ChallengesController extends Controller
     public function indexAdmin()
     {
         $challenges = Challenge::with('challenge_categories.categories')->get();
-        return view('admin.challenges')
-            ->with('challenges', $challenges);
+//        dd($challenges);
+        return view('admin.challenges')->with('challenges', $challenges);
     }
 
     public function indexUser()

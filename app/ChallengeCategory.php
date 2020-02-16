@@ -15,7 +15,7 @@ class ChallengeCategory extends Model
 
     public function challenges()
     {
-    	return $this->belongsTo('App\Challenge');
+    	return $this->belongsTo('App\Challenge', 'challenge_id', 'id');
     }
 
     public function categories()
