@@ -16,16 +16,11 @@ class Category extends Model
 
 	public function challenge_categories()
 	{
-		return $this->hasOne('App\ChallengeCategory', 'category_id', 'id');
+		return $this->hasMany('App\ChallengeCategory', 'category_id', 'id');
 	}
 
     public function challenges() 
     {
-    	return $this->hasManyThrough(
-    		'App\ChallengeCategory', 
-    		'App\Challenge',
-    		'id',
-    		'category_id'
-    	);
+    	return $this->hasMany('App\Challenge', 'challenge_id', 'id');
     }
 }
