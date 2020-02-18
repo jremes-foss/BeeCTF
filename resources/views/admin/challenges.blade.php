@@ -28,7 +28,11 @@
 		  	@foreach($challenges as $challenge)
 		  	<tr>
 		  		<th scope="row">{{ $challenge->id }}</th>
-		  		<td>{{ $challenge->challenge_categories->categories->category }}</td>
+		  		<td><!-- Ugly way, refactor!! -->
+			  		{{
+			  			$challenge->join('challenge_category', 'challenge_category.challenge_id', '=', 'challenges.id')->join('categories', 'challenge_category.category_id', '=', 'categories.id')->select('categories.category')->where('challenge_category.challenge_id', '=', $challenge->id)->value('category')
+			  		}}
+		  		</td>
 		  		<td>{{ $challenge->score }}</td>
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>
