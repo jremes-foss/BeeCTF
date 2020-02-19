@@ -23,4 +23,15 @@ class Category extends Model
     {
     	return $this->hasMany('App\Challenge', 'challenge_id', 'id');
     }
+
+    /**
+     * Scope to get the Categories for edit() method
+     */
+    public function scopeGetCategories($query, $challenge) {
+    	return $query->join('challenge_category', 'challenge_category.category_id', '=', 'categories.id')
+    				->join('challenges', 'challenge_category.challenge_id', '=', 'challenges.id')
+    				->select('categories.category')
+    				->where('challenge_category.challenge_id', '=', $challenge->id)
+    				->value('category');
+    }
 }
