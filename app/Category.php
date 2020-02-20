@@ -27,11 +27,11 @@ class Category extends Model
     /**
      * Scope to get the Categories for edit() method
      */
-    public function scopeGetCategories($query, $challenge) {
-    	return $query->join('challenge_category', 'challenge_category.category_id', '=', 'categories.id')
+    public function scopeGetCategories() {
+    	return $this->join('challenge_category', 'challenge_category.category_id', '=', 'categories.id')
     				->join('challenges', 'challenge_category.challenge_id', '=', 'challenges.id')
     				->select('categories.category')
-    				->where('challenge_category.challenge_id', '=', $challenge->id)
+    				->where('challenge_category.challenge_id', '=', $this->id)
     				->value('category');
     }
 }
