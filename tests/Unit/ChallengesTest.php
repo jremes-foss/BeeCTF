@@ -21,8 +21,13 @@ class ChallengesTest extends TestCase
 			->states('admin')
 			->create();
 
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
 		$data = [
-			'inputCategory' => 1,
+			'inputCategory' => 'Test Category',
 			'inputTitle' => 250,
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
@@ -30,6 +35,7 @@ class ChallengesTest extends TestCase
 			'inputURL' => 'http://127.0.0.1:1337/index.php',
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
+
 		$response = $this->actingAs($admin)->post('admin/challenges/create', $data);
 		$response->assertStatus(302);
 
@@ -112,6 +118,16 @@ class ChallengesTest extends TestCase
 			'content' => 'This is a test.'
 		]);
 
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		factory(\App\ChallengeCategory::class)->create([
+	        'category_id' => 1,
+    	    'challenge_id' => 1
+		]);
+
 		factory(\App\Attachment::class)->create([
 	    	'challenge_id' => 1,
 	    	'filename' => 'public/challenges/test.zip',
@@ -119,7 +135,7 @@ class ChallengesTest extends TestCase
 		]);
 
 		$data = [
-			'inputCategory' => 'Crypto',
+			'inputCategory' => 'Test Category',
 			'inputTitle' => 250,
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
