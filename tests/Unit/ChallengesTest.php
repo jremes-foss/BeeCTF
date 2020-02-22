@@ -140,6 +140,7 @@ class ChallengesTest extends TestCase
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
 			'inputContent' => 'Can you break this weak cipher?',
+			'inputURL' => 'http://127.0.0.1:1337/index.php',
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
 

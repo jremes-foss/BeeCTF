@@ -14,7 +14,7 @@ class AttachmentTest extends TestCase
 
 	public function testAttachmentRelationship()
 	{
-		$attachment = factory(Attachment::class)->make([
+		$attachment = factory(Attachment::class)->create([
 			'challenge_id' => 1,
 			'filename' => 'test.zip',
 			'url' => 'http://127.0.0.1'
