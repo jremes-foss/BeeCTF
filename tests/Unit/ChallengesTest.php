@@ -73,7 +73,6 @@ class ChallengesTest extends TestCase
 			->create();
 
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
@@ -102,7 +101,6 @@ class ChallengesTest extends TestCase
 			->create();
 
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
@@ -135,7 +133,6 @@ class ChallengesTest extends TestCase
 			->create();
 
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
@@ -149,7 +146,6 @@ class ChallengesTest extends TestCase
 	public function testSubmitFlag()
 	{
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3st}',
