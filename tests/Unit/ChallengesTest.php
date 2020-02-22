@@ -31,6 +31,8 @@ class ChallengesTest extends TestCase
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
 		// This is actually a bug!!!
+		// Integrity constraint violation: 1452 Cannot add or update a child row: 
+		// a foreign key constraint fails 
 		$response = $this->actingAs($admin)->post('admin/challenges/create', $data);
 		$response->assertStatus(302);
 
