@@ -15,20 +15,26 @@ class ChallengeCategoryTest extends TestCase
 
 	public function testChallengeCategoryRelationship()
 	{
-		$challenge = factory(Challenge::class)->make([
+		$challenge = factory(Challenge::class)->create([
+			'score' => '250',
+			'title' => 'TEST',
+			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+			'content' => 'This is a test.'
+		]);
+
+		$category = factory(Category::class)->create([
 			'category' => 'Crypto'
 		]);
 
-		$category = $challenge->category;
-
-		$challenge_category = factory(ChallengeCategory::class)->make([
+		$challenge_category = factory(ChallengeCategory::class)->create([
 			'category_id' => 1,
 			'challenge_id' => 1
 		]);
 
-		$challenge_category = $challenge->challenge_category;
+		$challenge = Challenge::find(1);
 
-		$this->assertEquals('Crypto', $category);
-		$this->assertEquals(1, $challenge_category);
+		$this->assertEquals(1, $challenge->challenge_categories->challenge_id);
+		$this->assertEquals(1, $challenge->challenge_categories->category_id);
+		$this->assertEquals('Crypto', $challenge->challenge_categories->categories->category);
 	}
 }
