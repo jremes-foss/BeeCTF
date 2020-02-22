@@ -18,7 +18,7 @@ class ChallengeCategoryTest extends TestCase
 		$challenge = factory(Challenge::class)->create([
 			'score' => '250',
 			'title' => 'TEST',
-			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+			'flag' => 'FLAG{th1s_1s_4_t3st}',
 			'content' => 'This is a test.'
 		]);
 
@@ -32,9 +32,19 @@ class ChallengeCategoryTest extends TestCase
 		]);
 
 		$challenge = Challenge::find(1);
+		$challenge_category = ChallengeCategory::find(1);
 
 		$this->assertEquals(1, $challenge->challenge_categories->challenge_id);
 		$this->assertEquals(1, $challenge->challenge_categories->category_id);
+		
+		// Test categories relationship
 		$this->assertEquals('Crypto', $challenge->challenge_categories->categories->category);
+
+		// Test challenges relationship
+		$this->assertEquals(250, $challenge_category->challenges->score);
+		$this->assertEquals('TEST', $challenge_category->challenges->title);
+		$this->assertEquals('FLAG{th1s_1s_4_t3st}', $challenge_category->challenges->flag);
+		$this->assertEquals('This is a test.', $challenge_category->challenges->content);
+
 	}
 }
