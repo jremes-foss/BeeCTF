@@ -22,7 +22,7 @@ class ChallengesTest extends TestCase
 			->create();
 
 		$data = [
-			'inputCategory' => 'Crypto',
+			'inputCategory' => 1,
 			'inputTitle' => 250,
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
@@ -30,7 +30,7 @@ class ChallengesTest extends TestCase
 			'inputURL' => 'http://127.0.0.1:1337/index.php',
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
-
+		// This is actually a bug!!!
 		$response = $this->actingAs($admin)->post('admin/challenges/create', $data);
 		$response->assertStatus(302);
 
@@ -187,7 +187,7 @@ class ChallengesTest extends TestCase
 	public function testCategory() 
 	{
 		$challenge = new Challenge;
-		$category = $challenge->categories();
+		$category = $challenge::with('challenge_categories')->get(1);
 		$this->assertEquals('object', gettype($category));
 	}
 }
