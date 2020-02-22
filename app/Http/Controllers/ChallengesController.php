@@ -39,6 +39,7 @@ class ChallengesController extends Controller
         }
 
         if(!empty($category)) {
+            unset($category['category']);
             ChallengeCategory::create($category);
         }
 
