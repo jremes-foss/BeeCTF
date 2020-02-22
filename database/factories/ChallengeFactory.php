@@ -15,7 +15,6 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Challenge::class, function (Faker $faker) {
     return [
-        'category' => 'Crypto',
         'score' => '350',
         'title' => $faker->sentence,
         'flag' => 'FLAG{' . $faker->word . '}',

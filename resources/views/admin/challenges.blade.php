@@ -6,6 +6,11 @@
 </div>
 <div class="container">
 	<div class="row">
+		@if(session()->has('message'))
+			<div class="alert alert-success">
+				{{ session()->get('message') }}
+			</div>
+		@endif
 		<a class="btn btn-primary" href="{{ route('admin.challenges.create') }}" role="button" style="float: right;">New Challenge</a> 
 		<table class="table table-hover">
 		  <thead>
@@ -23,7 +28,11 @@
 		  	@foreach($challenges as $challenge)
 		  	<tr>
 		  		<th scope="row">{{ $challenge->id }}</th>
-		  		<td>{{ $challenge->category }}</td>
+		  		<td><!-- Ugly way, refactor!! -->
+			  		{{
+			  			$challenge->join('challenge_category', 'challenge_category.challenge_id', '=', 'challenges.id')->join('categories', 'challenge_category.category_id', '=', 'categories.id')->select('categories.category')->where('challenge_category.challenge_id', '=', $challenge->id)->value('category')
+			  		}}
+		  		</td>
 		  		<td>{{ $challenge->score }}</td>
 		  		<td>{{ $challenge->title }}</td>
 		  		<td>{{ $challenge->flag }}</td>

@@ -7,20 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Challenge extends Model
 {
 	protected $table = 'challenges';
-	
+    protected $foreignKey = 'challenge_id';
+
 	protected $fillable = [
-	    'category',
 	    'score',
 	    'title',
 	    'flag',
 	    'content'
 	];
 
-	public function attachments() {
+	public function attachments() 
+	{
 		return $this->hasOne('App\Attachment');
 	}
 
-	public function categories() {
-		return $this->hasOne('App\Category');
+	public function challenge_categories()
+	{
+		return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');
 	}
 }

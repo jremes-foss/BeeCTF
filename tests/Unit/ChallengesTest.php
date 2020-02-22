@@ -21,8 +21,13 @@ class ChallengesTest extends TestCase
 			->states('admin')
 			->create();
 
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
 		$data = [
-			'inputCategory' => 'Crypto',
+			'inputCategory' => 'Test Category',
 			'inputTitle' => 250,
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
@@ -72,18 +77,23 @@ class ChallengesTest extends TestCase
 			->states('admin')
 			->create();
 
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
 			'content' => 'This is a test.'
 		]);
 
-		factory(\App\Category::class)->create([
-	        'category' => 'Test Category',
-    	    'description' => 'This is a test category'
+		factory(\App\ChallengeCategory::class)->create([
+			'category_id' => 1,
+			'challenge_id' => 1
 		]);
+
 
 		factory(\App\Attachment::class)->create([
 	    	'challenge_id' => 1,
@@ -102,11 +112,20 @@ class ChallengesTest extends TestCase
 			->create();
 
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
 			'content' => 'This is a test.'
+		]);
+
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
+		factory(\App\ChallengeCategory::class)->create([
+	        'category_id' => 1,
+    	    'challenge_id' => 1
 		]);
 
 		factory(\App\Attachment::class)->create([
@@ -116,11 +135,12 @@ class ChallengesTest extends TestCase
 		]);
 
 		$data = [
-			'inputCategory' => 'Crypto',
+			'inputCategory' => 'Test Category',
 			'inputTitle' => 250,
 			'inputScore' => 'Weak Cipher',
 			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
 			'inputContent' => 'Can you break this weak cipher?',
+			'inputURL' => 'http://127.0.0.1:1337/index.php',
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
 
@@ -135,7 +155,6 @@ class ChallengesTest extends TestCase
 			->create();
 
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
@@ -149,7 +168,6 @@ class ChallengesTest extends TestCase
 	public function testSubmitFlag()
 	{
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3st}',
@@ -191,7 +209,7 @@ class ChallengesTest extends TestCase
 	public function testCategory() 
 	{
 		$challenge = new Challenge;
-		$category = $challenge->categories();
+		$category = $challenge::with('challenge_categories')->get(1);
 		$this->assertEquals('object', gettype($category));
 	}
 }

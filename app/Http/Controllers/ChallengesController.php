@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Challenge;
 use App\Category;
+use App\ChallengeCategory;
 use App\Solved;
 use App\Score;
 use App\Attachment;
@@ -17,7 +18,6 @@ class ChallengesController extends Controller
     public function store(Request $request)
     {
     	$challenge = array(
-            'category' => $request->get('inputCategory'),
             'title' => $request->get('inputTitle'),
             'score' => $request->get('inputScore'),
             'flag' => $request->get('inputFlag'),
@@ -25,6 +25,24 @@ class ChallengesController extends Controller
         );
 
         Challenge::create($challenge);
+
+        $category = array();
+        $category['category'] = $request->get('inputCategory');
+
+        if($request->has('inputCategory')) {
+            $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
+            $get_category = Category::where('category', $category['category'])->first();
+            $challenge_id = $get_challenge->id;
+            $category_id = $get_category->id;
+            $category['challenge_id'] = $challenge_id;
+            $category['category_id'] = $category_id;
+        }
+
+        if(!empty($category)) {
+            // This needs to be unset so the DB can be inserted
+            unset($category['category']);
+            ChallengeCategory::create($category);
+        }
 
         $attachment = array();
 
@@ -67,9 +85,8 @@ class ChallengesController extends Controller
 
     public function indexAdmin()
     {
-        $challenges = Challenge::all();
-        return view('admin.challenges')
-            ->with('challenges', $challenges);
+        $challenges = Challenge::with('challenge_categories.categories')->get();
+        return view('admin.challenges')->with('challenges', $challenges);
     }
 
     public function indexUser()
@@ -86,23 +103,29 @@ class ChallengesController extends Controller
     public function edit($id)
     {
         $attachments = Attachment::all();
-        $challenges = Challenge::find($id);
-        $categories = Category::all();
+        $challenges = Challenge::with('challenge_categories')->find($id);
+        $categories = Category::with('challenge_categories')->get();
+        $challenge_category = ChallengeCategory::where('challenge_id', $id)->first();
         return view('admin.challenges.edit')
             ->with('attachments', $attachments)
             ->with('categories', $categories)
-            ->with('challenge', $challenges);
+            ->with('challenge', $challenges)
+            ->with('challenge_category', $challenge_category);
     }
 
     public function update(Request $request, $id)
     {
         $challenge = Challenge::find($id);
-        $attachment = Attachment::find($id);
-        $challenge->category = $request->get('inputCategory');
+        $attachment = Attachment::where('challenge_id', $id)->first();
+
+        /** Updates the entry in challenge_category table */
+        $challenge_category = ChallengeCategory::where('challenge_id', $id)->first();
+        $challenge_category->category_id = $request->get('inputCategory');
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
         $challenge->flag = $request->get('inputFlag');
         $challenge->content = $request->get('inputContent');
+
         // Update the attachment file
         if($request->hasFile('inputFile')) {
             $attachment_file = $request->file('inputFile');
@@ -111,11 +134,17 @@ class ChallengesController extends Controller
             $ext = $attachment_file->getClientOriginalExtension();
             $attachment_file->storeAs($directory, $file);
         }
-        // Update the attachment database entries
-        $attachment->url = $request->get('inputURL');
+        
+        // Update the attachment and challenge database entries
+        if($request->has('inputURL')) {
+            $attachment->url = $request->get('inputURL');
+        }
+
         $attachment->update();
         $challenge->update();
-        return redirect()->route('user.challenges')->with('success', 'Challenge updated!');
+        $challenge_category->update();
+
+        return redirect()->route('admin.challenges')->with('message', 'Challenge updated!');
     }
 
     public function destroy($id)
@@ -140,9 +169,10 @@ class ChallengesController extends Controller
             $solved->user_id = $request->user()->id;
             $solved->save();
             $this->addScore($request);
-            return redirect('/challenges')->with('message', 'Correct Flag, Congratulations!');
+            return redirect('user.challenges')
+                ->with('message', 'Correct Flag, Congratulations!');
         } else {
-            return redirect('/challenges')->with('message', 'Try Again!');
+            return redirect('user.challenges')->with('message', 'Try Again!');
         } 
     }
 

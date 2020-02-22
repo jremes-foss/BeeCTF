@@ -14,14 +14,13 @@ class AttachmentTest extends TestCase
 
 	public function testAttachmentRelationship()
 	{
-		$attachment = factory(Attachment::class)->make([
+		$attachment = factory(Attachment::class)->create([
 			'challenge_id' => 1,
 			'filename' => 'test.zip',
 			'url' => 'http://127.0.0.1'
 		]);
 
 		factory(\App\Challenge::class)->create([
-			'category' => 'Crypto',
 			'score' => '250',
 			'title' => 'TEST',
 			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
