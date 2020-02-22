@@ -30,9 +30,6 @@ class ChallengesTest extends TestCase
 			'inputURL' => 'http://127.0.0.1:1337/index.php',
 			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
 		];
-		// This is actually a bug!!!
-		// Integrity constraint violation: 1452 Cannot add or update a child row: 
-		// a foreign key constraint fails 
 		$response = $this->actingAs($admin)->post('admin/challenges/create', $data);
 		$response->assertStatus(302);
 
@@ -74,6 +71,11 @@ class ChallengesTest extends TestCase
 			->states('admin')
 			->create();
 
+		factory(\App\Category::class)->create([
+	        'category' => 'Test Category',
+    	    'description' => 'This is a test category'
+		]);
+
 		factory(\App\Challenge::class)->create([
 			'score' => '250',
 			'title' => 'TEST',
@@ -81,10 +83,11 @@ class ChallengesTest extends TestCase
 			'content' => 'This is a test.'
 		]);
 
-		factory(\App\Category::class)->create([
-	        'category' => 'Test Category',
-    	    'description' => 'This is a test category'
+		factory(\App\ChallengeCategory::class)->create([
+			'category_id' => 1,
+			'challenge_id' => 1
 		]);
+
 
 		factory(\App\Attachment::class)->create([
 	    	'challenge_id' => 1,
