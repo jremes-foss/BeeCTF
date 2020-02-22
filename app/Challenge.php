@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Challenge extends Model
 {
 	protected $table = 'challenges';
+    protected $foreignKey = 'challenge_id';
 
 	protected $fillable = [
 	    'score',
@@ -22,6 +23,6 @@ class Challenge extends Model
 
 	public function challenge_categories()
 	{
-		return $this->hasOne('App\ChallengeCategory', 'category_id', 'id');
+		return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');
 	}
 }

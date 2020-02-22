@@ -39,6 +39,7 @@ class ChallengesController extends Controller
         }
 
         if(!empty($category)) {
+            // This needs to be unset so the DB can be inserted
             unset($category['category']);
             ChallengeCategory::create($category);
         }

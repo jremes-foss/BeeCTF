@@ -17,8 +17,8 @@ class CreateChallengeCategory extends Migration
             $table->bigIncrements('id');
             $table->integer('challenge_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->foreign('challenge_id')->references('id')->on('categories');
-            $table->foreign('category_id')->references('id')->on('challenges');
+            $table->foreign('challenge_id')->references('id')->on('challenges');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
