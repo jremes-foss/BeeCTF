@@ -104,22 +104,22 @@ class ChallengesController extends Controller
         $attachments = Attachment::all();
         $challenges = Challenge::with('challenge_categories')->find($id);
         $categories = Category::with('challenge_categories')->get();
+        $challenge_category = ChallengeCategory::where('challenge_id', $id)->first();
         return view('admin.challenges.edit')
             ->with('attachments', $attachments)
             ->with('categories', $categories)
-            ->with('challenge', $challenges);
+            ->with('challenge', $challenges)
+            ->with('challenge_category', $challenge_category);
     }
 
     public function update(Request $request, $id)
     {
         $challenge = Challenge::find($id);
-
         $attachment = Attachment::where('challenge_id', $id)->first();
 
         /** Updates the entry in challenge_category table */
         $challenge_category = ChallengeCategory::where('challenge_id', $id)->first();
         $challenge_category->category_id = $request->get('inputCategory');
-
         $challenge->title = $request->get('inputTitle');
         $challenge->score = $request->get('inputScore');
         $challenge->flag = $request->get('inputFlag');
