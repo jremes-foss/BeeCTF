@@ -55,4 +55,17 @@ class LoginTest extends TestCase
 		$response->assertStatus(302);
 		$this->assertGuest();
 	}
+
+	/**
+	 *	Tests that user is redirected to home page after login.
+	 */
+	public function testHome()
+	{
+		$user = factory(User::class)->create();
+		$response = $this->followingRedirects()->post('/login', [
+			'email' => $user->email,
+			'password' => 'secret'
+		]);
+		$response->assertStatus(200);
+	}
 }
