@@ -31,11 +31,14 @@
 				<div class="panel-body">
 					<!-- Another ugly hack here, refactor pl0x. -->
 					<p>Category: 
-						{{ $challenge->join('challenge_category', 'challenge_category.challenge_id', '=', 'challenges.id')
-						->join('categories', 'challenge_category.category_id', '=', 'categories.id')
-						->select('categories.category')->where('challenge_category.challenge_id', '=', $challenge->id)
-						->value('category') 
-					}}</p>
+						{{ 
+							$challenge->join('challenge_category', 'challenge_category.challenge_id', '=', 'challenges.id')
+							->join('categories', 'challenge_category.category_id', '=', 'categories.id')
+							->select('categories.category')
+							->where('challenge_category.challenge_id', '=', $challenge->id)
+							->value('category') 
+						}}
+					</p>
 					<p>Score: {{ $challenge->score }}</p>
 					<p>Description: {{ $challenge->content }}</p>
 					<p>Attachment: <a href="{{ route('user.download', $challenge->id) }}">Download</a></p>
