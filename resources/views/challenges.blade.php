@@ -22,37 +22,41 @@
 	</div>
 	@if(request()->has('category'))
 		@foreach($challenges as $challenge)
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						{{ $challenge->title }}
-					</h4>
+			<!-- Most likely not the most efficient method to do this, but it works! :) -->
+			<!-- I probably should write a scope for this. -->
+			@if($challenge->challenge_categories->categories->category == $categories->where('category', '=', request()->category)->pluck('category')->toArray()[0])
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							{{ $challenge->title }}
+						</h4>
+					</div>
+					<div class="panel-body">
+						<!-- Another ugly hack here, refactor pl0x. -->
+						<p>Category: 
+							{{ 
+								$challenge->join('challenge_category', 'challenge_category.challenge_id', '=', 'challenges.id')
+								->join('categories', 'challenge_category.category_id', '=', 'categories.id')
+								->select('categories.category')
+								->where('challenge_category.challenge_id', '=', $challenge->id)
+								->value('category') 
+							}}
+						</p>
+						<p>Score: {{ $challenge->score }}</p>
+						<p>Description: {{ $challenge->content }}</p>
+						<p>Attachment: <a href="{{ route('user.download', $challenge->id) }}">Download</a></p>
+						<button type="button" 
+						class="btn btn-primary"
+						data-id="{{ $challenge->id }}"
+						data-toggle="modal" 
+						data-target="#flagValidation">
+							Solve Challenge
+						</button>
+					</div>
 				</div>
-				<div class="panel-body">
-					<!-- Another ugly hack here, refactor pl0x. -->
-					<p>Category: 
-						{{ 
-							$challenge->join('challenge_category', 'challenge_category.challenge_id', '=', 'challenges.id')
-							->join('categories', 'challenge_category.category_id', '=', 'categories.id')
-							->select('categories.category')
-							->where('challenge_category.challenge_id', '=', $challenge->id)
-							->value('category') 
-						}}
-					</p>
-					<p>Score: {{ $challenge->score }}</p>
-					<p>Description: {{ $challenge->content }}</p>
-					<p>Attachment: <a href="{{ route('user.download', $challenge->id) }}">Download</a></p>
-					<button type="button" 
-					class="btn btn-primary"
-					data-id="{{ $challenge->id }}"
-					data-toggle="modal" 
-					data-target="#flagValidation">
-						Solve Challenge
-					</button>
-				</div>
-			</div>
-		@endforeach
-	</div>
+				@endif
+			@endforeach
+		</div>
 
 <!-- Submit Flag Modal -->
 <div class="modal fade" id="flagValidation" tabindex="-1" role="dialog" aria-labelledby="flagValidationLabel">

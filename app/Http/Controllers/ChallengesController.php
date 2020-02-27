@@ -94,7 +94,7 @@ class ChallengesController extends Controller
         $user_id = Auth::user()->id;
         $solved = Solved::where('user_id', $user_id)->get();
         $challenges = Challenge::whereNotIn('id', $solved)->with('challenge_categories')->get();
-        $categories = Category::all();
+        $categories = Category::with('challenge_categories')->get();
         return view('challenges')
             ->with('challenges', $challenges)
             ->with('categories', $categories);
