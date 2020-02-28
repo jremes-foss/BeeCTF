@@ -1,5 +1,5 @@
-<div class="sidebar">
-    <nav class="sidebar-nav">
+<div class="wrapper">
+    <nav class="sidebar-nav bg-light">
         <ul class="nav nav-pills nav-stacked">
             <li><a href="{{ route('admin.users') }}">Users</a></li>
             <li><a href="{{ route('admin.categories') }}">Categories</a></li>
