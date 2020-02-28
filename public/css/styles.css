@@ -6,26 +6,34 @@
 	color: #20c20e;
 }
 
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 100px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    z-index: 999;
-}
-
 .panel {
     margin-bottom: 0px;
     margin-top: 20px;
 }
 
-.wrapper {
-    padding-left: 0;
+li.active {
+    background-color: 428bca;
 }
 
-body {
-    position: relative;
-    overflow-x: hidden;
+li {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.nav-sidebar {
+    margin-right: 21px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
 }
