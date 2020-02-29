@@ -10,30 +10,3 @@
     margin-bottom: 0px;
     margin-top: 20px;
 }
-
-/** Sidebar */
-.sidebar {
-  z-index: 1000;
-  position: fixed;
-  left: 250px;
-  width: 250px;
-  height: 100%;
-  margin-left: -250px;
-  overflow-y: auto;
-  background: #37474F;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-#content {
-  width: 100%;
-  position: relative;
-  margin-right: 0;
-}
-
-body {
-  overflow-x: hidden;
-  font-size: 16px;
-}
