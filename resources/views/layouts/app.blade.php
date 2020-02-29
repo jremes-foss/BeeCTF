@@ -87,6 +87,11 @@
                 </div>
             </div>
         </nav>
+        @if(Auth::user()->isAdmin())
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                @include('pages.sidebar')
+            </div>
+        @endif        
         @yield('scripts')
         @yield('content')
     </div>
