@@ -1,9 +1,4 @@
 @extends('layouts.app')
-
-@section('content')
-<div id="sidebar" class="col-md-4">
-	@include('layouts.sidebar')
-</div>
 <div class="container">
 	<div class="row">
 		<a class="btn btn-primary" href="{{ route('admin.challenges.create', $id) }}" role="button" style="float: right;">New Challenge</a> 
