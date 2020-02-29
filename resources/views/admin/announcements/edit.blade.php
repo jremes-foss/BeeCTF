@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<div id="sidebar" class="col-md-4">
-	@include('layouts.sidebar')
-</div>
 <div class="container">
 	<div class="row">
 		<form role="form" method="post" action="{{ route('admin.announcements.update', $announcement->id) }}">
