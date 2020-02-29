@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
-@include('layouts.sidebar')
-
 @section('content')
+
+<div class="row">
+	@include('layouts.sidebar')
+
 	<div id="content">
-	    <h1>Admin Section</h1>
+	    <h1 class="text-center">Admin Section</h1>
 	</div>
 @endsection
