@@ -90,7 +90,7 @@
 
         @auth
         @if(Auth::user()->isAdmin())
-            <div class="col-md-4 col-lg-2 col-sm-12">
+            <div class="col-lg-2">
                 @include('layouts.sidebar')
             </div>
         @endif
