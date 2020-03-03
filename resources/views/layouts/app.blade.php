@@ -93,18 +93,16 @@
             <div class="col-lg-2">
                 @include('layouts.sidebar')
             </div>
+            <div class="col-lg-2">
+                @yield('content')
+            <div>
+        @else
+            @yield('content')
         @endif
         @endauth
 
         @yield('scripts')
         
-        @if(Auth::user()->isAdmin())
-        <div class="col-lg-2">
-            @yield('content')
-        <div>
-        @else
-            @yield('content')
-        @endif
     </div>
 
     <!-- Scripts -->
