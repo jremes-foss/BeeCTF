@@ -87,19 +87,9 @@
                 </div>
             </div>
         </nav>
-
-        @auth
-        @if(Auth::user()->isAdmin())
-            <div class="col-lg-2">
-                @include('layouts.sidebar')
-            </div>
-            <div class="col-lg-2">
-                @yield('content')
-            <div>
-        @else
+        <div class="container">
             @yield('content')
-        @endif
-        @endauth
+        </div>
 
         @yield('scripts')
         
