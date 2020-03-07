@@ -98,14 +98,12 @@
         <!-- Regular User -->
         @auth
         @if(Auth::user()->isAdmin())
-        <div class="container">
             <div class="col-sm-2">
                 @include('layouts.sidebar')
             </div>
             <div class="col-sm-4">
                 @yield('content')
             </div>
-        </div>
         @else
         <div class="container">
             @yield('content')
