@@ -87,9 +87,34 @@
                 </div>
             </div>
         </nav>
+        
+        <!-- Guest -->
+        @guest
         <div class="container">
             @yield('content')
         </div>
+        @endguest
+
+        <!-- Regular User -->
+        @auth
+        <div class="container">
+            @yield('content')
+        </div>
+        @endauth
+
+        <!-- Administrator -->
+        @auth
+        @if(Auth::user()->isAdmin())
+        <div class="container">
+            <div class="col-lg-8">
+                @yield('layouts.sidebar')
+            </div>
+            <div class="col-lgl-8">
+                @yield('content')
+            </div>
+        </div>
+        @endif
+        @endauth
 
         @yield('scripts')
         
