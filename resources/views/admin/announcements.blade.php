@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<div class="row">
-	<a class="btn btn-primary" href="{{ route('admin.announcements.create') }}" role="button" style="float: right;">New Announcement</a>
+	<a class="btn btn-primary btn-sm pull-left" href="{{ route('admin.announcements.create') }}" role="button">New Announcement</a>
 	<table class="table table-hover">
 		<thead>
 			<tr>
