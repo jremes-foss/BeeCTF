@@ -97,21 +97,18 @@
 
         <!-- Regular User -->
         @auth
-        <div class="container">
-            @yield('content')
-        </div>
-        @endauth
-
-        <!-- Administrator -->
-        @auth
         @if(Auth::user()->isAdmin())
         <div class="container">
-            <div class="col-lg-8">
-                @yield('layouts.sidebar')
+            <div class="col-sm-2">
+                @include('layouts.sidebar')
             </div>
-            <div class="col-lgl-8">
+            <div class="col-sm-4">
                 @yield('content')
             </div>
+        </div>
+        @else
+        <div class="container">
+            @yield('content')
         </div>
         @endif
         @endauth
