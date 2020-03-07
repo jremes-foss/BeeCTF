@@ -8,7 +8,7 @@
 				{{ session()->get('message') }}
 			</div>
 		@endif
-		<a class="btn btn-primary" href="{{ route('admin.challenges.create') }}" role="button" style="float: right;">New Challenge</a> 
+		<a class="btn btn-primary btn-sm pull-left" href="{{ route('admin.challenges.create') }}" role="button">New Challenge</a> 
 		<table class="table table-hover">
 		  <thead>
 		    <tr>
