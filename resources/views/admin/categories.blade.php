@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
 	<div class="row">
+		@if(session()->has('message'))
+		<div class="alert alert-success">
+			{{ session()->get('message') }}
+		</div>
+		@endif
 		<a class="btn btn-primary btn-sm pull-left" href="{{ route('admin.categories.create') }}" role="button">New Category</a> 
 		<table class="table table-hover">
 		  <thead>
