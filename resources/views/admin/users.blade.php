@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
 	<div class="row">
+		@if(session()->has('message'))
+			<div class="alert alert-success">
+				{{ session()->get('message') }}
+			</div>
+		@endif
 		<table class="table table-hover">
 			<thead>
 				<tr>
