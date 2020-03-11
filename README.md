@@ -20,6 +20,8 @@ php artisan key:generate
 php artisan user:create-admin
 ```
 
+As BeeCTF is built on Laravel, please make sure to set the correct parameters in the .env file. 
+
 ### Docker
 With Docker (currently for development purposes only, the production image is work in progress):
 
@@ -36,7 +38,7 @@ docker-compose exec app php artisan user:create-admin
 After creating an administrative user and database connection, the system is ready to use.
 
 ## Pull Requests
-Feel free to send any bug fixes, new features, etc. via pull requests. Please note that BeeCTF is still heavily work in progress so there are a lot of issues to fix and all contributions are welcome. :+1:
+Feel free to send any bug fixes, new features, etc. via pull requests. Please note that BeeCTF is still heavily work in progress so there are a lot of issues to fix and all contributions are welcome. Before submitting unit tests, please make sure all unit tests pass and the code is following the standards established in contribution guide.
 
 ## License
 Copyright (c) <2019> Juha Remes
