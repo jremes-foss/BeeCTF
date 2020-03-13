@@ -29,7 +29,7 @@ class ChallengesController extends Controller
         $category = array();
         $category['category'] = $request->get('inputCategory');
 
-        if($request->has('inputCategory')) {
+        if ($request->has('inputCategory')) {
             $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
             $get_category = Category::where('category', $category['category'])->first();
             $challenge_id = $get_challenge->id;
@@ -38,7 +38,7 @@ class ChallengesController extends Controller
             $category['category_id'] = $category_id;
         }
 
-        if(!empty($category)) {
+        if (!empty($category)) {
             // This needs to be unset so the DB can be inserted
             unset($category['category']);
             ChallengeCategory::create($category);
@@ -46,17 +46,17 @@ class ChallengesController extends Controller
 
         $attachment = array();
 
-        if($request->has('inputURL') || $request->has('inputFile')) {
+        if ($request->has('inputURL') || $request->has('inputFile')) {
 
             $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
             $challenge_id = $get_challenge->id;
             $attachment['challenge_id'] = $challenge_id;
 
-            if($request->has('inputURL')) {
+            if ($request->has('inputURL')) {
                 $attachment['url'] = $request->get('inputURL');
             }
 
-            if($request->hasFile('inputFile')) {
+            if ($request->hasFile('inputFile')) {
                 $attachment_file = $request->file('inputFile');
                 $directory = 'public/challenges';
                 $file = $attachment_file->getClientOriginalName();
@@ -65,11 +65,11 @@ class ChallengesController extends Controller
             }
         }
 
-        if($request->hasFile('inputFile')) {
+        if ($request->hasFile('inputFile')) {
             $attachment['filename'] = $directory . '/' . $file;            
         }
 
-        if(!empty($attachment)) {
+        if (!empty($attachment)) {
             Attachment::create($attachment);
         }
 
@@ -136,7 +136,7 @@ class ChallengesController extends Controller
         }
         
         // Update the attachment and challenge database entries
-        if($request->has('inputURL')) {
+        if ($request->has('inputURL')) {
             $attachment->url = $request->get('inputURL');
         }
 
@@ -163,7 +163,7 @@ class ChallengesController extends Controller
             'flag' => $request->get('flag'),
         );
 
-        if($flag == $submit['flag']) {
+        if ($flag == $submit['flag']) {
             $solved = new Solved;
             $solved->challenge_id = $request->id;
             $solved->user_id = $request->user()->id;
