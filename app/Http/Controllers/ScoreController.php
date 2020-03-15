@@ -23,7 +23,7 @@ class ScoreController extends Controller
     		'user_id'
     	]);
 
-    	foreach($solutions as $solution) {
+    	foreach ($solutions as $solution) {
 	    	$points = Challenge::where('id', $solution['challenge_id'])->get();
             foreach($points as $point) {
                 $score += $point->score;
@@ -45,7 +45,7 @@ class ScoreController extends Controller
 
     	$score_array = [];
 
-    	foreach($users as $user) {
+    	foreach ($users as $user) {
     		$score = $this->getScoresPerPlayer($user->id);
     		$id = $user->id;
             $name = $user->name;
