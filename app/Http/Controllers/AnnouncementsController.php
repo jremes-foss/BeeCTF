@@ -7,6 +7,11 @@ use App\Announcement;
 
 class AnnouncementsController extends Controller
 {
+    /**
+     * Returns the create page.
+     *
+     * @return \Illuminate\Http\Response
+     */
 	public function create() 
 	{
 		$announcements = Announcement::all();
