@@ -18,6 +18,11 @@ class AnnouncementsController extends Controller
         return view('admin.announcements.create', compact('announcements'));
 	}
 
+    /**
+     * Store a newly created announcement resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
 	public function store(Request $request)
 	{
 		$announcement = array(
