@@ -36,6 +36,11 @@ class AnnouncementsController extends Controller
         	->with('success', 'Announcement saved!');
 	}
 
+    /**
+     * Returns index() for administrative users.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexAdmin()
     {
     	$announcements = Announcement::all();
