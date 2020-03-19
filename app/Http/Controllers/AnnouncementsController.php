@@ -47,6 +47,11 @@ class AnnouncementsController extends Controller
     	return view('admin.announcements', compact('announcements'));
     }
 
+    /**
+     * Returns index() for regular users.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexUser()
     {
     	$announcements = Announcement::all();
