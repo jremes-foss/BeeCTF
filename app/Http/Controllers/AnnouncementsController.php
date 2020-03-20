@@ -58,6 +58,11 @@ class AnnouncementsController extends Controller
     	return view('announcements', compact('announcements'));
     }
 
+    /**
+     * Returns edit form for announcements.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         $announcements = Announcement::find($id);
