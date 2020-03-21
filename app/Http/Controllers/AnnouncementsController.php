@@ -70,6 +70,11 @@ class AnnouncementsController extends Controller
             ->with('announcement', $announcements);
     }
 
+    /**
+     * Saves the edit form for announcements.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         $announcement = Announcement::find($id);
