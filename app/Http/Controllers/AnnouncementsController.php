@@ -85,6 +85,11 @@ class AnnouncementsController extends Controller
             ->with('success', 'Announcement updated!');
     }
 
+    /**
+     * Deletes the announcement.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         $announcement = Announcement::find($id);
