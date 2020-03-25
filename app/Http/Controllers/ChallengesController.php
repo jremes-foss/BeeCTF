@@ -15,6 +15,12 @@ use Carbon\Carbon;
 
 class ChallengesController extends Controller
 {
+    /**
+     * Store a newly created challenge in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
     	$challenge = array(
