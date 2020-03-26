@@ -82,6 +82,11 @@ class ChallengesController extends Controller
     	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
     }
 
+    /**
+     * Returns the create page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         $categories = Category::all();
