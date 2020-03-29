@@ -10,13 +10,13 @@ class Attachment extends Model
     protected $foreignKey = 'challenge_id';
 
     protected $fillable = [
-    	'challenge_id',
-    	'filename',
-    	'url'
+        'challenge_id',
+        'filename',
+        'url'
     ];
 
-    public function challenge() 
+    public function challenge()
     {
-    	return $this->belongsTo('App\Challenge', 'challenge_id');
+        return $this->belongsTo('App\Challenge', 'challenge_id');
     }
 }
