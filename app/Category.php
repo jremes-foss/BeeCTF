@@ -10,17 +10,17 @@ class Category extends Model
     protected $foreignKey = 'category_id';
 
     protected $fillable = [
-    	'category',
-    	'description'
+        'category',
+        'description'
     ];
 
-	public function challenge_categories()
-	{
-		return $this->hasMany('App\ChallengeCategory', 'category_id', 'id');
-	}
-
-    public function challenges() 
+    public function challenge_categories()
     {
-    	return $this->hasMany('App\Challenge', 'challenge_id', 'id');
+        return $this->hasMany('App\ChallengeCategory', 'category_id', 'id');
+    }
+
+    public function challenges()
+    {
+        return $this->hasMany('App\Challenge', 'challenge_id', 'id');
     }
 }
