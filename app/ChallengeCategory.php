@@ -9,13 +9,13 @@ class ChallengeCategory extends Model
     protected $table = "challenge_category";
 
     protected $fillable = [
-    	'category_id',
-    	'challenge_id'
+        'category_id',
+        'challenge_id'
     ];
 
     public function challenges()
     {
-    	return $this->belongsTo('App\Challenge', 'challenge_id', 'id');
+        return $this->belongsTo('App\Challenge', 'challenge_id', 'id');
     }
 
     public function categories()
