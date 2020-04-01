@@ -6,23 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Challenge extends Model
 {
-	protected $table = 'challenges';
+    protected $table = 'challenges';
     protected $foreignKey = 'challenge_id';
 
-	protected $fillable = [
-	    'score',
-	    'title',
-	    'flag',
-	    'content'
-	];
+    protected $fillable = [
+        'score',
+        'title',
+        'flag',
+        'content'
+    ];
 
-	public function attachments() 
-	{
-		return $this->hasOne('App\Attachment');
-	}
+    public function attachments()
+    {
+        return $this->hasOne('App\Attachment');
+    }
 
-	public function challenge_categories()
-	{
-		return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');
-	}
+    public function challenge_categories()
+    {
+        return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');
+    }
 }
