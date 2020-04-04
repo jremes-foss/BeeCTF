@@ -11,26 +11,27 @@ use App\User;
 class ScoreController extends Controller
 {
     /**
-     *	Calculates the score for each individual player.
+     *  Calculates the score for each individual player.
      *
-     *	@return integer
+     *  @return integer
      */
-    public function getScoresPerPlayer($id) {
-    	$score = 0;
+    public function getScoresPerPlayer($id)
+    {
+        $score = 0;
 
-    	$solutions = Solved::where('user_id', $id)->get([
-    		'challenge_id',
-    		'user_id'
-    	]);
+        $solutions = Solved::where('user_id', $id)->get([
+            'challenge_id',
+            'user_id'
+        ]);
 
-    	foreach ($solutions as $solution) {
-	    	$points = Challenge::where('id', $solution['challenge_id'])->get();
-            foreach($points as $point) {
+        foreach ($solutions as $solution) {
+            $points = Challenge::where('id', $solution['challenge_id'])->get();
+            foreach ($points as $point) {
                 $score += $point->score;
             }
-    	}
+        }
 
-    	return $score;
+        return $score;
     }
 
     /**
@@ -38,16 +39,17 @@ class ScoreController extends Controller
      *
      *  @return array
      */
-    public function getScores() {
-    	$users = User::where('user_type', 'User')->get([
-    		'id', 'name'
-    	]);
+    public function getScores()
+    {
+        $users = User::where('user_type', 'User')->get([
+            'id', 'name'
+        ]);
 
-    	$score_array = [];
+        $score_array = [];
 
-    	foreach ($users as $user) {
-    		$score = $this->getScoresPerPlayer($user->id);
-    		$id = $user->id;
+        foreach ($users as $user) {
+            $score = $this->getScoresPerPlayer($user->id);
+            $id = $user->id;
             $name = $user->name;
             $temp_array = array(
                 'id' => $id,
@@ -55,7 +57,7 @@ class ScoreController extends Controller
                 'score' => $score
             );
             array_push($score_array, $temp_array);
-    	}
+        }
         $score_collection = collect($score_array);
         $score_sorted = $score_collection->sortByDesc('score');
 
