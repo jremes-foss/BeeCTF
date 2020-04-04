@@ -12,29 +12,29 @@ class AnnouncementsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-	public function create() 
-	{
-		$announcements = Announcement::all();
+    public function create()
+    {
+        $announcements = Announcement::all();
         return view('admin.announcements.create', compact('announcements'));
-	}
+    }
 
     /**
      * Store a newly created announcement resource in storage.
      *
      * @return \Illuminate\Http\Response
      */
-	public function store(Request $request)
-	{
-		$announcement = array(
-			'title' => $request->get('inputTitle'),
-			'content' => $request->get('inputContent')
-		);
+    public function store(Request $request)
+    {
+        $announcement = array(
+            'title' => $request->get('inputTitle'),
+            'content' => $request->get('inputContent')
+        );
 
-		Announcement::create($announcement);
+        Announcement::create($announcement);
 
         return redirect()->route('admin.announcements')
-        	->with('success', 'Announcement saved!');
-	}
+            ->with('success', 'Announcement saved!');
+    }
 
     /**
      * Returns index() for administrative users.
@@ -43,8 +43,8 @@ class AnnouncementsController extends Controller
      */
     public function indexAdmin()
     {
-    	$announcements = Announcement::all();
-    	return view('admin.announcements', compact('announcements'));
+        $announcements = Announcement::all();
+        return view('admin.announcements', compact('announcements'));
     }
 
     /**
@@ -54,8 +54,8 @@ class AnnouncementsController extends Controller
      */
     public function indexUser()
     {
-    	$announcements = Announcement::all();
-    	return view('announcements', compact('announcements'));
+        $announcements = Announcement::all();
+        return view('announcements', compact('announcements'));
     }
 
     /**
