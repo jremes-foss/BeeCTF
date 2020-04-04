@@ -23,7 +23,7 @@ class ChallengesController extends Controller
      */
     public function store(Request $request)
     {
-    	$challenge = array(
+        $challenge = array(
             'title' => $request->get('inputTitle'),
             'score' => $request->get('inputScore'),
             'flag' => $request->get('inputFlag'),
@@ -67,19 +67,19 @@ class ChallengesController extends Controller
                 $directory = 'public/challenges';
                 $file = $attachment_file->getClientOriginalName();
                 $ext = $attachment_file->getClientOriginalExtension();
-                $attachment_file->storeAs($directory, $file);                
+                $attachment_file->storeAs($directory, $file);
             }
         }
 
         if ($request->hasFile('inputFile')) {
-            $attachment['filename'] = $directory . '/' . $file;            
+            $attachment['filename'] = $directory . '/' . $file;
         }
 
         if (!empty($attachment)) {
             Attachment::create($attachment);
         }
 
-    	return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
+        return redirect()->route('admin.challenges')->with('success', 'Challenge saved!');
     }
 
     /**
@@ -90,7 +90,7 @@ class ChallengesController extends Controller
     public function create()
     {
         $categories = Category::all();
-    	return view('admin.challenges.create')
+        return view('admin.challenges.create')
             ->with('categories', $categories);
     }
 
@@ -138,14 +138,14 @@ class ChallengesController extends Controller
         $challenge->content = $request->get('inputContent');
 
         // Update the attachment file
-        if($request->hasFile('inputFile')) {
+        if ($request->hasFile('inputFile')) {
             $attachment_file = $request->file('inputFile');
             $directory = 'public/challenges';
             $file = $attachment_file->getClientOriginalName();
             $ext = $attachment_file->getClientOriginalExtension();
             $attachment_file->storeAs($directory, $file);
         }
-        
+
         // Update the attachment and challenge database entries
         if ($request->has('inputURL')) {
             $attachment->url = $request->get('inputURL');
@@ -184,7 +184,7 @@ class ChallengesController extends Controller
                 ->with('message', 'Correct Flag, Congratulations!');
         } else {
             return redirect('user.challenges')->with('message', 'Try Again!');
-        } 
+        }
     }
 
     public function addScore(Request $request)
@@ -194,7 +194,7 @@ class ChallengesController extends Controller
         $user = $request->user()->id;
         $user_score = Score::where('user_id', $user)->first();
 
-        if(!$user_score) {
+        if (!$user_score) {
             $user_score = Score::create([
                 'user_id' => $user,
                 'score' => 0
@@ -211,7 +211,7 @@ class ChallengesController extends Controller
             $attachment = Attachment::where('challenge_id', $id)->first();
             $storage_path = storage_path('app/' . $attachment->filename);
             return response()->download($storage_path);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return abort(404);
         }
     }
