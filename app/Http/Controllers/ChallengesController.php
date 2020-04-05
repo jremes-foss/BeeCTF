@@ -53,7 +53,6 @@ class ChallengesController extends Controller
         $attachment = array();
 
         if ($request->has('inputURL') || $request->has('inputFile')) {
-
             $get_challenge = Challenge::orderBy('updated_at', 'DESC')->first();
             $challenge_id = $get_challenge->id;
             $attachment['challenge_id'] = $challenge_id;
