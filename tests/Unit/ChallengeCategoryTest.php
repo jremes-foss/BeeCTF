@@ -34,11 +34,11 @@ class ChallengeCategoryTest extends TestCase
 		$challenge = Challenge::find(1);
 		$challenge_category = ChallengeCategory::find(1);
 
-		$this->assertEquals(1, $challenge->challenge_categories->challenge_id);
-		$this->assertEquals(1, $challenge->challenge_categories->category_id);
+		$this->assertEquals(1, $challenge->challengeCategories->challenge_id);
+		$this->assertEquals(1, $challenge->challengeCategories->category_id);
 		
 		// Test categories relationship
-		$this->assertEquals('Crypto', $challenge->challenge_categories->categories->category);
+		$this->assertEquals('Crypto', $challenge->challengeCategories->categories->category);
 
 		// Test challenges relationship
 		$this->assertEquals(250, $challenge_category->challenges->score);

@@ -24,7 +24,7 @@
 		@foreach($challenges as $challenge)
 			<!-- Most likely not the most efficient method to do this, but it works! :) -->
 			<!-- I probably should write a scope for this. -->
-			@if($challenge->challenge_categories->categories->category == $categories->where('category', '=', request()->category)->pluck('category')->toArray()[0])
+			@if($challenge->challengeCategories->categories->category == $categories->where('category', '=', request()->category)->pluck('category')->toArray()[0])
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h4 class="panel-title">
