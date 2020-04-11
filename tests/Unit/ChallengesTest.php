@@ -13,203 +13,203 @@ use App\User;
 
 class ChallengesTest extends TestCase
 {
-	use RefreshDatabase;
-	
-	public function testStore() 
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
+    use RefreshDatabase;
 
-		factory(\App\Category::class)->create([
-	        'category' => 'Test Category',
-    	    'description' => 'This is a test category'
-		]);
+    public function testStore()
+    {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
 
-		$data = [
-			'inputCategory' => 'Test Category',
-			'inputTitle' => 250,
-			'inputScore' => 'Weak Cipher',
-			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
-			'inputContent' => 'Can you break this weak cipher?',
-			'inputURL' => 'http://127.0.0.1:1337/index.php',
-			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
-		];
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category',
+            'description' => 'This is a test category'
+        ]);
 
-		$response = $this->actingAs($admin)->post('admin/challenges/create', $data);
-		$response->assertStatus(302);
+        $data = [
+            'inputCategory' => 'Test Category',
+            'inputTitle' => 250,
+            'inputScore' => 'Weak Cipher',
+            'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
+            'inputContent' => 'Can you break this weak cipher?',
+            'inputURL' => 'http://127.0.0.1:1337/index.php',
+            'inputFile' => UploadedFile::fake()->image('test_file.jpg')
+        ];
 
-		// Test the download function here.
-		$response = $this->get('/challenges/1/download');
-		$response->assertStatus(200);
-	}
+        $response = $this->actingAs($admin)->post('admin/challenges/create', $data);
+        $response->assertStatus(302);
 
-	public function testCreate()
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
+        // Test the download function here.
+        $response = $this->get('/challenges/1/download');
+        $response->assertStatus(200);
+    }
 
-		$response = $this->actingAs($admin)->get('admin/challenges/create');
-		$response->assertStatus(200);
-	}
+    public function testCreate()
+    {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
 
-	public function testIndexAdmin()
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
+        $response = $this->actingAs($admin)->get('admin/challenges/create');
+        $response->assertStatus(200);
+    }
 
-		$response = $this->actingAs($admin)->get('admin/challenges');
-		$response->assertStatus(200);
-	}
+    public function testIndexAdmin()
+    {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
 
-	public function testIndexUser()
-	{
-		$user = factory(\App\User::class)->create();
-		$response = $this->actingAs($user)->get('/challenges');
-		$response->assertStatus(200);
-	}
+        $response = $this->actingAs($admin)->get('admin/challenges');
+        $response->assertStatus(200);
+    }
 
-	public function testEdit()
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
+    public function testIndexUser()
+    {
+        $user = factory(\App\User::class)->create();
+        $response = $this->actingAs($user)->get('/challenges');
+        $response->assertStatus(200);
+    }
 
-		factory(\App\Category::class)->create([
-	        'category' => 'Test Category',
-    	    'description' => 'This is a test category'
-		]);
+    public function testEdit()
+    {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
 
-		factory(\App\Challenge::class)->create([
-			'score' => '250',
-			'title' => 'TEST',
-			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
-			'content' => 'This is a test.'
-		]);
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category',
+            'description' => 'This is a test category'
+        ]);
 
-		factory(\App\ChallengeCategory::class)->create([
-			'category_id' => 1,
-			'challenge_id' => 1
-		]);
+        factory(\App\Challenge::class)->create([
+            'score' => '250',
+            'title' => 'TEST',
+            'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+            'content' => 'This is a test.'
+        ]);
+
+        factory(\App\ChallengeCategory::class)->create([
+            'category_id' => 1,
+            'challenge_id' => 1
+        ]);
 
 
-		factory(\App\Attachment::class)->create([
-	    	'challenge_id' => 1,
-	    	'filename' => 'public/challenges/test.zip',
-	    	'url' => 'http://127.0.0.1:1337/index.php'		
-		]);
-		
-		$response = $this->actingAs($admin)->get('admin/challenges/1/edit');
-		$response->assertStatus(200);
-	}
+        factory(\App\Attachment::class)->create([
+            'challenge_id' => 1,
+            'filename' => 'public/challenges/test.zip',
+            'url' => 'http://127.0.0.1:1337/index.php'
+        ]);
 
-	public function testUpdate()
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
+        $response = $this->actingAs($admin)->get('admin/challenges/1/edit');
+        $response->assertStatus(200);
+    }
 
-		factory(\App\Challenge::class)->create([
-			'score' => '250',
-			'title' => 'TEST',
-			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
-			'content' => 'This is a test.'
-		]);
+    public function testUpdate()
+    {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
 
-		factory(\App\Category::class)->create([
-	        'category' => 'Test Category',
-    	    'description' => 'This is a test category'
-		]);
+        factory(\App\Challenge::class)->create([
+            'score' => '250',
+            'title' => 'TEST',
+            'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+            'content' => 'This is a test.'
+        ]);
 
-		factory(\App\ChallengeCategory::class)->create([
-	        'category_id' => 1,
-    	    'challenge_id' => 1
-		]);
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category',
+            'description' => 'This is a test category'
+        ]);
 
-		factory(\App\Attachment::class)->create([
-	    	'challenge_id' => 1,
-	    	'filename' => 'public/challenges/test.zip',
-	    	'url' => 'http://127.0.0.1:1337/index.php'		
-		]);
+        factory(\App\ChallengeCategory::class)->create([
+            'category_id' => 1,
+            'challenge_id' => 1
+        ]);
 
-		$data = [
-			'inputCategory' => 'Test Category',
-			'inputTitle' => 250,
-			'inputScore' => 'Weak Cipher',
-			'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
-			'inputContent' => 'Can you break this weak cipher?',
-			'inputURL' => 'http://127.0.0.1:1337/index.php',
-			'inputFile' => UploadedFile::fake()->image('test_file.jpg')
-		];
+        factory(\App\Attachment::class)->create([
+            'challenge_id' => 1,
+            'filename' => 'public/challenges/test.zip',
+            'url' => 'http://127.0.0.1:1337/index.php'
+        ]);
 
-		$response = $this->actingAs($admin)->post('admin/challenges/1/update', $data);
-		$response->assertStatus(302);
-	}
+        $data = [
+            'inputCategory' => 'Test Category',
+            'inputTitle' => 250,
+            'inputScore' => 'Weak Cipher',
+            'inputFlag' => 'FLAG{th1s_1s_4_t3st}',
+            'inputContent' => 'Can you break this weak cipher?',
+            'inputURL' => 'http://127.0.0.1:1337/index.php',
+            'inputFile' => UploadedFile::fake()->image('test_file.jpg')
+        ];
 
-	public function testDestroy() 
-	{
-		$admin = factory(\App\User::class)
-			->states('admin')
-			->create();
+        $response = $this->actingAs($admin)->post('admin/challenges/1/update', $data);
+        $response->assertStatus(302);
+    }
 
-		factory(\App\Challenge::class)->create([
-			'score' => '250',
-			'title' => 'TEST',
-			'flag' => 'FLAG{th1s_1s_4_t3stSt}',
-			'content' => 'This is a test.'
-		]);
+    public function testDestroy()
+    {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
 
-		$response = $this->actingAs($admin)->get('admin/challenges/1/delete');
-		$response->assertStatus(302);		
-	}
+        factory(\App\Challenge::class)->create([
+            'score' => '250',
+            'title' => 'TEST',
+            'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+            'content' => 'This is a test.'
+        ]);
 
-	public function testSubmitFlag()
-	{
-		factory(\App\Challenge::class)->create([
-			'score' => '250',
-			'title' => 'TEST',
-			'flag' => 'FLAG{th1s_1s_4_t3st}',
-			'content' => 'This is a test.'
-		]);
+        $response = $this->actingAs($admin)->get('admin/challenges/1/delete');
+        $response->assertStatus(302);
+    }
 
-		factory(\App\Attachment::class)->create([
-	    	'challenge_id' => 1,
-	    	'filename' => 'public/challenges/test.zip',
-	    	'url' => 'http://127.0.0.1:1337/index.php'		
-		]);
+    public function testSubmitFlag()
+    {
+        factory(\App\Challenge::class)->create([
+            'score' => '250',
+            'title' => 'TEST',
+            'flag' => 'FLAG{th1s_1s_4_t3st}',
+            'content' => 'This is a test.'
+        ]);
 
-		factory(\App\Category::class)->create([
-	        'category' => 'Test Category',
-    	    'description' => 'This is a test category'
-		]);
+        factory(\App\Attachment::class)->create([
+            'challenge_id' => 1,
+            'filename' => 'public/challenges/test.zip',
+            'url' => 'http://127.0.0.1:1337/index.php'
+        ]);
 
-		$user = factory(\App\User::class)->create();
-		$this->be($user);
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category',
+            'description' => 'This is a test category'
+        ]);
 
-		$data = array(
-			'id' => 1,
-			'flag' => 'FLAG{th1s_1s_4_t3st}'
-		);
+        $user = factory(\App\User::class)->create();
+        $this->be($user);
 
-		$response = $this->post('/challenges', $data);
-		$response->assertStatus(302);
+        $data = array(
+            'id' => 1,
+            'flag' => 'FLAG{th1s_1s_4_t3st}'
+        );
 
-		// Test invalid flag
-		$data = array(
-			'id' => 1,
-			'flag' => 'FLAG{th1s_1s_1nv4l1d_fl4g}'
-		);
+        $response = $this->post('/challenges', $data);
+        $response->assertStatus(302);
 
-		$response = $this->post('/challenges', $data);
-		$response->assertStatus(302);
-	}
+        // Test invalid flag
+        $data = array(
+            'id' => 1,
+            'flag' => 'FLAG{th1s_1s_1nv4l1d_fl4g}'
+        );
 
-	public function testCategory() 
-	{
-		$challenge = new Challenge;
-		$category = $challenge::with('challenge_categories')->get(1);
-		$this->assertEquals('object', gettype($category));
-	}
+        $response = $this->post('/challenges', $data);
+        $response->assertStatus(302);
+    }
+
+    public function testCategory()
+    {
+        $challenge = new Challenge;
+        $category = $challenge::with('challenge_categories')->get(1);
+        $this->assertEquals('object', gettype($category));
+    }
 }
