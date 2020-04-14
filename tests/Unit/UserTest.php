@@ -8,21 +8,20 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
-
-	use RefreshDatabase;
+    use RefreshDatabase;
 
     public function testDefaultUserIsNotAdmin()
     {
-    	$user = factory(\App\User::class)->create();
-    	$this->assertFalse($user->isAdmin());
+        $user = factory(\App\User::class)->create();
+        $this->assertFalse($user->isAdmin());
     }
 
     public function testAdminUserIsAnAdmin()
     {
-    	$admin = factory(\App\User::class)
-    		->states('admin')
-    		->create();
-    	$this->assertTrue($admin->isAdmin());
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
+        $this->assertTrue($admin->isAdmin());
     }
 
     public function testAdminViewUsers()
@@ -73,6 +72,6 @@ class UserTest extends TestCase
             ->create();
 
         $response = $this->actingAs($admin)->get('admin/users/1/delete');
-        $response->assertStatus(302);  
+        $response->assertStatus(302);
     }
 }
