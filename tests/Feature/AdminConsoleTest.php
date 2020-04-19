@@ -17,7 +17,7 @@ class AdminConsoleTest extends TestCase
         $this->assertTrue(class_exists(\App\Console\Commands\CreateAdministrator::class));
     }
 
-    public function testRunAdminConsoleCommand() 
+    public function testRunAdminConsoleCommand()
     {
         $email = $this->faker->email;
         $password = $this->faker->password(8);
