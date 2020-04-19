@@ -5,8 +5,8 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ChallengesTest extends TestCase {
-
+class ChallengesTest extends TestCase 
+{
     use RefreshDatabase;
 
     public function testAdminSidebarWorks()
