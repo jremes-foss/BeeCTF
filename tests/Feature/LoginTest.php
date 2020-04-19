@@ -57,7 +57,7 @@ class LoginTest extends TestCase
     }
 
     /**
-     *	Tests that user is redirected to home page after login.
+     *  Tests that user is redirected to home page after login.
      */
     public function testHome()
     {
