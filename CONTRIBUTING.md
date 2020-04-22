@@ -23,7 +23,7 @@ NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
 [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ### Architecture
-As [Laravel](https://laravel.com/) project, BeeCTF is following [MVC](https://www.codecademy.com/articles/mvc) pattern. All new code added to BeeCTF must follow this pattern. 
+As [Laravel](https://laravel.com/) project, BeeCTF is following [MVC](https://www.codecademy.com/articles/mvc) pattern. All new code added to BeeCTF must follow this pattern. Middleware, Guards, Facades and Contracts are part of Laravel application logic request cycle. 
 
 ### Code Style 
 BeeCTF follows [PSR-2](https://www.php-fig.org/psr/psr-2/) code standard, and [PSR-4](https://www.php-fig.org/psr/psr-4/) autoloading standard. All code in BeeCTF must follow these standards. Before submitting your patch, please make sure these standards are being fulfilled.
