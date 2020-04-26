@@ -23,4 +23,4 @@ before_script:
 script:
   - phpdbg -qrr ./vendor/bin/phpunit
   - ./vendor/bin/php-coveralls -x build/logs/clover.xml
-  - phpcs --standard=PSR2 app/ tests/
+  - ./vendor/bin/phpcs --standard=PSR2 tests/ app/
