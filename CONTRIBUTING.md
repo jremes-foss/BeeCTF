@@ -35,3 +35,4 @@ Since the idea is to create as light-weight application as possible, adding exce
 When creating new migrations, please make sure the table names specified in the schema are descriptive. In addition, due to performance reasons, the column count should be kept at minimum. It's better to create more tables with less columns than one big table with more columns.
 
 ### Continuous Integration
+BeeCTF has a Continuous Integration (CI) pipeline.
