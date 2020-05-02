@@ -36,3 +36,10 @@ When creating new migrations, please make sure the table names specified in the 
 
 ### Continuous Integration
 BeeCTF has a Continuous Integration (CI) pipeline. In order to pull request to be merged, all the checks have to pass. The CI pipeline includes a set of unit tests and PHP Code Sniffer check.
+
+### Pull Requests
+Pull requests are welcome but must follow the best practices.
+- Subject line should be kept under 50 characters.
+- Description should be kept informative. For example: why was change necessary and how does the pull request address the problem? 
+- If there is an issue open regarding the pull request, please link the open issue to description. 
+
