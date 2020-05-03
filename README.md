@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/Newman101/BeeCTF.svg?branch=master)](https://travis-ci.com/Newman101/BeeCTF)
 [![Coverage Status](https://coveralls.io/repos/github/Newman101/BeeCTF/badge.svg?branch=master)](https://coveralls.io/github/Newman101/BeeCTF?branch=master)
 
-Laravel-Based Community CTF Platform
+Laravel-Based Community CTF Platform.
 
 ## Introduction
 BeeCTF is a CTF platform intended for small and local community groups who want to host their own CTF competitions. A small size and light weight makes BeeCTF a good platform to be hosted even in a small computer such as Raspberry Pi effectively. Built on [Laravel 5.8](https://laravel.com/), BeeCTF is easy to install and run even if your hardware is more limited. 
