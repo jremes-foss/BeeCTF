@@ -20,7 +20,11 @@ php artisan key:generate
 php artisan user:create-admin
 ```
 
-As BeeCTF is built on Laravel, please make sure to set the correct parameters in the .env file. 
+As BeeCTF is built on Laravel, please make sure to set the correct parameters in the .env file. To run the system after installation, you can use your own web server (such as Nginx or Apache) or use built-in server by:
+
+```bash
+php artisan serve
+```
 
 ### Docker
 With Docker (currently for development purposes only, the production image is work in progress):
