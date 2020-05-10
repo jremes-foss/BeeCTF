@@ -5,7 +5,7 @@
 Laravel-Based Community CTF Platform.
 
 ## Introduction
-BeeCTF is a CTF platform intended for small and local community groups who want to host their own CTF competitions. A small size and light weight makes BeeCTF a good platform to be hosted even in a small computer such as Raspberry Pi effectively. Built on [Laravel 5.8](https://laravel.com/), BeeCTF is easy to install and run even if your hardware is more limited. 
+BeeCTF is a CTF platform intended for small and local community groups who want to host their own CTF competitions. A small size and light weight makes BeeCTF a good platform to be hosted even in a small computer such as Raspberry Pi effectively. Built on [Laravel 6.0](https://laravel.com/), BeeCTF is easy to install and run even if your hardware is more limited. 
 
 ## Installation
 
@@ -20,7 +20,11 @@ php artisan key:generate
 php artisan user:create-admin
 ```
 
-As BeeCTF is built on Laravel, please make sure to set the correct parameters in the .env file. 
+As BeeCTF is built on Laravel, please make sure to set the correct parameters in the .env file. To run the system after installation, you can use your own web server (such as Nginx or Apache) or use built-in server by:
+
+```bash
+php artisan serve
+```
 
 ### Docker
 With Docker (currently for development purposes only, the production image is work in progress):
