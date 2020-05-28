@@ -44,4 +44,4 @@ Pull requests are welcome but must follow the best practices.
 - If there is an issue open regarding the pull request, please link the open issue to description. 
 
 ### Issues
-You can create GitHub issues to report any issues with the software. For the sake of best practices, the issue report is already set up. Please be as detailed as possible and provide screenshots if applicable.
+You can create GitHub issues to report any issues with the software. For the sake of best practices, the issue report is already set up. Please be as detailed as possible and provide screenshots if applicable. If the issue you have found is a bug, then please provide instructions to reproduce it.
