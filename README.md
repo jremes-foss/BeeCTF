@@ -20,6 +20,15 @@ php artisan key:generate
 php artisan user:create-admin
 ```
 
+In order to build NPM dependencies for development purposes, please run:
+
+```bash
+npm install
+npm run dev
+```
+
+Please note: `pngquant` dependency requires `libpng-dev` library, so it must be installed first in order to get the npm to build successfully.
+
 As BeeCTF is built on Laravel, please make sure to set the correct parameters in the .env file. To run the system after installation, you can use your own web server (such as Nginx or Apache) or use built-in server by:
 
 ```bash
