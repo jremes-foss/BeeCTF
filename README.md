@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Please note: `pngquant` dependency requires `libpng-dev` library, so it must be installed first in order to get the npm to build successfully.
+Please note: `pngquant` dependency requires `libpng-dev` library, so it must be installed first in order to get the npm to build successfully. Otherwise, the result will be ELIFECYCLE error.
 
 As BeeCTF is built on Laravel, please make sure to set the correct parameters in the .env file. To run the system after installation, you can use your own web server (such as Nginx or Apache) or use built-in server by:
 
