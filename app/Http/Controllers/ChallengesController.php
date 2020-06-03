@@ -10,7 +10,6 @@ use App\ChallengeCategory;
 use App\Solved;
 use App\Score;
 use App\Attachment;
-use App\User;
 use Carbon\Carbon;
 
 class ChallengesController extends Controller
