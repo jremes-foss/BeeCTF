@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container rules">
-	<div class="row">
+	<div class="row" style="max-width: 90%">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h4 class="panel-title">Rules</h4>
