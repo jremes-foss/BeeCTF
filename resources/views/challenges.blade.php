@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-	<div class="row">
+	<div class="row" style="max-width: 90%">
 		@if(session()->has('message'))
 			<div class="alert alert-success">
 				{{ session()->get('message') }}
@@ -9,7 +9,7 @@
 		@endif
 		<form method="get" action="{{ route('user.challenges') }}">
 		{{ csrf_field() }}
-			<div class="from-inline">
+			<div class="form-inline">
 				<select name="category" class="form-control form-control-lg" id="choose_category">
 					<option>Select a category...</option>
 					@foreach($categories as $category)
@@ -25,7 +25,7 @@
 			<!-- Most likely not the most efficient method to do this, but it works! :) -->
 			<!-- I probably should write a scope for this. -->
 			@if($challenge->challengeCategories->categories->category == $categories->where('category', '=', request()->category)->pluck('category')->toArray()[0])
-				<div class="panel panel-primary">
+				<div class="panel panel-primary" style="max-width: 90%">
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							{{ $challenge->title }}
