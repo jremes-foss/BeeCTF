@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-	<div class="row">
+	<div class="row" style="max-width: 90%">
 		@foreach($announcements as $announcement)
 		<div class="panel panel-primary">
 			<div class="panel-heading">
