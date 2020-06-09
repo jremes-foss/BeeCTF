@@ -88,7 +88,7 @@
 </div>
 @else
 <div class="container">
-	<div class="row">
+	<div class="row" style="max-width: 90%">
 		<div class="alert alert-info">
 			Please choose a category to start. 
 		</div>
