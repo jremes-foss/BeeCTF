@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-	<div class="row">
+	<div class="row" style="max-width: 90%">
 		<form role="form" method="post" action="{{ route('admin.categories.store') }}">
 			{{ csrf_field() }}
 			<div class="form-group">
