@@ -178,10 +178,13 @@ class ChallengesController extends Controller
             $solved->user_id = $request->user()->id;
             $solved->save();
             $this->addScore($request);
-            return redirect('user.challenges')
+            return redirect()
+                ->route('user.challenges')
                 ->with('message', 'Correct Flag, Congratulations!');
         } else {
-            return redirect('user.challenges')->with('message', 'Try Again!');
+            return redirect()
+                ->route('user.challenges')
+                ->with('message', 'Try Again!');
         }
     }
 
