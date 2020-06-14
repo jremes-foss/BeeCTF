@@ -101,7 +101,7 @@ class ChallengesController extends Controller
     public function indexUser()
     {
         $user_id = Auth::user()->id;
-        $solved = Solved::where('user_id', $user_id)->get();
+        $solved = Solved::where('user_id', $user_id)->pluck('challenge_id');
         $challenges = Challenge::whereNotIn('id', $solved)->with('challengeCategories')->get();
         $categories = Category::with('challengeCategories')->get();
         return view('challenges')
