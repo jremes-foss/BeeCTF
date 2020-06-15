@@ -92,6 +92,11 @@ class ChallengesController extends Controller
             ->with('categories', $categories);
     }
 
+    /**
+     * Returns the index page for administrators.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexAdmin()
     {
         $challenges = Challenge::with('challengeCategories.categories')->get();
