@@ -103,6 +103,11 @@ class ChallengesController extends Controller
         return view('admin.challenges')->with('challenges', $challenges);
     }
 
+    /**
+     * Returns the index page for administrators.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexUser()
     {
         $user_id = Auth::user()->id;
