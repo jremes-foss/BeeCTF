@@ -119,6 +119,11 @@ class ChallengesController extends Controller
             ->with('categories', $categories);
     }
 
+    /**
+     * Returns the edit page for administrators.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         $attachments = Attachment::all();
