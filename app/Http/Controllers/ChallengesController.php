@@ -137,6 +137,11 @@ class ChallengesController extends Controller
             ->with('challenge_category', $challenge_category);
     }
 
+    /**
+     * Returns the edit page for administrators.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         $challenge = Challenge::find($id);
