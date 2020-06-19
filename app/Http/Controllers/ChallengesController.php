@@ -176,6 +176,11 @@ class ChallengesController extends Controller
         return redirect()->route('admin.challenges')->with('message', 'Challenge updated!');
     }
 
+    /**
+     * Deletes a Challenge.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         $challenge = Challenge::find($id);
