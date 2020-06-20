@@ -188,6 +188,11 @@ class ChallengesController extends Controller
         return redirect()->route('user.challenges')->with('success', 'Challenge deleted!');
     }
 
+    /**
+     * A method for a flag submit.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function submitFlag(Request $request)
     {
         $challenge = Challenge::find($request->id);
