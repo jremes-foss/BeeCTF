@@ -32,7 +32,7 @@
 						Title
 					</label>
 					<div class="input-group Title">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-exclamation-sign"></i></span>
 						<input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Enter Title">
 					</div>
 				</div>
