@@ -10,7 +10,7 @@
 						Category
 					</label>
 					<div class="input-group Category">
-						<span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
 						<select class="form-control" id="inputCategory" name="inputCategory">
 						@foreach($categories as $category)
 							<option value="{{ $category->category }}">{{ $category->category }}</option>
@@ -23,7 +23,7 @@
 						Score
 					</label>
 					<div class="input-group Score">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-screenshot"></i></span>
 						<input type="text" class="form-control" id="inputScore" name="inputScore" placeholder="Enter Score">
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 						Title
 					</label>
 					<div class="input-group Title">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-exclamation-sign"></i></span>
 						<input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Enter Title">
 					</div>
 				</div>
@@ -41,7 +41,7 @@
 						Flag
 					</label>
 					<div class="input-group Flag">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
 						<input type="text" class="form-control" id="inputFlag" name="inputFlag" placeholder="Enter Flag">
 					</div>
 				</div>
@@ -50,7 +50,7 @@
 						Content
 					</label>
 					<div class="input-group Content">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
 						<input type="text" class="form-control" id="inputContent" name="inputContent" placeholder="Enter Content">
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 						File
 					</label>
 					<div class="input-group Content">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-floppy-disk"></i></span>
 						<input type="file" class="form-control" id="inputFile" name="inputFile">
 					</div>
 				</div>
@@ -68,7 +68,7 @@
 						URL
 					</label>
 					<div class="input-group Content">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
 						<input type="text" class="form-control" id="inputURL" name="inputURL">
 					</div>
 				</div>
