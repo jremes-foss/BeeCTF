@@ -41,7 +41,7 @@
 						Flag
 					</label>
 					<div class="input-group Flag">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
 						<input type="text" class="form-control" id="inputFlag" name="inputFlag" placeholder="Enter Flag">
 					</div>
 				</div>
