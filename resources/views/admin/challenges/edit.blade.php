@@ -26,7 +26,7 @@
 						Score
 					</label>
 					<div class="input-group Score">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputScore" name="inputScore" value="{{ $challenge->score }}">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-screenshot"></i></span><input type="text" class="form-control" id="inputScore" name="inputScore" value="{{ $challenge->score }}">
 					</div>
 				</div>
 				<div class="form-group">
