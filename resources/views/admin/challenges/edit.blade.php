@@ -58,7 +58,7 @@
 						File
 					</label>
 					<div class="input-group Content">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-floppy-disk"></i></span>
 						<input type="file" class="form-control" id="inputFile" name="inputFile" value="{{ $challenge->attachments->filename }}">
 					</div>
 				</div>
