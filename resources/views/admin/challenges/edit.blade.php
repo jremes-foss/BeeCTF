@@ -67,7 +67,7 @@
 						URL
 					</label>
 					<div class="input-group Content">
-						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
 						<input type="text" class="form-control" id="inputURL" name="inputURL" value="{{ $challenge->attachments->url }}">
 					</div>
 				</div>
