@@ -16,7 +16,7 @@
 					Content
 				</label>
 				<div class="input-group Announcement">
-					<span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+					<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
 					<input type="text" class="form-control" id="inputContent" name="inputContent" placeholder="Enter Content">
 				</div>
 				<input type="submit" class="submit" value="Submit">
