@@ -18,7 +18,7 @@
 					Email
 				</label>
 				<div class="input-group Email">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputEmail" name="inputEmail" value="{{ $user->email }}">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input type="text" class="form-control" id="inputEmail" name="inputEmail" value="{{ $user->email }}">
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
