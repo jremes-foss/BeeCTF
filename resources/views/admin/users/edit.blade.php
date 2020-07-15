@@ -2,12 +2,8 @@
 
 @section('content')
 
-<div id="sidebar" class="col-md-4">
-	@include('layouts.sidebar')
-</div>
-
 <div class="container">
-	<div class="row">
+	<div class="row" style="max-width: 90%">
 		<form role="form" method="post" action="{{ route('admin.users.update', $user->id) }}">
 			{{ method_field('post') }}
 			{{ csrf_field() }}
@@ -22,7 +18,7 @@
 					Email
 				</label>
 				<div class="input-group Email">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input type="text" class="form-control" id="inputEmail" name="inputEmail" value="{{ $user->email }}">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input type="text" class="form-control" id="inputEmail" name="inputEmail" value="{{ $user->email }}">
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
