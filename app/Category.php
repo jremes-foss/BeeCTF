@@ -28,7 +28,7 @@ class Category extends Model
      * Returns the count of challenges per category
      * @return int
      */
-    public function scopeChallengePerCategory()
+    public function scopeChallengesPerCategory()
     {
         // TODO:
         // select * from categories c inner join challenge_category cc on c.id = cc.category_id;
