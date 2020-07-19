@@ -23,14 +23,4 @@ class Category extends Model
     {
         return $this->hasMany('App\Challenge', 'challenge_id', 'id');
     }
-
-    /**
-     * Returns the count of challenges per category
-     * @return int
-     */
-    public function scopeChallengesPerCategory()
-    {
-        // TODO:
-        // select * from categories c inner join challenge_category cc on c.id = cc.category_id;
-    }
 }
