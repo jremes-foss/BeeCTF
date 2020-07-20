@@ -255,5 +255,11 @@ class ChallengesController extends Controller
     {
         // TODO:
         // select count(*) from categories c inner join challenge_category cc on c.id = cc.category_id;
+        $numCategories = Category::select('category')
+            ->join('challenge_category', 'category.id', '=', 'challenge_category.category_id')
+            ->get()
+            ->count();
+
+        return $numCategories;
     }
 }
