@@ -11,7 +11,7 @@
 		{{ csrf_field() }}
 			<div class="form-inline">
 				<select name="category" class="form-control form-control-lg" id="choose_category">
-					<option>Select a category...</option>
+					<option value="0">Select a category...</option>
 					@foreach($categories as $category)
 						<option value="{{ $category->category }}">{{ $category->category }}</option>
 					@endforeach
