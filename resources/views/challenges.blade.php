@@ -20,7 +20,7 @@
 			</div>
 		</form>
 	</div>
-	@if(request()->has('category') && count($challenges) > 0)
+	@if(request()->has('category') && request()->input('category') != "0")
 		@foreach($challenges as $challenge)
 			<!-- Most likely not the most efficient method to do this, but it works! :) -->
 			<!-- I probably should write a scope for this. -->
