@@ -86,7 +86,7 @@
 				</div>
 			</div>
 		</div>
-	@elseif (count($challenges) == 0)
+	@else
 		@if (request()->get('category') == "Select a category...")
 		<div class="container">
 			<div class="row" style="max-width: 90%">
