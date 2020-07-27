@@ -11,7 +11,7 @@
 		{{ csrf_field() }}
 			<div class="form-inline">
 				<select name="category" class="form-control form-control-lg" id="choose_category">
-					<option>Select a category...</option>
+					<option value="0">Select a category...</option>
 					@foreach($categories as $category)
 						<option value="{{ $category->category }}">{{ $category->category }}</option>
 					@endforeach
@@ -20,7 +20,7 @@
 			</div>
 		</form>
 	</div>
-	@if(request()->has('category') && count($challenges) > 0)
+	@if(request()->has('category') && request()->input('category') != "0")
 		@foreach($challenges as $challenge)
 			<!-- Most likely not the most efficient method to do this, but it works! :) -->
 			<!-- I probably should write a scope for this. -->
@@ -86,7 +86,7 @@
 				</div>
 			</div>
 		</div>
-	@elseif (count($challenges) == 0)
+	@else
 		@if (request()->get('category') == "Select a category...")
 		<div class="container">
 			<div class="row" style="max-width: 90%">
