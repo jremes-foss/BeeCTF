@@ -37,6 +37,16 @@ When creating new migrations, please make sure the table names specified in the 
 ### Continuous Integration
 BeeCTF has a [Continuous Integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration) pipeline. In order to pull request to be merged, all the checks have to pass. The CI pipeline includes a set of unit tests and [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) check.
 
+### Unit Tests
+BeeCTF has integrated unit tests as part of Laravel package. The unit test suite, PHPUnit, uses in-memory SQLite database to run the tests. To run the unit test suite, you must configure this in separate .env environment file in a following manner:
+
+```
+DB_CONNECTION=sqlite
+DB_DATABASE=:memory:
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
 ### Pull Requests
 Pull requests are welcome but must follow the best practices.
 - Subject line should be kept under 50 characters.
