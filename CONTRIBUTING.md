@@ -41,10 +41,22 @@ BeeCTF has a [Continuous Integration (CI)](https://en.wikipedia.org/wiki/Continu
 BeeCTF has integrated unit tests as part of Laravel package. The unit test suite, [PHPUnit](https://phpunit.de/), uses in-memory [SQLite](https://www.sqlite.org/index.html) database to run the tests. To run the unit test suite, you must configure this in separate .env environment file in a following manner:
 
 ```
+APP_NAME=BeeCTF
+APP_ENV=testing
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost/
+
 DB_CONNECTION=sqlite
 DB_DATABASE=:memory:
 DB_USERNAME=root
 DB_PASSWORD=
+
+BCRYPT_ROUNDS=4
+CACHE_DRIVER=array
+MAIL_DRIVER=array
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=array
 ```
 
 ### Pull Requests
