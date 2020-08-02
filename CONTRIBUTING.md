@@ -59,6 +59,8 @@ QUEUE_CONNECTION=sync
 SESSION_DRIVER=array
 ```
 
+This file must be saved in project root. 
+
 ### Pull Requests
 Pull requests are welcome but must follow the best practices.
 - Subject line should be kept under 50 characters.
