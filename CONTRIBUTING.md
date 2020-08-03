@@ -59,7 +59,11 @@ QUEUE_CONNECTION=sync
 SESSION_DRIVER=array
 ```
 
-This file must be saved in project root. 
+This file must be saved in project root. In addition of appropriate .env file, SQLite PHP extension must be enabled. With Debian-based Linux machines this can be enabled via:
+
+```
+sudo apt-get install php7.3-sqlite3
+```
 
 ### Pull Requests
 Pull requests are welcome but must follow the best practices.
