@@ -65,6 +65,12 @@ This file must be saved in project root. In addition of appropriate .env file, S
 sudo apt-get install php7.3-sqlite3
 ```
 
+For Linux distributions using YUM:
+
+```
+sudo yum install php-sqlite3
+```
+
 ### Pull Requests
 Pull requests are welcome but must follow the best practices.
 - Subject line should be kept under 50 characters.
