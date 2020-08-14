@@ -7,8 +7,8 @@ use App\Category;
 
 class ApiController extends Controller
 {
-    public function getCategories($id) 
+    public function getCategories() 
     {
-        // TODO
+        return Category::all();
     }
 }
