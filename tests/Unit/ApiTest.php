@@ -8,5 +8,5 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ApiTest extends TestCase
 {
-    // TODO
+    use RefreshDatabase;
 }
