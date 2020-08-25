@@ -12,6 +12,6 @@ class ApiTest extends TestCase
 
     public function testGetCategories()
     {
-        // TODO
+        $user = factory(\App\User::class)->create();
     }
 }
