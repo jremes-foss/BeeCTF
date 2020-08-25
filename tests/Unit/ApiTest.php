@@ -14,7 +14,6 @@ class ApiTest extends TestCase
     {
         $user = factory(\App\User::class)->create();
         $response = $this->json('GET', 'api/categories', ['Accept' => 'application/json']);
-        dd($response);
         $response->assertStatus(200);
     }
 }
