@@ -13,5 +13,7 @@ class ApiTest extends TestCase
     public function testGetCategories()
     {
         $user = factory(\App\User::class)->create();
+        $response = $this->actingAs($user)->get('/api/categories');
+        $response->assertStatus(200);
     }
 }
