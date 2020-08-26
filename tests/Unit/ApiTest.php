@@ -10,10 +10,10 @@ class ApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testGetCategories()
+    public function testGetCategoriesUnauthenticated()
     {
         $user = factory(\App\User::class)->create();
-        $response = $this->json('GET', 'api/categories', ['Accept' => 'application/json']);
-        $response->assertStatus(200);
+        $response = $this->json('GET', 'api/categories');
+        $response->assertStatus(401);
     }
 }
