@@ -15,4 +15,9 @@ class ApiController extends Controller
     {
         return Category::all();
     }
+
+    public function getPing()
+    {
+        // TODO
+    }
 }
