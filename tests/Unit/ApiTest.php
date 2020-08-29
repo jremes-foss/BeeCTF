@@ -10,6 +10,11 @@ class ApiTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function testGetPing() {
+        $response = $this->json('GET', 'api/ping');
+        $response->assertStatus(200);
+    }
+
     public function testGetCategoriesUnauthenticated()
     {
         $user = factory(\App\User::class)->create();
