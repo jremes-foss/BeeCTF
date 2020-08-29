@@ -16,6 +16,11 @@ class ApiController extends Controller
         return Category::all();
     }
 
+    /**
+     * Pings the application as a health check.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getPing()
     {
         // TODO
