@@ -23,6 +23,8 @@ class ApiController extends Controller
      */
     public function getPing()
     {
-        // TODO
+        return response()->json([
+            'message' => 'pong'
+        ]);
     }
 }
