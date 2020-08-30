@@ -10,7 +10,8 @@ class ApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testGetPing() {
+    public function testGetPing()
+    {
         $response = $this->json('GET', 'api/ping');
         $response->assertStatus(200);
     }
