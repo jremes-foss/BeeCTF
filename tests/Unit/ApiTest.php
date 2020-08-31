@@ -16,7 +16,8 @@ class ApiTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testPingPong() {
+    public function testPingPong() 
+    {
         $response = $this->json('GET', 'api/ping');
         $response->assertSeeText('pong');
     }
