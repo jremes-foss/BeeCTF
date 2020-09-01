@@ -11,7 +11,7 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getCategories() 
+    public function getCategories()
     {
         return Category::all();
     }
