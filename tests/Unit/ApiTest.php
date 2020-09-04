@@ -28,4 +28,9 @@ class ApiTest extends TestCase
         $response = $this->json('GET', 'api/categories');
         $response->assertStatus(401);
     }
+
+    public function testGetCategoryAuthenticated()
+    {
+        
+    }
 }
