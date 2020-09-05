@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 
 class UserTest extends TestCase
 {
@@ -73,5 +74,11 @@ class UserTest extends TestCase
 
         $response = $this->actingAs($admin)->get('admin/users/1/delete');
         $response->assertStatus(302);
+    }
+
+    public function testUserApiToken()
+    {
+        $user = factory(\App\User::class)->create();
+        $this->assertEquals('FOOBAR', $user->api_token);
     }
 }
