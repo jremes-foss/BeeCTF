@@ -34,17 +34,4 @@ class User extends Authenticatable
     {
         return $this->user_type === self::ADMIN_TYPE;
     }
-
-    /**
-     * Generates the API token for registered users
-     *
-     * @return String api_token
-     */
-    public function generateToken()
-    {
-        $this->api_token = str_random(60);
-        $this->save();
-        
-        return $this->api_token;
-    }
 }
