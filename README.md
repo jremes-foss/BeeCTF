@@ -52,10 +52,16 @@ After creating an administrative user and database connection, the system is rea
 
 In order to debug any potential issues regarding Docker build, you have a docker-compose shell access with:
 
-```
+```bash
 docker-compose exec app sh
 docker-compose exec mysql sh
 docker-compose exec webserver sh
+```
+
+Alternatively, you can also check which services are up:
+
+```bash
+docker-compose ps
 ```
 
 ## Pull Requests
