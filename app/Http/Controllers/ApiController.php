@@ -13,7 +13,13 @@ class ApiController extends Controller
      */
     public function getCategories()
     {
-        return Category::all();
+        $categories = Category::all();
+
+        return [
+            'id' => $categories->id,
+            'category' => $categories->category,
+            'description' => $categories->description
+        ];
     }
 
     /**
