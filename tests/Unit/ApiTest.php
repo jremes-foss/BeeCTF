@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Category;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -36,5 +37,15 @@ class ApiTest extends TestCase
             'api_token' => 'FOOBAR'
         ]);
         $response->assertStatus(200);
+    }
+
+    public function testCategoriesJSON()
+    {
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category',
+            'description' => 'This is a test category'
+        ]);
+
+        // TODO
     }
 }

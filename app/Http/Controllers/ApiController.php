@@ -15,11 +15,11 @@ class ApiController extends Controller
     {
         $categories = Category::all();
 
-        return [
-            'id' => $categories->id,
-            'category' => $categories->category,
-            'description' => $categories->description
-        ];
+        // return [
+        //     'id' => $categories->id,
+        //     'category' => $categories->category,
+        //     'description' => $categories->description
+        // ];
     }
 
     /**
