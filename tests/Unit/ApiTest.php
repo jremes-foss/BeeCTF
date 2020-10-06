@@ -52,6 +52,7 @@ class ApiTest extends TestCase
             'api_token' => 'FOOBAR'
         ]);
 
-        dd($response);
+        $category = $response[0];
+        dd($category);
     }
 }
