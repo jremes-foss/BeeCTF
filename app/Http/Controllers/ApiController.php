@@ -13,7 +13,9 @@ class ApiController extends Controller
      */
     public function getCategories()
     {
-        $categories = Category::all()->pluck('category');
+        $categories = [];
+        $categories['category'] = Category::all()->pluck('category');
+        $categories['description'] = Category::all()->pluck('description');
         return $categories;
     }
 
