@@ -48,6 +48,11 @@ class ApiTest extends TestCase
             'description' => 'This is a test category'
         ]);
 
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category 2',
+            'description' => 'This is a test category 2'
+        ]);
+
         $response = $this->json('GET', 'api/categories', [
             'api_token' => 'FOOBAR'
         ]);
