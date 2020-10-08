@@ -16,9 +16,9 @@ class ApiController extends Controller
         $categoriesArray = [];
         $categories = Category::all();
 
-        foreach ($categories as $category) {
-            $categoriesArray['category'] = $category->category;
-            $categoriesArray['description'] = $category->description;
+        foreach ($categories as $key => $category) {
+            $categoriesArray[$key]['category'] = $category->category;
+            $categoriesArray[$key]['description'] = $category->description;
         }
 
         return $categoriesArray;

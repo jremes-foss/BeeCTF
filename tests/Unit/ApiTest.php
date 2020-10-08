@@ -57,6 +57,10 @@ class ApiTest extends TestCase
             'api_token' => 'FOOBAR'
         ]);
 
-        dd($response);
+        $this->assertEquals('Test Category', $response[0]['category']);
+        $this->assertEquals('This is a test category', $response[0]['description']);
+        $this->assertEquals('Test Category 2', $response[1]['category']);
+        $this->assertEquals('This is a test category 2', $response[1]['description']);
+
     }
 }
