@@ -13,7 +13,15 @@ class ApiController extends Controller
      */
     public function getCategories()
     {
-        return Category::all();
+        $categoriesArray = [];
+        $categories = Category::all();
+
+        foreach ($categories as $key => $category) {
+            $categoriesArray[$key]['category'] = $category->category;
+            $categoriesArray[$key]['description'] = $category->description;
+        }
+
+        return $categoriesArray;
     }
 
     /**

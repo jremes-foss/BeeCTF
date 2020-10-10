@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Category;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -36,5 +37,29 @@ class ApiTest extends TestCase
             'api_token' => 'FOOBAR'
         ]);
         $response->assertStatus(200);
+    }
+
+    public function testCategoriesJSON()
+    {
+        factory(\App\User::class)->create();
+
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category',
+            'description' => 'This is a test category'
+        ]);
+
+        factory(\App\Category::class)->create([
+            'category' => 'Test Category 2',
+            'description' => 'This is a test category 2'
+        ]);
+
+        $response = $this->json('GET', 'api/categories', [
+            'api_token' => 'FOOBAR'
+        ]);
+
+        $this->assertEquals('Test Category', $response[0]['category']);
+        $this->assertEquals('This is a test category', $response[0]['description']);
+        $this->assertEquals('Test Category 2', $response[1]['category']);
+        $this->assertEquals('This is a test category 2', $response[1]['description']);
     }
 }
