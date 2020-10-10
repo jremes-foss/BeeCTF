@@ -61,6 +61,5 @@ class ApiTest extends TestCase
         $this->assertEquals('This is a test category', $response[0]['description']);
         $this->assertEquals('Test Category 2', $response[1]['category']);
         $this->assertEquals('This is a test category 2', $response[1]['description']);
-
     }
 }
