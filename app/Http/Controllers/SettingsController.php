@@ -14,6 +14,6 @@ class SettingsController extends Controller
         $user_id = Auth::user()->id;
         $user = User::where('id', $user_id)->get();
         $api_token = $user->api_token;
-        return view('settings');
+        return view('settings')->with('api_token', $api_token);
     }
 }
