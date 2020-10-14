@@ -12,7 +12,8 @@ class SettingsController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $api_token = User::where('id', $user_id)->pluck('api_token');
+        $user = User::where('id', $user_id)->get();
+        $api_token = $user->api_token;
         return view('settings');
     }
 }
