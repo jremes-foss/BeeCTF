@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/challenges', 'ChallengesController@submitFlag')->name('user.submitflag');
     Route::get('/challenges/{id}/download', 'ChallengesController@download')
         ->name('user.download');
+    Route::get('/settings', 'SettingsController@index')->name('settings');
     Route::get('/scoreboard', 'ScoreController@getScores')->name('scoreboard');
     Route::get('/scontent', 'StaticContentController@index')->name('scontent');
     Route::get('/announcements', 'AnnouncementsController@indexUser')
