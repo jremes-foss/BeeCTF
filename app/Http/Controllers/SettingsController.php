@@ -12,7 +12,7 @@ class SettingsController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $user = User::where('id', $user_id)->get();
+        $user = User::where('id', $user_id)->first();
         $api_token = $user->api_token;
         return view('settings')->with('api_token', $api_token);
     }
