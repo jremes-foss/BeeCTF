@@ -11,7 +11,8 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-console"></i></span>
                         <input type="text" class="form-control" id="inputScore" name="inputScore" value="{{ $api_token }}">
                     </div>
-                </form>
+                <button type="submit" class="btn btn-primary">Generate</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
