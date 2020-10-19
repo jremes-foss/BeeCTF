@@ -13,7 +13,6 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-console"></i></span>
                         <input type="text" class="form-control" id="inputApiToken" name="inputApiToken" value="{{ $api_token }}">
                     </div>
-                <button type="submit" class="btn btn-primary">Generate</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
