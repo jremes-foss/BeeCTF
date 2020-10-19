@@ -62,4 +62,22 @@ class ApiTest extends TestCase
         $this->assertEquals('Test Category 2', $response[1]['category']);
         $this->assertEquals('This is a test category 2', $response[1]['description']);
     }
+
+    public function testApiTokenRefresh()
+    {
+        $user = factory(\App\User::class)->create();
+        $this->be($user);
+        $response = $this->json('POST', 'settings/updateApiToken', [
+            'api_token' => 'FOOBAR2'
+        ]);
+        $response->assertStatus(302);
+    }
+
+    public function testApiInterface()
+    {
+        $user = factory(\App\User::class)->create();
+        $this->be($user);
+        $response = $this->get('/settings');
+        $response->assertStatus(200);
+    }
 }
