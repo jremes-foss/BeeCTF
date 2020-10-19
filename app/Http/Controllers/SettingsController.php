@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 
-
 class SettingsController extends Controller
 {
     public function index()
