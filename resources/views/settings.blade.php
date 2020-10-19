@@ -4,7 +4,9 @@
 <div class="container">
     <div class="row" style="max-width: 90%">
         <div class="col-md-8">
-            <form class="form form-horizontal" role="form" method="post" enctype="multipart/form-data" action="#">
+            <form class="form form-horizontal" role="form" method="post" enctype="multipart/form-data" action="{{ route('user.updateApiToken') }}">
+            {{ method_field('post') }}
+            {{ csrf_field() }}
                 <div class="form-group">
                     <label for="inputApiToken">API Token</label>
                     <div class="input-group ApiToken">

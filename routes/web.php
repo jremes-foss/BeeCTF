@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/scontent', 'StaticContentController@index')->name('scontent');
     Route::get('/announcements', 'AnnouncementsController@indexUser')
         ->name('announcements');
+    Route::post('/settings/updateApiToken', 'SettingsController@updateApiToken')
+        ->name('user.updateApiToken');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
