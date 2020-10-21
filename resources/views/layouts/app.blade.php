@@ -61,7 +61,7 @@
                                     <li><a href="{{ route('scoreboard') }}">Scoreboard</a></li>
                                     <li><a href="{{ route('announcements') }}">Announcements</a></li>
                                     <li><a href="{{ route('scontent') }}">Rules</a></li>
-                                    <li><a href="#">Dashboard</a></li>
+                                    <li><a href="{{ route('settings') }}">Settings</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
