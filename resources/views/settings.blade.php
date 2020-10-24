@@ -9,7 +9,7 @@
                     <label for="inputApiToken">API Token</label>
                     <div class="input-group ApiToken">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-console"></i></span>
-                        <input type="text" class="form-control" id="inputApiToken" name="inputApiToken" value="{{ $api_token }}">
+                        <input type="text" class="form-control" id="inputApiToken" name="inputApiToken" value="{{ $api_token }}" readonly>
                     </div>
                 <button id="regenerate" type="submit" class="btn btn-primary">Regenerate</button>
             </form>
