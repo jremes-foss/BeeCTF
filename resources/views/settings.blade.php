@@ -4,19 +4,43 @@
 <div class="container">
     <div class="row" style="max-width: 90%">
         <div class="col-md-8">
-            <form class="form form-horizontal" role="form" method="post" enctype="multipart/form-data" action="{{ route('user.updateApiToken') }}">
-            {{ method_field('post') }}
-            {{ csrf_field() }}
+            <form class="form form-horizontal" id="apiTokenForm" role="form" method="post" enctype="multipart/form-data" action="{{ route('user.updateApiToken') }}">
                 <div class="form-group">
                     <label for="inputApiToken">API Token</label>
                     <div class="input-group ApiToken">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-console"></i></span>
-                        <input type="text" class="form-control" id="inputApiToken" name="inputApiToken" value="{{ $api_token }}">
+                        <input type="text" class="form-control" id="inputApiToken" name="inputApiToken" value="{{ $api_token }}" readonly>
                     </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="regenerate" type="submit" class="btn btn-primary">Regenerate</button>
             </form>
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    $(function() {
+        $.ajaxSetup({
+            headers: { 
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        });
 
+        $('#regenerate').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: "{{ route('user.updateApiToken') }}",
+                type: "POST",
+                contentType: "json",
+                success: function(data) {
+                    console.log("Success");
+                    $('#inputApiToken').val(data);
+                },
+                error: function() {
+                    console.log("ERROR");
+                }
+            });
+        });
+    });
+</script>
 @endsection
