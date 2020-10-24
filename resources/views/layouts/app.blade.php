@@ -114,9 +114,5 @@
         @yield('scripts')
         
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>
