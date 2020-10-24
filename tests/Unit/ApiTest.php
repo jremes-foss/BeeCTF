@@ -70,7 +70,7 @@ class ApiTest extends TestCase
         $response = $this->json('POST', 'settings/updateApiToken', [
             'api_token' => 'FOOBAR2'
         ]);
-        $response->assertStatus(302);
+        $response->assertStatus(200);
     }
 
     public function testApiInterface()
