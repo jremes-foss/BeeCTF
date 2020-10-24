@@ -32,12 +32,12 @@
                 url: "{{ route('user.updateApiToken') }}",
                 type: "POST",
                 contentType: "json",
-                success: function() {
+                success: function(data) {
                     console.log("Success");
+                    $('#inputApiToken').val(data);
                 },
                 error: function() {
                     console.log("ERROR");
-                    console.log(e)
                 }
             });
         });
