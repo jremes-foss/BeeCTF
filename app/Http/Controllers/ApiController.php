@@ -24,6 +24,11 @@ class ApiController extends Controller
         return $categoriesArray;
     }
 
+    public function getChallenges()
+    {
+        // TODO
+    }
+
     /**
      * Pings the application as a health check.
      *
