@@ -78,7 +78,8 @@ class ApiTest extends TestCase
             'api_token' => 'FOOBAR'
         ]);
 
-        dd($response);
+        $this->assertEquals('250', $response[0]['score']);
+        $this->assertEquals('TEST', $response[0]['title']);
     }
 
     public function testApiTokenRefresh()
