@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->get('categories', 'ApiController@getCategories');
+Route::middleware('auth:api')->get('challenges', 'ApiController@getChallenges');
