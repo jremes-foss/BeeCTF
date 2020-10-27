@@ -63,6 +63,11 @@ class ApiTest extends TestCase
         $this->assertEquals('This is a test category 2', $response[1]['description']);
     }
 
+    public function testChallengesJSON()
+    {
+        
+    }
+
     public function testApiTokenRefresh()
     {
         $user = factory(\App\User::class)->create();
