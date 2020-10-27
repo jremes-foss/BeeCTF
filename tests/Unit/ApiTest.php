@@ -65,7 +65,20 @@ class ApiTest extends TestCase
 
     public function testChallengesJSON()
     {
-        
+        factory(\App\User::class)->create();
+
+        factory(\App\Challenge::class)->create([
+            'score' => '250',
+            'title' => 'TEST',
+            'flag' => 'FLAG{th1s_1s_4_t3st}',
+            'content' => 'This is a test.'
+        ]);
+
+        $response = $this->json('GET', 'api/challenges', [
+            'api_token' => 'FOOBAR'
+        ]);
+
+        dd($response);
     }
 
     public function testApiTokenRefresh()
