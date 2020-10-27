@@ -32,7 +32,7 @@ class ApiController extends Controller
 
         foreach ($challenges as $key => $challenge) {
             $challengesArray[$key]['score'] = $challenge->score;
-            $challengesArray[$key]['title'] = $challenge->title;            
+            $challengesArray[$key]['title'] = $challenge->title;
         }
 
         return $challengesArray;
