@@ -63,6 +63,25 @@ class ApiTest extends TestCase
         $this->assertEquals('This is a test category 2', $response[1]['description']);
     }
 
+    public function testChallengesJSON()
+    {
+        factory(\App\User::class)->create();
+
+        factory(\App\Challenge::class)->create([
+            'score' => '250',
+            'title' => 'TEST',
+            'flag' => 'FLAG{th1s_1s_4_t3st}',
+            'content' => 'This is a test.'
+        ]);
+
+        $response = $this->json('GET', 'api/challenges', [
+            'api_token' => 'FOOBAR'
+        ]);
+
+        $this->assertEquals('250', $response[0]['score']);
+        $this->assertEquals('TEST', $response[0]['title']);
+    }
+
     public function testApiTokenRefresh()
     {
         $user = factory(\App\User::class)->create();

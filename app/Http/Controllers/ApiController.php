@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Challenge;
 
 class ApiController extends Controller
 {
@@ -22,6 +23,19 @@ class ApiController extends Controller
         }
 
         return $categoriesArray;
+    }
+
+    public function getChallenges()
+    {
+        $challengesArray = [];
+        $challenges = Challenge::all();
+
+        foreach ($challenges as $key => $challenge) {
+            $challengesArray[$key]['score'] = $challenge->score;
+            $challengesArray[$key]['title'] = $challenge->title;
+        }
+
+        return $challengesArray;
     }
 
     /**
