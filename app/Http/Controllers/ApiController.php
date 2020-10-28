@@ -38,6 +38,11 @@ class ApiController extends Controller
         return $challengesArray;
     }
 
+    public function getScoreBoard()
+    {
+        // TODO
+    }
+
     /**
      * Pings the application as a health check.
      *
