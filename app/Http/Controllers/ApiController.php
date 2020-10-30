@@ -38,9 +38,13 @@ class ApiController extends Controller
         return $challengesArray;
     }
 
+    /**
+     * Fetches the scoreboard in JSON format.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getScoreBoard()
     {
-        // TODO
     }
 
     /**
