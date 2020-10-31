@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ApiFeatureTest extends TestCase
@@ -18,7 +17,10 @@ class ApiFeatureTest extends TestCase
     public function testAPINotFound()
     {
         $user = factory(\App\User::class, 1)->create();
-        $response = $this->actingAs($user)->get('/api/foobar');
+        $response = $this->withHeaders([
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json'
+        ])->json('GET', '/api/foobar');
         $response->assertStatus(404);
     }
 }
