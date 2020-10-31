@@ -94,6 +94,14 @@ class ApiTest extends TestCase
         $this->assertEquals(350, $score);
     }
 
+    public function testGetScoreBoardJSON()
+    {
+        factory(\App\User::class, 1)->create();
+        $scores = new ApiController();
+        $score = $scores->getScoreBoard();
+        $this->assertEquals('object', gettype($score));
+    }
+
     public function testApiTokenRefresh()
     {
         $user = factory(\App\User::class)->create();
