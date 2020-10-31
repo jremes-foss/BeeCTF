@@ -8,15 +8,17 @@ use Tests\TestCase;
 
 class ApiFeatureTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
-     * A basic feature test example.
+     * Tests the 404 exception for JSON API
      *
      * @return void
      */
-    public function testExample()
+    public function testAPINotFound()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $user = factory(\App\User::class, 1)->create();
+        $response = $this->actingAs($user)->get('/api/foobar');
+        $response->assertStatus(404);
     }
 }
