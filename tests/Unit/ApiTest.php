@@ -6,6 +6,7 @@ use App\Category;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Http\Controllers\ApiController;
 
 class ApiTest extends TestCase
 {
@@ -80,6 +81,17 @@ class ApiTest extends TestCase
 
         $this->assertEquals('250', $response[0]['score']);
         $this->assertEquals('TEST', $response[0]['title']);
+    }
+
+    public function testScorePerPlayerJSON()
+    {
+        $id = 1;
+        factory(\App\User::class, 1)->create();
+        factory(\App\Solved::class, 1)->create();
+        factory(\App\Challenge::class, 1)->create();
+        $challenges = new ApiController();
+        $score = $challenges->getScoresPerPlayer($id);
+        $this->assertEquals(350, $score);
     }
 
     public function testApiTokenRefresh()

@@ -74,7 +74,7 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private function getScoresPerPlayer($id)
+    public function getScoresPerPlayer($id)
     {
         $score = 0;
 
