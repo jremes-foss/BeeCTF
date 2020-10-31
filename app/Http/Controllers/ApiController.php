@@ -58,7 +58,6 @@ class ApiController extends Controller
             $id = $user->id;
             $name = $user->name;
             $temp_array = array(
-                'id' => $id,
                 'name' => $name,
                 'score' => $score
             );
