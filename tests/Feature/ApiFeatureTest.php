@@ -22,5 +22,6 @@ class ApiFeatureTest extends TestCase
             'Content-Type' => 'application/json'
         ])->json('GET', '/api/foobar');
         $response->assertStatus(404);
+        $response->assertSee('message');
     }
 }
