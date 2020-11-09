@@ -77,12 +77,12 @@ class ChallengesTest extends TestCase
             ->states('admin')
             ->create();
 
-        factory(\App\Category::class)->create([
+        $category = factory(\App\Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
 
-        factory(\App\Challenge::class)->create([
+        $challenge = factory(\App\Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
@@ -90,13 +90,12 @@ class ChallengesTest extends TestCase
         ]);
 
         factory(\App\ChallengeCategory::class)->create([
-            'category_id' => 1,
-            'challenge_id' => 1
+            'category_id' => $category->id,
+            'challenge_id' => $challenge->id
         ]);
 
-
         factory(\App\Attachment::class)->create([
-            'challenge_id' => 1,
+            'challenge_id' => $challenge->id,
             'filename' => 'public/challenges/test.zip',
             'url' => 'http://127.0.0.1:1337/index.php'
         ]);
@@ -111,25 +110,25 @@ class ChallengesTest extends TestCase
             ->states('admin')
             ->create();
 
-        factory(\App\Challenge::class)->create([
+        $challenge = factory(\App\Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\Category::class)->create([
+        $category = factory(\App\Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
 
         factory(\App\ChallengeCategory::class)->create([
-            'category_id' => 1,
-            'challenge_id' => 1
+            'category_id' => $category->id,
+            'challenge_id' => $challenge->id
         ]);
 
         factory(\App\Attachment::class)->create([
-            'challenge_id' => 1,
+            'challenge_id' => $challenge->id,
             'filename' => 'public/challenges/test.zip',
             'url' => 'http://127.0.0.1:1337/index.php'
         ]);
