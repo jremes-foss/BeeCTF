@@ -207,8 +207,24 @@ class ChallengesTest extends TestCase
 
     public function testCategory()
     {
-        $challenge = new Challenge;
-        $category = $challenge::with('challenge_categories')->get(1);
+        $category = factory(\App\Category::class)->create([
+            'category' => 'Test Category',
+            'description' => 'This is a test category'
+        ]);
+
+        $challenge = factory(\App\Challenge::class)->create([
+            'score' => '250',
+            'title' => 'TEST',
+            'flag' => 'FLAG{th1s_1s_4_t3stSt}',
+            'content' => 'This is a test.'
+        ]);
+
+        factory(\App\ChallengeCategory::class)->create([
+            'category_id' => $category->id,
+            'challenge_id' => $challenge->id
+        ]);
+
+        $category = $challenge::with('challenge_categories');
         $this->assertEquals('object', gettype($category));
     }
 }
