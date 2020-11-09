@@ -64,6 +64,29 @@ Alternatively, you can also check which services are up:
 docker-compose ps
 ```
 
+## API
+There is an internal API available. This API is used for various purposes, including listing challenges, categories, and getting scoreboard on the command line.
+
+### Get Categories and Challenges
+BeeCTF API allows you to fetch all categories and challenges in JSON format. Syntax as follows:
+
+```bash
+curl -X GET http://HOST/api/categories?api_token=API_TOKEN -H "Accept: application/json" -H "Content-Type: application/json"
+```
+
+```bash
+curl -X GET http://HOST/api/challenges?api_token=API_TOKEN -H "Accept: application/json" -H "Content-Type: application/json"
+```
+
+### Get Scoreboard
+You can fetch the scoreboard via BeeCTF API. Example with cURL:
+
+```bash
+curl -X GET http://HOST/api/scoreboard?api_token=API_TOKEN -H "Accept: application/json" -H "Content-Type: application/json"
+```
+
+This command returns the scoreboard in JSON format.
+
 ## Pull Requests
 Feel free to send any bug fixes, new features, etc. via pull requests. Please note that BeeCTF is still heavily work in progress so there are a lot of issues to fix and all contributions are welcome. Before submitting unit tests, please make sure all unit tests pass and the code is following the standards established in contribution guide.
 

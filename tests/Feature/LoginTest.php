@@ -6,6 +6,7 @@ use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class LoginTest extends TestCase
 {
@@ -26,6 +27,7 @@ class LoginTest extends TestCase
     public function testLoginWithValidUser()
     {
         $user = factory(User::class)->create();
+
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'secret'
