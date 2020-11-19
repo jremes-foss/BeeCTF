@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class TeamsController extends Controller
 {
-    //
+    public function index()
+    {
+        // TODO
+    }
 }
