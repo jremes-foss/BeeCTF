@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class TeamsController extends Controller
 {
+    /**
+     * Returns the teams index page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         // TODO
