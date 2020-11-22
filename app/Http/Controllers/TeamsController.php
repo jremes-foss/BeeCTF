@@ -13,6 +13,6 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        // TODO
+        return view('teams');
     }
 }
