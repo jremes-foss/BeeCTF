@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
         ->name('announcements');
     Route::post('/settings/updateApiToken', 'SettingsController@updateApiToken')
         ->name('user.updateApiToken');
+    Route::get('/teams', 'TeamsController@index')->name('teams');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
