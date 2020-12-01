@@ -4,7 +4,9 @@
     <div class="row" style="max-width: 90%">
         <table class="table table-hover">
             <thead>
-                <tr></tr>            
+                <tr>
+                    <th scope="col">#</th>
+                </tr>            
             </thead>
         </table>
     </div>
