@@ -10,6 +10,7 @@
                     <th scope="col">Score</th>
                 </tr>            
             </thead>
+            <tbody></tbody>
         </table>
     </div>
 </div>
