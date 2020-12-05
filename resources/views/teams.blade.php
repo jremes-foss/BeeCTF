@@ -10,7 +10,9 @@
                     <th scope="col">Score</th>
                 </tr>            
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <tr></tr>
+            </tbody>
         </table>
     </div>
 </div>
