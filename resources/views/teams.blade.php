@@ -11,7 +11,11 @@
                 </tr>            
             </thead>
             <tbody>
-                <tr></tr>
+                <tr>
+                    <td>1</td>
+                    <td>The L337 H4CK3RS</td>
+                    <td>250</td>
+                </tr>
             </tbody>
         </table>
     </div>
