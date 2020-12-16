@@ -15,4 +15,9 @@ class TeamsController extends Controller
     {
         return view('teams');
     }
+
+    public function indexAdmin()
+    {
+        return view('admin.teams');
+    }
 }
