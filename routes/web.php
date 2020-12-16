@@ -140,4 +140,10 @@ Route::group(['middleware' => ['is_admin', 'auth']], function() {
     Route::get('admin/announcements/{id}/delete', [
         'uses' => 'AnnouncementsController@destroy'
     ])->name('admin.announcements.delete');
+
+    /** Teams */
+    Route::get('admin/teams', 'TeamsController@indexAdmin', function() {
+        return view('admin.teams');
+    })->name('admin.teams');
+
 });
