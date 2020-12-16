@@ -19,9 +19,8 @@
         <tbody>
             @foreach($teams as $team)
             <tr>
-                <th scope="row">{{ $announcement->id }}</th>
-                <td>{{ $announcement->title }}</td>
-                <td>{{ $announcement->content }}</td>
+                <th scope="row">{{ $team->id }}</th>
+                <td>{{ $team->name }}</td>
                 <td>
                     <a href="{{ route('admin.teams.edit', $team->id) }}" class="btn btn-info">Edit</a>
                 </td>
