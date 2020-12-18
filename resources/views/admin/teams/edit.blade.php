@@ -6,7 +6,7 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="inputName">
-                    Title
+                    Name
                 </label>
                 <input type="submit" class="submit" value="Submit">
             </div>
