@@ -146,4 +146,7 @@ Route::group(['middleware' => ['is_admin', 'auth']], function() {
         return view('admin.teams');
     })->name('admin.teams');
 
+    Route::get('admin/teams/{id}/edit', [
+        'uses' => 'TeamsController@edit'
+    ])->name('admin.teams.edit');
 });
