@@ -20,4 +20,9 @@ class TeamsController extends Controller
     {
         return view('admin.teams');
     }
+
+    public function edit()
+    {
+        // TODO
+    }
 }
