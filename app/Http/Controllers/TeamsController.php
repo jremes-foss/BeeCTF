@@ -21,7 +21,7 @@ class TeamsController extends Controller
         return view('admin.teams');
     }
 
-    public function edit()
+    public function edit($id)
     {
         // TODO
     }
