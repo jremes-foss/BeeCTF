@@ -25,4 +25,9 @@ class TeamsController extends Controller
     {
         // TODO
     }
+
+    public function update(Request $request, $id) 
+    {
+
+    }
 }
