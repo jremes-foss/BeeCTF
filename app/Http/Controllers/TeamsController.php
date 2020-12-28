@@ -21,6 +21,11 @@ class TeamsController extends Controller
         return view('admin.teams');
     }
 
+    /**
+     * Returns the edit page for administrators.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         // TODO
