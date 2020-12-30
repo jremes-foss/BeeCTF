@@ -10,6 +10,7 @@ class TeamService
 {
     public function getTeamPlayers($team)
     {
-        // TODO
+        $users = User::where('user_type', 'User')->get();
+        return $users;
     }
 }
