@@ -12,6 +12,7 @@ class TeamService
     {
         $users = User::where('user_type', 'User')
             ->join('player_team', 'id', '=', 'player_id')
+            ->where('player_team.team_id', $team)
             ->get();
         return $users;
     }
