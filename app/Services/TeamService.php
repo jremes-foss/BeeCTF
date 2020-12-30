@@ -4,5 +4,8 @@ namespace App\Services;
 
 class TeamService 
 {
-    // TODO
+    public function getTeamPlayers()
+    {
+        
+    }
 }
