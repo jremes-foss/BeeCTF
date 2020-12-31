@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class TeamsController extends Controller
 {
+    private $teamsService;
+
+    private function __construct()
+    {
+        $teamsService = $this->teamsService;
+    }
+
     /**
      * Returns the teams index page.
      *
