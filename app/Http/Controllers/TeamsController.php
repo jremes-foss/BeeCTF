@@ -35,7 +35,9 @@ class TeamsController extends Controller
      */
     public function edit($id)
     {
-        // TODO
+        $team_id = 1;
+        $test_team_players = $this->teamsService->getTeamPlayers($team_id);
+        dd($test_team_players);
     }
 
     public function update(Request $request, $id) 
