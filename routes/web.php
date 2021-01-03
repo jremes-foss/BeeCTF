@@ -149,4 +149,8 @@ Route::group(['middleware' => ['is_admin', 'auth']], function() {
     Route::get('admin/teams/{id}/edit', [
         'uses' => 'TeamsController@edit'
     ])->name('admin.teams.edit');
+
+    Route::get('admin/teams/{id}/update', [
+        'uses' => 'TeamsController@update'
+    ])->name('admin.teams.update');
 });
