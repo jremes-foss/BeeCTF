@@ -33,7 +33,7 @@ class TeamsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         $team_id = 1;
         $test_team_players = $this->teamsService->getTeamPlayers($team_id);
