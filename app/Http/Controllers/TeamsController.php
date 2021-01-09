@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\TeamService;
 
 class TeamsController extends Controller
 {
-    private $teamsService;
+    protected $teamsService;
 
-    private function __construct()
+    public function __construct(TeamService $teamsService)
     {
-        $teamsService = $this->teamsService;
+        $this->teamsService = $teamsService;
     }
 
     /**
