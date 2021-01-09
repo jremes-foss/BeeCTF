@@ -45,4 +45,9 @@ class TeamsController extends Controller
     {
         // TODO 
     }
+
+    public function create()
+    {
+        // TODO
+    }
 }
