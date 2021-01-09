@@ -8,6 +8,12 @@ use App\User;
 
 class TeamService 
 {
+    public function getTeams()
+    {
+        $teams = Team::all();
+        return $teams;
+    }
+
     public function getTeamPlayers($team)
     {
         $users = User::where('user_type', 'User')
