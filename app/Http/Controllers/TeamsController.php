@@ -27,7 +27,7 @@ class TeamsController extends Controller
     public function indexAdmin()
     {
         $teams = $this->teamsService->getTeams();
-        return view('admin.teams');
+        return view('admin.teams')->with('teams', $teams);
     }
 
     /**
