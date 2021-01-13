@@ -38,8 +38,9 @@ class TeamsController extends Controller
     public function edit()
     {
         $team_id = 1;
-        $test_team_players = $this->teamsService->getTeamPlayers($team_id);
-        dd($test_team_players);
+        $teams = $this->teamsService->getTeams();
+        // dd($test_team_players);
+        return view('admin.teams.edit')->with('teams', $teams);
     }
 
     public function update(Request $request, $id) 
