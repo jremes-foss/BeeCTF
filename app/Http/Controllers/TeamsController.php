@@ -43,7 +43,9 @@ class TeamsController extends Controller
 
     public function update(Request $request, $id) 
     {
-        // TODO 
+        // TODO
+        return redirect()->route('admin.teams')->with('message', 'Team updated!');
+
     }
 
     public function create()
