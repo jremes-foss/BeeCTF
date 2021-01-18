@@ -43,7 +43,8 @@ class TeamsController extends Controller
 
     public function update(Request $request, $id) 
     {
-        // TODO
+        $team = Team::find($id);
+
         return redirect()->route('admin.teams')->with('message', 'Team updated!');
 
     }
