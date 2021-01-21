@@ -53,6 +53,7 @@ class TeamsController extends Controller
 
     public function create()
     {
-        // TODO
+        $teams = Team::all();
+        return view('admin.teams.create', compact('teams'));
     }
 }
