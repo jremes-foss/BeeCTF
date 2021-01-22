@@ -51,6 +51,11 @@ class TeamsController extends Controller
 
     }
 
+    /**
+     * Returns the create page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         $teams = Team::all();
