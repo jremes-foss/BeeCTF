@@ -42,6 +42,11 @@ class TeamsController extends Controller
         return view('admin.teams.edit')->with('id', $team_id);
     }
 
+    /**
+     * Updates the team record.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id) 
     {
         $team = Team::find($id);
