@@ -36,10 +36,10 @@ class TeamsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        $team_id = 1;
-        return view('admin.teams.edit')->with('id', $team_id);
+        $team = Team::find($id);
+        return view('admin.teams.edit')->with('team', $team);
     }
 
     /**
