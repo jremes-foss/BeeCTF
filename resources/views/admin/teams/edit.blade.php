@@ -8,6 +8,10 @@
                 <label for="inputName">
                     Name
                 </label>
+                <div class="input-group Category">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                    <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Enter Team Name" value="{{ $team->name }}">
+                </div>
                 <input type="submit" class="submit" value="Submit">
             </div>
         </form>
