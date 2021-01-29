@@ -5,6 +5,7 @@
             <li><a href="{{ route('admin.categories') }}">Categories</a></li>
             <li><a href="{{ route('admin.challenges') }}">Challenges</a></li>
             <li><a href="{{ route('admin.announcements') }}">Announcements</a></li>
+            <li><a href="{{ route('admin.teams') }}">Teams</a></li>
         </ul>
     </div>
 </nav>
