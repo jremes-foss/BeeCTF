@@ -25,6 +25,11 @@ class TeamsController extends Controller
         return view('teams');
     }
 
+    /**
+     * Returns the teams admin index page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function indexAdmin()
     {
         $teams = $this->teamsService->getTeams();
