@@ -58,7 +58,6 @@ class TeamsController extends Controller
         $team->name = $request->get('inputName');
         $team->update();
         return redirect()->route('admin.teams')->with('message', 'Team updated!');
-
     }
 
     /**
