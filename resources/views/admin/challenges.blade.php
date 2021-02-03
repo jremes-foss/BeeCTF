@@ -16,7 +16,7 @@
                   <th scope="col">Category</th>
                   <th scope="col">Score</th>
                   <th scope="col">Title</th>
-                <th scope="col">Flag</th>
+                  <th scope="col">Flag</th>
                   <th scope="col">Content</th>
                   <th scope="col">Actions</th>
             </tr>
