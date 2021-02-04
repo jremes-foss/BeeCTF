@@ -7,7 +7,7 @@
         {{ session()->get('message') }}
     </div>
     @endif
-    <a class="btn btn-primary btn-sm pull-left" href="{{ route('admin.teams.create') }}" role="button">New Announcement</a>
+    <a class="btn btn-primary btn-sm pull-left" href="{{ route('admin.teams.create') }}" role="button">New Team</a>
     <table class="table table-hover">
         <thead>
             <tr>
