@@ -157,4 +157,8 @@ Route::group(['middleware' => ['is_admin', 'auth']], function() {
     Route::get('admin/teams/{id}/update', [
         'uses' => 'TeamsController@update'
     ])->name('admin.teams.update');
+
+    Route::post('admin/teams/create', [
+        'uses' => 'TeamsController@store'
+    ])->name('admin.teams.store');
 });
