@@ -70,4 +70,9 @@ class TeamsController extends Controller
         $teams = Team::all();
         return view('admin.teams.create', compact('teams'));
     }
+
+    public function store()
+    {
+        // TODO
+    }
 }
