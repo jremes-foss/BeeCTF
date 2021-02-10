@@ -71,8 +71,14 @@ class TeamsController extends Controller
         return view('admin.teams.create', compact('teams'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        // TODO
+        $team = array(
+            'name' => $request->get('inputName')
+        );
+        
+        Team::create($team);
+
+        return redirect()->route('admin.teams')->with('success', 'Team saved!');
     }
 }
