@@ -9,6 +9,6 @@ class Team extends Model
     protected $table = 'teams';
 
     protected $fillable = [
-        // TODO
+        'name'
     ];
 }
