@@ -71,6 +71,12 @@ class TeamsController extends Controller
         return view('admin.teams.create', compact('teams'));
     }
 
+    /**
+     * Store a newly created challenge in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $team = array(
