@@ -80,7 +80,7 @@ class TeamsController extends Controller
     public function store(Request $request)
     {
         $team = array(
-            'name' => $request->get('inputName')
+            'name' => $request->get('inputTeam')
         );
         
         Team::create($team);
