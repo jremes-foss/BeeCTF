@@ -105,4 +105,9 @@ class ApiController extends Controller
             'message' => 'pong'
         ]);
     }
+
+    public function getTeams()
+    {
+        // TODO
+    }
 }
