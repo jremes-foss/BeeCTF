@@ -6,6 +6,7 @@ use App\Category;
 use App\Challenge;
 use App\Solved;
 use App\User;
+use App\Team;
 
 class ApiController extends Controller
 {
