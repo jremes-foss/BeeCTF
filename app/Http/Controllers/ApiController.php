@@ -109,6 +109,13 @@ class ApiController extends Controller
 
     public function getTeams()
     {
-        // TODO
+        $teams_array = [];
+        $teams = Team::all();
+
+        foreach ($teams as $key => $team) {
+            $teams_array[$key]['name'] = $team->name;
+        }
+
+        return $teams_array;
     }
 }
