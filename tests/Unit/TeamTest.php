@@ -8,4 +8,9 @@ use Tests\TestCase;
 class TeamTest extends TestCase 
 {
     use RefreshDatabase;
+
+    public function testIndex()
+    {
+        
+    }
 }
