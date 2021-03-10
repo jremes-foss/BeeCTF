@@ -18,4 +18,9 @@ class TeamTest extends TestCase
         $response = $this->actingAs($admin)->get('admin/teams');
         $response->assertStatus(200);
     }
+
+    public function testEdit()
+    {
+        // TODO
+    }
 }
