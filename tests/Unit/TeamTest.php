@@ -21,6 +21,9 @@ class TeamTest extends TestCase
 
     public function testEdit()
     {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
         // TODO
     }
 }
