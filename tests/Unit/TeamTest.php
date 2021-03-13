@@ -24,6 +24,10 @@ class TeamTest extends TestCase
         $admin = factory(\App\User::class)
             ->states('admin')
             ->create();
-        // TODO
+
+        factory(\App\Category::class)->create([
+            'name' => 'Test Team',
+        ]);
+    
     }
 }
