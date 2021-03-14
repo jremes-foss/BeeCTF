@@ -28,6 +28,8 @@ class TeamTest extends TestCase
         factory(\App\Category::class)->create([
             'name' => 'Test Team',
         ]);
-    
+
+        $response = $this->actingAs($admin)->get('admin/categories/1/edit');
+        $response->assertStatus(200);
     }
 }
