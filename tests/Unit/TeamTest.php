@@ -32,4 +32,9 @@ class TeamTest extends TestCase
         $response = $this->actingAs($admin)->get('admin/categories/1/edit');
         $response->assertStatus(200);
     }
+
+    public function testStore()
+    {
+        
+    }
 }
