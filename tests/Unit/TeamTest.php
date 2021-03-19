@@ -39,6 +39,8 @@ class TeamTest extends TestCase
             ->states('admin')
             ->create();
 
-        $data = [];
+        $data = [
+            'name' => 'Test Team'
+        ];
     }
 }
