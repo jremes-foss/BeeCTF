@@ -46,4 +46,9 @@ class TeamTest extends TestCase
         $response = $this->actingAs($admin)->post('admin/categories/create', $data);
         $response->assertStatus(302);
     }
+
+    public function testUpdate()
+    {
+        // TODO
+    }
 }
