@@ -56,6 +56,8 @@ class TeamTest extends TestCase
         factory(\App\Team::class)->create([
             'name' => 'T3stT34m'
         ]);
+
+        $data = [];
     
     }
 }
