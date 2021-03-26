@@ -57,7 +57,9 @@ class TeamTest extends TestCase
             'name' => 'T3stT34m'
         ]);
 
-        $data = [];
+        $data = [
+            'name' => 'T3stT34m2'
+        ];
     
     }
 }
