@@ -29,7 +29,7 @@ class TeamTest extends TestCase
             'name' => 'Test Team',
         ]);
 
-        $response = $this->actingAs($admin)->get('admin/categories/1/edit');
+        $response = $this->actingAs($admin)->get('admin/teams/1/edit');
         $response->assertStatus(200);
     }
 
