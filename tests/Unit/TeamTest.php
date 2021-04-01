@@ -40,7 +40,7 @@ class TeamTest extends TestCase
             ->create();
 
         $data = [
-            'name' => 'Test Team'
+            'inputTeam' => 'Test Team'
         ];
 
         $response = $this->actingAs($admin)->post('admin/teams/create', $data);
