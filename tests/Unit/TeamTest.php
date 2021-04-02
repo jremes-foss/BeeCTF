@@ -58,7 +58,7 @@ class TeamTest extends TestCase
         ]);
 
         $data = [
-            'name' => 'T3stT34m2'
+            'inputName' => 'T3stT34m2'
         ];
 
         $response = $this->actingAs($admin)->post('admin/teams/1/update', $data);
