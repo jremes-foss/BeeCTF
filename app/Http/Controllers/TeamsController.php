@@ -8,13 +8,6 @@ use App\Team;
 
 class TeamsController extends Controller
 {
-    protected $teamsService;
-
-    public function __construct(TeamService $teamsService)
-    {
-        $this->teamsService = $teamsService;
-    }
-
     /**
      * Returns the teams index page.
      *
@@ -32,7 +25,7 @@ class TeamsController extends Controller
      */
     public function indexAdmin()
     {
-        $teams = $this->teamsService->getTeams();
+        $teams = Team::all();
         return view('admin.teams')->with('teams', $teams);
     }
 
