@@ -11,12 +11,12 @@ class TeamTest extends TestCase
 {
     use RefreshDatabase;
     
-    private $teamService;
+    protected $teamService;
 
-    public function __construct()
-    {
-        $teamService = $this->teamService;
-    }
+    // public function __construct(TeamService $teamService)
+    // {
+    //     $this->teamService = $teamService;
+    // }
 
     public function testGetTeamPlayers()
     {
