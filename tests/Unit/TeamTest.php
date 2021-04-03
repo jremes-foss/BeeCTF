@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\Services\TeamService;
 use Tests\TestCase;
 
 class TeamTest extends TestCase 
