@@ -10,6 +10,8 @@ use Tests\TestCase;
 class TeamTest extends TestCase 
 {
     use RefreshDatabase;
+    
+    private $teamService;
 
     public function __construct()
     {
