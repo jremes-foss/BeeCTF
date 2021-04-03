@@ -18,6 +18,11 @@ class TeamTest extends TestCase
         $teamService = $this->teamService;
     }
 
+    public function testGetTeamPlayers()
+    {
+        // TODO
+    }
+
     public function testIndex()
     {
         $admin = factory(\App\User::class)
