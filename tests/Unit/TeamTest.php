@@ -11,6 +11,11 @@ class TeamTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function __construct()
+    {
+        // TODO
+    }
+
     public function testIndex()
     {
         $admin = factory(\App\User::class)
