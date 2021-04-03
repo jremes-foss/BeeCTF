@@ -15,7 +15,7 @@ class TeamTest extends TestCase
 
     public function __construct()
     {
-        // TODO
+        $teamService = $this->teamService;
     }
 
     public function testIndex()
