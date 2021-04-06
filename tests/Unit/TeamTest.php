@@ -13,11 +13,6 @@ class TeamTest extends TestCase
     
     protected $teamService;
 
-    // public function __construct(TeamService $teamService)
-    // {
-    //     $this->teamService = $teamService;
-    // }
-
     public function testGetTeamPlayers(TeamService $teamService)
     {
         $admin = factory(\App\User::class)
