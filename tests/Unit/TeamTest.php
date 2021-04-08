@@ -25,7 +25,7 @@ class TeamTest extends TestCase
         factory(\App\Team::class)->create([
             'name' => 'Test Team',
         ]);
-    
+            
     }
 
     public function testIndex()
