@@ -25,6 +25,11 @@ class TeamTest extends TestCase
         factory(\App\Team::class)->create([
             'name' => 'Test Team',
         ]);
+
+        factory(TeamPlayer::class)->create([
+            'player_id' => 1,
+            'team_id' => 1    
+        ]);
             
     }
 
