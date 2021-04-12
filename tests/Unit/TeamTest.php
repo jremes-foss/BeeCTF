@@ -30,7 +30,7 @@ class TeamTest extends TestCase
             'player_id' => 1,
             'team_id' => 1    
         ]);
-            
+
     }
 
     public function testIndex()
