@@ -5,6 +5,8 @@ namespace Tests\Unit;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\TeamPlayer;
+use App\User;
+use App\Team;
 use Tests\TestCase;
 
 class TeamTest extends TestCase 
@@ -23,6 +25,8 @@ class TeamTest extends TestCase
         factory(Team::class)->create();
         factory(TeamPlayer::class)->create();
 
+        dd(TeamPlayer::all());
+        // app('App\Services\TeamService')->getPrintReport();
     }
 
     public function testIndex()
