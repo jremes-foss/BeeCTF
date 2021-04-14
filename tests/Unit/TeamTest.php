@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use App\Services\TeamService;
+// use App\Services\TeamService;
 use App\TeamPlayer;
 use Tests\TestCase;
 
@@ -14,22 +14,15 @@ class TeamTest extends TestCase
     
     protected $teamService;
 
-    public function testGetTeamPlayers(TeamService $teamService)
+    public function testGetTeamPlayers()
     {
         $admin = factory(\App\User::class)
             ->states('admin')
             ->create();
 
-        $user = factory(\App\User::class)->create();
-
-        factory(\App\Team::class)->create([
-            'name' => 'Test Team',
-        ]);
-
-        factory(TeamPlayer::class)->create([
-            'player_id' => 1,
-            'team_id' => 1    
-        ]);
+        factory(User::class)->create();
+        factory(Team::class)->create();
+        factory(TeamPlayer::class)->create();
 
     }
 
