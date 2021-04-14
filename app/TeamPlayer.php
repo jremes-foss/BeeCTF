@@ -8,6 +8,7 @@ use App\Team;
 class TeamPlayer extends Model
 {
     protected $table = 'player_team';
+    public $timestamps = false;
 
     protected $fillable = [
         'player_id',
