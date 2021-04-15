@@ -25,7 +25,9 @@ class TeamTest extends TestCase
         factory(Team::class)->create();
         factory(TeamPlayer::class)->create();
 
-        dd(TeamPlayer::all());
+        // dd(TeamPlayer::all());
+        $team_id = 1;
+        
         // app('App\Services\TeamService')->getPrintReport();
     }
 
