@@ -28,7 +28,7 @@ class TeamTest extends TestCase
         // dd(TeamPlayer::all());
         $team_id = 1;
         
-        app('App\Services\TeamService')->getTeamPlayers($team_id);
+        $team_players = app('App\Services\TeamService')->getTeamPlayers($team_id);
     }
 
     public function testIndex()
