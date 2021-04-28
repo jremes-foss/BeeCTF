@@ -5,7 +5,7 @@ namespace App\Services;
 use App\User;
 use Illuminate\Support\Facades\DB;
 
-class TeamService 
+class TeamService
 {
     public function getTeamPlayers($team_id)
     {
