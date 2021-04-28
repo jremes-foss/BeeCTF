@@ -9,7 +9,7 @@ use App\User;
 use App\Team;
 use Tests\TestCase;
 
-class TeamTest extends TestCase 
+class TeamTest extends TestCase
 {
     use RefreshDatabase;
     
@@ -29,7 +29,6 @@ class TeamTest extends TestCase
         
         $team_players = app('App\Services\TeamService')->getTeamPlayers($team_id);
         $this->assertEquals(1, count($team_players));
- 
     }
 
     public function testIndex()
