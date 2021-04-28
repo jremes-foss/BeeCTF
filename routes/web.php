@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
         ->name('announcements');
     Route::post('/settings/updateApiToken', 'SettingsController@updateApiToken')
         ->name('user.updateApiToken');
+    Route::get('/teams', 'TeamsController@index')->name('teams');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -139,4 +140,25 @@ Route::group(['middleware' => ['is_admin', 'auth']], function() {
     Route::get('admin/announcements/{id}/delete', [
         'uses' => 'AnnouncementsController@destroy'
     ])->name('admin.announcements.delete');
+
+    /** Teams */
+    Route::get('admin/teams', 'TeamsController@indexAdmin', function() {
+        return view('admin.teams');
+    })->name('admin.teams');
+
+    Route::get('admin/teams/create', 'TeamsController@create', function() {
+        return view('admin.teams.create');
+    })->name('admin.teams.create');
+
+    Route::get('admin/teams/{id}/edit', [
+        'uses' => 'TeamsController@edit'
+    ])->name('admin.teams.edit');
+
+    Route::post('admin/teams/{id}/update', [
+        'uses' => 'TeamsController@update'
+    ])->name('admin.teams.update');
+
+    Route::post('admin/teams/create', [
+        'uses' => 'TeamsController@store'
+    ])->name('admin.teams.store');
 });

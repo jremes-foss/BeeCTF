@@ -6,6 +6,7 @@ use App\Category;
 use App\Challenge;
 use App\Solved;
 use App\User;
+use App\Team;
 
 class ApiController extends Controller
 {
@@ -104,5 +105,22 @@ class ApiController extends Controller
         return response()->json([
             'message' => 'pong'
         ]);
+    }
+
+    /**
+     * Returns the team list.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getTeams()
+    {
+        $teams_array = [];
+        $teams = Team::all();
+
+        foreach ($teams as $key => $team) {
+            $teams_array[$key]['name'] = $team->name;
+        }
+
+        return $teams_array;
     }
 }
