@@ -44,7 +44,7 @@ class TeamsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
         $team = Team::find($id);
         $team->name = $request->get('inputName');
