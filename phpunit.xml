@@ -23,6 +23,7 @@
         </whitelist>
         <exclude>
             <!-- TODO: BroadcastServiceProvider -->
+            <directory suffix=".php">/app/Providers</directory>
         </exclude>
     </filter>
     <logging>
