@@ -24,6 +24,7 @@
         <exclude>
             <!-- TODO: BroadcastServiceProvider -->
             <directory suffix=".php">/app/Providers</directory>
+            <file>./app/Providers/BroadcastServiceProvider.php</file>
         </exclude>
     </filter>
     <logging>
