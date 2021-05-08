@@ -21,11 +21,6 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
         </whitelist>
-        <exclude>
-            <!-- TODO: BroadcastServiceProvider -->
-            <directory suffix=".php">/app/Providers</directory>
-            <file>./app/Providers/BroadcastServiceProvider.php</file>
-        </exclude>
     </filter>
     <logging>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
