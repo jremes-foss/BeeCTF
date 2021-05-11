@@ -4,4 +4,6 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-class ApiTest extends TestCase {}
+class BroadcastTest extends TestCase
+{
+}
