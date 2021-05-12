@@ -7,4 +7,8 @@ use App\Providers\BroadcastServiceProvider;
 
 class BroadcastTest extends TestCase
 {
+    public function testBootFunction()
+    {
+        
+    }
 }
