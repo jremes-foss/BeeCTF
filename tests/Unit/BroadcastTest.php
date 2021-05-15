@@ -9,6 +9,7 @@ class BroadcastTest extends TestCase
 {
     public function testBootFunction()
     {
-        
+        $provider = new BroadcastServiceProvider($this->app);
+        $this->assertNull($provider->boot());
     }
 }
