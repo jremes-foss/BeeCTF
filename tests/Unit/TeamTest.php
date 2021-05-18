@@ -31,7 +31,7 @@ class TeamTest extends TestCase
         $this->assertEquals(1, count($team_players));
     }
 
-    public function testIndex()
+    public function testIndexAdmin()
     {
         $admin = factory(\App\User::class)
             ->states('admin')
