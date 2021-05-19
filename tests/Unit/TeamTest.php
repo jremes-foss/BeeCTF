@@ -40,6 +40,11 @@ class TeamTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function testIndex()
+    {
+        
+    }
+
     public function testEdit()
     {
         $admin = factory(\App\User::class)
