@@ -42,7 +42,9 @@ class TeamTest extends TestCase
 
     public function testIndex()
     {
-        
+        $user = factory(\App\User::class)->create();
+        $response = $this->actingAs($user)->get('/teams');
+        $response->assertStatus(200);
     }
 
     public function testEdit()
