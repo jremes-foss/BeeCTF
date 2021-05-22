@@ -119,4 +119,9 @@ class ApiTest extends TestCase
         $response = $this->get('/settings');
         $response->assertStatus(200);
     }
+
+    public function testGetTeams()
+    {
+        // TODO
+    }
 }
