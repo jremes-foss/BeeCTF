@@ -122,6 +122,6 @@ class ApiTest extends TestCase
 
     public function testGetTeams()
     {
-        // TODO
+        $user = factory(\App\User::class)->create();
     }
 }
