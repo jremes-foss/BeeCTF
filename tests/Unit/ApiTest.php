@@ -123,6 +123,6 @@ class ApiTest extends TestCase
     public function testGetTeams()
     {
         $user = factory(\App\User::class)->create();
-        $this->be($user);
+        $scores = new ApiController();
     }
 }
