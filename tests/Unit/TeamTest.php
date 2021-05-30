@@ -98,5 +98,6 @@ class TeamTest extends TestCase
         $admin = factory(\App\User::class)
             ->states('admin')
             ->create();
+        $response = $this->actingAs($admin)->get('admin/teams/create');
     }
 }
