@@ -99,5 +99,6 @@ class TeamTest extends TestCase
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/teams/create');
+        $response->assertStatus(200);
     }
 }
