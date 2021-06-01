@@ -31,12 +31,19 @@ class TeamTest extends TestCase
         $this->assertEquals(1, count($team_players));
     }
 
-    public function testIndex()
+    public function testIndexAdmin()
     {
         $admin = factory(\App\User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/teams');
+        $response->assertStatus(200);
+    }
+
+    public function testIndex()
+    {
+        $user = factory(\App\User::class)->create();
+        $response = $this->actingAs($user)->get('/teams');
         $response->assertStatus(200);
     }
 
@@ -84,5 +91,14 @@ class TeamTest extends TestCase
 
         $response = $this->actingAs($admin)->post('admin/teams/1/update', $data);
         $response->assertStatus(302);
+    }
+
+    public function testCreate()
+    {
+        $admin = factory(\App\User::class)
+            ->states('admin')
+            ->create();
+        $response = $this->actingAs($admin)->get('admin/teams/create');
+        $response->assertStatus(200);
     }
 }
