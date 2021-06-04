@@ -124,7 +124,6 @@ class ApiTest extends TestCase
 
     public function testGetTeams()
     {
-        factory(\App\User::class)->create();
         factory(\App\Team::class)->create();
         $teamsController = new ApiController();
         $teams = $teamsController->getTeams();
