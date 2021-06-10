@@ -6,5 +6,8 @@ use Tests\TestCase;
 
 class RedirectIfAuthenticatedTest extends TestCase 
 {
-    // TODO
+    public function testRedirectIfAuthenticated()
+    {
+        // TODO
+    }
 }
