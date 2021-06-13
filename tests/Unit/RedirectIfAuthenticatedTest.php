@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 
 class RedirectIfAuthenticatedTest extends TestCase 
 {
+    private $authManager;
+    
     public function testRedirectIfAuthenticated()
     {
         // TODO
