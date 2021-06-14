@@ -9,7 +9,12 @@ use Illuminate\Http\RedirectResponse;
 class RedirectIfAuthenticatedTest extends TestCase 
 {
     private $authManager;
-    
+
+    public function setUp(): void
+    {
+        // TODO
+    }
+
     public function testRedirectIfAuthenticated()
     {
         // TODO
