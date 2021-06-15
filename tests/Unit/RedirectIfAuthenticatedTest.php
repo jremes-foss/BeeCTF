@@ -11,4 +11,11 @@ class RedirectIfAuthenticatedTest extends TestCase
         $response = $this->get('/login');
         $response->assertStatus(200);
     }
+
+    public function testAuthenticated()
+    {
+        $user = factory(User::class)->create();
+        $response = $this->actingAs($user)->get('/login');
+        $response->assertRedirect('/home');
+    }
 }
