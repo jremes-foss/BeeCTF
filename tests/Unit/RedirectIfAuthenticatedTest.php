@@ -8,11 +8,7 @@ class RedirectIfAuthenticatedTest extends TestCase
 {
     public function testNotAuthenticated()
     {
-        // TODO
-    }
-
-    public function testAuthenticated()
-    {
-        // TODO
+        $response = $this->get('/login');
+        $response->assertStatus(200);
     }
 }
