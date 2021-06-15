@@ -2,22 +2,16 @@
 
 namespace Tests\Unit;
 
-use Mockery as m;
 use Tests\TestCase;
-use Illuminate\Auth\AuthManager;
-use Illuminate\Http\RedirectResponse;
 
 class RedirectIfAuthenticatedTest extends TestCase 
 {
-    private $authManager;
-
-    public function setUp(): void
+    public function testNotAuthenticated()
     {
-        parent::setUp();
-        $this->authManager = m::mock(AuthManager::class);
+        // TODO
     }
 
-    public function testRedirectIfAuthenticated()
+    public function testAuthenticated()
     {
         // TODO
     }
