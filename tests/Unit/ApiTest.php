@@ -127,6 +127,6 @@ class ApiTest extends TestCase
         factory(\App\Team::class)->create();
         $teamsController = new ApiController();
         $teams = $teamsController->getTeams();
-        $this->assertEquals('object', gettype($teams));
+        $this->assertEquals('array', gettype($teams));
     }
 }
