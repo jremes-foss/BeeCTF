@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Category;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -122,9 +121,9 @@ class ApiTest extends TestCase
 
     public function testGetTeams()
     {
-        $user = factory(\App\User::class)->create();
-        $teams = new ApiController();
-        $teams->getTeams();
-        $this->assertEquals('object', gettype($teams));
+        factory(\App\Team::class)->create();
+        $teamsController = new ApiController();
+        $teams = $teamsController->getTeams();
+        $this->assertEquals('array', gettype($teams));
     }
 }
