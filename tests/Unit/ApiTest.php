@@ -2,9 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Category;
-use App\TeamPlayer;
-use App\Team;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
