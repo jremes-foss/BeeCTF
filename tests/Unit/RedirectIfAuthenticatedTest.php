@@ -6,7 +6,7 @@ use Tests\TestCase;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class RedirectIfAuthenticatedTest extends TestCase 
+class RedirectIfAuthenticatedTest extends TestCase
 {
     use RefreshDatabase;
 
