@@ -68,7 +68,7 @@ class UserTest extends TestCase
 
     public function testAdminDeleteUsers()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $challenge = factory(Challenge::class)->create();
         $solved = factory(Solved::class)->create();
 
