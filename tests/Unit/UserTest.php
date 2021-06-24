@@ -6,6 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
+use App\Challenge;
+use App\Solved;
 
 class UserTest extends TestCase
 {
@@ -66,7 +68,9 @@ class UserTest extends TestCase
 
     public function testAdminDeleteUsers()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
+        $challenge = factory(Challenge::class)->create();
+        $solved = factory(Solved::class)->create();
 
         $admin = factory(\App\User::class)
             ->states('admin')

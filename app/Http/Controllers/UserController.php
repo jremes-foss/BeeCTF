@@ -32,7 +32,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $solved = Solved::where('user_id', $user)->get();
+        $solved = Solved::where('user_id', $user->id)->get();
 
         foreach ($solved as $challenge) {
             $challenge->delete();
