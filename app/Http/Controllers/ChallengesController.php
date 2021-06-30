@@ -238,12 +238,8 @@ class ChallengesController extends Controller
 
     public function download($id)
     {
-        try {
-            $attachment = Attachment::where('challenge_id', $id)->first();
-            $storage_path = storage_path('app/' . $attachment->filename);
-            return response()->download($storage_path);
-        } catch (Exception $e) {
-            return abort(404);
-        }
+        $attachment = Attachment::where('challenge_id', $id)->first();
+        $storage_path = storage_path('app/' . $attachment->filename);
+        return response()->download($storage_path);
     }
 }
