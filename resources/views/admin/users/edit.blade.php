@@ -20,6 +20,12 @@
                 <div class="input-group Email">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input type="text" class="form-control" id="inputEmail" name="inputEmail" value="{{ $user->email }}">
                 </div>
+                <label for="inputTeam">
+                    Team
+                </label>
+                <div class="input-group Team">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input type="text" class="form-control" id="inputTeam" name="inputTeam" value="{{ $user->team }}">
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>		
