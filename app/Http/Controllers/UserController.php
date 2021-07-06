@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Solved;
+use App\Team;
 
 class UserController extends Controller
 {
