@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Solved;
 use App\Team;
+use App\TeamPlayer;
 
 class UserController extends Controller
 {
