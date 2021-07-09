@@ -19,6 +19,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $team_player = TeamPlayer::where('player_id', $id);
         return view('admin.users.edit')->with('user', $user);
     }
 
