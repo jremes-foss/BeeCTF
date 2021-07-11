@@ -20,6 +20,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $team_player = TeamPlayer::where('player_id', $id);
+        $team = Team::all();
         return view('admin.users.edit')
             ->with('user', $user)
             ->with('team_player', $team_player);
