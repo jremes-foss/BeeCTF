@@ -23,6 +23,7 @@ class UserController extends Controller
         $team = Team::all();
         return view('admin.users.edit')
             ->with('user', $user)
+            ->with('team', $team)
             ->with('team_player', $team_player);
     }
 
