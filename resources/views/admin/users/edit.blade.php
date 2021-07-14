@@ -23,9 +23,13 @@
                 <label for="inputTeam">
                     Team
                 </label>
-                <div class="input-group Team">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input type="text" class="form-control" id="inputTeam" name="inputTeam" value="{{ $user->team }}">
-                </div>
+                <select class="form-control" id="inputTeam" name="inputTeam">
+                @foreach($teams as $team)
+                    <option value="{{ $team_player->team_id }}">
+                        {{ $team->name }}
+                    </option>
+                @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>		
