@@ -53,6 +53,7 @@ class UserTest extends TestCase
     {
         $user = factory(\App\User::class)->create();
         $team = factory(Team::class)->create();
+        $team_player = factory(TeamPLayer::class)->create();
 
         $admin = factory(\App\User::class)
             ->states('admin')
