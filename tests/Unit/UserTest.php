@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use App\Challenge;
 use App\Solved;
+use App\Team;
 
 class UserTest extends TestCase
 {
