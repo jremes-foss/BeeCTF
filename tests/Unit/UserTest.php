@@ -9,6 +9,7 @@ use App\User;
 use App\Challenge;
 use App\Solved;
 use App\Team;
+use App\TeamPlayer;
 
 class UserTest extends TestCase
 {
