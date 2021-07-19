@@ -63,7 +63,8 @@ class UserTest extends TestCase
 
         $data = [
             'inputName' => 'Test Users',
-            'inputEmail' => 'testuser@hackerman.com'
+            'inputEmail' => 'testuser@hackerman.com',
+            'inputTeam' => 1
         ];
 
         $response = $this->actingAs($admin)->post('admin/users/1/update', $data);
