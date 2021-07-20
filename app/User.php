@@ -34,4 +34,6 @@ class User extends Authenticatable
     {
         return $this->user_type === self::ADMIN_TYPE;
     }
+
+    public function teamPlayers() {}
 }
