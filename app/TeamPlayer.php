@@ -14,4 +14,6 @@ class TeamPlayer extends Model
         'player_id',
         'team_id'
     ];
+
+    public function players() {}
 }
