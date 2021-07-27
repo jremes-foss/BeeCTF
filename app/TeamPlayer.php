@@ -22,6 +22,6 @@ class TeamPlayer extends Model
 
     public function teams()
     {
-        
+        return $this->belongsTo('App\Team', 'team_id', 'id');
     }
 }
