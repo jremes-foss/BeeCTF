@@ -8,6 +8,6 @@ use Tests\TestCase;
 class TeamPlayerTest extends TestCase
 {
     use RefreshDatabase;
-    
-    // TODO
+
+    public function testPlayers() {}
 }
