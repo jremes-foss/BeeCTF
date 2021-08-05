@@ -9,5 +9,10 @@ class TeamPlayerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPlayers() {}
+    public function testPlayers()
+    {
+        $team = factory(Team::class)->create([
+            'name' => 'TestT3am',
+        ]);
+    }
 }
