@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use User;
+use App\User;
 
 class TeamPlayerTest extends TestCase
 {
