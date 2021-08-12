@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\User;
 use App\Team;
+use App\TeamPlayer;
 
 class TeamPlayerTest extends TestCase
 {
