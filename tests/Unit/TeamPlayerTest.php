@@ -12,7 +12,7 @@ class TeamPlayerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testPlayers()
+    public function testModel()
     {
         $player = factory(User::class)->create();
 
@@ -30,7 +30,7 @@ class TeamPlayerTest extends TestCase
 
         // Test ID relationship
         $this->assertNotNull($team_player_test);
-        $this->assertEquals(1, $team_player_test->player_id);
+        $this->assertEquals($player->id, $team_player_test->player_id);
         $this->assertEquals(1, $team_player_test->team_id);
     }
 }
