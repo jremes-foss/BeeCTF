@@ -25,7 +25,6 @@ class TeamPlayerTest extends TestCase
             'team_id' => 1
         ]);
 
-        $player_test = User::find($player->id);
         $team_player_test = TeamPlayer::find($team_player->id);
 
         // Test ID relationship
