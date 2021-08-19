@@ -41,7 +41,7 @@ class TeamPlayerTest extends TestCase
 
         $team_player = factory(TeamPlayer::class)->create([
             'player_id' => $player->id,
-            'team_id' => 1
+            'team_id' => $team->id
         ]);
 
         $player_test = User::find($player->id);
