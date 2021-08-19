@@ -40,7 +40,7 @@ class TeamPlayerTest extends TestCase
         ]);
 
         $team_player = factory(TeamPlayer::class)->create([
-            'player_id' => 1,
+            'player_id' => $player->id,
             'team_id' => 1
         ]);
 
