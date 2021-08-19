@@ -44,6 +44,10 @@ class TeamPlayerTest extends TestCase
             'team_id' => 1
         ]);
 
+        $player_test = User::find($player->id);
+
         $this->assertNotNull($team_player->players);
+        $this->assertEquals($player_test->id, $team_player->players->first()->id);
+
     }
 }
