@@ -30,4 +30,9 @@ class TeamPlayerTest extends TestCase
         $this->assertEquals($player->id, $team_player->player_id);
         $this->assertEquals($team->id, $team_player->team_id);
     }
+
+    public function testPlayersRelationship()
+    {
+        
+    }
 }
