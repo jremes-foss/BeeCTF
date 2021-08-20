@@ -50,4 +50,9 @@ class TeamPlayerTest extends TestCase
         $this->assertEquals($player_test->id, $team_player->players->first()->id);
 
     }
+
+    public function testTeamsRelationship()
+    {
+        // TODO
+    }
 }
