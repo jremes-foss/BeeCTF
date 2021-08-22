@@ -53,6 +53,6 @@ class TeamPlayerTest extends TestCase
 
     public function testTeamsRelationship()
     {
-        // TODO
+        $player = factory(User::class)->create();
     }
 }
