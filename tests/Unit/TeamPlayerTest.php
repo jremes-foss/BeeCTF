@@ -54,5 +54,9 @@ class TeamPlayerTest extends TestCase
     public function testTeamsRelationship()
     {
         $player = factory(User::class)->create();
+        
+        $team = factory(Team::class)->create([
+            'name' => 'TestT3am',
+        ]);
     }
 }
