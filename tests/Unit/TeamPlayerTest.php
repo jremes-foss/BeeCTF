@@ -64,5 +64,7 @@ class TeamPlayerTest extends TestCase
             'team_id' => $team->id
         ]);
 
+        $team_test = Team::find($team->id);
+
     }
 }
