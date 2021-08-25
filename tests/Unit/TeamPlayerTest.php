@@ -65,6 +65,7 @@ class TeamPlayerTest extends TestCase
         ]);
 
         $team_test = Team::find($team->id);
+        $this->assertNotNull($team_test);
 
     }
 }
