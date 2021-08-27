@@ -25,7 +25,6 @@ class TeamPlayerTest extends TestCase
             'team_id' => 1
         ]);
 
-        // Test ID relationship
         $this->assertNotNull($team_player->player_id);
         $this->assertEquals($player->id, $team_player->player_id);
         $this->assertEquals($team->id, $team_player->team_id);
