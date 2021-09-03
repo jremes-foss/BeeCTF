@@ -33,6 +33,7 @@ class UserController extends Controller
         $user->name = $request->get('inputName');
         $user->email = $request->get('inputEmail');
         $user->team = $request->get('inputTeam');
+        // Figure out how to update the inputTeam here.
         $user->save();
         return redirect()->route('admin.users')->with('success', 'User updated!');
     }
