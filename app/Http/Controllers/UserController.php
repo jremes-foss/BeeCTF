@@ -30,6 +30,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+        $team_player = TeamPlayer::where('player_id', $id)->first();
         $user->name = $request->get('inputName');
         $user->email = $request->get('inputEmail');
         // $user->team = $request->get('inputTeam');
