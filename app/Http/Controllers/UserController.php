@@ -33,6 +33,7 @@ class UserController extends Controller
         $team_player = TeamPlayer::where('player_id', $id)->first();
         $user->name = $request->get('inputName');
         $user->email = $request->get('inputEmail');
+        $team_player->team_id = $request->get('inputTeam');
         // $user->team = $request->get('inputTeam');
         // Figure out how to update the inputTeam here.
         $user->save();
