@@ -71,6 +71,11 @@ class UserTest extends TestCase
         $response->assertStatus(302);
     }
 
+    public function testAdminUpdateUserChangeTeam()
+    {
+        // TODO
+    }
+
     public function testAdminDeleteUsers()
     {
         $user = factory(User::class)->create();
