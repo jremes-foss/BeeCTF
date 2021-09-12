@@ -73,7 +73,7 @@ class UserTest extends TestCase
 
     public function testAdminUpdateUserChangeTeam()
     {
-        // TODO
+        $user = factory(User::class)->create();
     }
 
     public function testAdminDeleteUsers()
