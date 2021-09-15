@@ -76,6 +76,7 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
         $team = factory(Team::class)->create();
         $update_team = factory(Team::class)->create();
+        $team_player = factory(TeamPlayer::class)->create();
     }
 
     public function testAdminDeleteUsers()
