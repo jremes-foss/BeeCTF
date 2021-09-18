@@ -53,7 +53,7 @@ class UserTest extends TestCase
 
     public function testAdminUpdateUsers()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $team = factory(Team::class)->create();
         $team_player = factory(TeamPlayer::class)->create();
 
