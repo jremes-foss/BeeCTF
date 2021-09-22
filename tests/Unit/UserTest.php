@@ -100,7 +100,7 @@ class UserTest extends TestCase
 
     public function testUserApiToken()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->assertEquals('FOOBAR', $user->api_token);
     }
 }
