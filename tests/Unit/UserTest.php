@@ -90,7 +90,7 @@ class UserTest extends TestCase
         $challenge = factory(Challenge::class)->create();
         $solved = factory(Solved::class)->create();
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
