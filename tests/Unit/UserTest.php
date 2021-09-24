@@ -81,6 +81,8 @@ class UserTest extends TestCase
         $admin = factory(User::class)
             ->states('admin')
             ->create();
+        
+        $this->assertEquals(1, $team->id);
 
     }
 
