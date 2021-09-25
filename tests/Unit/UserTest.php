@@ -83,6 +83,7 @@ class UserTest extends TestCase
             ->create();
         
         $this->assertEquals(1, $team->id);
+        $this->assertEquals(2, $update_team->id);
 
     }
 
