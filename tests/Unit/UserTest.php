@@ -85,6 +85,11 @@ class UserTest extends TestCase
         $this->assertEquals(1, $team->id);
         $this->assertEquals(2, $update_team->id);
 
+        $data = [
+            'inputName' => 'Test Users',
+            'inputEmail' => 'testuser@hackerman.com',
+            'inputTeam' => 2
+        ];
     }
 
     public function testAdminDeleteUsers()
