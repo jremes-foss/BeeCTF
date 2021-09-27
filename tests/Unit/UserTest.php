@@ -90,6 +90,9 @@ class UserTest extends TestCase
             'inputEmail' => 'testuser@hackerman.com',
             'inputTeam' => 2
         ];
+
+        $response = $this->actingAs($admin)->post('admin/users/1/update', $data);
+
     }
 
     public function testAdminDeleteUsers()
