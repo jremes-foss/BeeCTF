@@ -92,7 +92,7 @@ class UserTest extends TestCase
         ];
 
         $response = $this->actingAs($admin)->post('admin/users/1/update', $data);
-
+        $response->assertStatus(302);
     }
 
     public function testAdminDeleteUsers()
