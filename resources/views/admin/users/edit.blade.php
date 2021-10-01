@@ -25,7 +25,7 @@
                 </label>
                 <select class="form-control" id="inputTeam" name="inputTeam">
                 @foreach($teams as $team)
-                    <option value="{{ $team->id }}">
+                    <option value="{{ $team->id }}" {{ $user->teamPlayers->team_id == $team->id ? 'selected' : '' }}>
                         {{ $team->name }}
                     </option>
                 @endforeach
