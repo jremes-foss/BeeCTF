@@ -36,9 +36,9 @@ class UserController extends Controller
 
         if (!is_null($team_player)) {
             $team_player->team_id = $request->get('inputTeam');
+            $team_player->save();
         }
-        
-        $team_player->save();
+
         $user->save();
         return redirect()->route('admin.users')->with('success', 'User updated!');
     }
