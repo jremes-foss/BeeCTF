@@ -33,7 +33,11 @@ class UserController extends Controller
         $team_player = TeamPlayer::where('player_id', $id)->first();
         $user->name = $request->get('inputName');
         $user->email = $request->get('inputEmail');
-        $team_player->team_id = $request->get('inputTeam');
+
+        if (!is_null($team_player)) {
+            $team_player->team_id = $request->get('inputTeam');
+        }
+        
         $team_player->save();
         $user->save();
         return redirect()->route('admin.users')->with('success', 'User updated!');
