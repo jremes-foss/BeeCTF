@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'api_token' => Str::random(60)
         ]);
 
-        $user = User::where('name', $data['email'])->get();
+        $user = User::where('email', $data['email'])->get();
 
         return TeamPlayer::create([
             'player_id' => $user->id,
