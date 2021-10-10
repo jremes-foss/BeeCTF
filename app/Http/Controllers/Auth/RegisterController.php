@@ -64,7 +64,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -72,11 +72,11 @@ class RegisterController extends Controller
             'api_token' => Str::random(60)
         ]);
 
-        $user = User::where('email', $data['email'])->get();
+        // $user = User::where('email', $data['email'])->get();
 
-        return TeamPlayer::create([
-            'player_id' => $user[0]->id,
-            'team_id' => null
-        ]);
+        // return TeamPlayer::create([
+        //     'player_id' => $user[0]->id,
+        //     'team_id' => null
+        // ]);
     }
 }
