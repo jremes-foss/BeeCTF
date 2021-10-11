@@ -78,5 +78,7 @@ class RegisterController extends Controller
             'player_id' => $user_data[0]->id,
             'team_id' => null
         ]);
+
+        return $user;
     }
 }
