@@ -74,9 +74,9 @@ class RegisterController extends Controller
 
         $user_data = User::where('email', $data['email'])->get();
 
-        // return TeamPlayer::create([
-        //     'player_id' => $user[0]->id,
-        //     'team_id' => null
-        // ]);
+        TeamPlayer::create([
+            'player_id' => $user[0]->id,
+            'team_id' => null
+        ]);
     }
 }
