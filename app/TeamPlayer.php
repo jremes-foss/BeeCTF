@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Team;
 
 class TeamPlayer extends Model
 {
@@ -14,4 +13,14 @@ class TeamPlayer extends Model
         'player_id',
         'team_id'
     ];
+
+    public function players()
+    {
+        return $this->belongsTo('App\User', 'player_id', 'id');
+    }
+
+    public function teams()
+    {
+        return $this->belongsTo('App\Team', 'team_id', 'id');
+    }
 }

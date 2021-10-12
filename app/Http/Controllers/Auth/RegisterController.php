@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\TeamPlayer;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -63,12 +64,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'is_admin' => \App\User::DEFAULT_TYPE,
             'api_token' => Str::random(60)
         ]);
+
+        $user_data = User::where('email', $data['email'])->get();
+
+        TeamPlayer::create([
+            'player_id' => $user_data[0]->id,
+            'team_id' => null
+        ]);
+
+        return $user;
     }
 }

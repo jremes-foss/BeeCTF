@@ -20,6 +20,16 @@
                 <div class="input-group Email">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input type="text" class="form-control" id="inputEmail" name="inputEmail" value="{{ $user->email }}">
                 </div>
+                <label for="inputTeam">
+                    Team
+                </label>
+                <select class="form-control" id="inputTeam" name="inputTeam">
+                @foreach($teams as $team)
+                    <option value="{{ $team->id }}" {{ $user->teamPlayers->team_id == $team->id ? 'selected' : '' }}>
+                        {{ $team->name }}
+                    </option>
+                @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>		

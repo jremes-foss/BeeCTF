@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use App\Challenge;
 use App\Solved;
+use App\Team;
+use App\TeamPlayer;
 
 class UserTest extends TestCase
 {
@@ -51,15 +53,42 @@ class UserTest extends TestCase
 
     public function testAdminUpdateUsers()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
+        $team = factory(Team::class)->create();
+        $team_player = factory(TeamPlayer::class)->create();
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
         $data = [
             'inputName' => 'Test Users',
-            'inputEmail' => 'testuser@hackerman.com'
+            'inputEmail' => 'testuser@hackerman.com',
+            'inputTeam' => 1
+        ];
+
+        $response = $this->actingAs($admin)->post('admin/users/1/update', $data);
+        $response->assertStatus(302);
+    }
+
+    public function testAdminUpdateUserChangeTeam()
+    {
+        $user = factory(User::class)->create();
+        $team = factory(Team::class)->create();
+        $update_team = factory(Team::class)->create();
+        $team_player = factory(TeamPlayer::class)->create();
+
+        $admin = factory(User::class)
+            ->states('admin')
+            ->create();
+        
+        $this->assertEquals(1, $team->id);
+        $this->assertEquals(2, $update_team->id);
+
+        $data = [
+            'inputName' => 'Test Users',
+            'inputEmail' => 'testuser@hackerman.com',
+            'inputTeam' => 2
         ];
 
         $response = $this->actingAs($admin)->post('admin/users/1/update', $data);
@@ -72,7 +101,7 @@ class UserTest extends TestCase
         $challenge = factory(Challenge::class)->create();
         $solved = factory(Solved::class)->create();
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -82,7 +111,7 @@ class UserTest extends TestCase
 
     public function testUserApiToken()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->assertEquals('FOOBAR', $user->api_token);
     }
 }
