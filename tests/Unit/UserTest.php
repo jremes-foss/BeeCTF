@@ -115,5 +115,8 @@ class UserTest extends TestCase
         $this->assertEquals('FOOBAR', $user->api_token);
     }
 
-    public function testTeamPlayers() {}
+    public function testTeamPlayers()
+    {
+        $player = factory(User::class)->create();
+    }
 }
