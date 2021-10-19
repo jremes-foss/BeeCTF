@@ -118,5 +118,6 @@ class UserTest extends TestCase
     public function testTeamPlayers()
     {
         $player = factory(User::class)->create();
+        $team = factory(Team::class)->create();
     }
 }
