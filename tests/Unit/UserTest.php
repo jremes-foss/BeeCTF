@@ -124,5 +124,7 @@ class UserTest extends TestCase
             'player_id' => $player->id,
             'team_id' => $team->id
         ]);
+
+        $team_player_test = User::find($player->id);
     }
 }
