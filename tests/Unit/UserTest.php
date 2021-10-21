@@ -119,5 +119,10 @@ class UserTest extends TestCase
     {
         $player = factory(User::class)->create();
         $team = factory(Team::class)->create();
+
+        $team_player = factory(TeamPlayer::class)->create([
+            'player_id' => $player->id,
+            'team_id' => $team->id
+        ]);
     }
 }
