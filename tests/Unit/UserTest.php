@@ -126,5 +126,6 @@ class UserTest extends TestCase
         ]);
 
         $team_player_test = User::find($player->id);
+        $this->assertNotNull($team_player_test);
     }
 }
