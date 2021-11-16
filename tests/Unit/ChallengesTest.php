@@ -20,7 +20,7 @@ class ChallengesTest extends TestCase
             ->states('admin')
             ->create();
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
