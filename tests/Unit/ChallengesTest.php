@@ -81,7 +81,7 @@ class ChallengesTest extends TestCase
             'description' => 'This is a test category'
         ]);
 
-        $challenge = factory(\App\Challenge::class)->create([
+        $challenge = factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
