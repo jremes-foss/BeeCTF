@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use App\Category;
@@ -17,11 +16,11 @@ class ChallengesTest extends TestCase
 
     public function testStore()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
@@ -46,7 +45,7 @@ class ChallengesTest extends TestCase
 
     public function testCreate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -82,7 +81,7 @@ class ChallengesTest extends TestCase
             'description' => 'This is a test category'
         ]);
 
-        $challenge = factory(\App\Challenge::class)->create([
+        $challenge = factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
@@ -94,7 +93,7 @@ class ChallengesTest extends TestCase
             'challenge_id' => $challenge->id
         ]);
 
-        factory(\App\Attachment::class)->create([
+        factory(Attachment::class)->create([
             'challenge_id' => $challenge->id,
             'filename' => 'public/challenges/test.zip',
             'url' => 'http://127.0.0.1:1337/index.php'
