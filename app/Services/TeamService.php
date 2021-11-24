@@ -14,4 +14,9 @@ class TeamService
             ->get();
         return $users;
     }
+
+    public function getTeamScores()
+    {
+        
+    }
 }
