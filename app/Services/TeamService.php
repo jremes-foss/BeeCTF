@@ -18,6 +18,6 @@ class TeamService
 
     public function getTeamScores()
     {
-        
+        $teams = Team::all();
     }
 }
