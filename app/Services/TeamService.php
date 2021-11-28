@@ -20,5 +20,10 @@ class TeamService
     public function getTeamScores()
     {
         $teams = Team::all();
+
+        foreach ($teams as $team) {
+            // TODO
+        }
+
     }
 }
