@@ -22,7 +22,8 @@ class TeamService
         $teams = Team::all();
 
         foreach ($teams as $team) {
-            // TODO
+            $teamid = $team->id;
+            dd($teamid);
         }
 
     }
