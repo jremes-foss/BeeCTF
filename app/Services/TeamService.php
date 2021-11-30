@@ -25,6 +25,5 @@ class TeamService
             $teamid = $team->id;
             dd($teamid);
         }
-
     }
 }
