@@ -26,5 +26,9 @@ class TeamService
             $teamid = $team->id;
             array_push($team_ids, $teamid);
         }
+
+        foreach ($team_ids as $team_id) {
+
+        }
     }
 }
