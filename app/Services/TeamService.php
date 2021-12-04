@@ -28,7 +28,7 @@ class TeamService
         }
 
         foreach ($team_ids as $team_id) {
-
+            $team_players = TeamPlayer::where('team_id', $team_id);
         }
     }
 }
