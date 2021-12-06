@@ -21,6 +21,7 @@ class TeamService
     {
         $teams = Team::all();
         $team_ids = [];
+        $team_players = [];
 
         foreach ($teams as $team) {
             $teamid = $team->id;
