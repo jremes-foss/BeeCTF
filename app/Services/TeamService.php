@@ -32,5 +32,7 @@ class TeamService
             $tp_get = TeamPlayer::where('team_id', $team_id)->get();
             array_push($team_players, $tp_get);
         }
+
+        foreach ($team_players as $team_player) {}
     }
 }
