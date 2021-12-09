@@ -5,6 +5,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 use App\Team;
 use App\TeamPlayer;
+use App\User;
 
 class TeamService
 {
