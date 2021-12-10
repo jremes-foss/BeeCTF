@@ -34,6 +34,8 @@ class TeamService
             array_push($team_players, $tp_get);
         }
 
-        foreach ($team_players as $team_player) {}
+        foreach ($team_players as $team_player) {
+            $player_id = $team_player->player_id;
+        }
     }
 }
