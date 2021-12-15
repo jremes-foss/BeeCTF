@@ -37,7 +37,6 @@ class TeamService
 
         foreach ($team_players as $team_player) {
             $player_id = $team_player->player_id;
-            $player_get = User::where('id', $player_id)->get();
             $score = Score::where('user_id', $player_id)->get();
         }
     }
