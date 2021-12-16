@@ -7,6 +7,7 @@ use App\Team;
 use App\TeamPlayer;
 use App\User;
 use App\Score;
+use App\Solved;
 
 class TeamService
 {
