@@ -40,7 +40,7 @@ class TeamService
             $player_id = $team_player->player_id;
             $solved = Score::where('user_id', $player_id)
                 ->get()
-                ->unique();
+                ->unique('challenge_id');
         }
     }
 }
