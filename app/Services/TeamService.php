@@ -25,6 +25,7 @@ class TeamService
         $teams = Team::all();
         $team_ids = [];
         $team_players = [];
+        $solved = [];
 
         foreach ($teams as $team) {
             $teamid = $team->id;
@@ -38,9 +39,10 @@ class TeamService
 
         foreach ($team_players as $team_player) {
             $player_id = $team_player->player_id;
-            $solved = Score::where('user_id', $player_id)
+            $solved_challenges = Score::where('user_id', $player_id)
                 ->get()
                 ->unique('challenge_id');
+            array_push($solved, $solved_challenges);
         }
     }
 }
