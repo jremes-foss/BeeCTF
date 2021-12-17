@@ -44,5 +44,9 @@ class TeamService
                 ->unique('challenge_id');
             array_push($solved, $solved_challenges);
         }
+
+        foreach ($solved_challenges as $challenge) {
+            
+        }
     }
 }
