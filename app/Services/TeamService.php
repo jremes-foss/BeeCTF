@@ -45,8 +45,8 @@ class TeamService
             array_push($solved, $solved_challenges);
         }
 
+        // Pick unique values only!
         foreach ($solved_challenges as $challenge) {
-            
         }
     }
 }
