@@ -20,7 +20,7 @@ class TeamService
         return $users;
     }
 
-    public function getTeamScores()
+    public function getTeamScore()
     {
         $teams = Team::all();
         $team_ids = [];
