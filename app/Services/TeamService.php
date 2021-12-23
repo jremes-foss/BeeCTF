@@ -27,7 +27,7 @@ class TeamService
         $team_players = [];
         $solved = [];
 
-        $team = TeamPlayer::where('team_id', $team_id);
+        $team = TeamPlayer::where('team_id', $team_id)->get();
 
         // foreach ($teams as $team) {
         //     $teamid = $team->id;
