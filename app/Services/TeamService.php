@@ -22,12 +22,10 @@ class TeamService
 
     public function getTeamScore($team_id)
     {
-        $teams = Team::all();
-        $team_ids = [];
-        $team_players = [];
-        $solved = [];
-
-        $team = TeamPlayer::where('team_id', $team_id)->get();
+        // raw sql
+        // select * from player_team pt 
+        // inner join solved_challenges sc on sc.user_id = pt.player_id;
+        
 
         // foreach ($teams as $team) {
         //     $teamid = $team->id;
