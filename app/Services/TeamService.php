@@ -23,9 +23,7 @@ class TeamService
     public function getTeamScore($team_id)
     {
         // raw sql
-        // select * from player_team pt 
-        // inner join solved_challenges sc on sc.user_id = pt.player_id;
-        
+        // select * from player_team pt inner join solved_challenges sc on sc.user_id = pt.player_id inner join challenges c on c.id = sc.challenge_id        
 
         // foreach ($teams as $team) {
         //     $teamid = $team->id;
