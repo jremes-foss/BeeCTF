@@ -30,6 +30,8 @@ class TeamService
             ->join('challenges', 'challenges.id', '=', 'solved_challenges.challenge_id')
             ->where('player_team.team_id', '=', $team_id)
             ->get();
+        
+        return $score;
 
         // foreach ($teams as $team) {
         //     $teamid = $team->id;
