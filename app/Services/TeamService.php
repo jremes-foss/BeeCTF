@@ -27,6 +27,7 @@ class TeamService
 
         $score = DB::table('player_team')
             ->join('solved_challenges', 'solved_challenges.user_id', '=', 'player_team.player_id')
+            ->join('challenges', 'challenges.id', '=', 'solved_challenges.challenge_id')
             ->get();
 
         // foreach ($teams as $team) {
