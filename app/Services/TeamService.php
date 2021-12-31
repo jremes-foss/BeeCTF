@@ -26,6 +26,7 @@ class TeamService
         // select distinct(challenge_id), sum(score) from player_team pt inner join solved_challenges sc on sc.user_id = pt.player_id inner join challenges c on c.id = sc.challenge_id where pt.team_id = 1;
 
         DB::table('player_team')
+            ->join('solved_challenges', 'solved_challenges.user_id', '=', 'player_team.player_id')
             ->get();
 
         // foreach ($teams as $team) {
