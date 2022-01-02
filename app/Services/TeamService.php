@@ -32,6 +32,5 @@ class TeamService
             ->get();
         
         return $score;
-
     }
 }
