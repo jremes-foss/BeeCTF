@@ -62,5 +62,8 @@ class ScoreController extends Controller
         return view('scoreboard')->with('scores', $score_sorted);
     }
 
-    public function getTeamScores() {}
+    public function getTeamScores()
+    {
+        
+    }
 }
