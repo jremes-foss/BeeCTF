@@ -64,6 +64,6 @@ class ScoreController extends Controller
 
     public function getTeamScores()
     {
-        
+        return view('teamscoreboard');
     }
 }
