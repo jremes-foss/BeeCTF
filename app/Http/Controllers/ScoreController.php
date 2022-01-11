@@ -66,6 +66,6 @@ class ScoreController extends Controller
     {
         $team_id = 1;
         $team_score = $this->getTeamScore($team_id);
-        return view('teamscoreboard');
+        return view('teamscoreboard')->with('teamscore', $team_score);
     }
 }
