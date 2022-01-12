@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Challenge;
 use App\Solved;
+use App\Team;
 use App\User;
 
 class ScoreController extends Controller
@@ -65,6 +66,7 @@ class ScoreController extends Controller
     public function getTeamScores()
     {
         $team_id = 1;
+        $teams = Team::all();
         $team_score = $this->getTeamScore($team_id);
         return view('teamscoreboard')->with('teamscore', $team_score);
     }
