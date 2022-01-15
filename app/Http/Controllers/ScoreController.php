@@ -67,6 +67,7 @@ class ScoreController extends Controller
     {
         $team_id = 1;
         $teams = Team::all();
+        $team_score = [];
 
         foreach ($teams as $team) {
 
