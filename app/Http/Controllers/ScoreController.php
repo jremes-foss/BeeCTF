@@ -65,7 +65,6 @@ class ScoreController extends Controller
 
     public function getTeamScores()
     {
-        $team_id = 1;
         $teams = Team::all();
         $team_score = [];
 
