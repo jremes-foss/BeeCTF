@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
-use App\Score;
 use App\Solved;
 
 class TeamService
