@@ -12,7 +12,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($scores as $score)
+            @foreach($teamscore as $score)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $score["name"] }}</td>
