@@ -59,6 +59,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('user.challenges') }}">Challenges</a></li>
                                     <li><a href="{{ route('scoreboard') }}">Scoreboard</a></li>
+                                    <li><a href="{{ route('teamscoreboard') }}">Team Scoreboard</a></li>
                                     <li><a href="{{ route('announcements') }}">Announcements</a></li>
                                     <li><a href="{{ route('scontent') }}">Rules</a></li>
                                     <li><a href="{{ route('settings') }}">Settings</a></li>
