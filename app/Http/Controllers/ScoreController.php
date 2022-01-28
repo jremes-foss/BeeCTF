@@ -63,6 +63,11 @@ class ScoreController extends Controller
         return view('scoreboard')->with('scores', $score_sorted);
     }
 
+   /**
+     * Gets the team scores.
+     *
+     *  @return array
+     */
     public function getTeamScores()
     {
         $teams = Team::all();
