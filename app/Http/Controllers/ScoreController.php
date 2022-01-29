@@ -9,6 +9,11 @@ use App\User;
 
 class ScoreController extends Controller
 {
+    public function __construct()
+    {
+        // TODO
+    }
+
     /**
      *  Calculates the score for each individual player.
      *
