@@ -6,6 +6,7 @@ use App\Challenge;
 use App\Solved;
 use App\Team;
 use App\User;
+use App\Services\TeamService;
 
 class ScoreController extends Controller
 {
