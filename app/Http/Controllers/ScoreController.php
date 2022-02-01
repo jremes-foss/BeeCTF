@@ -10,9 +10,9 @@ use App\Services\TeamService;
 
 class ScoreController extends Controller
 {
-    public function __construct(TeamService $teamservice)
+    public function __construct(TeamService $teamService)
     {
-        // TODO
+        $teamService = $this->teamService;
     }
 
     /**
