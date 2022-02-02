@@ -12,7 +12,7 @@ class ScoreController extends Controller
 {
     public function __construct(TeamService $teamService)
     {
-        $teamService = $this->teamService;
+        $this->teamService = $teamService;
     }
 
     /**
