@@ -10,6 +10,9 @@ use App\Services\TeamService;
 
 class ScoreController extends Controller
 {
+
+    protected $teamService;
+
     public function __construct(TeamService $teamService)
     {
         $this->teamService = $teamService;
