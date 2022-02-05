@@ -83,6 +83,7 @@ class ScoreController extends Controller
         $team_score = [];
 
         foreach ($teams as $team) {
+            $team_score['name'] = $team['name'];
             array_push($team_score, $this->teamService->getTeamScore($team->id));
         }
 
