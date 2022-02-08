@@ -21,7 +21,8 @@ class TeamService
             ->join('solved_challenges', 'solved_challenges.user_id', '=', 'player_team.player_id')
             ->join('challenges', 'challenges.id', '=', 'solved_challenges.challenge_id')
             ->where('player_team.team_id', '=', $team_id)
-            ->get();
+            ->get()
+            ->sum('score');
         
         return $score;
     }
