@@ -123,4 +123,9 @@ class ApiController extends Controller
 
         return $teams_array;
     }
+
+    public function getTeamScores()
+    {
+        
+    }
 }
