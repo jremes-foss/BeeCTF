@@ -85,9 +85,11 @@ class ScoreController extends Controller
         foreach ($teams as $team) {
             // $team_score['name'] = $team['name'];
             $score = $this->teamService->getTeamScore($team->id);
-            dd($score);
-            array_push($team_score, );
-            dd($team_score);
+            $name = $team->name;
+            // array_push($team_score, $name);
+            // array_push($team_score, $score);
+            $team_score['name'] = $name;
+            $team_score['score'] = $score;
         }
 
         return view('teamscoreboard')->with('teamscore', $team_score);
