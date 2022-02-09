@@ -82,11 +82,11 @@ class ScoreController extends Controller
         $teams = Team::all();
         $team_score = [];
 
-        foreach ($teams as $team) {
+        foreach ($teams as $key => $team) {
             $score = $this->teamService->getTeamScore($team->id);
             $name = $team->name;
-            $team_score['name'] = $name;
-            $team_score['score'] = $score;
+            $team_score[$key]['name'] = $name;
+            $team_score[$key]['score'] = $score;
         }
 
         return view('teamscoreboard')->with('teamscore', $team_score);
