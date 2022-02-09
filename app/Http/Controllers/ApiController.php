@@ -126,6 +126,16 @@ class ApiController extends Controller
 
     public function getTeamScores()
     {
-        
+        $teams = Team::all();
+        $team_score = [];
+
+        foreach ($teams as $key => $team) {
+            $score = $this->teamService->getTeamScore($team->id);
+            $name = $team->name;
+            $team_score[$key]['name'] = $name;
+            $team_score[$key]['score'] = $score;
+        }
+
+        return $team_score;
     }
 }
