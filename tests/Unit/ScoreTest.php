@@ -30,4 +30,6 @@ class ScoresTest extends TestCase
         $score = $scores->getScores();
         $this->assertEquals('object', gettype($score));
     }
+
+    public function testGetTeamScores() {}
 }
