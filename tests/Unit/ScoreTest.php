@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\ScoreController;
 use App\Score;
 use App\Challenge;
+use App\User;
 
 class ScoresTest extends TestCase
 {
