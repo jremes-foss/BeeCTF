@@ -8,6 +8,7 @@ use App\Http\Controllers\ScoreController;
 use App\Score;
 use App\Challenge;
 use App\User;
+use App\Solved;
 
 class ScoresTest extends TestCase
 {
