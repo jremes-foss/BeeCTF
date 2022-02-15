@@ -35,6 +35,6 @@ class ScoresTest extends TestCase
 
     public function testGetTeamScores()
     {
-        // TODO
+        $users = factory(User::class, 1)->create();
     }
 }
