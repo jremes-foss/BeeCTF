@@ -41,5 +41,8 @@ class ScoresTest extends TestCase
         $challenge2 = factory(Challenge::class, 1)->create();
         $solved1 = factory(Solved::class, 1)->create();
         $solved2 = factory(Solved::class, 1)->create();
+        $teamscores = new ScoreController();
+        $teamscore = $teamscores->getTeamScores();
+        $this->assertEquals('object', $teamscore);
     }
 }
