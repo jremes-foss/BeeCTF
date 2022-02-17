@@ -39,6 +39,7 @@ class ScoresTest extends TestCase
         $user2 = factory(User::class, 1)->create();
         $challenge1 = factory(Challenge::class, 1)->create();
         $challenge2 = factory(Challenge::class, 1)->create();
-        $solved = factory(Solved::class, 1)->create();
+        $solved1 = factory(Solved::class, 1)->create();
+        $solved2 = factory(Solved::class, 1)->create();
     }
 }
