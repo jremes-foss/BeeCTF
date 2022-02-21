@@ -44,6 +44,6 @@ class ScoresTest extends TestCase
         $solved = factory(Solved::class, 1)->create();
         $teamscores = new ScoreController($teamServiceMock);
         $teamscore = $teamscores->getTeamScores();
-        $this->assertEquals('object', $teamscore);
+        $this->assertEquals('object', gettype($teamscore));
     }
 }
