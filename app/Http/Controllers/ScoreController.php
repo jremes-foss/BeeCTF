@@ -89,6 +89,8 @@ class ScoreController extends Controller
             $team_score[$key]['score'] = $score;
         }
 
+        $team_score = collect($team_score);
+
         return view('teamscoreboard')->with('teamscore', $team_score);
     }
 }
