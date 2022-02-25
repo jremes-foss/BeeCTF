@@ -1,1 +1,3 @@
 <?php
+
+namespace Tests\Feature;
