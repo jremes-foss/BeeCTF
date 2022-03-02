@@ -7,5 +7,5 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ScoreTest extends TestCase 
 {
-    
+    use RefreshDatabase;
 }
