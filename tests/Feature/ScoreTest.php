@@ -11,6 +11,6 @@ class ScoreTest extends TestCase
 
     public function testTeamScores()
     {
-        
+        $user = factory(\App\User::class)->create();
     }
 }
