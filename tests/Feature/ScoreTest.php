@@ -12,6 +12,6 @@ class ScoreTest extends TestCase
 
     public function testTeamScores()
     {
-        $user = factory(User::class)->create();
+        $this->get('/teamscoreboard');
     }
 }
