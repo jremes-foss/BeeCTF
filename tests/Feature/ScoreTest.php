@@ -12,6 +12,6 @@ class ScoreTest extends TestCase
 
     public function testTeamScores()
     {
-        $this->get('/teamscoreboard');
+        $this->get('/teamscoreboard')->assertStatus(200);
     }
 }
