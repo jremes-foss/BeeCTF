@@ -12,6 +12,10 @@ class ScoreTest extends TestCase
 
     public function testTeamScores()
     {
+        $admin = factory(User::class)
+            ->states('admin')
+            ->create();
+
         $this->get('/teamscoreboard')->assertStatus(200);
     }
 }
