@@ -16,6 +16,8 @@ class ScoreTest extends TestCase
             ->states('admin')
             ->create();
 
-        $this->actingAs($admin)->get('/teamscoreboard')->assertStatus(200);
+        $this->actingAs($admin)->get('/teamscoreboard')
+            ->assertStatus(200)
+            ->assertSee('Team');
     }
 }
