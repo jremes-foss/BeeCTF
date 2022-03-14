@@ -23,3 +23,4 @@ Route::middleware('auth:api')->get('categories', 'ApiController@getCategories');
 Route::middleware('auth:api')->get('challenges', 'ApiController@getChallenges');
 Route::middleware('auth:api')->get('scoreboard', 'ApiController@getScoreBoard');
 Route::middleware('auth:api')->get('teams', 'ApiController@getTeams');
+Route::middleware('auth:api')->get('teamscoreboard', 'ApiController@getTeamScores');

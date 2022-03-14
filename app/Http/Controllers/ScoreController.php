@@ -4,10 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Challenge;
 use App\Solved;
+use App\Team;
 use App\User;
+use App\Services\TeamService;
 
 class ScoreController extends Controller
 {
+
+    protected $teamService;
+
+    public function __construct(TeamService $teamService)
+    {
+        $this->teamService = $teamService;
+    }
+
     /**
      *  Calculates the score for each individual player.
      *
@@ -60,5 +70,27 @@ class ScoreController extends Controller
         $score_sorted = $score_collection->sortByDesc('score');
 
         return view('scoreboard')->with('scores', $score_sorted);
+    }
+
+   /**
+     * Gets the team scores.
+     *
+     *  @return array
+     */
+    public function getTeamScores()
+    {
+        $teams = Team::all();
+        $team_score = [];
+
+        foreach ($teams as $key => $team) {
+            $score = $this->teamService->getTeamScore($team->id);
+            $name = $team->name;
+            $team_score[$key]['name'] = $name;
+            $team_score[$key]['score'] = $score;
+        }
+
+        $team_score = collect($team_score);
+
+        return view('teamscoreboard')->with('teamscore', $team_score);
     }
 }
