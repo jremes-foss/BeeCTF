@@ -125,4 +125,6 @@ class ApiTest extends TestCase
         $teams = $teamsController->getTeams();
         $this->assertEquals('array', gettype($teams));
     }
+
+    public function testGetTeamScore() {}
 }
