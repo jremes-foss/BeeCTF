@@ -126,5 +126,8 @@ class ApiTest extends TestCase
         $this->assertEquals('array', gettype($teams));
     }
 
-    public function testGetTeamScore() {}
+    public function testGetTeamScore()
+    {
+        // Start writing logic
+    }
 }
