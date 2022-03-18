@@ -129,6 +129,6 @@ class ApiTest extends TestCase
 
     public function testGetTeamScore()
     {
-        // Start writing logic
+        $user = factory(User::class)->create();
     }
 }
