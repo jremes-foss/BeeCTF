@@ -130,5 +130,7 @@ class ApiTest extends TestCase
     public function testGetTeamScore()
     {
         $user = factory(User::class)->create();
+        $challenge = factory(Challenge::class, 1)->create();
+
     }
 }
