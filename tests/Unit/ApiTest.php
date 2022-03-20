@@ -131,6 +131,6 @@ class ApiTest extends TestCase
     {
         $user = factory(User::class)->create();
         $challenge = factory(Challenge::class, 1)->create();
-
+        $solved = factory(Solved::class, 1)->create();
     }
 }
