@@ -136,5 +136,6 @@ class ApiTest extends TestCase
         $challenge = factory(Challenge::class, 1)->create();
         $solved = factory(Solved::class, 1)->create();
         $teamscores = new ApiController($teamServiceMock);
+        $teamscore = $teamscores->getTeamScores();
     }
 }
