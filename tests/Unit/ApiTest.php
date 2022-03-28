@@ -132,7 +132,6 @@ class ApiTest extends TestCase
 
     public function testGetTeamScore()
     {
-        $id = 1;
         $teamServiceMock = $this->createMock(TeamService::class);
         $user = factory(User::class)->create();
         $challenge = factory(Challenge::class, 1)->create();
