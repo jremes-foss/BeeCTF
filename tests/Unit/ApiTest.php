@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\ApiController;
 use App\User;
 use App\Challenge;
+use App\Solved;
 use App\Services\TeamService;
 
 class ApiTest extends TestCase
