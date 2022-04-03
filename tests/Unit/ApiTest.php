@@ -9,6 +9,7 @@ use App\User;
 use App\Challenge;
 use App\Solved;
 use App\Services\TeamService;
+use App\TeamPlayer;
 
 class ApiTest extends TestCase
 {
@@ -137,6 +138,7 @@ class ApiTest extends TestCase
         factory(Challenge::class, 1)->create();
         factory(Solved::class, 1)->create();
         factory(Team::class, 1)->create();
+        factory(TeamPlayer::class, 1)->create();
         $teamscores = new ApiController($teamServiceMock);
         $teamscore = $teamscores->getTeamScores();
         $this->assertEquals('array', gettype($teamscore));
