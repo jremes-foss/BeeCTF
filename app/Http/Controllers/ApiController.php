@@ -10,6 +10,8 @@ use App\Team;
 
 class ApiController extends Controller
 {
+    protected $teamService;
+    
     /**
      * Return all categories in JSON format
      *

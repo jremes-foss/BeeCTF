@@ -10,6 +10,7 @@ use App\Challenge;
 use App\Solved;
 use App\Services\TeamService;
 use App\TeamPlayer;
+use App\Team;
 
 class ApiTest extends TestCase
 {
