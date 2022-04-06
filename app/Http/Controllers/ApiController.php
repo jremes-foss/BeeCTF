@@ -7,11 +7,11 @@ use App\Challenge;
 use App\Solved;
 use App\User;
 use App\Team;
+use App\Services\TeamService;
 
 class ApiController extends Controller
 {
     protected $teamService;
-    
     /**
      * Return all categories in JSON format
      *
