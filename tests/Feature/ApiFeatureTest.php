@@ -9,11 +9,6 @@ class ApiFeatureTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function __construct(TeamService $teamService) 
-    {
-
-    }
-
     /**
      * Tests the 404 exception for JSON API
      *
