@@ -12,6 +12,9 @@ use App\Services\TeamService;
 class ApiController extends Controller
 {
     protected $teamService;
+
+    public function __construct(TeamService $teamService) {}
+
     /**
      * Return all categories in JSON format
      *
