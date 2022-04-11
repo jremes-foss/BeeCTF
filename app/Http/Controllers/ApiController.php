@@ -13,7 +13,10 @@ class ApiController extends Controller
 {
     protected $teamService;
 
-    public function __construct(TeamService $teamService) {}
+    public function __construct(TeamService $teamService)
+    {
+        // TODO
+    }
 
     /**
      * Return all categories in JSON format
