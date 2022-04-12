@@ -15,7 +15,7 @@ class ApiController extends Controller
 
     public function __construct(TeamService $teamService)
     {
-        // TODO
+        $this->teamService = $teamService;
     }
 
     /**
