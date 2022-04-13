@@ -126,8 +126,9 @@ class ApiTest extends TestCase
 
     public function testGetTeams()
     {
+        $teamServiceMock = $this->createMock(TeamService::class);
         factory(\App\Team::class)->create();
-        $teamsController = new ApiController();
+        $teamsController = new ApiController($teamServiceMock);
         $teams = $teamsController->getTeams();
         $this->assertEquals('array', gettype($teams));
     }
