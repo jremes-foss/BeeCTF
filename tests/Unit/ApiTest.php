@@ -90,10 +90,11 @@ class ApiTest extends TestCase
     public function testScorePerPlayerJSON()
     {
         $id = 1;
+        $teamServiceMock = $this->createMock(TeamService::class);
         factory(\App\User::class, 1)->create();
         factory(\App\Solved::class, 1)->create();
         factory(\App\Challenge::class, 1)->create();
-        $challenges = new ApiController();
+        $challenges = new ApiController($teamServiceMock);
         $score = $challenges->getScoresPerPlayer($id);
         $this->assertEquals(350, $score);
     }
