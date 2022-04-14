@@ -101,8 +101,9 @@ class ApiTest extends TestCase
 
     public function testGetScoreBoardJSON()
     {
+        $teamServiceMock = $this->createMock(TeamService::class);
         factory(\App\User::class, 1)->create();
-        $scores = new ApiController();
+        $scores = new ApiController($teamServiceMock);
         $score = $scores->getScoreBoard();
         $this->assertEquals('object', gettype($score));
     }
