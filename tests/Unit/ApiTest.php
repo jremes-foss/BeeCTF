@@ -110,7 +110,7 @@ class ApiTest extends TestCase
 
     public function testApiTokenRefresh()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->be($user);
         $response = $this->json('POST', 'settings/updateApiToken', [
             'api_token' => 'FOOBAR2'
