@@ -5,6 +5,12 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\ApiController;
+use App\User;
+use App\Challenge;
+use App\Solved;
+use App\Services\TeamService;
+use App\TeamPlayer;
+use App\Team;
 
 class ApiTest extends TestCase
 {
@@ -84,25 +90,27 @@ class ApiTest extends TestCase
     public function testScorePerPlayerJSON()
     {
         $id = 1;
+        $teamServiceMock = $this->createMock(TeamService::class);
         factory(\App\User::class, 1)->create();
         factory(\App\Solved::class, 1)->create();
         factory(\App\Challenge::class, 1)->create();
-        $challenges = new ApiController();
+        $challenges = new ApiController($teamServiceMock);
         $score = $challenges->getScoresPerPlayer($id);
         $this->assertEquals(350, $score);
     }
 
     public function testGetScoreBoardJSON()
     {
-        factory(\App\User::class, 1)->create();
-        $scores = new ApiController();
+        $teamServiceMock = $this->createMock(TeamService::class);
+        factory(User::class, 1)->create();
+        $scores = new ApiController($teamServiceMock);
         $score = $scores->getScoreBoard();
         $this->assertEquals('object', gettype($score));
     }
 
     public function testApiTokenRefresh()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->be($user);
         $response = $this->json('POST', 'settings/updateApiToken', [
             'api_token' => 'FOOBAR2'
@@ -120,9 +128,23 @@ class ApiTest extends TestCase
 
     public function testGetTeams()
     {
+        $teamServiceMock = $this->createMock(TeamService::class);
         factory(\App\Team::class)->create();
-        $teamsController = new ApiController();
+        $teamsController = new ApiController($teamServiceMock);
         $teams = $teamsController->getTeams();
         $this->assertEquals('array', gettype($teams));
+    }
+
+    public function testGetTeamScore()
+    {
+        $teamServiceMock = $this->createMock(TeamService::class);
+        factory(User::class)->create();
+        factory(Challenge::class, 1)->create();
+        factory(Solved::class, 1)->create();
+        factory(Team::class, 1)->create();
+        factory(TeamPlayer::class, 1)->create();
+        $teamscores = new ApiController($teamServiceMock);
+        $teamscore = $teamscores->getTeamScores();
+        $this->assertEquals('array', gettype($teamscore));
     }
 }
