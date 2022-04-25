@@ -30,7 +30,7 @@ class ApiTest extends TestCase
 
     public function testGetCategoriesUnauthenticated()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->json('GET', 'api/categories');
         $response->assertStatus(401);
     }
