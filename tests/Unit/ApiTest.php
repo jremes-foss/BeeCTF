@@ -46,7 +46,7 @@ class ApiTest extends TestCase
 
     public function testCategoriesJSON()
     {
-        factory(\App\User::class)->create();
+        factory(User::class)->create();
 
         factory(\App\Category::class)->create([
             'category' => 'Test Category',
