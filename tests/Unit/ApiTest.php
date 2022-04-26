@@ -37,7 +37,7 @@ class ApiTest extends TestCase
 
     public function testGetCategoryAuthenticated()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->json('GET', 'api/categories', [
             'api_token' => 'FOOBAR'
         ]);
