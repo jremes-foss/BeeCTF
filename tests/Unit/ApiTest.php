@@ -48,7 +48,7 @@ class ApiTest extends TestCase
     {
         factory(User::class)->create();
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
