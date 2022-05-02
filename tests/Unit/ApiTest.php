@@ -71,7 +71,7 @@ class ApiTest extends TestCase
 
     public function testChallengesJSON()
     {
-        factory(\App\User::class)->create();
+        factory(User::class)->create();
 
         factory(\App\Challenge::class)->create([
             'score' => '250',
