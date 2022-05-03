@@ -73,7 +73,7 @@ class ApiTest extends TestCase
     {
         factory(User::class)->create();
 
-        factory(\App\Challenge::class)->create([
+        factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3st}',
