@@ -121,7 +121,7 @@ class ApiTest extends TestCase
 
     public function testApiInterface()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->be($user);
         $response = $this->get('/settings');
         $response->assertStatus(200);
