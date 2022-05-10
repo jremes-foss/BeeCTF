@@ -5,11 +5,11 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\ApiController;
+use App\Services\TeamService;
 use App\User;
 use App\Challenge;
 use App\Category;
 use App\Solved;
-use App\Services\TeamService;
 use App\TeamPlayer;
 use App\Team;
 
