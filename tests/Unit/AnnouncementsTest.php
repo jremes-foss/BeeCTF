@@ -42,7 +42,7 @@ class AnnouncementsTest extends TestCase
             'inputContent' => 'th1s_1s_4_t3st'
         ];
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
