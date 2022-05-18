@@ -53,7 +53,7 @@ class AnnouncementsTest extends TestCase
 
     public function testEdit()
     {
-        factory(\App\Announcement::class)->create([
+        factory(Announcement::class)->create([
             'title' => 'Test Title',
             'content' => 'This is a test announcement'
         ]);
