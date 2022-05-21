@@ -73,7 +73,7 @@ class AnnouncementsTest extends TestCase
             'content' => 'This is a test announcement'
         ]);
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
