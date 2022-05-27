@@ -5,10 +5,11 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\ApiController;
+use App\Services\TeamService;
 use App\User;
 use App\Challenge;
+use App\Category;
 use App\Solved;
-use App\Services\TeamService;
 use App\TeamPlayer;
 use App\Team;
 
@@ -30,14 +31,14 @@ class ApiTest extends TestCase
 
     public function testGetCategoriesUnauthenticated()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->json('GET', 'api/categories');
         $response->assertStatus(401);
     }
 
     public function testGetCategoryAuthenticated()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->json('GET', 'api/categories', [
             'api_token' => 'FOOBAR'
         ]);
@@ -46,14 +47,14 @@ class ApiTest extends TestCase
 
     public function testCategoriesJSON()
     {
-        factory(\App\User::class)->create();
+        factory(User::class)->create();
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category 2',
             'description' => 'This is a test category 2'
         ]);
@@ -70,9 +71,9 @@ class ApiTest extends TestCase
 
     public function testChallengesJSON()
     {
-        factory(\App\User::class)->create();
+        factory(User::class)->create();
 
-        factory(\App\Challenge::class)->create([
+        factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3st}',
@@ -91,9 +92,9 @@ class ApiTest extends TestCase
     {
         $id = 1;
         $teamServiceMock = $this->createMock(TeamService::class);
-        factory(\App\User::class, 1)->create();
-        factory(\App\Solved::class, 1)->create();
-        factory(\App\Challenge::class, 1)->create();
+        factory(User::class, 1)->create();
+        factory(Solved::class, 1)->create();
+        factory(Challenge::class, 1)->create();
         $challenges = new ApiController($teamServiceMock);
         $score = $challenges->getScoresPerPlayer($id);
         $this->assertEquals(350, $score);
@@ -120,7 +121,7 @@ class ApiTest extends TestCase
 
     public function testApiInterface()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->be($user);
         $response = $this->get('/settings');
         $response->assertStatus(200);
@@ -129,7 +130,7 @@ class ApiTest extends TestCase
     public function testGetTeams()
     {
         $teamServiceMock = $this->createMock(TeamService::class);
-        factory(\App\Team::class)->create();
+        factory(Team::class)->create();
         $teamsController = new ApiController($teamServiceMock);
         $teams = $teamsController->getTeams();
         $this->assertEquals('array', gettype($teams));

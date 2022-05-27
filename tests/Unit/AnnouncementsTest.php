@@ -4,6 +4,8 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
+use App\Announcement;
 
 class AnnouncementsTest extends TestCase
 {
@@ -11,14 +13,14 @@ class AnnouncementsTest extends TestCase
 
     public function testIndex()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->actingAs($user)->get('announcements');
         $response->assertStatus(200);
     }
 
     public function testIndexAdmin()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/announcements');
@@ -27,7 +29,7 @@ class AnnouncementsTest extends TestCase
 
     public function testCreate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/announcements/create');
@@ -41,7 +43,7 @@ class AnnouncementsTest extends TestCase
             'inputContent' => 'th1s_1s_4_t3st'
         ];
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -51,12 +53,12 @@ class AnnouncementsTest extends TestCase
 
     public function testEdit()
     {
-        factory(\App\Announcement::class)->create([
+        factory(Announcement::class)->create([
             'title' => 'Test Title',
             'content' => 'This is a test announcement'
         ]);
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -66,12 +68,12 @@ class AnnouncementsTest extends TestCase
 
     public function testUpdate()
     {
-        factory(\App\Announcement::class)->create([
+        factory(Announcement::class)->create([
             'title' => 'Test Title',
             'content' => 'This is a test announcement'
         ]);
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -86,12 +88,12 @@ class AnnouncementsTest extends TestCase
 
     public function testDestroy()
     {
-        factory(\App\Announcement::class)->create([
+        factory(Announcement::class)->create([
             'title' => 'Test Title',
             'content' => 'This is a test announcement'
         ]);
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
