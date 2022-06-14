@@ -91,6 +91,7 @@ This command returns the scoreboard in JSON format.
 You can fetch the team scoreboard via BeeCTF API. Example with cURL:
 
 ```bash
+curl -X GET http://HOST/api/team_scoreboard?api_token=API_TOKEN -H "Accept: application/json" -H "Content-Type: application/json"
 ```
 
 ## Pull Requests
