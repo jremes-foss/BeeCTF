@@ -17,7 +17,7 @@ class ApiFeatureTest extends TestCase
      */
     public function testAPINotFound()
     {
-        $user = factory(\App\User::class, 1)->create();
+        $user = factory(User::class, 1)->create();
         $response = $this->withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/json'
