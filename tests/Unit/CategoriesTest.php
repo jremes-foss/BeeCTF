@@ -24,7 +24,7 @@ class CategoriesTest extends TestCase
 
     public function testHasMany()
     {
-        factory(\App\Challenge::class)->create([
+        factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
