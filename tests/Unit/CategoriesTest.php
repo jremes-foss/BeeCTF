@@ -31,7 +31,7 @@ class CategoriesTest extends TestCase
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
