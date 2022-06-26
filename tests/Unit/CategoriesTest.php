@@ -43,7 +43,7 @@ class CategoriesTest extends TestCase
 
     public function testIndex()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/categories');
