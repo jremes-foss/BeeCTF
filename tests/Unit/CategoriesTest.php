@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Category;
 use App\Challenge;
+use App\User;
 
 class CategoriesTest extends TestCase
 {
