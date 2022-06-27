@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 
 class ChallengesTest extends TestCase
 {
@@ -11,7 +12,7 @@ class ChallengesTest extends TestCase
 
     public function testAdminSidebarWorks()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         
@@ -21,7 +22,7 @@ class ChallengesTest extends TestCase
 
     public function testAdminChallengesClickThrough()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         

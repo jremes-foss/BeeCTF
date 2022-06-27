@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Category;
 use App\Challenge;
+use App\User;
 
 class CategoriesTest extends TestCase
 {
@@ -24,14 +25,14 @@ class CategoriesTest extends TestCase
 
     public function testHasMany()
     {
-        factory(\App\Challenge::class)->create([
+        factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
@@ -43,7 +44,7 @@ class CategoriesTest extends TestCase
 
     public function testIndex()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/categories');
