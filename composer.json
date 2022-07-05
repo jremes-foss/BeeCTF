@@ -53,6 +53,9 @@
         ]
     },
     "config": {
+        "allow-plugins": {
+            "symfony/thanks": true
+        },
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
