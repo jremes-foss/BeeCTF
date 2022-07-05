@@ -12,7 +12,7 @@ class StaticContentTest extends TestCase
     
     public function testStaticContentIndex()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->actingAs($user)->get('/scontent');
         $response->assertStatus(200);
     }
