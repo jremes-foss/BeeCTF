@@ -25,6 +25,6 @@ $factory->define(User::class, function (Faker $faker) {
 });
 
 $factory->state(User::class, 'admin', [
-    'user_type' => \App\User::ADMIN_TYPE,
+    'user_type' => User::ADMIN_TYPE,
     'api_token' => 'ADMINFOOBAR'
 ]);
