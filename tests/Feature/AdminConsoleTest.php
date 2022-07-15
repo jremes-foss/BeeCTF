@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Console\Commands\CreateAdministrator;
 
 class AdminConsoleTest extends TestCase
 {
