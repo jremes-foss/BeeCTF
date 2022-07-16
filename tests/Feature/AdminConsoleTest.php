@@ -15,7 +15,7 @@ class AdminConsoleTest extends TestCase
 
     public function testAdminConsoleCommandExists()
     {
-        $this->assertTrue(class_exists(\App\Console\Commands\CreateAdministrator::class));
+        $this->assertTrue(class_exists(CreateAdministrator::class));
     }
 
     public function testRunAdminConsoleCommand()
