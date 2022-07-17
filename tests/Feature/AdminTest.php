@@ -13,7 +13,7 @@ class AdminTest extends TestCase
 
     public function testUserCannotAccessAdmin()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->actingAs($user)
             ->get('/admin')
             ->assertRedirect('home');
