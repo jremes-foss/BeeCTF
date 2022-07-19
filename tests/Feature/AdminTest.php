@@ -21,7 +21,7 @@ class AdminTest extends TestCase
 
     public function testAdminCanAccessAdmin()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $this->actingAs($admin)
