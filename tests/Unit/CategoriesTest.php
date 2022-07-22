@@ -77,7 +77,7 @@ class CategoriesTest extends TestCase
 
     public function testEdit()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
