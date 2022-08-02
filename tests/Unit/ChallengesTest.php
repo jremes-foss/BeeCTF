@@ -76,7 +76,7 @@ class ChallengesTest extends TestCase
             ->states('admin')
             ->create();
 
-        $category = factory(\App\Category::class)->create([
+        $category = factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
