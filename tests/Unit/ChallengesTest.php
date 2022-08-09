@@ -148,7 +148,7 @@ class ChallengesTest extends TestCase
 
     public function testDestroy()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
