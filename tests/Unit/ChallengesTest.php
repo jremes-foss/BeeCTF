@@ -183,7 +183,7 @@ class ChallengesTest extends TestCase
             'description' => 'This is a test category'
         ]);
 
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->be($user);
 
         $data = array(
