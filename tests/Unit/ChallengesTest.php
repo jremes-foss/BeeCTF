@@ -172,7 +172,7 @@ class ChallengesTest extends TestCase
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\Attachment::class)->create([
+        factory(Attachment::class)->create([
             'challenge_id' => 1,
             'filename' => 'public/challenges/test.zip',
             'url' => 'http://127.0.0.1:1337/index.php'
