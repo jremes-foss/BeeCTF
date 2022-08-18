@@ -88,7 +88,7 @@ class ChallengesTest extends TestCase
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\ChallengeCategory::class)->create([
+        factory(ChallengeCategory::class)->create([
             'category_id' => $category->id,
             'challenge_id' => $challenge->id
         ]);
