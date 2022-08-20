@@ -178,7 +178,7 @@ class ChallengesTest extends TestCase
             'url' => 'http://127.0.0.1:1337/index.php'
         ]);
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
