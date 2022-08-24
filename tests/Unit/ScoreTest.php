@@ -19,7 +19,7 @@ class ScoresTest extends TestCase
         $teamServiceMock = $this->createMock(TeamService::class);
         $id = 1;
         $users = factory(User::class, 1)->create();
-        $solved = factory(\App\Solved::class, 1)->create();
+        $solved = factory(Solved::class, 1)->create();
         $challenge = factory(\App\Challenge::class, 1)->create();
         $challenges = new ScoreController($teamServiceMock);
         $score = $challenges->getScoresPerPlayer($id);
