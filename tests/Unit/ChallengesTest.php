@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use App\Category;
 use App\Challenge;
+use App\ChallengeCategory;
 use App\Attachment;
 use App\User;
 
