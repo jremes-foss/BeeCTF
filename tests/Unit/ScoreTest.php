@@ -29,7 +29,7 @@ class ScoresTest extends TestCase
     public function testGetScores()
     {
         $teamServiceMock = $this->createMock(TeamService::class);
-        $users = factory(\App\User::class, 1)->create();
+        $users = factory(User::class, 1)->create();
         $scores = new ScoreController($teamServiceMock);
         $score = $scores->getScores();
         $this->assertEquals('object', gettype($score));
