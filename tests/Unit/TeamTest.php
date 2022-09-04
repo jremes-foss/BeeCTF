@@ -62,7 +62,7 @@ class TeamTest extends TestCase
 
     public function testStore()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
