@@ -76,7 +76,7 @@ class TeamTest extends TestCase
 
     public function testUpdate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
