@@ -16,7 +16,7 @@ class UserTest extends TestCase
 
     public function testDefaultUserIsNotAdmin()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->assertFalse($user->isAdmin());
     }
 
