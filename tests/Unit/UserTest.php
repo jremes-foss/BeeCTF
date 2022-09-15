@@ -22,7 +22,7 @@ class UserTest extends TestCase
 
     public function testAdminUserIsAnAdmin()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $this->assertTrue($admin->isAdmin());
