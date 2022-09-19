@@ -40,7 +40,7 @@ class UserTest extends TestCase
 
     public function testAdminEditUsers()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
 
         $admin = factory(\App\User::class)
             ->states('admin')
