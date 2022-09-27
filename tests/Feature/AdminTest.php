@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 
 class AdminTest extends TestCase
 {
@@ -12,7 +13,7 @@ class AdminTest extends TestCase
 
     public function testUserCannotAccessAdmin()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->actingAs($user)
             ->get('/admin')
             ->assertRedirect('home');
@@ -20,7 +21,7 @@ class AdminTest extends TestCase
 
     public function testAdminCanAccessAdmin()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $this->actingAs($admin)

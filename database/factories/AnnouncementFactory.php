@@ -4,8 +4,9 @@
 
 use App\Model;
 use Faker\Generator as Faker;
+use App\Announcement;
 
-$factory->define(\App\Announcement::class, function (Faker $faker) {
+$factory->define(Announcement::class, function (Faker $faker) {
     return [
         'title' => 'Test Title',
         'content' => $faker->sentence

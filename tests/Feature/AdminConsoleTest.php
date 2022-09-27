@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Console\Commands\CreateAdministrator;
 
 class AdminConsoleTest extends TestCase
 {
@@ -14,7 +15,7 @@ class AdminConsoleTest extends TestCase
 
     public function testAdminConsoleCommandExists()
     {
-        $this->assertTrue(class_exists(\App\Console\Commands\CreateAdministrator::class));
+        $this->assertTrue(class_exists(CreateAdministrator::class));
     }
 
     public function testRunAdminConsoleCommand()

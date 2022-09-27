@@ -16,7 +16,7 @@ class TeamTest extends TestCase
 
     public function testGetTeamPlayers()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -32,7 +32,7 @@ class TeamTest extends TestCase
 
     public function testIndexAdmin()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/teams');
@@ -41,18 +41,18 @@ class TeamTest extends TestCase
 
     public function testIndex()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->actingAs($user)->get('/teams');
         $response->assertStatus(200);
     }
 
     public function testEdit()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        factory(\App\Team::class)->create([
+        factory(Team::class)->create([
             'name' => 'Test Team',
         ]);
 
@@ -62,7 +62,7 @@ class TeamTest extends TestCase
 
     public function testStore()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -76,11 +76,11 @@ class TeamTest extends TestCase
 
     public function testUpdate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        factory(\App\Team::class)->create([
+        factory(Team::class)->create([
             'name' => 'T3stT34m'
         ]);
 
@@ -94,7 +94,7 @@ class TeamTest extends TestCase
 
     public function testCreate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/teams/create');

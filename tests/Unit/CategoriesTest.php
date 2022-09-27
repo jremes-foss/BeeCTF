@@ -53,7 +53,7 @@ class CategoriesTest extends TestCase
 
     public function testCreate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $response = $this->actingAs($admin)->get('admin/categories/create');
@@ -62,7 +62,7 @@ class CategoriesTest extends TestCase
 
     public function testStore()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -77,11 +77,11 @@ class CategoriesTest extends TestCase
 
     public function testEdit()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
@@ -92,11 +92,11 @@ class CategoriesTest extends TestCase
 
     public function testUpdate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
@@ -112,11 +112,11 @@ class CategoriesTest extends TestCase
 
     public function testDestroy()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);

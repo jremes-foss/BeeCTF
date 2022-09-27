@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use App\Category;
 use App\Challenge;
+use App\ChallengeCategory;
 use App\Attachment;
 use App\User;
 
@@ -65,18 +66,18 @@ class ChallengesTest extends TestCase
 
     public function testIndexUser()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $response = $this->actingAs($user)->get('/challenges');
         $response->assertStatus(200);
     }
 
     public function testEdit()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        $category = factory(\App\Category::class)->create([
+        $category = factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
@@ -88,7 +89,7 @@ class ChallengesTest extends TestCase
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\ChallengeCategory::class)->create([
+        factory(ChallengeCategory::class)->create([
             'category_id' => $category->id,
             'challenge_id' => $challenge->id
         ]);
@@ -105,28 +106,28 @@ class ChallengesTest extends TestCase
 
     public function testUpdate()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        $challenge = factory(\App\Challenge::class)->create([
+        $challenge = factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
             'content' => 'This is a test.'
         ]);
 
-        $category = factory(\App\Category::class)->create([
+        $category = factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
 
-        factory(\App\ChallengeCategory::class)->create([
+        factory(ChallengeCategory::class)->create([
             'category_id' => $category->id,
             'challenge_id' => $challenge->id
         ]);
 
-        factory(\App\Attachment::class)->create([
+        factory(Attachment::class)->create([
             'challenge_id' => $challenge->id,
             'filename' => 'public/challenges/test.zip',
             'url' => 'http://127.0.0.1:1337/index.php'
@@ -148,11 +149,11 @@ class ChallengesTest extends TestCase
 
     public function testDestroy()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
-        factory(\App\Challenge::class)->create([
+        factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
@@ -165,25 +166,25 @@ class ChallengesTest extends TestCase
 
     public function testSubmitFlag()
     {
-        factory(\App\Challenge::class)->create([
+        factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3st}',
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\Attachment::class)->create([
+        factory(Attachment::class)->create([
             'challenge_id' => 1,
             'filename' => 'public/challenges/test.zip',
             'url' => 'http://127.0.0.1:1337/index.php'
         ]);
 
-        factory(\App\Category::class)->create([
+        factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
 
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->be($user);
 
         $data = array(
@@ -206,19 +207,19 @@ class ChallengesTest extends TestCase
 
     public function testCategory()
     {
-        $category = factory(\App\Category::class)->create([
+        $category = factory(Category::class)->create([
             'category' => 'Test Category',
             'description' => 'This is a test category'
         ]);
 
-        $challenge = factory(\App\Challenge::class)->create([
+        $challenge = factory(Challenge::class)->create([
             'score' => '250',
             'title' => 'TEST',
             'flag' => 'FLAG{th1s_1s_4_t3stSt}',
             'content' => 'This is a test.'
         ]);
 
-        factory(\App\ChallengeCategory::class)->create([
+        factory(ChallengeCategory::class)->create([
             'category_id' => $category->id,
             'challenge_id' => $challenge->id
         ]);

@@ -16,13 +16,13 @@ class UserTest extends TestCase
 
     public function testDefaultUserIsNotAdmin()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->assertFalse($user->isAdmin());
     }
 
     public function testAdminUserIsAnAdmin()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
         $this->assertTrue($admin->isAdmin());
@@ -30,7 +30,7 @@ class UserTest extends TestCase
 
     public function testAdminViewUsers()
     {
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
@@ -40,9 +40,9 @@ class UserTest extends TestCase
 
     public function testAdminEditUsers()
     {
-        $user = factory(\App\User::class)->create();
+        $user = factory(User::class)->create();
 
-        $admin = factory(\App\User::class)
+        $admin = factory(User::class)
             ->states('admin')
             ->create();
 
