@@ -12,7 +12,7 @@ One way you can make BeeCTF better project is by pointing out issues. This can b
 - A description of the issue, and how to reproduce it.
 - An example of location where this bug occurs. 
 
-Especially the last one is very important so I can debug the issue and see where the bug occurs. 
+Especially the last one is very important so I can debug the issue and see where the bug occurs. There is a pre-made template. If you create an issue, please make sure to fill it.
 
 ## Contributing Code 
 
