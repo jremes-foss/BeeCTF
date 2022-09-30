@@ -35,7 +35,7 @@ Since the idea is to create as light-weight application as possible, adding exce
 When creating new migrations, please make sure the table names specified in the schema are descriptive. In addition, due to performance reasons, the column count should be kept at minimum. It's better to create more tables with less columns than one big table with more columns.
 
 ### Continuous Integration
-BeeCTF has a [Continuous Integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration) pipeline. In order to pull request to be merged, all the checks have to pass. The CI pipeline includes a set of unit tests and [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) check.
+BeeCTF has a [Continuous Integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration) pipeline. In order to pull request to be merged, all the checks have to pass. The CI pipeline includes a set of unit tests and [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) check. CodeSniffer uses PSR2 standard in the CI pipeline. If there are any issues found, build will fail.
 
 ### Unit Tests
 BeeCTF has integrated unit tests as part of Laravel package. The unit test suite, [PHPUnit](https://phpunit.de/), uses in-memory [SQLite](https://www.sqlite.org/index.html) database to run the tests. To run the unit test suite, you must configure this in separate .env environment file in a following manner:
