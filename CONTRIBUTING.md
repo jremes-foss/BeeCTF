@@ -80,7 +80,7 @@ Pull requests are welcome but must follow the best practices.
 ### Commit Messages
 BeeCTF is following the 50/72 rule:
 - First line of your commit message should be maximum 50 characters long.
-- Each line in your description should wrap at the 72nd mark. 
+- Each line in your description should wrap at the 72nd mark.
 
 Please note that this rule is not strictly observed, it is more like "rule of thumb" guideline. But regardless it should be treated as best practice, even if not followed in a strict manner.
 
