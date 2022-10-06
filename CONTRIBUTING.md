@@ -29,7 +29,7 @@ As [Laravel](https://laravel.com/) project, BeeCTF is following [MVC](https://ww
 BeeCTF follows [PSR-2](https://www.php-fig.org/psr/psr-2/) code standard, and [PSR-4](https://www.php-fig.org/psr/psr-4/) autoloading standard. All code in BeeCTF must follow these standards. Before submitting your patch, please make sure these standards are being fulfilled.
 
 ### Dependencies
-Since the idea is to create as light-weight application as possible, adding excessive dependencies (especially [npm](https://www.npmjs.com/) dependencies) should be avoided. 
+Since the idea is to create as light-weight application as possible, adding excessive dependencies (especially [npm](https://www.npmjs.com/) dependencies) should be avoided.
 
 ### Migrations and Database
 When creating new migrations, please make sure the table names specified in the schema are descriptive. In addition, due to performance reasons, the column count should be kept at minimum. It's better to create more tables with less columns than one big table with more columns.
