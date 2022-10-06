@@ -74,7 +74,7 @@ sudo yum install php-sqlite3
 ### Pull Requests
 Pull requests are welcome but must follow the best practices.
 - Subject line should be kept under 50 characters.
-- Description should be kept informative. For example: why was change necessary and how does the pull request address the problem? 
+- Description should be kept informative. For example: why was change necessary and how does the pull request address the problem?
 - If there is an issue open regarding the pull request, please link the open issue to description.
 
 ### Commit Messages
