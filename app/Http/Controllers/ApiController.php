@@ -146,4 +146,9 @@ class ApiController extends Controller
 
         return $team_score;
     }
+
+    public function getNumberSolvedPerPlayer($id)
+    {
+        // TODO
+    }
 }
