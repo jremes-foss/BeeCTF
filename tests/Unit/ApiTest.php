@@ -148,4 +148,9 @@ class ApiTest extends TestCase
         $teamscore = $teamscores->getTeamScores();
         $this->assertEquals('array', gettype($teamscore));
     }
+
+    public function testgetNumberSolvedPerPlayer()
+    {
+        // TODO
+    }
 }
