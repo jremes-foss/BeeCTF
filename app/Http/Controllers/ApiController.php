@@ -149,16 +149,14 @@ class ApiController extends Controller
 
     public function getNumberSolvedPerPlayer($id)
     {
-        $number_solved = 0;
+        $number_solved = [];
 
         $solutions = Solved::where('user_id', $id)->get([
             'challenge_id',
             'user_id'
         ]);
 
-        foreach ($solutions as $solution) {
-            $number_solved += 1;
-        }
+        $number_solved['solved'] = $solutions->count();
 
         return $number_solved;
     }
