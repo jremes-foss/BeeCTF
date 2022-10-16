@@ -152,5 +152,11 @@ class ApiTest extends TestCase
     public function testgetNumberSolvedPerPlayer()
     {
         $teamServiceMock = $this->createMock(TeamService::class);
+        factory(User::class)->create();
+        factory(Challenge::class, 1)->create();
+        factory(Solved::class, 1)->create();
+        factory(Team::class, 1)->create();
+        factory(TeamPlayer::class, 1)->create();
+
     }
 }
