@@ -147,6 +147,12 @@ class ApiController extends Controller
         return $team_score;
     }
 
+    /**
+     * Fetches the number of challenges solved per player.
+     * Returns results per array, expects current user id.
+     * 
+     * @return array
+     */
     public function getNumberSolvedPerPlayer($id)
     {
         $number_solved = [];
