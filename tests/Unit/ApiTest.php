@@ -159,6 +159,6 @@ class ApiTest extends TestCase
         factory(TeamPlayer::class, 1)->create();
         $apiController = new ApiController($teamServiceMock);
         $numSolved = $apiController->getNumberSolvedPerPlayer(1);
-        $this->assertEquals(1, $numSolved);
+        $this->assertEquals(1, $numSolved['solved']);
     }
 }
