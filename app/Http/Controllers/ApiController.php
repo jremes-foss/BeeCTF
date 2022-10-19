@@ -150,7 +150,7 @@ class ApiController extends Controller
     /**
      * Fetches the number of challenges solved per player.
      * Returns results per array, expects current user id.
-     * 
+     *
      * @return array
      */
     public function getNumberSolvedPerPlayer($id)
