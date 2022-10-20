@@ -148,4 +148,17 @@ class ApiTest extends TestCase
         $teamscore = $teamscores->getTeamScores();
         $this->assertEquals('array', gettype($teamscore));
     }
+
+    public function testgetNumberSolvedPerPlayer()
+    {
+        $teamServiceMock = $this->createMock(TeamService::class);
+        factory(User::class)->create();
+        factory(Challenge::class, 1)->create();
+        factory(Solved::class, 1)->create();
+        factory(Team::class, 1)->create();
+        factory(TeamPlayer::class, 1)->create();
+        $apiController = new ApiController($teamServiceMock);
+        $numSolved = $apiController->getNumberSolvedPerPlayer(1);
+        $this->assertEquals(1, $numSolved['solved']);
+    }
 }
