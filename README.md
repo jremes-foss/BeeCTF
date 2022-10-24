@@ -100,8 +100,10 @@ This command returns the team scoreboard in JSON format.
 You can get number of solved challenges via BeeCTF API. Example with cURL:
 
 ```bash
-TODO
+curl -X GET http://HOST/api/numbersolved?api_token=API_TOKEN -H "Accept: application/json" -H "Content-Type: application/json"
 ```
+
+This command returns number of challenges solved in JSON format.
 
 ## Pull Requests
 Feel free to send any bug fixes, new features, etc. via pull requests. Please note that BeeCTF is still heavily work in progress so there are a lot of issues to fix and all contributions are welcome. Before submitting unit tests, please make sure all unit tests pass and the code is following the standards established in contribution guide.
