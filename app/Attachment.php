@@ -15,6 +15,9 @@ class Attachment extends Model
         'url'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function challenge()
     {
         return $this->belongsTo('App\Challenge', 'challenge_id');
