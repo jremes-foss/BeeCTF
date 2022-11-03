@@ -16,6 +16,9 @@ class Challenge extends Model
         'content'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function attachments()
     {
         return $this->hasOne('App\Attachment');
