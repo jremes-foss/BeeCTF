@@ -24,6 +24,9 @@ class Challenge extends Model
         return $this->hasOne('App\Attachment');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function challengeCategories()
     {
         return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');
