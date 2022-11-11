@@ -14,6 +14,9 @@ class TeamPlayer extends Model
         'team_id'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function players()
     {
         return $this->belongsTo('App\User', 'player_id', 'id');
