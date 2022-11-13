@@ -30,6 +30,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Returns administrator status.
+     *
+     * @var array
+     */
     public function isAdmin()
     {
         return $this->user_type === self::ADMIN_TYPE;
