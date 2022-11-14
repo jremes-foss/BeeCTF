@@ -40,6 +40,9 @@ class User extends Authenticatable
         return $this->user_type === self::ADMIN_TYPE;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function teamPlayers()
     {
         return $this->hasOne('App\TeamPlayer', 'player_id', 'id');
