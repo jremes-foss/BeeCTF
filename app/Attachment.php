@@ -16,6 +16,8 @@ class Attachment extends Model
     ];
 
     /**
+     * Returns challenge which attachment belongs to.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function challenge()
