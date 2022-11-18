@@ -15,7 +15,8 @@ class Category extends Model
     ];
 
     /**
-     * Returns ChallengeCategory models belonging to Category. 
+     * Returns ChallengeCategory models belonging to Category.
+     *  
      * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function challengeCategories()
