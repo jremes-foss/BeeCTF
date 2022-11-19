@@ -24,6 +24,9 @@ class Category extends Model
         return $this->hasMany('App\ChallengeCategory', 'category_id', 'id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
     public function challenges()
     {
         return $this->hasMany('App\Challenge', 'challenge_id', 'id');
