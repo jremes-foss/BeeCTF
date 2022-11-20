@@ -25,6 +25,8 @@ class Category extends Model
     }
 
     /**
+     * Returns all Challenge models specific to Category model.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function challenges()
