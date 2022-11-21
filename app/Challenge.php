@@ -17,6 +17,8 @@ class Challenge extends Model
     ];
 
     /**
+     * Returns Attachment model related to Challenge model.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function attachments()
