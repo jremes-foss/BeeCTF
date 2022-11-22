@@ -27,6 +27,8 @@ class Challenge extends Model
     }
 
     /**
+     * Returns ChallengeCategory model related to Challenge model.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function challengeCategories()
