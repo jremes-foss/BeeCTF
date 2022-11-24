@@ -14,6 +14,8 @@ class ChallengeCategory extends Model
     ];
 
     /**
+     * Returns Challenge models related to ChallengeCategory.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function challenges()
