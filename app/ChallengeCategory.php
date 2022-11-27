@@ -24,6 +24,8 @@ class ChallengeCategory extends Model
     }
 
     /**
+     * Return categories which belong to Category model.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function categories()
