@@ -15,6 +15,8 @@ class TeamPlayer extends Model
     ];
 
     /**
+     * Returns players returning to TeamPlayer model.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function players()
