@@ -41,6 +41,8 @@ class User extends Authenticatable
     }
 
     /**
+     * Returns TeamPlayer model belonging to User model.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function teamPlayers()
