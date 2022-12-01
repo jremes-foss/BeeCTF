@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 class TeamService
 {
+    /**
+     *  Fetches team ID's from users table.
+     *
+     *  @return collection
+     */
     public function getTeamPlayers($team_id)
     {
         $users = DB::table('users')
