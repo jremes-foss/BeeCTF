@@ -20,6 +20,11 @@ class TeamService
         return $users;
     }
 
+    /**
+     *  Calculates team score.
+     *
+     *  @return integer
+     */
     public function getTeamScore($team_id)
     {
         $score = DB::table('player_team')
