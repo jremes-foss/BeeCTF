@@ -8,6 +8,11 @@ use Auth;
 
 class SettingsController extends Controller
 {
+    /**
+     * Returns settings page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $user_id = Auth::user()->id;
