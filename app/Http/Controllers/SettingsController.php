@@ -21,6 +21,11 @@ class SettingsController extends Controller
         return view('settings')->with('api_token', $api_token);
     }
 
+    /**
+     * Updates API token.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function updateApiToken()
     {
         $user_id = Auth::user()->id;
