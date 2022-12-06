@@ -218,6 +218,9 @@ class ChallengesController extends Controller
         }
     }
 
+    /**
+     * A method for incrementing score.
+     */
     public function addScore(Request $request)
     {
         $challenge = Challenge::find($request->id);
