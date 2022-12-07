@@ -220,6 +220,8 @@ class ChallengesController extends Controller
 
     /**
      * A method for incrementing score.
+     * 
+     * @return null
      */
     public function addScore(Request $request)
     {
