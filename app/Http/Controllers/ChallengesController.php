@@ -241,6 +241,11 @@ class ChallengesController extends Controller
             ->increment('score', $score, ['updated_at' => Carbon::now()]);
     }
 
+    /**
+     * A method for downloading attachment.
+     * 
+     * @return null
+     */
     public function download($id)
     {
         $attachment = Attachment::where('challenge_id', $id)->first();
