@@ -8,7 +8,7 @@ use App\Category;
 class CategoriesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display index page for categories.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
