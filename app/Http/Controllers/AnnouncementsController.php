@@ -48,7 +48,7 @@ class AnnouncementsController extends Controller
     }
 
     /**
-     * Returns index() for regular users.
+     * Returns index view for regular users.
      *
      * @return \Illuminate\Http\Response
      */
