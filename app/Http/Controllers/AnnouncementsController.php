@@ -61,6 +61,7 @@ class AnnouncementsController extends Controller
     /**
      * Returns edit form for announcements.
      *
+     * @param $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
