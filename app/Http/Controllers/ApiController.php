@@ -132,6 +132,9 @@ class ApiController extends Controller
         return $teams_array;
     }
 
+    /**
+     * TODO
+     */
     public function getTeamScores()
     {
         $teams = Team::all();
