@@ -133,7 +133,7 @@ class ApiController extends Controller
     }
 
     /**
-     * TODO
+     * Calculates team scores.
      */
     public function getTeamScores()
     {
