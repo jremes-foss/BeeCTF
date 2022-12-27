@@ -135,7 +135,6 @@ class ApiController extends Controller
     /**
      * Calculates team scores.
      * 
-     * TODO: Add note
      * 
      * @return array
      */
