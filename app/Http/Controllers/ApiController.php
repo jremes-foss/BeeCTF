@@ -135,7 +135,6 @@ class ApiController extends Controller
     /**
      * Calculates team scores.
      * 
-     * 
      * @return array
      */
     public function getTeamScores()
