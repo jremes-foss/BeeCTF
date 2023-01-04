@@ -106,7 +106,7 @@ class ChallengesController extends Controller
     /**
      * Returns the index page for administrators.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function indexUser()
     {
