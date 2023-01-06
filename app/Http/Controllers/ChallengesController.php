@@ -122,7 +122,7 @@ class ChallengesController extends Controller
     /**
      * Returns the edit page for administrators.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function edit($id)
     {
