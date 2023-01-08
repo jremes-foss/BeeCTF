@@ -179,7 +179,7 @@ class ChallengesController extends Controller
     /**
      * Deletes a Challenge.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
