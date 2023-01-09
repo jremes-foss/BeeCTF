@@ -191,7 +191,7 @@ class ChallengesController extends Controller
     /**
      * A method for a flag submit.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function submitFlag(Request $request)
     {
