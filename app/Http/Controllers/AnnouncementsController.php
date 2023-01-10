@@ -10,7 +10,7 @@ class AnnouncementsController extends Controller
     /**
      * Returns the create page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function create()
     {
