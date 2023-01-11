@@ -21,7 +21,7 @@ class AnnouncementsController extends Controller
     /**
      * Store a newly created announcement resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
