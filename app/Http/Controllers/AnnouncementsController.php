@@ -39,7 +39,7 @@ class AnnouncementsController extends Controller
     /**
      * Returns index() for administrative users.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function indexAdmin()
     {
