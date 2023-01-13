@@ -50,7 +50,7 @@ class AnnouncementsController extends Controller
     /**
      * Returns index view for regular users.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function indexUser()
     {
