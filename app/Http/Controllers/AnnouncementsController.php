@@ -74,7 +74,7 @@ class AnnouncementsController extends Controller
     /**
      * Saves the edit form for announcements.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
