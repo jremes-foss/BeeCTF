@@ -89,7 +89,7 @@ class AnnouncementsController extends Controller
     /**
      * Deletes the announcement.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
