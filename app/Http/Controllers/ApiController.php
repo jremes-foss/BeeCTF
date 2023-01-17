@@ -21,7 +21,7 @@ class ApiController extends Controller
     /**
      * Return all categories in JSON format
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function getCategories()
     {
