@@ -36,6 +36,10 @@ class ApiController extends Controller
         return $categoriesArray;
     }
 
+    /**
+     * TODO
+     *
+     */
     public function getChallenges()
     {
         $challengesArray = [];
