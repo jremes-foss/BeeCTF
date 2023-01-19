@@ -37,7 +37,7 @@ class ApiController extends Controller
     }
 
     /**
-     * TODO
+     * Return all challenges.
      *
      */
     public function getChallenges()
