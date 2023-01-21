@@ -39,7 +39,7 @@ class ApiController extends Controller
     /**
      * Return all challenges.
      * 
-     * @return TODO
+     * @return array
      */
     public function getChallenges()
     {
