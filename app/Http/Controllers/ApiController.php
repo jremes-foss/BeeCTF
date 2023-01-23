@@ -37,7 +37,7 @@ class ApiController extends Controller
     }
 
     /**
-     * Return all challenges.
+     * Return all challenges in array.
      * 
      * @return array
      */
