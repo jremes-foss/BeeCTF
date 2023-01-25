@@ -57,7 +57,7 @@ class ApiController extends Controller
     /**
      * Fetches the scoreboard in JSON format.
      *
-     * @return TODO
+     * @return array
      */
     public function getScoreBoard()
     {
