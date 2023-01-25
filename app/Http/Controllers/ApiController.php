@@ -86,7 +86,7 @@ class ApiController extends Controller
     /**
      * Fetches the scores per player in JSON format.
      *
-     * @return \Illuminate\Http\Response
+     * @return TODO
      */
     public function getScoresPerPlayer($id)
     {
