@@ -111,7 +111,7 @@ class ApiController extends Controller
     /**
      * Pings the application as a health check.
      *
-     * @return TODO
+     * @return array
      */
     public function getPing()
     {
