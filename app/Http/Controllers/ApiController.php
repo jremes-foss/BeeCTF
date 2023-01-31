@@ -123,7 +123,7 @@ class ApiController extends Controller
     /**
      * Returns the team list.
      *
-     * @return TODO
+     * @return array
      */
     public function getTeams()
     {
