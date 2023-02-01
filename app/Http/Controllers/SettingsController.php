@@ -11,7 +11,7 @@ class SettingsController extends Controller
     /**
      * Returns settings page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function index()
     {
