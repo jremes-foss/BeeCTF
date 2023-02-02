@@ -9,7 +9,7 @@ use Auth;
 class SettingsController extends Controller
 {
     /**
-     * Returns settings page.
+     * Returns settings page with API token.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
