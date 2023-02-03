@@ -22,7 +22,7 @@ class SettingsController extends Controller
     }
 
     /**
-     * Updates API token.
+     * Updates API token. Back-end for AJAX call.
      *
      * @return \Illuminate\Http\Response
      */
