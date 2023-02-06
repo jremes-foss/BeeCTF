@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 class StaticContentController extends Controller
 {
     /**
-     * TODO
+     * Return static content to index page.
      */
     public function index()
     {
