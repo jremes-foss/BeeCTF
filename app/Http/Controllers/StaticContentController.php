@@ -6,6 +6,8 @@ class StaticContentController extends Controller
 {
     /**
      * Return static content to index page.
+     * 
+     * @return 
      */
     public function index()
     {
