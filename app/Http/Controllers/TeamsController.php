@@ -10,7 +10,7 @@ class TeamsController extends Controller
     /**
      * Returns the teams index page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function index()
     {
