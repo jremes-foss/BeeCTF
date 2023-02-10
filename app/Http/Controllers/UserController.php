@@ -10,6 +10,9 @@ use App\TeamPlayer;
 
 class UserController extends Controller
 {
+    /**
+     * TODO
+     */
     public function index()
     {
         $users = User::where('user_type', 'User')->get();
