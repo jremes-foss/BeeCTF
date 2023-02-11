@@ -11,7 +11,7 @@ use App\TeamPlayer;
 class UserController extends Controller
 {
     /**
-     * TODO
+     * @return TODO
      */
     public function index()
     {
