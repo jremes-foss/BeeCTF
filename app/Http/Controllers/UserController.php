@@ -13,7 +13,7 @@ class UserController extends Controller
     /**
      * Index page for users.
      * 
-     * @return TODO
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function index()
     {
