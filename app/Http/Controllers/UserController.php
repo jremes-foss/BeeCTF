@@ -11,7 +11,7 @@ use App\TeamPlayer;
 class UserController extends Controller
 {
     /**
-     * Index page for users.
+     * Return index page for users.
      * 
      * @return \Illuminate\Http\RedirectResponse
      */
