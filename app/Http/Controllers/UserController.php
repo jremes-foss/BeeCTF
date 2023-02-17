@@ -23,6 +23,8 @@ class UserController extends Controller
 
     /**
      * Return edit page for users.
+     * 
+     * @return TODO
      */
     public function edit($id)
     {
