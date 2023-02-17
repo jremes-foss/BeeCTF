@@ -24,7 +24,7 @@ class UserController extends Controller
     /**
      * Return edit page for users.
      * 
-     * @return TODO
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function edit($id)
     {
