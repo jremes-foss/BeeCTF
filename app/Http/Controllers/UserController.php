@@ -37,7 +37,9 @@ class UserController extends Controller
             ->with('team_player', $team_player);
     }
 
-    /** */
+    /**
+     * 
+     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);
