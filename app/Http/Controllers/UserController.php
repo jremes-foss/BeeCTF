@@ -38,7 +38,7 @@ class UserController extends Controller
     }
 
     /**
-     * 
+     * Updates User model.
      */
     public function update(Request $request, $id)
     {
