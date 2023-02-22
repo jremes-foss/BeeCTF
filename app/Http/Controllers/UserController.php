@@ -40,7 +40,7 @@ class UserController extends Controller
     /**
      * Updates User model.
      * 
-     * @return TODO
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
