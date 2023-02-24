@@ -21,7 +21,7 @@ class ApiController extends Controller
     /**
      * Return all categories in JSON format
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function getCategories()
     {
@@ -36,6 +36,11 @@ class ApiController extends Controller
         return $categoriesArray;
     }
 
+    /**
+     * Return all challenges in array.
+     * 
+     * @return array
+     */
     public function getChallenges()
     {
         $challengesArray = [];
@@ -52,7 +57,7 @@ class ApiController extends Controller
     /**
      * Fetches the scoreboard in JSON format.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function getScoreBoard()
     {
@@ -81,7 +86,7 @@ class ApiController extends Controller
     /**
      * Fetches the scores per player in JSON format.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function getScoresPerPlayer($id)
     {
@@ -106,7 +111,7 @@ class ApiController extends Controller
     /**
      * Pings the application as a health check.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function getPing()
     {
@@ -118,7 +123,7 @@ class ApiController extends Controller
     /**
      * Returns the team list.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function getTeams()
     {
@@ -132,6 +137,11 @@ class ApiController extends Controller
         return $teams_array;
     }
 
+    /**
+     * Calculates team scores.
+     * 
+     * @return array
+     */
     public function getTeamScores()
     {
         $teams = Team::all();

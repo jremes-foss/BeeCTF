@@ -16,11 +16,21 @@ class Challenge extends Model
         'content'
     ];
 
+    /**
+     * Returns Attachment model related to Challenge model.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function attachments()
     {
         return $this->hasOne('App\Attachment');
     }
 
+    /**
+     * Returns ChallengeCategory model related to Challenge model.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function challengeCategories()
     {
         return $this->hasOne('App\ChallengeCategory', 'challenge_id', 'id');

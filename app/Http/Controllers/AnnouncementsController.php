@@ -10,7 +10,7 @@ class AnnouncementsController extends Controller
     /**
      * Returns the create page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function create()
     {
@@ -21,7 +21,7 @@ class AnnouncementsController extends Controller
     /**
      * Store a newly created announcement resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -39,7 +39,7 @@ class AnnouncementsController extends Controller
     /**
      * Returns index() for administrative users.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function indexAdmin()
     {
@@ -48,9 +48,9 @@ class AnnouncementsController extends Controller
     }
 
     /**
-     * Returns index() for regular users.
+     * Returns index view for regular users.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function indexUser()
     {
@@ -61,7 +61,8 @@ class AnnouncementsController extends Controller
     /**
      * Returns edit form for announcements.
      *
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function edit($id)
     {
@@ -73,7 +74,7 @@ class AnnouncementsController extends Controller
     /**
      * Saves the edit form for announcements.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -88,7 +89,7 @@ class AnnouncementsController extends Controller
     /**
      * Deletes the announcement.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {

@@ -30,11 +30,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Returns administrator status.
+     *
+     * @var array
+     */
     public function isAdmin()
     {
         return $this->user_type === self::ADMIN_TYPE;
     }
 
+    /**
+     * Returns TeamPlayer model belonging to User model.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function teamPlayers()
     {
         return $this->hasOne('App\TeamPlayer', 'player_id', 'id');

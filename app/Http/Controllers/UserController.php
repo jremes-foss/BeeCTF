@@ -10,12 +10,22 @@ use App\TeamPlayer;
 
 class UserController extends Controller
 {
+    /**
+     * Return index page for users.
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function index()
     {
         $users = User::where('user_type', 'User')->get();
         return view('admin.users')->with('users', $users);
     }
 
+    /**
+     * Return edit page for users.
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function edit($id)
     {
         $user = User::find($id);
@@ -27,6 +37,11 @@ class UserController extends Controller
             ->with('team_player', $team_player);
     }
 
+    /**
+     * Updates User model.
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);

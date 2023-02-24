@@ -14,11 +14,21 @@ class TeamPlayer extends Model
         'team_id'
     ];
 
+    /**
+     * Returns players returning to TeamPlayer model.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function players()
     {
         return $this->belongsTo('App\User', 'player_id', 'id');
     }
 
+    /**
+     * Returns Team models belonging to TeamPlayer.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function teams()
     {
         return $this->belongsTo('App\Team', 'team_id', 'id');

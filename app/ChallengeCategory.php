@@ -14,6 +14,8 @@ class ChallengeCategory extends Model
     ];
 
     /**
+     * Returns Challenge models related to ChallengeCategory.
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function challenges()
@@ -21,6 +23,11 @@ class ChallengeCategory extends Model
         return $this->belongsTo('App\Challenge', 'challenge_id', 'id');
     }
 
+    /**
+     * Return categories which belong to Category model.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function categories()
     {
         return $this->belongsTo('App\Category', 'category_id', 'id');

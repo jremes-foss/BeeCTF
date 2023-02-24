@@ -18,7 +18,7 @@ class ChallengesController extends Controller
      * Store a newly created challenge in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -83,7 +83,7 @@ class ChallengesController extends Controller
     /**
      * Returns the create page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function create()
     {
@@ -95,7 +95,7 @@ class ChallengesController extends Controller
     /**
      * Returns the index page for administrators.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function indexAdmin()
     {
@@ -106,7 +106,7 @@ class ChallengesController extends Controller
     /**
      * Returns the index page for administrators.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function indexUser()
     {
@@ -122,7 +122,7 @@ class ChallengesController extends Controller
     /**
      * Returns the edit page for administrators.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function edit($id)
     {
@@ -140,7 +140,7 @@ class ChallengesController extends Controller
     /**
      * Returns the edit page for administrators.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -179,7 +179,7 @@ class ChallengesController extends Controller
     /**
      * Deletes a Challenge.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
@@ -191,7 +191,7 @@ class ChallengesController extends Controller
     /**
      * A method for a flag submit.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function submitFlag(Request $request)
     {
@@ -218,6 +218,11 @@ class ChallengesController extends Controller
         }
     }
 
+    /**
+     * A method for incrementing score.
+     * 
+     * @return null
+     */
     public function addScore(Request $request)
     {
         $challenge = Challenge::find($request->id);
@@ -236,6 +241,11 @@ class ChallengesController extends Controller
             ->increment('score', $score, ['updated_at' => Carbon::now()]);
     }
 
+    /**
+     * A method for downloading attachment.
+     * 
+     * @return null
+     */
     public function download($id)
     {
         $attachment = Attachment::where('challenge_id', $id)->first();

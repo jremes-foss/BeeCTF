@@ -15,6 +15,11 @@ class Attachment extends Model
         'url'
     ];
 
+    /**
+     * Returns challenge which attachment belongs to.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function challenge()
     {
         return $this->belongsTo('App\Challenge', 'challenge_id');

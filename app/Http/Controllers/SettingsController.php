@@ -8,6 +8,11 @@ use Auth;
 
 class SettingsController extends Controller
 {
+    /**
+     * Returns settings page with API token.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function index()
     {
         $user_id = Auth::user()->id;
@@ -16,6 +21,11 @@ class SettingsController extends Controller
         return view('settings')->with('api_token', $api_token);
     }
 
+    /**
+     * Updates API token. Back-end for AJAX call.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function updateApiToken()
     {
         $user_id = Auth::user()->id;
