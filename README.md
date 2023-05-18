@@ -8,7 +8,7 @@ Laravel-Based Community CTF Platform.
 BeeCTF is a [CTF](https://en.wikipedia.org/wiki/Wargame_(hacking)) platform intended for small and local community groups who want to host their own CTF competitions. A small size and light weight makes BeeCTF a good platform to be hosted even in a small computer such as [Raspberry Pi](https://www.raspberrypi.org/) effectively. Built on [Laravel 8](https://laravel.com/), BeeCTF is easy to install and run even if your hardware is more limited.
 
 ## Requirements
-BeeCTF requires PHP version 7.3.0.
+BeeCTF requires PHP version 7.3.0 and NodeJS.
 
 ## Installation
 
