@@ -10,7 +10,6 @@ BeeCTF is a [CTF](https://en.wikipedia.org/wiki/Wargame_(hacking)) platform inte
 ## Requirements
 BeeCTF requires PHP version 7.3.0 with [composer](https://getcomposer.org/) and NodeJS.
 
-
 ## Installation
 
 ### Local
