@@ -1,5 +1,4 @@
 # BeeCTF
-[![Coverage Status](https://coveralls.io/repos/github/Newman101/BeeCTF/badge.svg?branch=master)](https://coveralls.io/github/Newman101/BeeCTF?branch=master)
 
 Laravel-Based Community CTF Platform.
 
