@@ -1,6 +1,4 @@
 # BeeCTF
-[![Build Status](https://travis-ci.com/Newman101/BeeCTF.svg?branch=master)](https://travis-ci.com/Newman101/BeeCTF)
-[![Coverage Status](https://coveralls.io/repos/github/Newman101/BeeCTF/badge.svg?branch=master)](https://coveralls.io/github/Newman101/BeeCTF?branch=master)
 
 Laravel-Based Community CTF Platform.
 
